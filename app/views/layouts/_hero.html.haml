@@ -1,0 +1,29 @@
+/
+  HERO
+  \=================================
+%section#hero.hero-section.hero-layout-simple.hero-fullscreen.section.section-dark
+  .section-background
+    / IMAGE BACKGROUND
+    .section-background-image.parallax-background{"data-stellar-background-ratio" => "0.4"}
+    / VIDEO BACKGROUND
+    /
+      <div class="section-background-video section-background-dot-overlay parallax" data-stellar-ratio="0.4">
+      <video preload="auto" autoplay loop muted poster="images/backgrounds/video-fallback-bg.jpg">
+      <source type="video/mp4" src="videos/video-bg.mp4">
+      <source type="video/ogg" src="videos/video-bg.ogv">
+      <source type="video/webm" src="videos/video-bg.webm">
+      </video>
+      </div>
+  .container
+    .hero-content
+      .row
+        .col-md-10.col-md-offset-1
+          .hero-heading{"data-animation" => "fadeIn"}
+            %h1.hero-title All in One Template
+            %p.hero-tagline A robust Landing Page Template which solves all your landing page needs
+          %p.hero-buttons
+            %a.btn.btn-lg.btn-default{:href => "#"} Learn More
+            %a.btn.btn-lg.btn-primary{:href => "#"} Action Button
+  / HERO START LINK
+  %a.hero-start-link.anchor-link{:href => "#headline"}
+    %span.fa.fa-angle-double-down
