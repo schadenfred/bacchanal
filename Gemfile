@@ -15,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 
 # font awesome
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'meta-tags-helpers', '~> 0.2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,7 +50,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
 
   # test suite
-  gem 'minitest-rails'
+  gem 'minitest-spec-rails'
   
   # guards
   gem 'guard'

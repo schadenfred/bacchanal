@@ -127,13 +127,15 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta-tags-helpers (0.2.0)
+      rails (> 3)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
-    minitest-rails (2.1.1)
-      minitest (~> 5.4)
-      railties (~> 4.1)
+    minitest-spec-rails (5.2.0)
+      minitest (~> 5.0)
+      rails (~> 4.1)
     multi_json (1.11.0)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
@@ -246,7 +248,8 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
-  minitest-rails
+  meta-tags-helpers (~> 0.2.0)
+  minitest-spec-rails
   pg
   rails (= 4.2.0)
   rails_12factor
