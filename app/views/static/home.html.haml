@@ -1,2 +1,31 @@
-%h1 Static#home
-%p Find me in app/views/static/home.html.haml
+= render 'home'
+/ Wrapper start
+.main
+  = render 'about'
+  / Divider
+  / %hr.divider-w/
+  / Divider
+  = render 'features'
+  / = render 'video'  
+
+  = render 'portfolio'
+  / = render 'callout'
+  = render 'alt_features'
+  / Divider
+  %hr.divider-w/
+  / Divider
+  = render 'team'
+  = render 'count_to'
+  = render 'pricing'
+  = render 'testimonials'
+  = render 'latest_blog_posts'
+  = render 'subscribe'
+  = render 'contact'
+  = render 'map'
+  = render 'widgets'
+  / Divider
+  %hr.divider-d/
+  / Divider
+  = render 'footer'
+/ Wrapper start
+= render 'scroll_up'

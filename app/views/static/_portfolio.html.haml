@@ -1,0 +1,86 @@
+/ Portfolio start
+%section#works.module.pb-0
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h2.module-title.font-alt Our Works
+    / .row
+    .row
+      .col-sm-12
+        %ul#filters.filter.font-alt.hidden-xs
+          %li
+            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} All
+          %li
+            %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Illustration
+          %li
+            %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Marketing
+          %li
+            %a.wow.fadeInUp{"data-filter" => ".photography", "data-wow-delay" => "0.6s", :href => "#"} Photography
+          %li
+            %a.wow.fadeInUp{"data-filter" => ".webdesign", "data-wow-delay" => "0.8s", :href => "#"} Web Design
+    / .row
+  / .container
+  / Portfolio list start
+  %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
+    / Portfolio item start
+    %li.work-item.illustration.webdesign
+      %a{:href => "portfolio-single-1.html"}
+        .work-image
+          = image_tag "work-1.jpg"
+        .work-caption.font-alt
+          %h3.work-title Corporate Identity
+          .work-descr
+            Illustration
+    / Portfolio item end
+    / Portfolio item start
+    %li.work-item.marketing.photography
+      %a{:href => "portfolio-single-1.html"}
+        .work-image
+          = image_tag "work-2.jpg"
+        .work-caption.font-alt
+          %h3.work-title Bag MockUp
+          .work-descr
+            Marketing
+    / Portfolio item end
+    / Portfolio item start
+    %li.work-item.illustration.photography
+      %a{:href => "portfolio-single-1.html"}
+        .work-image
+          = image_tag "work-3.jpg"
+        .work-caption.font-alt
+          %h3.work-title Disk Cover
+          .work-descr
+            Illustration
+    / Portfolio item end
+    / Portfolio item start
+    %li.work-item.marketing.photography
+      %a{:href => "portfolio-single-1.html"}
+        .work-image
+          = image_tag "work-4.jpg"
+        .work-caption.font-alt
+          %h3.work-title Business Card
+          .work-descr
+            Photography
+    / Portfolio item end
+    / Portfolio item start
+    %li.work-item.illustration.webdesign
+      %a{:href => "portfolio-single-1.html"}
+        .work-image
+          = image_tag "work-5.jpg"
+        .work-caption.font-alt
+          %h3.work-title Business Cards
+          .work-descr
+            Webdesign
+    / Portfolio item end
+    / Portfolio item start
+    %li.work-item.marketing.webdesign
+      %a{:href => "portfolio-single-1.html"}
+        .work-image
+          = image_tag "work-6.jpg"
+        .work-caption.font-alt
+          %h3.work-title Business Cards in paper clip
+          .work-descr
+            Marketing
+    / Portfolio item end
+  / Portfolio list end
+/ Portfolio end
