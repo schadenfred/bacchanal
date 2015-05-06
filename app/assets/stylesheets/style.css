@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
 Project: Rival
-Version: 1.1
+Version: 1.4.1
 ------------------------------------------------------------------ */
 
 @import url("slider.css");
@@ -36,6 +36,19 @@ iframe {
 
 .align-center {
 	text-align: center;
+}
+
+.align-left {
+	text-align: left !important;
+}
+
+.position-relative {
+	position: relative;
+}
+
+.leftauto {
+	right: 0 !important;
+	left: auto !important;
 }
 
 /* Selection */
@@ -76,6 +89,7 @@ a,
 			transition: all 0.125s ease-in-out 0s;
 }
 
+.client-logo,
 .gallery-caption,
 .gallery-image:after,
 .gallery-image img,
@@ -232,6 +246,16 @@ a,
 .btn.btn-d:hover,
 .btn.btn-d:focus {
 	background: rgba(17, 17, 17, 1);
+}
+
+.btn.btn-b {
+	background: rgba(17, 17, 17, 1);
+	color: #fff;
+}
+
+.btn.btn-b:hover,
+.btn.btn-b:focus {
+	background: rgba(17, 17, 17, .8);
 }
 
 .btn-border-d {
@@ -402,7 +426,11 @@ a,
 .bg-dark .module-subtitle,
 .bg-dark-30 .module-subtitle,
 .bg-dark-60 .module-subtitle,
-.bg-dark-90 .module-subtitle {
+.bg-dark-90 .module-subtitle,
+.bg-dark .alt-module-subtitle h5,
+.bg-dark-30 .alt-module-subtitle h5,
+.bg-dark-60 .alt-module-subtitle h5,
+.bg-dark-90 .alt-module-subtitle h5 {
 	color: #fff;
 }
 
@@ -455,6 +483,11 @@ a,
 	width: 100%;
 	left: 0;
 	top: 0;
+}
+
+
+.bg-light {
+	background: #f6f6f6;
 }
 
 /* ------------------------------------------------------------------
@@ -670,7 +703,7 @@ Navbar
 	background: #fff;
 }
 
-/* Navbra search */
+/* Navbar search */
 
 .dropdown-search {
 	position: relative;
@@ -710,7 +743,6 @@ Home Section
 	position: relative;
 	background-color: #fff;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
 	background-position: center center;
 	width: 100%;
 	z-index: 0;
@@ -743,6 +775,22 @@ Home Section
 	font-size: 48px;
 }
 
+/* Video */
+
+.video-controls-box {
+	position: absolute !important;
+	bottom: 40px;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.video-controls-box a {
+	display: inline-block;
+	color: #fff;
+	margin: 0 5px 0 0;
+}
+
 /* -------------------------------------------------------------------
 Sections
 ------------------------------------------------------------------- */
@@ -768,6 +816,8 @@ Sections
 	     -o-background-size: cover;
 	        background-size: cover;
 }
+
+/* Module header */
 
 .module-small {
 	padding: 70px 0;
@@ -800,6 +850,37 @@ Sections
 	margin-top: -35px;
 }
 
+/* Restaurant module header */
+
+.alt-module-subtitle {
+	display: table;
+}
+
+.alt-module-subtitle h5 {
+	display: table-cell;
+	white-space: pre;
+	padding: 0 8px;
+	color: #111;
+}
+
+.holder-w {
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	height: 1px;
+	width: 50%;
+}
+
+.holder-w:before {
+	border-top: 1px solid #eaeaea;
+	position: relative;
+	display: block;
+	content: "";
+	top: 1px;
+	height: 1px;
+	width: 100%;
+}
+
 /* Sections dividers */
 
 .divider-w {
@@ -810,6 +891,26 @@ Sections
 .divider-d {
 	border-top: 1px solid #202020;
 	margin: 0;
+}
+
+/* Half-image */
+
+.side-image {
+	position: absolute;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+}
+
+.side-image-text {
+	background: #fff;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 140px 60px 140px;
 }
 
 /* -------------------------------------------------------------------
@@ -857,7 +958,7 @@ Google map
 }
 
 /* -------------------------------------------------------------------
-Services
+Services, Content box
 ------------------------------------------------------------------- */
 
 .features-item {
@@ -902,6 +1003,42 @@ Services
 .alt-features-title {
 	font-size: 13px;
 	margin: 0 0 10px;
+}
+
+/* Content box */
+
+.content-box {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.content-box-title {
+	font-weight: 400;
+	font-size: 18px;
+	color: #111;
+	margin: 16px 0 15px;
+}
+
+/* -------------------------------------------------------------------
+Restaurant menu
+------------------------------------------------------------------- */
+
+.menu {
+	border-bottom: 1px dotted #e5e5e5;
+	padding: 0 0 10px;
+	margin: 0 0 20px;
+}
+
+.menu-title,
+.menu-price {
+	margin: 0 0 10px;
+	font-size: 14px;
+	color: #111;
+}
+
+.menu-price-detail {
+	position: relative;
+	text-align: right;
 }
 
 /* -------------------------------------------------------------------
@@ -1171,7 +1308,11 @@ Portfolio
 }
 
 .works-grid-3 .work-item {
-	width: 33.333333%;
+	width: 33.3333%;
+}
+
+.container .works-grid-3 .work-item {
+	width: 33.2%;
 }
 
 .works-grid-4 .work-item {
@@ -1286,6 +1427,9 @@ Portfolio
 /* -------------------------------------------------------------------
 Portfoli Single
 ------------------------------------------------------------------- */
+.work-details {
+	margin: 0 0 20px;
+}
 
 .work-details-title {
 	color: #111;
@@ -1385,8 +1529,6 @@ Gallery
 	z-index: 1;
 }
 
-
-
 .gallery-caption {
 	position: absolute;
 	width: 100%;
@@ -1415,8 +1557,7 @@ Gallery
 	line-height: 50px;
 }
 
-
-
+/* Gallery hover */
 
 .gallery-item:hover .gallery-image:after {
 	background: rgba(0, 0, 0, .6);
@@ -1472,6 +1613,12 @@ Post
 .post-images-slider,
 .post-video {
 	margin: 0 0 20px;
+}
+
+.post-quote {
+	background: #f5f5f5;
+	text-align: center;
+	padding: 20px;
 }
 
 /* Post columns */
@@ -1635,6 +1782,18 @@ Comments and comment form
 }
 
 /* -------------------------------------------------------------------
+Client logos
+------------------------------------------------------------------- */
+
+.client-logo {
+	opacity: .5;
+}
+
+.client-logo:hover {
+	opacity: 1;
+}
+
+/* -------------------------------------------------------------------
 Scroll to top
 ------------------------------------------------------------------- */
 
@@ -1706,6 +1865,11 @@ Responsive Media Querries
 		-moz-osx-font-smoothing: grayscale;
 	}
 
+	.navbar-right .dropdown-menu {
+		right: auto;
+		left: 0;
+	}
+
 	/* Comments */
 
 	.comment .comment {
@@ -1738,9 +1902,17 @@ Responsive Media Querries
 
 	.work-item,
 	.works-grid-3 .work-item,
+	.container .works-grid-3 .work-item,
 	.works-grid-4 .work-item,
 	.works-grid-5 .work-item {
 		width: 50%;
+	}
+
+	/* Half-image */
+
+	.side-image {
+		position: relative;
+		height: 300px;
 	}
 
 }
@@ -1852,7 +2024,6 @@ Responsive Media Querries
 		margin-bottom: 40px !important;
 	}
 
-
 	.footer {
 		text-align: center;
 	}
@@ -1861,6 +2032,21 @@ Responsive Media Querries
 	.footer-social-links {
 		text-align: center;
 		margin: 10px 0;
+	}
+
+	/* Half-image */
+
+	.side-image-text {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	/* Restaurant menu */
+
+	.menu-title,
+	.menu-detail,
+	.menu-price-detail {
+		text-align: center;
 	}
 
 	/* Scroll up btn*/
@@ -1946,11 +2132,24 @@ Multi-columns-row
 Vertival margin, padding
 ------------------------------------------------------------------- */
 
+.p-0    {padding: 0!important}
 .pt-0   {padding-top:0!important}
-.pt-140 {padding-top: 140px!important}
-.pb-0   {padding-bottom:0!important}
-.pb-140 {padding-bottom: 140px!important}
+.pt-10  {padding-top:10px!important}
+.pt-20  {padding-top:20px!important}
+.pt-30  {padding-top:30px!important}
+.pt-40  {padding-top:40px!important}
+.pt-50  {padding-top:50px!important}
+.pt-140 {padding-top:140px!important}
 
+.pb-0   {padding-bottom:0!important}
+.pb-10  {padding-bottom:10px!important}
+.pb-20  {padding-bottom:20px!important}
+.pb-30  {padding-bottom:30px!important}
+.pb-40  {padding-bottom:40px!important}
+.pb-50  {padding-bottom:50px!important}
+.pb-140 {padding-bottom:140px!important}
+
+.m-0 {margin:0 !important}
 .mt-0  {margin-top:0 !important}
 .mt-10 {margin-top:10px !important}
 .mt-20 {margin-top:20px !important}
@@ -1992,5 +2191,29 @@ Vertival margin, padding
 	.mb-sm-60 {margin-bottom:60px !important}
 	.mb-sm-70 {margin-bottom:70px !important}
 	.mb-sm-80 {margin-bottom:80px !important}
+
+}
+
+@media only screen and (max-width:767px) {
+
+	.mt-xs-0  {margin-top:0!important}
+	.mt-xs-10 {margin-top:10px !important}
+	.mt-xs-20 {margin-top:20px !important}
+	.mt-xs-30 {margin-top:30px !important}
+	.mt-xs-40 {margin-top:40px !important}
+	.mt-xs-50 {margin-top:50px !important}
+	.mt-xs-60 {margin-top:60px !important}
+	.mt-xs-70 {margin-top:70px !important}
+	.mt-xs-80 {margin-top:80px !important}
+
+	.mb-xs-0  {margin-bottom:0!important}
+	.mb-xs-10 {margin-bottom:10px !important}
+	.mb-xs-20 {margin-bottom:20px !important}
+	.mb-xs-30 {margin-bottom:30px !important}
+	.mb-xs-40 {margin-bottom:40px !important}
+	.mb-xs-50 {margin-bottom:50px !important}
+	.mb-xs-60 {margin-bottom:60px !important}
+	.mb-xs-70 {margin-bottom:70px !important}
+	.mb-xs-80 {margin-bottom:80px !important}
 
 }

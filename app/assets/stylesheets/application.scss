@@ -1,11 +1,15 @@
+// gems
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "simpletextrotator";
 @import "font-awesome";
 
-@import "animate";
+// vendor
 @import "et-line-font";
-@import "flexslider";
 @import "magnific-popup";
-@import "simpletextrotator";
-@import "slider";
+@import "flexslider";
+@import "owl.carousel";
+@import "animate";
+
+// base
 @import "style";

@@ -1,0 +1,1070 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %title Rival - Multipurpose Template
+    / CSS
+    %link{:href => "assets/bootstrap/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/simpletextrotator.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/et-line-font.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/magnific-popup.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/flexslider.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/owl.carousel.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/animate.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
+  %body
+    / Preloader
+    .page-loader
+      .loader Loading...
+    / Navigation start
+    %nav.navbar.navbar-custom.navbar-transparent.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#custom-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "index.html"} Rival
+        #custom-collapse.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Home
+              %ul.dropdown-menu
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} One Page
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "index.html"} Image Parallax 1
+                    %li
+                      %a{:href => "index-2.html"} Image Parallax 2
+                    %li
+                      %a{:href => "index-3.html"} Slider Parallax 1
+                    %li
+                      %a{:href => "index-4.html"} Slider Parallax 2
+                    %li
+                      %a{:href => "index-5.html"} Text rotator 1
+                    %li
+                      %a{:href => "index-6.html"} Text rotator 2
+                    %li
+                      %a{:href => "index-7.html"} Gradient Overlay 1
+                    %li
+                      %a{:href => "index-8.html"} Gradient Overlay 2
+                    %li
+                      %a{:href => "index-9.html"} Video background 1
+                    %li
+                      %a{:href => "index-10.html"} Video background 2
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Multi Page
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "mp-index.html"} Image Parallax 1
+                    %li
+                      %a{:href => "mp-index-2.html"} Image Parallax 2
+                    %li
+                      %a{:href => "mp-index-3.html"} Slider Parallax 1
+                    %li
+                      %a{:href => "mp-index-4.html"} Slider Parallax 2
+                    %li
+                      %a{:href => "mp-index-5.html"} Text rotator 1
+                    %li
+                      %a{:href => "mp-index-6.html"} Text rotator 2
+                    %li
+                      %a{:href => "mp-index-7.html"} Gradient Overlay 1
+                    %li
+                      %a{:href => "mp-index-8.html"} Gradient Overlay 2
+                    %li
+                      %a{:href => "mp-index-9.html"} Video background 1
+                    %li
+                      %a{:href => "mp-index-10.html"} Video background 2
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Restaurant
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "restaurant-index-1.html"} Image Parallax
+                    %li
+                      %a{:href => "restaurant-index-2.html"} Slider Parallax
+                    %li
+                      %a{:href => "restaurant-index-3.html"} Video background
+                    %li
+                      %a{:href => "restaurant-index-4.html"} Text rotator
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Pages
+              %ul.dropdown-menu
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} About
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "about.html"} About 1
+                    %li
+                      %a{:href => "about2.html"} About 2
+                    %li
+                      %a{:href => "about3.html"} About 3
+                    %li
+                      %a{:href => "about4.html"} About 4
+                    %li
+                      %a{:href => "about5.html"} About 5
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Services
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "services.html"} Services 1
+                    %li
+                      %a{:href => "services2.html"} Services 2
+                    %li
+                      %a{:href => "services3.html"} Services 3
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Pricing
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "pricing.html"} Pricing 1
+                    %li
+                      %a{:href => "pricing2.html"} Pricing 2
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Gallery
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "gallery-2col.html"} 2 Columns
+                    %li
+                      %a{:href => "gallery-3col.html"} 3 Columns
+                    %li
+                      %a{:href => "gallery-4col.html"} 4 Columns
+                    %li
+                      %a{:href => "gallery-6col.html"} 6 Columns
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Contact
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "contact.html"} Contact 1
+                    %li
+                      %a{:href => "contact2.html"} Contact 2
+                    %li
+                      %a{:href => "contact3.html"} Contact 3
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Restaurant menu
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "restaurant-menu-1.html"} Menu 2 Columns
+                    %li
+                      %a{:href => "restaurant-menu-2.html"} Menu 3 Columns
+                %li
+                  %a{:href => "page-faq.html"} FAQ
+                %li
+                  %a{:href => "404.html"} Page 404
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Portfolio
+              %ul.dropdown-menu{:role => "menu"}
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Boxed
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-boxed-col2.html"} 2 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-col3.html"} 3 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-col4.html"} 4 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-col5.html"} 5 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-hover-black.html"} Hover Black
+                    %li
+                      %a{:href => "portfolio-boxed-hover-gradient.html"} Hover Gradient
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Boxed - Gutter
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-boxed-gutter-col2.html"} 2 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-gutter-col3.html"} 3 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-gutter-col4.html"} 4 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-gutter-col5.html"} 5 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-gutter-hover-black.html"} Hover Black
+                    %li
+                      %a{:href => "portfolio-boxed-gutter-hover-gradient.html"} Hover Gradient
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Boxed - Masonry
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-boxed-masonry-col2.html"} 2 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-masonry-col3.html"} 3 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-masonry-col4.html"} 4 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-masonry-col5.html"} 5 Columns
+                    %li
+                      %a{:href => "portfolio-boxed-masonry-hover-black.html"} Hover Black
+                    %li
+                      %a{:href => "portfolio-boxed-masonry-hover-gradient.html"} Hover Gradient
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Wide
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-wide-col2.html"} 2 Columns
+                    %li
+                      %a{:href => "portfolio-wide-col3.html"} 3 Columns
+                    %li
+                      %a{:href => "portfolio-wide-col4.html"} 4 Columns
+                    %li
+                      %a{:href => "portfolio-wide-col5.html"} 5 Columns
+                    %li
+                      %a{:href => "portfolio-wide-hover-black.html"} Hover Black
+                    %li
+                      %a{:href => "portfolio-wide-hover-gradient.html"} Hover Gradient
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Wide - Gutter
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-wide-gutter-col2.html"} 2 Columns
+                    %li
+                      %a{:href => "portfolio-wide-gutter-col3.html"} 3 Columns
+                    %li
+                      %a{:href => "portfolio-wide-gutter-col4.html"} 4 Columns
+                    %li
+                      %a{:href => "portfolio-wide-gutter-col5.html"} 5 Columns
+                    %li
+                      %a{:href => "portfolio-wide-gutter-hover-black.html"} Hover Black
+                    %li
+                      %a{:href => "portfolio-wide-gutter-hover-gradient.html"} Hover Gradient
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Wide - Masonry
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-wide-masonry-col2.html"} 2 Columns
+                    %li
+                      %a{:href => "portfolio-wide-masonry-col3.html"} 3 Columns
+                    %li
+                      %a{:href => "portfolio-wide-masonry-col4.html"} 4 Columns
+                    %li
+                      %a{:href => "portfolio-wide-masonry-col5.html"} 5 Columns
+                    %li
+                      %a{:href => "portfolio-wide-masonry-hover-black.html"} Hover Black
+                    %li
+                      %a{:href => "portfolio-wide-masonry-hover-gradient.html"} Hover Gradient
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Single
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "portfolio-single-1.html"} Single 1
+                    %li
+                      %a{:href => "portfolio-single-2.html"} Single 2
+                    %li
+                      %a{:href => "portfolio-single-3.html"} Single 3
+                    %li
+                      %a{:href => "portfolio-single-4.html"} Single 4
+                    %li
+                      %a{:href => "portfolio-single-5.html"} Single 5
+                    %li
+                      %a{:href => "portfolio-single-6.html"} Single 6
+                    %li
+                      %a{:href => "portfolio-single-7.html"} Single 7
+                    %li
+                      %a{:href => "portfolio-single-8.html"} Single 8
+                    %li
+                      %a{:href => "portfolio-single-9.html"} Single 9
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Blog
+              %ul.dropdown-menu{:role => "menu"}
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Standart
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "blog-standart-left.html"} Sidebar Left
+                    %li
+                      %a{:href => "blog-standart-right.html"} Sidebar Right
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Grid
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "blog-grid-2col.html"} 2 Columns
+                    %li
+                      %a{:href => "blog-grid-3col.html"} 3 Columns
+                    %li
+                      %a{:href => "blog-grid-4col.html"} 4 Columns
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Masonry
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "blog-grid-masonry-2col.html"} 2 Columns
+                    %li
+                      %a{:href => "blog-grid-masonry-3col.html"} 3 Columns
+                    %li
+                      %a{:href => "blog-grid-masonry-4col.html"} 4 Columns
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Single
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "blog-single-left.html"} Sidebar Left
+                    %li
+                      %a{:href => "blog-single-right.html"} Sidebar Right
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Features
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "comp-alerts-wells.html"}
+                    %i.fa.fa-bolt
+                    Alerts and Wells
+                %li
+                  %a{:href => "comp-buttons.html"}
+                    %i.fa.fa-link.fa-sm
+                    Buttons
+                %li
+                  %a{:href => "comp-collapses-tabs.html"}
+                    %i.fa.fa-tasks
+                    Collapses &amp; Tabs
+                %li
+                  %a{:href => "comp-content-box.html"}
+                    %i.fa.fa-list-alt
+                    Contents Box
+                %li
+                  %a{:href => "comp-forms.html"}
+                    %i.fa.fa-check-square-o
+                    Forms
+                %li
+                  %a{:href => "comp-icons.html"}
+                    %i.fa.fa-star
+                    Icons
+                %li
+                  %a{:href => "comp-progress-bars.html"}
+                    %i.fa.fa-server
+                    Progress Bars
+                %li
+                  %a{:href => "comp-typography.html"}
+                    %i.fa.fa-font
+                    Typography
+            %li
+              %a  
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Search
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  .dropdown-search
+                    %form{:role => "form"}
+                      %input.form-control{:placeholder => "Search...", :type => "text"}/
+                      %button.search-btn{:type => "submit"}
+                        %i.fa.fa-search
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} English
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} English
+                %li
+                  %a{:href => "#"} France
+                %li
+                  %a{:href => "#"} Germany
+    / Navigation end
+    / Home start
+    %section#home.home-section.home-parallax.home-fade.bg-dark-30{"data-background" => "assets/images/section-3.jpg"}
+      .hs-caption
+        .caption-content
+          .hs-title-size-1.font-alt.mb-30
+            Hello &amp; welcome
+          .hs-title-size-4.font-alt.mb-40
+            We are Rival
+          %a.section-scroll.btn.btn-border-w.btn-round{:href => "#about"} Learn More
+    / Home end
+    / Wrapper start
+    .main
+      / About start
+      %section#about.module
+        .container
+          .row
+            .col-sm-8.col-sm-offset-2
+              %h2.module-title.font-alt Welcome to Rival
+              .module-subtitle.font-serif.large-text
+                We’re an award winning London based digital agency, lovingly curating pixels for maximum impact. We don’t have a style — we have standards.
+          / .row
+          .row
+            .col-sm-2.col-sm-offset-5
+              .large-text.align-center
+                %a.section-scroll{:href => "#features"}
+                  %i.fa.fa-angle-down
+        / .container
+      / About end
+      / Divider
+      %hr.divider-w/
+      / Divider
+      / Features start
+      %section#features.module
+        .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              %h2.module-title.font-alt Our Services
+              .module-subtitle.font-serif
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+          / .row
+          .row.multi-columns-row
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-lightbulb
+                %h3.features-title.font-alt Ideas and concepts
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-bike
+                %h3.features-title.font-alt Optimised for speed
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-tools
+                %h3.features-title.font-alt Designs &amp; interfaces
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-gears
+                %h3.features-title.font-alt Highly customizable
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-tools-2
+                %h3.features-title.font-alt Coding &amp; development
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-genius
+                %h3.features-title.font-alt Features &amp; plugins
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-mobile
+                %h3.features-title.font-alt Responsive design
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+            / Features start
+            .col-sm-6.col-md-3.col-lg-3
+              .features-item
+                .features-icon
+                  %span.icon-lifesaver
+                %h3.features-title.font-alt Dedicated support
+                Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.
+            / Features end
+          / .row
+        / .container
+      / Features end
+      / Video start
+      %section.module.bg-dark-60{"data-background" => "assets/images/section-6.jpg"}
+        .container
+          .row
+            .col-sm-12
+              .video-box
+                .video-box-icon
+                  %a.video-pop-up{:href => "http://vimeo.com/15486292"}
+                    %span.icon-video
+                .video-title.font-alt
+                  Presentation
+                .video-subtitle.font-alt
+                  Watch the video about our new products
+          / .row
+      / Video end
+      / Portfolio start
+      %section#works.module.pb-0
+        .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              %h2.module-title.font-alt Our Works
+          / .row
+          .row
+            .col-sm-12
+              %ul#filters.filter.font-alt.hidden-xs
+                %li
+                  %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} All
+                %li
+                  %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Illustration
+                %li
+                  %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Marketing
+                %li
+                  %a.wow.fadeInUp{"data-filter" => ".photography", "data-wow-delay" => "0.6s", :href => "#"} Photography
+                %li
+                  %a.wow.fadeInUp{"data-filter" => ".webdesign", "data-wow-delay" => "0.8s", :href => "#"} Web Design
+          / .row
+        / .container
+        / Portfolio list start
+        %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
+          / Portfolio item start
+          %li.work-item.illustration.webdesign
+            %a{:href => "portfolio-single-1.html"}
+              .work-image
+                %img{:alt => "", :src => "assets/images/work-1.jpg"}/
+              .work-caption.font-alt
+                %h3.work-title Corporate Identity
+                .work-descr
+                  Illustration
+          / Portfolio item end
+          / Portfolio item start
+          %li.work-item.marketing.photography
+            %a{:href => "portfolio-single-1.html"}
+              .work-image
+                %img{:alt => "", :src => "assets/images/work-2.jpg"}/
+              .work-caption.font-alt
+                %h3.work-title Bag MockUp
+                .work-descr
+                  Marketing
+          / Portfolio item end
+          / Portfolio item start
+          %li.work-item.illustration.photography
+            %a{:href => "portfolio-single-1.html"}
+              .work-image
+                %img{:alt => "", :src => "assets/images/work-3.jpg"}/
+              .work-caption.font-alt
+                %h3.work-title Disk Cover
+                .work-descr
+                  Illustration
+          / Portfolio item end
+          / Portfolio item start
+          %li.work-item.marketing.photography
+            %a{:href => "portfolio-single-1.html"}
+              .work-image
+                %img{:alt => "", :src => "assets/images/work-4.jpg"}/
+              .work-caption.font-alt
+                %h3.work-title Business Card
+                .work-descr
+                  Photography
+          / Portfolio item end
+          / Portfolio item start
+          %li.work-item.illustration.webdesign
+            %a{:href => "portfolio-single-1.html"}
+              .work-image
+                %img{:alt => "", :src => "assets/images/work-5.jpg"}/
+              .work-caption.font-alt
+                %h3.work-title Business Cards
+                .work-descr
+                  Webdesign
+          / Portfolio item end
+          / Portfolio item start
+          %li.work-item.marketing.webdesign
+            %a{:href => "portfolio-single-1.html"}
+              .work-image
+                %img{:alt => "", :src => "assets/images/work-6.jpg"}/
+              .work-caption.font-alt
+                %h3.work-title Business Cards in paper clip
+                .work-descr
+                  Marketing
+          / Portfolio item end
+        / Portfolio list end
+      / Portfolio end
+      / Callout start
+      %section.module-small.bg-dark
+        .container
+          .row
+            .col-sm-6.col-md-8.col-lg-6.col-lg-offset-2
+              .callout-text.font-alt
+                %h3.callout-title Want to see more works?
+                We are always open to interesting projects.
+            .col-sm-6.col-md-4.col-lg-2
+              .callout-btn-box
+                %a.btn.btn-w.btn-round{:href => "portfolio-wide-gutter-col3.html"} Lets view portfolio
+          / .row
+      / Callout end
+      / Alt features start
+      %section#alt-features.module
+        .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              %h2.module-title.font-alt Alt features
+              .module-subtitle.font-serif
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+          / .row
+          .row
+            .col-sm-6.col-md-3.col-lg-3
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-strategy
+                %h3.alt-features-title.font-alt Branding
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-tools-2
+                %h3.alt-features-title.font-alt Development
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-target
+                %h3.alt-features-title.font-alt Marketing
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-tools
+                %h3.alt-features-title.font-alt Design
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+            / .col
+            / Alt features image start
+            .col-md-6.col-lg-6.hidden-xs.hidden-sm
+              .alt-services-image.align-center
+                %img{:alt => "", :src => "assets/images/promo.png"}/
+            / Alt features image end
+            .col-sm-6.col-md-3.col-lg-3
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-camera
+                %h3.alt-features-title.font-alt Photography
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-mobile
+                %h3.alt-features-title.font-alt Mobile
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-linegraph
+                %h3.alt-features-title.font-alt Music
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-basket
+                %h3.alt-features-title.font-alt Shop
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+            / .col
+          / .row
+      / Alt features end
+      / Divider
+      %hr.divider-w/
+      / Divider
+      / Team start
+      %section#team.module
+        .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              %h2.module-title.font-alt Meet Our Team
+              .module-subtitle.font-serif
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+          / .row
+          .row
+            / Team item star
+            .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+              .team-item
+                .team-image
+                  %img{:alt => "", :src => "assets/images/team-1.jpg"}/
+                  .team-detail
+                    %h5.font-alt Hi all
+                    %p.font-serif Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.
+                    .team-social
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                      %a{:href => "#"}
+                        %i.fa.fa-skype
+                .team-descr.font-alt
+                  .team-name Jim Stone
+                  .team-role Art Director
+            / Team item end
+            / Team item star
+            .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+              .team-item
+                .team-image
+                  %img{:alt => "", :src => "assets/images/team-2.jpg"}/
+                  .team-detail
+                    %h5.font-alt Good day
+                    %p.font-serif Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.
+                    .team-social
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                      %a{:href => "#"}
+                        %i.fa.fa-skype
+                .team-descr.font-alt
+                  .team-name Andy River
+                  .team-role Creative director
+            / Team item end
+            / Team item star
+            .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+              .team-item
+                .team-image
+                  %img{:alt => "", :src => "assets/images/team-3.jpg"}/
+                  .team-detail
+                    %h5.font-alt Hello
+                    %p.font-serif Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.
+                    .team-social
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                      %a{:href => "#"}
+                        %i.fa.fa-skype
+                .team-descr.font-alt
+                  .team-name Adele Snow
+                  .team-role Account manager
+            / Team item end
+            / Team item star
+            .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+              .team-item
+                .team-image
+                  %img{:alt => "", :src => "assets/images/team-4.jpg"}/
+                  .team-detail
+                    %h5.font-alt Yes, it's me
+                    %p.font-serif Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.
+                    .team-social
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                      %a{:href => "#"}
+                        %i.fa.fa-skype
+                .team-descr.font-alt
+                  .team-name Dylan Woods
+                  .team-role Developer
+            / Team item end
+          / .row
+      / Team end
+      / Testimonials start
+      %section.module.bg-dark-60.pt-0.pb-0{"data-background" => "assets/images/section-7.jpg"}
+        .testimonials-slider.pt-140.pb-140
+          %ul.slides
+            / Slide 1 start
+            %li
+              .container
+                .row
+                  .col-sm-12
+                    .module-icon
+                      %span.icon-quote
+                / .row
+                .row
+                  .col-sm-8.col-sm-offset-2
+                    %blockquote.testimonial-text.font-alt I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+                / .row
+                .row
+                  .col-sm-4.col-sm-offset-4
+                    .testimonial-author
+                      .testimonial-caption.font-alt
+                        .testimonial-title Jack Woods
+                        .testimonial-descr SomeCompany INC, CEO
+                / .row
+              / .container
+            / Slide 1 end
+            / Slide 2 start
+            %li
+              .container
+                .row
+                  .col-sm-12
+                    .module-icon
+                      %span.icon-quote
+                / .row
+                .row
+                  .col-sm-8.col-sm-offset-2
+                    %blockquote.testimonial-text.font-alt I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.
+                / .row
+                .row
+                  .col-sm-4.col-sm-offset-4
+                    .testimonial-author
+                      .testimonial-caption.font-alt
+                        .testimonial-title Jim Stone
+                        .testimonial-descr SomeCompany INC, CEO
+                / .row
+              / .container
+            / Slide 2 end
+            / Slide 3 start
+            %li
+              .container
+                .row
+                  .col-sm-12
+                    .module-icon
+                      %span.icon-quote
+                / .row
+                .row
+                  .col-sm-8.col-sm-offset-2
+                    %blockquote.testimonial-text.font-alt I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.
+                / .row
+                .row
+                  .col-sm-4.col-sm-offset-4
+                    .testimonial-author
+                      .testimonial-caption.font-alt
+                        .testimonial-title Adele Snow
+                        .testimonial-descr SomeCompany INC, CEO
+                / .row
+              / .container
+            / Slide 3 end
+        / .testimonials-slider
+      / Testimonials end
+      / Latest blog posts start
+      %section#news.module
+        .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              %h2.module-title.font-alt Latest blog posts
+              .module-subtitle.font-serif
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+          / .row
+          .row.multi-columns-row.post-columns
+            / Post item start
+            .col-sm-6.col-md-4.col-lg-4
+              .post.mb-20
+                .post-thumbnail
+                  %a{:href => "blog-single-left.html"}
+                    %img{:alt => "", :src => "assets/images/post-1.jpg"}/
+                .post-header.font-alt
+                  %h2.post-title
+                    %a{:href => "blog-single-left.html"} Our trip to the Alps
+                  .post-meta
+                    By
+                    %a{:href => "#"} Mark Stone
+                    | 23 November | 3 Comments
+                .post-entry
+                  %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                .post-more
+                  %a.more-link{:href => "blog-single-right.html"} Read more
+            / Post item end
+            / Post item start
+            .col-sm-6.col-md-4.col-lg-4
+              .post.mb-20
+                .post-thumbnail
+                  %a{:href => "blog-single-left.html"}
+                    %img{:alt => "", :src => "assets/images/post-2.jpg"}/
+                .post-header.font-alt
+                  %h2.post-title
+                    %a{:href => "blog-single-left.html"} Shore after the tide
+                  .post-meta
+                    By
+                    %a{:href => "#"} Andy River
+                    | 11 November | 4 Comments
+                .post-entry
+                  %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                .post-more
+                  %a.more-link{:href => "blog-single-right.html"} Read more
+            / Post item end
+            / Post item start
+            .col-sm-6.col-md-4.col-lg-4
+              .post.mb-20
+                .post-thumbnail
+                  %a{:href => "blog-single-left.html"}
+                    %img{:alt => "", :src => "assets/images/post-3.jpg"}/
+                .post-header.font-alt
+                  %h2.post-title
+                    %a{:href => "blog-single-left.html"} We in New Zealand
+                  .post-meta
+                    By
+                    %a{:href => "#"} Dylan Woods
+                    | 5 November | 15 Comments
+                .post-entry
+                  %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                .post-more
+                  %a.more-link{:href => "blog-single-right.html"} Read more
+            / Post item end
+          / .row
+      / Latest blog posts end
+      / Subscribe start
+      %section.module-small.bg-dark
+        .container
+          .row
+            .col-sm-6.col-md-6.col-lg-4.col-lg-offset-2
+              .callout-text.font-alt
+                %h3.callout-title Subscribe now
+                We will not spam your email.
+            .col-sm-6.col-md-6.col-lg-4
+              .callout-btn-box
+                %form#subscription-form{:role => "form"}
+                  .input-group
+                    %input#semail.form-control{"data-validation-required-message" => "Please enter your email address.", :name => "semail", :placeholder => "Your Email", :required => "", :type => "email"}/
+                    %span.input-group-btn
+                      %button.btn.btn-g.btn-round{:type => "submit"} Submit
+                / Ajax response
+                #subscription-response.ajax-response
+          / .row
+      / Subscribe end
+      / Contact start
+      %section#contact.module
+        .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              %h2.module-title.font-alt Get in touch
+          / .row
+          .row
+            .col-sm-6.col-sm-offset-3
+              %form#contact-form{:novalidate => "", :role => "form"}
+                .form-group
+                  %label.sr-only{:for => "cname"} Name
+                  %input#cname.form-control{"data-validation-required-message" => "Please enter your name.", :name => "cname", :placeholder => "Name*", :required => "", :type => "text"}/
+                  %p.help-block.text-danger
+                .form-group
+                  %label.sr-only{:for => "cemail"} Your Email
+                  %input#cemail.form-control{"data-validation-required-message" => "Please enter your email address.", :name => "cemail", :placeholder => "Your E-mail*", :required => "", :type => "email"}/
+                  %p.help-block.text-danger
+                .form-group
+                  %textarea#cmessage.form-control{"data-validation-required-message" => "Please enter your message.", :name => "cmessage", :placeholder => "Message*", :required => "", :rows => "7"}
+                  %p.help-block.text-danger
+                .text-center
+                  %button.btn.btn-block.btn-round.btn-d{:type => "submit"} Submit
+              / Ajax response
+              #contact-response.ajax-response.font-alt
+          / .row
+      / Contact end
+      / Widgets start
+      .module-small.bg-dark
+        .container
+          .row
+            .col-sm-3
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt About Rival
+                %p The languages only differ in their grammar, their pronunciation and their most common words.
+                %p
+                  Phone: +1 234 567 89 10
+                  %br>/
+                  Fax: +1 234 567 89 10
+                %p
+                  Email:
+                  %a{:href => "#"} somecompany@example.com
+              / Widget end
+            .col-sm-3
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Recent Comments
+                %ul.icon-list
+                  %li
+                    Maria on
+                    %a{:href => "#"} Designer Desk Essentials
+                  %li
+                    John on
+                    %a{:href => "#"} Realistic Business Card Mockup
+                  %li
+                    Andy on
+                    %a{:href => "#"} Eco bag Mockup
+                  %li
+                    Jack on
+                    %a{:href => "#"} Bottle Mockup
+                  %li
+                    Mark on
+                    %a{:href => "#"} Our trip to the Alps
+              / Widget end
+            .col-sm-3
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Categories
+                %ul.icon-list
+                  %li
+                    %a{:href => "#"} Photography - 7
+                  %li
+                    %a{:href => "#"} Web Design - 3
+                  %li
+                    %a{:href => "#"} Illustration - 12
+                  %li
+                    %a{:href => "#"} Marketing - 1
+                  %li
+                    %a{:href => "#"} WordPress - 16
+              / Widget end
+            .col-sm-3
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Popular posts
+                %ul.widget-posts
+                  %li.clearfix
+                    .widget-posts-image
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+                    .widget-posts-body
+                      .widget-posts-title
+                        %a{:href => "#"} Designer Desk Essentials
+                      .widget-posts-meta
+                        23 November
+                  %li.clearfix
+                    .widget-posts-image
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+                    .widget-posts-body
+                      .widget-posts-title
+                        %a{:href => "#"} Realistic Business Card Mockup
+                      .widget-posts-meta
+                        15 November
+              / Widget end
+          / .row
+      / Widgets end
+      / Divider
+      %hr.divider-d/
+      / Divider
+      / Footer start
+      %footer.footer.bg-dark
+        .container
+          .row
+            .col-sm-6
+              %p.copyright.font-alt
+                © 2015
+                = succeed "," do
+                  %a{:href => "index.html"} Rival
+            .col-sm-6
+              .footer-social-links
+                %a{:href => "#"}
+                  %i.fa.fa-facebook
+                %a{:href => "#"}
+                  %i.fa.fa-twitter
+                %a{:href => "#"}
+                  %i.fa.fa-dribbble
+                %a{:href => "#"}
+                  %i.fa.fa-skype
+          / .row
+      / Footer end
+    / Wrapper start
+    / Scroll-up
+    .scroll-up
+      %a{:href => "#totop"}
+        %i.fa.fa-angle-double-up
+    / Javascript files
+    %script{:src => "assets/js/jquery-2.1.3.min.js"}
+    %script{:src => "assets/bootstrap/js/bootstrap.min.js"}
+    %script{:src => "assets/js/jquery.mb.YTPlayer.min.js"}
+    %script{:src => "assets/js/appear.js"}
+    %script{:src => "assets/js/jquery.simple-text-rotator.min.js"}
+    %script{:src => "assets/js/jqBootstrapValidation.js"}
+    %script{:src => "http://maps.google.com/maps/api/js?sensor=true"}
+    %script{:src => "assets/js/gmaps.js"}
+    %script{:src => "assets/js/isotope.pkgd.min.js"}
+    %script{:src => "assets/js/imagesloaded.pkgd.js"}
+    %script{:src => "assets/js/jquery.flexslider-min.js"}
+    %script{:src => "assets/js/jquery.magnific-popup.min.js"}
+    %script{:src => "assets/js/jquery.fitvids.js"}
+    %script{:src => "assets/js/smoothscroll.js"}
+    %script{:src => "assets/js/wow.min.js"}
+    %script{:src => "assets/js/owl.carousel.min.js"}
+    %script{:src => "assets/js/contact.js"}
+    %script{:src => "assets/js/custom.js"}
