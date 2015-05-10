@@ -362,14 +362,33 @@
                   %a{:href => "#"} Germany
     / Navigation end
     / Home start
-    %section#home.home-section.home-parallax.home-fade.bg-dark-30{"data-background" => "assets/images/section-3.jpg"}
-      .hs-caption
-        .caption-content
-          .hs-title-size-1.font-alt.mb-30
-            Hello &amp; welcome
-          .hs-title-size-4.font-alt.mb-40
-            We are Rival
-          %a.section-scroll.btn.btn-border-w.btn-round{:href => "#about"} Learn More
+    %section#home.home-section.home-parallax.home-fade.home-full-height
+      .hero-slider
+        %ul.slides
+          %li.bg-dark-30.bg-dark{:style => "background-image:url(assets/images/section-2.jpg)"}
+            .hs-caption
+              .caption-content
+                .hs-title-size-1.font-alt.mb-30
+                  Hello &amp; welcome
+                .hs-title-size-4.font-alt.mb-40
+                  We are Rival
+                %a.section-scroll.btn.btn-border-w.btn-round{:href => "#about"} Learn More
+          %li.bg-dark-30.bg-dark{:style => "background-image:url(assets/images/section-3.jpg)"}
+            .hs-caption
+              .caption-content
+                .hs-title-size-2.font-alt.mb-30
+                  Rival is creative multipurpose html template for
+                  %br/
+                  web developers who change the world
+                %a.section-scroll.btn.btn-mod.btn-border-w.btn-round.btn-medium{:href => "#about"} Learn More
+          %li.bg-dark-30.bg-dark{:style => "background-image:url(assets/images/section-1.jpg)"}
+            .hs-caption
+              .caption-content
+                .hs-title-size-1.font-alt.mb-30
+                  We build brands that build business
+                .hs-title-size-3.font-alt.mb-40
+                  We are Amazing
+                %a.section-scroll.btn.btn-border-w.btn-circle{:href => "#about"} Learn More
     / Home end
     / Wrapper start
     .main

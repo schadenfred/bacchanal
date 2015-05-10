@@ -1,0 +1,18 @@
+/ About start
+%section#about.module
+  .container
+    .row
+      .col-sm-8.col-sm-offset-2
+        %h2.module-title.font-manifesto Manifesto
+        .module-subtitle.font-serif.large-text 
+          %span#manifesto
+            #muggles
+              = render 'manifesto_muggles'
+            #wizards
+              = render 'manifesto_wizards'
+
+    .row
+      .col-sm-2.col-sm-offset-5
+        .large-text.align-center
+          %a.section-scroll{:href => "#features"}
+            %i.fa.fa-angle-down
