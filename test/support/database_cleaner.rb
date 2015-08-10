@@ -1,12 +1,13 @@
-DatabaseCleaner.strategy = :transaction
-DatabaseCleaner.clean_with(:truncation)
+require 'database_cleaner'
 
-class Minitest::Spec
-  def setup
+DatabaseCleaner.strategy = :deletion
+
+class MiniTest::Spec
+  before :each do
     DatabaseCleaner.start
   end
 
-  def teardown
+  after :each do
     DatabaseCleaner.clean
   end
 end

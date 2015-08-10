@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :producers
+
   devise_for :users
   get 'static/about'
 

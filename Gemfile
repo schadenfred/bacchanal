@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.4'
 
 # rails 
-gem 'rails', '4.2.0'
+gem 'rails'
 
 # js engine
 gem 'execjs'
@@ -39,6 +38,7 @@ gem 'redcarpet'
 
 # authentication
 gem 'devise'
+gem 'devise_invitable'
 
 # form helpers and bootstrap styling
 gem 'simple_form'

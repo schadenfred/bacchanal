@@ -1,0 +1,11 @@
+= simple_form_for(@producer) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :slug
+    = f.input :history
+    = f.input :mission
+
+  .form-actions
+    = f.button :submit
