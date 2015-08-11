@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150810231938) do
   create_table "producers", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
-    t.hstore   "properties"
+    t.hstore   "facets"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
