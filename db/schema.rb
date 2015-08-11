@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20150810231938) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "producers", ["name"], name: "index_producers_on_name", using: :btree
+  add_index "producers", ["slug"], name: "index_producers_on_slug", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -36,6 +39,10 @@ ActiveRecord::Schema.define(version: 20150810231938) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "invitation_token"
@@ -49,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150810231938) do
     t.string   "name"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
