@@ -6,7 +6,7 @@ class CreateProducers < ActiveRecord::Migration
     create_table :producers do |t|
       t.string :name
       t.string :slug
-      t.hstore :facets
+      t.hstore :properties
 
       t.timestamps null: false
     end

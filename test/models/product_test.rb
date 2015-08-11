@@ -1,8 +1,8 @@
 require "test_helper"
 
-describe Producer do
+describe Product do
 
-  subject { Producer }
+  subject { Product }
 
   describe "db" do 
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :wineries
+  resources :products
   resources :producers
 
   devise_for :users

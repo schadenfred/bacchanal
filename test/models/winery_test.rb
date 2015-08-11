@@ -1,13 +1,14 @@
 require "test_helper"
 
-# class WineryTest < ActiveSupport::TestCase
+describe Winery do
 
-  # def winery
-  #   @winery ||= Winery.new
-  # end
+  subject { Winery }
 
-  # def test_valid
-  #   assert winery.valid?
-  # end
+  describe "associations" do 
 
-# end
+    specify "has many" do 
+      
+      must_have_many(:wines)
+    end
+  end
+end
