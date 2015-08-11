@@ -1,13 +1,20 @@
 require "test_helper"
 
-class ProducerTest < ActiveSupport::TestCase
+describe Producer do
 
-  def producer
-    @producer ||= Producer.new
-  end
+  subject { Producer }
 
-  def test_valid
-    assert producer.valid?
-  end
+  describe "db" do 
 
+    specify "columns & types" do 
+      must_have_column(:name, :string)
+      must_have_column(:slug, :string)
+      must_have_column(:facets, :hstore)
+    end
+
+    specify "indexes" do
+      must_have_index(:name) 
+      must_have_index(:slug) 
+    end
+  end 
 end
