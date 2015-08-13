@@ -1,5 +1,15 @@
 module TestMatchers
 
+  def must_respond_to(method)
+    s = subject.new
+    s.respond_to?(method).must_equal true
+  end
+
+  def wont_respond_to(method)
+    s = subject.new
+    s.respond_to?(method).must_equal false
+  end
+
   def must_have_column(column, type=nil)
     
     subject.column_names.must_include column.to_s

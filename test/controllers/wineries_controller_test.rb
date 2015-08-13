@@ -1,49 +1,57 @@
 require "test_helper"
 
-class WineriesControllerTest < ActionController::TestCase
-  def winery
-    @winery ||= wineries :one
+describe WineriesController do 
+
+  When(:winery) { FactoryGirl.create(:winery) }
+  
+  describe "#new" do 
+
+    Given { get :new }
+    Then  { assert_response :success }
+    And   { assert_not_nil assigns :winery }
   end
 
-  def test_index
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:wineries)
+  describe "#index" do 
+
+    Given { get :index }
+    Then  { assert_response :success }
+    And   { assert_not_nil assigns :wineries }
   end
 
-  def test_new
-    get :new
-    assert_response :success
-  end
+  describe "#create" do 
 
-  def test_create
-    assert_difference("Winery.count") do
-      post :create, winery: {  }
+    Then do
+      assert_difference("Winery.count") do
+        post :create, winery: { name: "Fathers & Daughters" }
+      end
+      assert_redirected_to winery_path(assigns(:winery))
     end
-
-    assert_redirected_to winery_path(assigns(:winery))
   end
 
-  def test_show
-    get :show, id: winery
-    assert_response :success
+  describe "#update" do 
+
+    Given { put :update, id: winery, winery: { name: "Williams Selyem" } }
+    Then  { assert_redirected_to winery_path(assigns(:winery)) }
   end
 
-  def test_edit
-    get :edit, id: winery
-    assert_response :success
+  describe "#show" do 
+    
+    Given { get :show, id: winery }
+    Then  { assert_response :success }
   end
 
-  def test_update
-    put :update, id: winery, winery: {  }
-    assert_redirected_to winery_path(assigns(:winery))
+  describe "#edit" do 
+    
+    Given { get :edit, id: winery }
+    Then  { assert_response :success }
   end
 
-  def test_destroy
-    assert_difference("Winery.count", -1) do
-      delete :destroy, id: winery
+  describe "#destroy" do 
+    
+    Then do 
+      assert_difference("Winery.count", -1) do
+        delete :destroy, id: winery
+      end
     end
-
-    assert_redirected_to wineries_path
   end
 end

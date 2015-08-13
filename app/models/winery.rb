@@ -1,12 +1,7 @@
 class Winery < Producer
 
-  has_many :wines
+  store_accessor :properties
 
-  def vintage
-    properties && properties["vintage"]
-  end
+  has_many :wines
   
-  def vintage=(value)
-    self.properties = (properties || {}).merge("vintage" => value)
-  end
 end

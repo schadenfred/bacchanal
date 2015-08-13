@@ -1,7 +1,4 @@
 = simple_form_for(@winery) do |f|
   = f.error_notification
-
-  .form-inputs
-
-  .form-actions
-    = f.button :submit
+  = f.input :name
+  = f.button :submit
