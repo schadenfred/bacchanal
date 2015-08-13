@@ -40,6 +40,13 @@ gem 'redcarpet'
 gem 'devise'
 gem 'devise_invitable'
 
+# omniauth
+gem 'omniauth-facebook'
+gem 'omniauth-gplus'
+gem 'omniauth-instagram'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+
 # form helpers and bootstrap styling
 gem 'simple_form'
 gem 'country_select', github: 'stefanpenner/country_select'
@@ -55,7 +62,6 @@ gem 'carrierwave'
 
 # keep track of state on assignments
 gem 'aasm'
-
 
 group :development, :test do
 
@@ -91,6 +97,8 @@ end
 group :test do 
 
   gem 'minitest-rails-capybara'
+  gem 'capybara-email'
+
   gem 'selenium-webdriver'
   gem 'minitest-given'
 
