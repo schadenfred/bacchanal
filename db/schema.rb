@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810231938) do
+ActiveRecord::Schema.define(version: 20150811043153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,24 @@ ActiveRecord::Schema.define(version: 20150810231938) do
   create_table "producers", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
-    t.hstore   "facets"
+    t.hstore   "properties"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "producers", ["name"], name: "index_producers_on_name", using: :btree
   add_index "producers", ["slug"], name: "index_producers_on_slug", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.hstore   "properties"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "products", ["name"], name: "index_products_on_name", using: :btree
+  add_index "products", ["slug"], name: "index_products_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

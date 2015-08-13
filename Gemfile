@@ -42,6 +42,7 @@ gem 'devise_invitable'
 
 # form helpers and bootstrap styling
 gem 'simple_form'
+gem 'country_select', github: 'stefanpenner/country_select'
 
 # http://www.rubydoc.info/gems/meta-tags-helpers/0.2.0
 gem 'meta-tags-helpers', '~> 0.2.0'
