@@ -8,7 +8,7 @@
 //= require appear
 //= require jquery.simple-text-rotator.min
 //= require jqBootstrapValidation
-// require gmaps
+//= require gmaps
 //= require isotope.pkgd.min
 //= require imagesloaded.pkgd
 //= require jquery.flexslider-min
