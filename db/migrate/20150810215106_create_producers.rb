@@ -5,6 +5,7 @@ class CreateProducers < ActiveRecord::Migration
 
     create_table :producers do |t|
       t.string :name
+      t.string :type
       t.string :slug
       t.hstore :properties
 

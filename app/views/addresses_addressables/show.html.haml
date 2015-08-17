@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Address:
+  = @addresses_addressable.address_id
+%p
+  %b Addressable:
+  = @addresses_addressable.addressable_id
+%p
+  %b Addressable type:
+  = @addresses_addressable.addressable_type
+%p
+  %b Name:
+  = @addresses_addressable.name
+%p
+  %b Address function:
+  = @addresses_addressable.address_function
+
+= link_to 'Edit', edit_addresses_addressable_path(@addresses_addressable)
+\|
+= link_to 'Back', addresses_addressables_path

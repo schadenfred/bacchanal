@@ -16,5 +16,10 @@ describe Product do
       must_have_index(:name) 
       must_have_index(:slug) 
     end
+  end
+
+  specify "associations" do 
+
+    must_belong_to :producer
   end 
 end

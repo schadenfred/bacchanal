@@ -11,14 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811043153) do
+ActiveRecord::Schema.define(version: 20150815000813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
+  create_table "addresses", force: :cascade do |t|
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "addresses", ["city", "state"], name: "index_addresses_on_city_and_state", using: :btree
+  add_index "addresses", ["zip"], name: "index_addresses_on_zip", using: :btree
+
+  create_table "addresses_addressables", force: :cascade do |t|
+    t.integer  "address_id"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.string   "name"
+    t.integer  "address_function"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "addresses_addressables", ["address_id"], name: "index_addresses_addressables_on_address_id", using: :btree
+  add_index "addresses_addressables", ["addressable_id"], name: "index_addresses_addressables_on_addressable_id", using: :btree
+
   create_table "producers", force: :cascade do |t|
     t.string   "name"
+    t.string   "type"
     t.string   "slug"
     t.hstore   "properties"
     t.datetime "created_at", null: false
@@ -75,10 +106,5 @@ ActiveRecord::Schema.define(version: 20150811043153) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["name"], name: "index_users_on_name", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "wineries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

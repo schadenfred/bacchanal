@@ -1,0 +1,12 @@
+= simple_form_for(@addresses_addressable) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :address_id
+    = f.input :addressable_id
+    = f.input :addressable_type
+    = f.input :name
+    = f.input :address_function
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,29 @@
+%h1 Listing addresses_addressables
+
+%table
+  %thead
+    %tr
+      %th Address
+      %th Addressable
+      %th Addressable type
+      %th Name
+      %th Address function
+      %th
+      %th
+      %th
+
+  %tbody
+    - @addresses_addressables.each do |addresses_addressable|
+      %tr
+        %td= addresses_addressable.address_id
+        %td= addresses_addressable.addressable_id
+        %td= addresses_addressable.addressable_type
+        %td= addresses_addressable.name
+        %td= addresses_addressable.address_function
+        %td= link_to 'Show', addresses_addressable
+        %td= link_to 'Edit', edit_addresses_addressable_path(addresses_addressable)
+        %td= link_to 'Destroy', addresses_addressable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Addresses addressable', new_addresses_addressable_path

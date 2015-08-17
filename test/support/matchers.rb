@@ -1,7 +1,7 @@
 module TestMatchers
 
   def must_respond_to(method)
-    s = subject.new
+    s = subject
     s.respond_to?(method).must_equal true
   end
 
@@ -27,6 +27,7 @@ module TestMatchers
   def must_have_index(index)
     connection = ActiveRecord::Base.connection
     indexes = connection.indexes(subject.table_name).collect(&:columns)
+
     if index.class == Symbol
       indexes.must_include [index.to_s]
     else
