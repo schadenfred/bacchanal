@@ -1,0 +1,31 @@
+%h1 Listing photos
+
+%table
+  %thead
+    %tr
+      %th Image uid
+      %th Image name
+      %th Name
+      %th Caption
+      %th Image
+      %th
+      %th
+
+  %tbody
+    - @photos.each do |photo|
+      %tr
+        %td= photo.image_uid
+        %td= photo.image_name
+        %td= photo.name
+        %td= photo.caption
+        %td= photo.image
+        %td= image_tag photo.image.thumb('300x200#').url
+        / %td= link_to(image_tag(photo.image.thumb('400x200#').url), photo_path(photo)) if photo.image_stored? 
+
+        %td= link_to 'Show', photo
+        %td= link_to 'Edit', edit_photo_path(photo)
+        %td= link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Photo', new_photo_path

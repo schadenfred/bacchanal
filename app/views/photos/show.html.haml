@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Image uid:
+  = @photo.image_uid
+%p
+  %b Image name:
+  = @photo.image_name
+%p
+  %b Name:
+  = @photo.name
+%p
+  %b Caption:
+  = @photo.caption
+%p
+  %b Image:
+  = @photo.image.thumb('400x200#').url
+  / = link_to image_tag(@photo.image.thumb('400x200#').url), @photo
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path

@@ -58,7 +58,7 @@ gem 'meta-tags-helpers', '~> 0.2.0'
 gem 'figaro'
 
 # image uploads
-gem 'carrierwave'
+gem 'dragonfly'
 
 # keep track of state on assignments
 gem 'aasm'
