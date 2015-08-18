@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :photos
   devise_for :users
 
   # static page routes
@@ -12,7 +11,8 @@ Rails.application.routes.draw do
   get '/home',    to: "static#home"
 
   concern :media_produceable do 
-    resources :addresses, :galleries, :photos 
+    resources :addresses, shallow: true
+    resources :galleries, :photos 
   end
 
   resources :producers do 
