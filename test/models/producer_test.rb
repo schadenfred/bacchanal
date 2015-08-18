@@ -22,6 +22,7 @@ describe Producer do
 
   specify "associations" do 
 
+    must_have_many :articles
     must_have_many :products
   end
 

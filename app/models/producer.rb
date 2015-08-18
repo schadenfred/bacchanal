@@ -1,4 +1,5 @@
 class Producer < ActiveRecord::Base
+  has_many :articles
   has_many :products
 
   scope :wineries, -> { where(type: 'Winery') } 

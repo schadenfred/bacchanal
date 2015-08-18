@@ -371,7 +371,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   puma
-  rails
+  rails (= 4.2.3)
   rails_12factor
   redcarpet
   sass-rails (~> 5.0)

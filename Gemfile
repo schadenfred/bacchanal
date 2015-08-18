@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # rails 
-gem 'rails'
+gem 'rails', '4.2.3'
 
 # js engine
 gem 'execjs'
