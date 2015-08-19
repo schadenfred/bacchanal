@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: bacchanal_production
-  username: deployer
+  username: bacchanal
   password: <%= ENV['BACCHANAL_DATABASE_PASSWORD'] %>
