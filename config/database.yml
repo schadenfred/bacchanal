@@ -82,4 +82,4 @@ production:
   <<: *default
   database: bacchanal_production
   username: bacchanal
-  password: 3a57p3ak
+  password: tastywave
