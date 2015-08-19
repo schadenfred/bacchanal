@@ -63,6 +63,11 @@ gem 'dragonfly'
 # keep track of state on assignments
 gem 'aasm'
 
+# caching for pictures, among other things
+gem 'rack-cache'
+gem 'dalli'
+gem 'kgio'
+
 group :development, :test do
 
   # test suite
