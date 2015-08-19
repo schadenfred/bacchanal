@@ -1,5 +1,5 @@
 # Change these
-server '104.131.141.203', roles: [:web, :app, :db], primary: true
+server '104.131.141.203', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:schadenfred/bacchanal.git'
 set :application,     'bacchanal'
