@@ -1,9 +1,9 @@
 # Change these
-server '192.241.203.192', port: 22, roles: [:web, :app, :db], primary: true
+server '107.170.238.64', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:schadenfred/bacchanal.git'
 set :application,     'bacchanal'
-set :user,            'deployer'
+set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
@@ -72,13 +72,3 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-
-  before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
-end
-
-# ps aux | grep puma    # Get puma pid
-# kill -s SIGUSR2 pid   # Restart puma
-# kill -s SIGTERM pid   # Stop puma
