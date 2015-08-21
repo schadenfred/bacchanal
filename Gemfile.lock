@@ -369,9 +369,9 @@ DEPENDENCIES
   aasm
   bootstrap-sass
   byebug
-  capistrano
+  capistrano (~> 3.1)
   capistrano-bundler
-  capistrano-rails
+  capistrano-rails (~> 1.1)
   capistrano-rvm
   capistrano3-puma
   capybara-email
