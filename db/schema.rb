@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818192737) do
+ActiveRecord::Schema.define(version: 20150821200618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,37 @@ ActiveRecord::Schema.define(version: 20150818192737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "buttafly_mappings", force: :cascade do |t|
+    t.integer  "originable_id"
+    t.string   "originable_type"
+    t.string   "targetable_model"
+    t.text     "legend"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "buttafly_mappings", ["originable_id", "originable_type"], name: "index_buttafly_mappings_on_originable_id_and_originable_type", using: :btree
+
+  create_table "buttafly_spreadsheets", force: :cascade do |t|
+    t.json     "data"
+    t.string   "name"
+    t.string   "flat_file"
+    t.integer  "user_id"
+    t.datetime "imported_at"
+    t.datetime "processed_at"
+    t.string   "aasm_state"
+    t.integer  "source_row_count"
+    t.integer  "mtime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "buttafly_spreadsheets", ["aasm_state"], name: "index_buttafly_spreadsheets_on_aasm_state", using: :btree
+  add_index "buttafly_spreadsheets", ["imported_at"], name: "index_buttafly_spreadsheets_on_imported_at", using: :btree
+  add_index "buttafly_spreadsheets", ["name"], name: "index_buttafly_spreadsheets_on_name", using: :btree
+  add_index "buttafly_spreadsheets", ["processed_at"], name: "index_buttafly_spreadsheets_on_processed_at", using: :btree
+  add_index "buttafly_spreadsheets", ["user_id"], name: "index_buttafly_spreadsheets_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"

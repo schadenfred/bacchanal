@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Buttafly::Engine, at: "/buttafly"
+  
   resources :comments
   resources :articles
   devise_for :users

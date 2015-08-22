@@ -60,6 +60,10 @@ gem 'figaro'
 # image uploads
 gem 'dragonfly'
 
+# Buttafly engine for importing spreadsheet data
+gem 'buttafly', github: 'schadenfred/buttafly'
+
+
 # keep track of state on assignments
 gem 'aasm'
 

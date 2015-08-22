@@ -1,4 +1,21 @@
 GIT
+  remote: git://github.com/schadenfred/buttafly.git
+  revision: 8a5b173ab732320afdd80132cbd54782b95b4a96
+  specs:
+    buttafly (0.0.1)
+      aasm
+      carrierwave
+      foundation-rails
+      haml-rails
+      jquery-rails
+      kaminari
+      pg
+      rails (~> 4.2)
+      roo
+      sass
+      simple_form
+
+GIT
   remote: git://github.com/stefanpenner/country_select.git
   revision: 20f83bda911abd7c1d5cb96fd37f9ea22d892f0e
   specs:
@@ -84,6 +101,11 @@ GEM
     capybara-email (2.4.0)
       capybara (~> 2.4)
       mail
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
@@ -138,6 +160,9 @@ GEM
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    foundation-rails (5.5.2.1)
+      railties (>= 3.1.0)
+      sass (>= 3.3.0, < 3.5)
     given_core (3.7.1)
       sorcerer (>= 0.3.7)
     globalid (0.3.6)
@@ -182,6 +207,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.1)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -307,6 +335,9 @@ GEM
     redcarpet (3.3.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    roo (2.1.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
     ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
     rubyzip (1.1.7)
@@ -368,6 +399,7 @@ PLATFORMS
 DEPENDENCIES
   aasm
   bootstrap-sass
+  buttafly!
   byebug
   capistrano (~> 3.1)
   capistrano-bundler
