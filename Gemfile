@@ -60,10 +60,6 @@ gem 'figaro'
 # image uploads
 gem 'dragonfly'
 
-# Buttafly engine for importing spreadsheet data
-gem 'buttafly', github: 'schadenfred/buttafly'
-
-
 # keep track of state on assignments
 gem 'aasm'
 
@@ -93,6 +89,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+
+  # Buttafly engine for importing spreadsheet data, local version
+  gem 'buttafly', github: 'schadenfred/buttafly'
 end
 
 group :development do 
@@ -130,4 +130,9 @@ end
 group :production do 
 
   gem 'rails_12factor', group: :production
+
+  # Buttafly engine for importing spreadsheet data, production version
+  gem 'buttafly', github: 'schadenfred/buttafly'
+
+
 end
