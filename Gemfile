@@ -128,8 +128,4 @@ end
 group :production do 
 
   gem 'rails_12factor', group: :production
-
-  # Buttafly engine for importing spreadsheet data, production version
-
-
 end
