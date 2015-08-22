@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/schadenfred/buttafly.git
-  revision: d5bde8d7c0d493866b0db35865edc5aac7e559e0
+  revision: 74642c145fdd96b01205caec7433b1ce03d515e3
+  tag: v0.1
   specs:
     buttafly (0.0.1)
       aasm
