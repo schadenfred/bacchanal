@@ -68,6 +68,9 @@ gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
 
+# Buttafly engine for importing spreadsheet data, local version
+gem 'buttafly', github: 'schadenfred/buttafly'
+
 group :development, :test do
 
   # test suite
@@ -89,10 +92,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-
-  # Buttafly engine for importing spreadsheet data, local version
-  gem 'buttafly', github: 'schadenfred/buttafly'
 end
 
 group :development do 
@@ -100,7 +99,6 @@ group :development do
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm',     require: false
-  # gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
 
@@ -132,7 +130,6 @@ group :production do
   gem 'rails_12factor', group: :production
 
   # Buttafly engine for importing spreadsheet data, production version
-  gem 'buttafly', github: 'schadenfred/buttafly'
 
 
 end
