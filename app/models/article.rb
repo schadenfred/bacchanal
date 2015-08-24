@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 
-  belongs_to :producer
+  belongs_to :org
 
   has_many :comments, as: :commentable
 end

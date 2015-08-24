@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :events
+  resources :competitions
+  resources :orgs
   mount Buttafly::Engine, at: "/buttafly"
   
   resources :comments

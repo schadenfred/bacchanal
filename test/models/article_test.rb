@@ -6,7 +6,7 @@ describe Article do
 
   specify "associations" do 
 
-    must_belong_to(:producer)
+    must_belong_to(:org)
     must_have_many(:comments)
   end
 end

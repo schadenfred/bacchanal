@@ -1,0 +1,8 @@
+= simple_form_for(@event) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :competiton_id
+
+  .form-actions
+    = f.button :submit
