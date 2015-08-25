@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   concern :media_promotable do 
     
+    resources :articles
     shallow do 
-      resources :galleries, :photos, :articles
+      resources :galleries, :photos
     end
-    # resources :articles, shallow: true #only: [:show, :index, :new]
   end
 
   resources :orgs do 

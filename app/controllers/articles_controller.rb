@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   def update
 
     if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to @article.org, notice: 'Article was successfully updated.'
     else
       render :edit
     end
@@ -47,13 +47,13 @@ class ArticlesController < ApplicationController
     
     def set_article
 
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
     def set_bloggable
 
       klass = [Winery, Org].detect { |c| params["#{c.name.underscore}_id"]}
-      @bloggable = klass.find(params["#{klass.name.underscore}_id"])
+      @bloggable = klass.friendly.find(params["#{klass.name.underscore}_id"])
     end
 
     def article_params

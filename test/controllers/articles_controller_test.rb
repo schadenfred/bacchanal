@@ -2,8 +2,8 @@ require "test_helper"
 
 describe ArticlesController do
 
-  When(:article)  { FactoryGirl.create(:article) }
-  When(:winery)   { FactoryGirl.create(:winery) }
+  Given(:article)  { FactoryGirl.create(:article) }
+  Given(:winery)   { FactoryGirl.create(:winery) }
 
   describe "#new" do 
 
@@ -26,18 +26,15 @@ describe ArticlesController do
 
   describe "#update" do 
 
-    When { put :update, id: article, article: { title: "new title" } }
+    When { put :update, id: article, winery_id: winery.id, article: { title: "new title" } }
     Then { assert_equal article.reload.title, "new title" }
   end
 
   describe "#destroy" do 
-    
-    Given(:article) { FactoryGirl.create(:article) }
-    # When(:make_request) { delete :destroy, id: article }
+    Given { article }
     Then do 
       assert_difference("Article.count", -1) do
-        # make_request
-        delete :destroy, id: article
+        delete :destroy, id: article, winery_id: winery.id
       end
     end
   end

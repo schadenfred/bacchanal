@@ -40,7 +40,7 @@ class WineriesController < ApplicationController
   private
 
     def set_winery
-      @winery = Winery.find(params[:id])
+      @winery = Winery.friendly.find(params[:id])
     end
 
     def winery_params
