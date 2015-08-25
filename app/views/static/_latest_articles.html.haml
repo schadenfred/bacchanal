@@ -1,0 +1,30 @@
+%section#news.module
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h2.module-title.font-alt Latest articles
+        .module-subtitle.font-serif
+          bac·cha·nal
+          \/ˌbäkəˈnäl,ˌbakəˈnäl,ˈbakənl/
+          %li an occasion of wild and drunken revelry.
+          %li a priest, worshiper, or follower of Bacchus.
+    .row.multi-columns-row.post-columns
+      - Article.last(3).each do |article|
+        .col-sm-6.col-md-4.col-lg-4
+          .post.mb-20
+            .post-thumbnail
+              = link_to((image_tag "post-1.jpg"), polymorphic_path([article.org, article]))
+            .post-header.font-alt
+              %h2.post-title
+                = link_to article.title, polymorphic_path([article.org, article])
+              .post-meta
+                By
+                = link_to article.org.name, article.org
+                | 
+                = time_ago_in_words(article.created_at) + " ago." 
+                | 
+                %span.badge= article.comments.size
+            .post-entry
+              %p= truncate(article.content, length: 150)
+            .post-more
+              = link_to "Read more", poly_article_path(article)
