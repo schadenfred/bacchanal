@@ -1,25 +1,20 @@
-/ Count to start
 %section.module.bg-dark-60{"data-background" => image_path("section-1.jpg")}
   .container
     .row
       .col-sm-6.col-sm-offset-3
         %h2.module-title.font-alt Scoreboard
-    / .row
     .row.multi-columns-row
-      / CountTo start
       .col-sm-6.col-md-3.col-lg-3
         .count-item.mb-sm-40
           .count-icon
             %span.icon-wallet
-          %h3.count-to.font-alt{"data-countto" => "6543"}
+          %h3.count-to.font-alt{"data-countto" => Wine.count }
           %h5.count-title.font-serif wines reviewed
-      / CountTo end
-      / CountTo start
       .col-sm-6.col-md-3.col-lg-3
         .count-item.mb-sm-40
           .count-icon
             %span.icon-wine
-          %h3.count-to.font-alt{"data-countto" => "800"}
+          %h3.count-to.font-alt{"data-countto" => Winery.count}
           %h5.count-title.font-serif Wineries listed
       / CountTo end
       / CountTo start
@@ -27,16 +22,16 @@
         .count-item.mb-sm-40
           .count-icon
             %span.icon-camera
-          %h3.count-to.font-alt{"data-countto" => "184"}
-          %h5.count-title.font-serif Vineyards listed
+          %h3.count-to.font-alt{"data-countto" => Article.count }
+          %h5.count-title.font-serif Articles published
       / CountTo end
       / CountTo start
       .col-sm-6.col-md-3.col-lg-3
         .count-item.mb-sm-40
           .count-icon
             %span.icon-map-pin
-          %h3.count-to.font-alt{"data-countto" => "15"}
-          %h5.count-title.font-serif Appellations covered
+          %h3.count-to.font-alt{"data-countto" => Event.count}
+          %h5.count-title.font-serif Events covered
       / CountTo end
     / .row
 / Count to end

@@ -11,7 +11,6 @@ namespace 'db:development:create' do
         content: Faker::Stoked.sentences(2),
         commenter_id: user_ids.sample 
       )
-      
       a.save!
     end
   end
