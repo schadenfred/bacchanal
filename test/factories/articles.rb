@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :article do
     content "MyText"
-title "MyString"
+    title "MyString"
+    org
   end
 
 end

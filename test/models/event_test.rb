@@ -1,11 +1,11 @@
 require "test_helper"
 
-class EventTest < ActiveSupport::TestCase
-  def event
-    @event ||= Event.new
-  end
+describe Event do
 
-  def test_valid
-    assert event.valid?
+  subject { Event }
+
+  specify "associations" do 
+
+    must_belong_to :competition
   end
 end

@@ -1,49 +1,44 @@
-# require "test_helper"
+require "test_helper"
 
-# class ArticlesControllerTest < ActionController::TestCase
-#   def article
-#     @article ||= articles :one
-#   end
+describe ArticlesController do
 
-#   def test_index
-#     get :index
-#     assert_response :success
-#     assert_not_nil assigns(:articles)
-#   end
+  When(:article)  { FactoryGirl.create(:article) }
+  When(:winery)   { FactoryGirl.create(:winery) }
 
-#   def test_new
-#     get :new
-#     assert_response :success
-#   end
+  describe "#new" do 
 
-#   def test_create
-#     assert_difference("Article.count") do
-#       post :create, article: { content: article.content, title: article.title }
-#     end
+    Given { get :new, winery_id: winery.id }
+    Then  { assert_response :success }
+    And   { assert_not_nil assigns :bloggable }    
+    And   { assert_not_nil assigns :article }    
+  end
+  
+  describe "#create" do 
 
-#     assert_redirected_to article_path(assigns(:article))
-#   end
+    Given(:make_request) { post :create, winery_id: winery.id, article: { title: "Sweet title", content: "sweet content" }}
+    Then do
+      assert_difference("Article.count") do
+        make_request
+      end
+      assert_redirected_to winery_articles_path(winery)
+    end
+  end
 
-#   def test_show
-#     get :show, id: article
-#     assert_response :success
-#   end
+  describe "#update" do 
 
-#   def test_edit
-#     get :edit, id: article
-#     assert_response :success
-#   end
+    When { put :update, id: article, article: { title: "new title" } }
+    Then { assert_equal article.reload.title, "new title" }
+  end
 
-#   def test_update
-#     put :update, id: article, article: { content: article.content, title: article.title }
-#     assert_redirected_to article_path(assigns(:article))
-#   end
-
-#   def test_destroy
-#     assert_difference("Article.count", -1) do
-#       delete :destroy, id: article
-#     end
-
-#     assert_redirected_to articles_path
-#   end
-# end
+  describe "#destroy" do 
+    
+    Given(:article) { FactoryGirl.create(:article) }
+    # When(:make_request) { delete :destroy, id: article }
+    Then do 
+      assert_difference("Article.count", -1) do
+        # make_request
+        delete :destroy, id: article
+      end
+    end
+  end
+end

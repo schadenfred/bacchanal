@@ -10,7 +10,7 @@
   %tbody
     - @wineries.each do |winery|
       %tr
-        %td= link_to 'Show', winery
+        %td= link_to winery.name, winery
         %td= link_to 'Edit', edit_winery_path(winery)
         %td= link_to 'Destroy', winery, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

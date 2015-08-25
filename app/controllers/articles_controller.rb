@@ -1,37 +1,35 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_bloggable, only: [:create, :index, :new]
 
-  # GET /articles
   def index
-    @articles = Article.all
+    @articles = @bloggable.articles.all
   end
 
-  # GET /articles/1
   def show
   end
 
-  # GET /articles/new
   def new
-    @article = Article.new
+
+    @article = @bloggable.articles.new
   end
 
-  # GET /articles/1/edit
   def edit
   end
 
-  # POST /articles
   def create
-    @article = Article.new(article_params)
+
+    @article = @bloggable.articles.new(article_params)
 
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to [@bloggable, :articles], notice: 'Article was successfully created.'
     else
       render :new
     end
   end
 
-  # PATCH/PUT /articles/1
   def update
+
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
     else
@@ -39,19 +37,25 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # DELETE /articles/1
   def destroy
+
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to @article.org, notice: 'Article was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_article
+
       @article = Article.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    def set_bloggable
+
+      klass = [Winery, Org].detect { |c| params["#{c.name.underscore}_id"]}
+      @bloggable = klass.find(params["#{klass.name.underscore}_id"])
+    end
+
     def article_params
       params.require(:article).permit(:content, :title)
     end

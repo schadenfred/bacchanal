@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :events
-  resources :competitions
-  resources :orgs
   mount Buttafly::Engine, at: "/buttafly"
   
-  resources :comments
-  resources :articles
   devise_for :users
 
-  # static page routes
   get '/about',   to: "static#about"
   get '/terms',   to: "static#terms"
   get '/privacy', to: "static#privacy"
@@ -17,23 +11,34 @@ Rails.application.routes.draw do
   get '/contact', to: "static#contact"
   get '/home',    to: "static#home"
 
-  concern :media_produceable do 
-    resources :addresses, shallow: true
-    resources :galleries, :photos 
+  concern :media_promotable do 
+    
+    shallow do 
+      resources :galleries, :photos, :articles
+    end
+    # resources :articles, shallow: true #only: [:show, :index, :new]
+  end
+
+  resources :orgs do 
+    # concerns :media_promotable
+  end 
+
+  # resources :articles, only: [:destroy, :edit, :new, :update]
+
+  resources :competitions, shallow: true do 
+    # concerns :media_promotable
+    resources :events
   end
 
   resources :producers do 
+    # concerns :media_promotable
     resources :products
-    concerns :media_produceable
   end 
   
   resources :wineries do 
+    concerns :media_promotable
     resources :wines
-    concerns :media_produceable
   end
     
-  # root
   root 'static#home'
-
-
 end

@@ -54,6 +54,8 @@ gem 'country_select', github: 'stefanpenner/country_select'
 # http://www.rubydoc.info/gems/meta-tags-helpers/0.2.0
 gem 'meta-tags-helpers', '~> 0.2.0'
 
+# SEO friendly urls
+
 # Configuration
 gem 'figaro'
 
@@ -84,13 +86,13 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'guard-livereload'
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # debugger
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
+  # Access an IRB console on exception pages 
   gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # reload development server
   gem 'spring'
 end
 
@@ -104,7 +106,8 @@ group :development do
 
   # fake data for development
   gem 'faker'
-
+  gem 'faker-stoked', github: 'schadenfred/faker-stoked', tag: 'v0.2.8'
+  gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
 end
 
 group :test do 
