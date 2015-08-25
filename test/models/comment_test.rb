@@ -6,7 +6,7 @@ describe Comment do
 
   specify "associations" do
 
-    # must_belong_to :article
-    # must_belong_to :commentable
+    must_belong_to :commentable
+    must_belong_to :commenter
   end
 end

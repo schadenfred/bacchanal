@@ -5,76 +5,41 @@
       .col-sm-3
         / Widget start
         .widget
-          %h5.widget-title.font-alt About Rival
-          %p The languages only differ in their grammar, their pronunciation and their most common words.
+          %h5.widget-title.font-alt About Bacchan.al
+          %p Bacchan.al is designed to help small famers and food producers differentiate themselves from the bigger ones, who may not care quite as much.
           %p
-            Phone: +1 234 567 89 10
-            %br>/
-            Fax: +1 234 567 89 10
+            Phone: +1 510 207 3450
           %p
             Email:
-            %a{:href => "#"} somecompany@example.com
-        / Widget end
+            = mail_to "fred.schoeneman@bacchan.al"
       .col-sm-3
-        / Widget start
         .widget
           %h5.widget-title.font-alt Recent Comments
           %ul.icon-list
-            %li
-              Maria on
-              %a{:href => "#"} Designer Desk Essentials
-            %li
-              John on
-              %a{:href => "#"} Realistic Business Card Mockup
-            %li
-              Andy on
-              %a{:href => "#"} Eco bag Mockup
-            %li
-              Jack on
-              %a{:href => "#"} Bottle Mockup
-            %li
-              Mark on
-              %a{:href => "#"} Our trip to the Alps
-        / Widget end
+            - Comment.last(5).each do |comment|
+              %li
+                = comment.commenter.name 
+                on
+                = link_to comment.commentable.title.titleize, polymorphic_path([comment.commentable.org, comment.commentable])
+
       .col-sm-3
-        / Widget start
         .widget
           %h5.widget-title.font-alt Categories
           %ul.icon-list
-            %li
-              %a{:href => "#"} Photography - 7
-            %li
-              %a{:href => "#"} Web Design - 3
-            %li
-              %a{:href => "#"} Illustration - 12
-            %li
-              %a{:href => "#"} Marketing - 1
-            %li
-              %a{:href => "#"} WordPress - 16
-        / Widget end
+            - %w[wine winery event competition article].each do |m|
+              %li
+                = link_to m.pluralize.capitalize + " " + m.pluralize.classify.constantize.count.to_s, "#"
       .col-sm-3
-        / Widget start
         .widget
-          %h5.widget-title.font-alt Popular posts
+          %h5.widget-title.font-alt Recent articles
           %ul.widget-posts
-            %li.clearfix
-              .widget-posts-image
-                %a{:href => "#"}
-                  = image_tag "rp-1.jpg"
-              .widget-posts-body
-                .widget-posts-title
-                  %a{:href => "#"} Designer Desk Essentials
-                .widget-posts-meta
-                  23 November
-            %li.clearfix
-              .widget-posts-image
-                %a{:href => "#"}
-                  = image_tag "rp-2.jpg"
-              .widget-posts-body
-                .widget-posts-title
-                  %a{:href => "#"} Realistic Business Card Mockup
-                .widget-posts-meta
-                  15 November
-        / Widget end
-    / .row
-/ Widgets end
+            - Article.last(2).each do |article|
+              %li.clearfix
+                .widget-posts-image
+                  = link_to(image_tag("rp-1.jpg"), "#")
+                .widget-posts-body
+                  .widget-posts-title
+                    = link_to article.title, polymorphic_path([article.org, article])
+                  .widget-posts-meta
+                    = distance_of_time_in_words(article.created_at, Time.now)
+                    ago
