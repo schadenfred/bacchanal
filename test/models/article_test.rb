@@ -25,4 +25,10 @@ describe Article do
     must_belong_to(:author)
     must_have_many(:comments)
   end
+
+  specify "methods" do 
+
+    assert subject.new.respond_to?(:tag_list)
+    assert subject.new.respond_to?(:category_list)
+  end
 end

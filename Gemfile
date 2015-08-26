@@ -57,6 +57,9 @@ gem 'meta-tags-helpers', '~> 0.2.0'
 # SEO friendly urls
 gem 'friendly_id', '~> 5.1.0'
 
+# tags across different models
+gem 'acts-as-taggable-on'
+
 # Configuration
 gem 'figaro'
 

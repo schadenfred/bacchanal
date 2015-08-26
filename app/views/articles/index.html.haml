@@ -24,16 +24,14 @@
                 = time_ago_in_words(article.created_at) + " ago." 
                 | 
                 = pluralize(article.comments.count, 'comment')
-                |
-        /       = succeed "," do
-        /         %a{:href => "#"} Photography
-        /       %a{:href => "#"} Web Design
-        /   .post-entry
-        /     %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-        /   .post-more
-        /     %a.more-link{:href => "blog-single-right.html"} Read more
-        / Post with thumbnail end
-        / Post text only start
+                | Tags:
+                - article.tag_list.each do |tag|
+                  = succeed "," do
+                    = link_to tag
+          .post-entry
+            %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+          .post-more
+            %a.more-link{:href => "blog-single-right.html"} Read more
         .post
           .post-header.font-alt
             %h2.post-title
