@@ -1,23 +1,333 @@
-%h1 Listing articles
-
-%table
-  %thead
-    %tr
-      %th Content
-      %th Title
-      %th
-      %th
-      %th
-
-  %tbody
-    - @articles.each do |article|
-      %tr
-        %td= article.content
-        %td= article.title
-        %td= link_to 'Show', polymorphic_path([@winery, article])
-        %td= link_to 'Edit', edit_article_path(article)
-        %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-/ = link_to 'New Article', polymorphic_path([@winery, :article], action: :new)
+/ .main
+%section.module-small.bg-dark.bg-dark-30{"data-background" => "assets/images/section-8.jpg"}
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h1.module-title.font-alt= @bloggable.name
+        .module-subtitle.font-serif.mb-0
+          Odds, Ends.
+%section.module
+  .container
+    .row
+      .col-sm-8
+        - @articles.each do |article|
+          .post
+            .post-thumbnail
+              = link_to image_tag("post-4.jpg"), poly_path(article)
+          .post-header.font-alt
+            %h2.post-title
+              = link_to article.title, poly_path(article)
+              .post-meta
+                By
+                = link_to article.author.name, "#"
+                | 
+                = time_ago_in_words(article.created_at) + " ago." 
+                | 
+                = pluralize(article.comments.count, 'comment')
+                |
+        /       = succeed "," do
+        /         %a{:href => "#"} Photography
+        /       %a{:href => "#"} Web Design
+        /   .post-entry
+        /     %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+        /   .post-more
+        /     %a.more-link{:href => "blog-single-right.html"} Read more
+        / Post with thumbnail end
+        / Post text only start
+        .post
+          .post-header.font-alt
+            %h2.post-title
+              %a{:href => "blog-single-left.html"} Post with text only
+            .post-meta
+              By
+              %a{:href => "#"} Mark Stone
+              | 23 November | 3 Comments |
+              = succeed "," do
+                %a{:href => "#"} Marketing
+              %a{:href => "#"} Web Design
+          .post-entry
+            %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+          .post-more
+            %a.more-link{:href => "blog-single-right.html"} Read more
+        / Post text only end
+        / Post quote start
+        .post
+          .post-quote
+            %blockquote.font-serif
+              %p " The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. "
+              %p.font-inc.font-uppercase - Thomas Anderson
+        / Post quote end
+        / Post video start
+        .post
+          .post-video
+            %iframe{:allowfullscreen => "", :height => "250", :src => "//www.youtube.com/embed/zpOULjyy-n8?rel=0", :width => "420"}
+          .post-header.font-alt
+            %h2.post-title
+              %a{:href => "blog-single-left.html"} Post with video
+            .post-meta
+              By
+              %a{:href => "#"} Mark Stone
+              | 23 November | 3 Comments |
+              = succeed "," do
+                %a{:href => "#"} Marketing
+              %a{:href => "#"} Web Design
+          .post-entry
+            %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+          .post-more
+            %a.more-link{:href => "blog-single-right.html"} Read more
+        / Post video end
+        / Post slider start
+        .post
+          .post-images-slider
+            %ul.slides
+              %li
+                %img{:alt => "", :src => "assets/images/post-4.jpg"}/
+              %li
+                %img{:alt => "", :src => "assets/images/post-5.jpg"}/
+          .post-header.font-alt
+            %h2.post-title
+              %a{:href => "blog-single-left.html"} Post with slideshow
+            .post-meta
+              By
+              %a{:href => "#"} Mark Stone
+              | 23 November | 3 Comments |
+              = succeed "," do
+                %a{:href => "#"} Marketing
+              %a{:href => "#"} Web Design
+          .post-entry
+            %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+          .post-more
+            %a.more-link{:href => "blog-single-right.html"} Read more
+        / Post slider end
+        / Pagination start
+        .pagination.font-alt
+          %a{:href => "#"}
+            %i.fa.fa-angle-left
+          %a.active{:href => "#"} 1
+          %a{:href => "#"} 2
+          %a{:href => "#"} 3
+          %a{:href => "#"} 4
+          %a{:href => "#"}
+            %i.fa.fa-angle-right
+        / Pagination end
+      / Content column end
+      / Sidebar column start
+      .col-sm-4.col-md-3.col-md-offset-1.sidebar
+        / Widget start
+        .widget
+          %form{:role => "form"}
+            .search-box
+              %input.form-control{:placeholder => "Search...", :type => "text"}/
+              %button.search-btn{:type => "submit"}
+                %i.fa.fa-search
+        / Widget end
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Categories
+          %ul.icon-list
+            %li
+              %a{:href => "#"} Photography - 7
+            %li
+              %a{:href => "#"} Web Design - 3
+            %li
+              %a{:href => "#"} Illustration - 12
+            %li
+              %a{:href => "#"} Marketing - 1
+            %li
+              %a{:href => "#"} WordPress - 16
+        / Widget end
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Popular posts
+          %ul.widget-posts
+            %li.clearfix
+              .widget-posts-image
+                %a{:href => "#"}
+                  %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+              .widget-posts-body
+                .widget-posts-title
+                  %a{:href => "#"} Designer Desk Essentials
+                .widget-posts-meta
+                  23 November
+            %li.clearfix
+              .widget-posts-image
+                %a{:href => "#"}
+                  %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+              .widget-posts-body
+                .widget-posts-title
+                  %a{:href => "#"} Realistic Business Card Mockup
+                .widget-posts-meta
+                  15 November
+            %li.clearfix
+              .widget-posts-image
+                %a{:href => "#"}
+                  %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
+              .widget-posts-body
+                .widget-posts-title
+                  %a{:href => "#"} Eco bag Mockup
+                .widget-posts-meta
+                  5 November
+            %li.clearfix
+              .widget-posts-image
+                %a{:href => "#"}
+                  %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
+              .widget-posts-body
+                .widget-posts-title
+                  %a{:href => "#"} Bottle Mockup
+                .widget-posts-meta
+                  1 November
+        / Widget end
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Tags
+          .tags.font-serif
+            %a{:href => "#", :rel => "tag"} Blog
+            %a{:href => "#", :rel => "tag"} Photo
+            %a{:href => "#", :rel => "tag"} Video
+            %a{:href => "#", :rel => "tag"} Image
+            %a{:href => "#", :rel => "tag"} Minimal
+            %a{:href => "#", :rel => "tag"} Post
+            %a{:href => "#", :rel => "tag"} Theme
+            %a{:href => "#", :rel => "tag"} Ideas
+            %a{:href => "#", :rel => "tag"} Tags
+            %a{:href => "#", :rel => "tag"} Bootstrap
+            %a{:href => "#", :rel => "tag"} Popular
+            %a{:href => "#", :rel => "tag"} English
+        / Widget end
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Text
+          The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
+        / Widget end
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Recent Comments
+          %ul.icon-list
+            %li
+              Maria on
+              %a{:href => "#"} Designer Desk Essentials
+            %li
+              John on
+              %a{:href => "#"} Realistic Business Card Mockup
+            %li
+              Andy on
+              %a{:href => "#"} Eco bag Mockup
+            %li
+              Jack on
+              %a{:href => "#"} Bottle Mockup
+            %li
+              Mark on
+              %a{:href => "#"} Our trip to the Alps
+        / Widget end
+      / Sidebar column end
+    / .row
+/ Blog standar end
+/ Widgets start
+.module-small.bg-dark
+  .container
+    .row
+      .col-sm-3
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt About Rival
+          %p The languages only differ in their grammar, their pronunciation and their most common words.
+          %p
+            Phone: +1 234 567 89 10
+            %br>/
+            Fax: +1 234 567 89 10
+          %p
+            Email:
+            %a{:href => "#"} somecompany@example.com
+        / Widget end
+      .col-sm-3
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Recent Comments
+          %ul.icon-list
+            %li
+              Maria on
+              %a{:href => "#"} Designer Desk Essentials
+            %li
+              John on
+              %a{:href => "#"} Realistic Business Card Mockup
+            %li
+              Andy on
+              %a{:href => "#"} Eco bag Mockup
+            %li
+              Jack on
+              %a{:href => "#"} Bottle Mockup
+            %li
+              Mark on
+              %a{:href => "#"} Our trip to the Alps
+        / Widget end
+      .col-sm-3
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Categories
+          %ul.icon-list
+            %li
+              %a{:href => "#"} Photography - 7
+            %li
+              %a{:href => "#"} Web Design - 3
+            %li
+              %a{:href => "#"} Illustration - 12
+            %li
+              %a{:href => "#"} Marketing - 1
+            %li
+              %a{:href => "#"} WordPress - 16
+        / Widget end
+      .col-sm-3
+        / Widget start
+        .widget
+          %h5.widget-title.font-alt Popular posts
+          %ul.widget-posts
+            %li.clearfix
+              .widget-posts-image
+                %a{:href => "#"}
+                  %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+              .widget-posts-body
+                .widget-posts-title
+                  %a{:href => "#"} Designer Desk Essentials
+                .widget-posts-meta
+                  23 November
+            %li.clearfix
+              .widget-posts-image
+                %a{:href => "#"}
+                  %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+              .widget-posts-body
+                .widget-posts-title
+                  %a{:href => "#"} Realistic Business Card Mockup
+                .widget-posts-meta
+                  15 November
+        / Widget end
+    / .row
+/ Widgets end
+/ Divider
+%hr.divider-d/
+/ Divider
+/ Footer start
+%footer.footer.bg-dark
+  .container
+    .row
+      .col-sm-6
+        %p.copyright.font-alt
+          © 2015
+          = succeed "," do
+            %a{:href => "index.html"} Rival
+      .col-sm-6
+        .footer-social-links
+          %a{:href => "#"}
+            %i.fa.fa-facebook
+          %a{:href => "#"}
+            %i.fa.fa-twitter
+          %a{:href => "#"}
+            %i.fa.fa-dribbble
+          %a{:href => "#"}
+            %i.fa.fa-skype
+    / .row
+/ Footer end
+/ Wrapper start
+/ Scroll-up
+.scroll-up
+%a{:href => "#totop"}
+  %i.fa.fa-angle-double-up

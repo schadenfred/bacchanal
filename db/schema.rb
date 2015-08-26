@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150825011204) do
     t.text     "content"
     t.string   "title"
     t.string   "slug"
+    t.integer  "author_id"
     t.string   "bloggable_type"
     t.integer  "bloggable_id"
     t.datetime "created_at",     null: false

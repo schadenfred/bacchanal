@@ -5,6 +5,7 @@ class Article < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :org
+  belongs_to :author, class_name: "User", foreign_key: :author_id
 
   has_many :comments, as: :commentable
 

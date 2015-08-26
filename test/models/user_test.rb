@@ -21,4 +21,9 @@ describe User do
       must_have_index([:invited_by_id, :invited_by_type]) 
     end
   end
+
+  specify "associations" do 
+
+    must_have_many(:articles)
+  end
 end

@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def poly_article_path(article)
+  def poly_path(article)
     polymorphic_path([article.org, article])
   end
 end

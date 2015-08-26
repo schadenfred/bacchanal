@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.text :content
       t.string :title
       t.string :slug
+      t.integer :author_id
       t.string :bloggable_type
       t.integer :bloggable_id
 
