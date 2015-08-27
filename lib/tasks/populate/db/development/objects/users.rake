@@ -9,6 +9,7 @@ namespace 'db:development:create' do
     testers = [
       "fred schoeneman"
     ]
+
     
 
     testers.each do |fullname|
@@ -39,7 +40,7 @@ namespace 'db:development:create' do
     small_notice("generic users")
     # (@users.to_i - (testers.count * tester_roles.count)).times do |n|
     (@users.to_i - (testers.count)).times do |n|
-      name = Faker::Name.name 
+      name = Faker::Stoked.celebroty 
       email = Faker::Internet.email
       password  = "password"
       user = User.new(name: name,

@@ -8,12 +8,12 @@ namespace 'db:development:create' do
     5.times do 
       article = winery.articles.new(
         title: Faker::Stoked.food,
-        content: Faker::Stoked.sentences(3),
+        content: Faker::Stoked.paragraphs(3),
         author_id: user_ids.sample
       )
       article.save!
-      article.tag_list = "pinot noir, clowns, existentialism"
-      article.category_list = "winemaking, vineyards"
+      article.tag_list = Faker::Stoked.interests.sample(4)
+      article.category_list = Faker::Stoked.things.sample(4)
       article.save
     end
   end

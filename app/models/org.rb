@@ -4,5 +4,7 @@ class Org < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
+  acts_as_tagger
+
   has_many :articles
 end

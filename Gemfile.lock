@@ -24,19 +24,17 @@ GIT
     faker-bloocher (0.1.3)
 
 GIT
-  remote: git://github.com/schadenfred/faker-stoked.git
-  revision: ee86afd2b0ae31bda4a8f8723eb6802309071e48
-  tag: v0.2.8
-  specs:
-    faker-stoked (0.2.8)
-
-GIT
   remote: git://github.com/stefanpenner/country_select.git
   revision: 20f83bda911abd7c1d5cb96fd37f9ea22d892f0e
   specs:
     country_select (2.2.0)
       countries (~> 0.11.0)
       sort_alphabetical (~> 1.0)
+
+PATH
+  remote: ~/work/opensource/faker-stoked
+  specs:
+    faker-stoked (0.2.8)
 
 GEM
   remote: https://rubygems.org/
