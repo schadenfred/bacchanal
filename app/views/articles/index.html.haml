@@ -515,8 +515,9 @@
               .widget
                 %h5.widget-title.font-alt Recent Comments
                 %ul.icon-list
-                  = @bloggable
-                  = Comment.where(commentable_id: Article.where(bloggable_type: @bloggable.class.to_s, bloggable_id: @bloggable.id), commentable_type: "Article").count
+                  / # = @bloggable
+                  / = Comment.count
+                  / = Comment.where(commentable_id: Article.where(bloggable_type: @bloggable.class.to_s, bloggable_id: @bloggable.id), commentable_type: "Article").count
                   %li
                     Maria on
                     %a{:href => "#"} Designer Desk Essentials
@@ -627,7 +628,7 @@
               %p.copyright.font-alt
                 © 2015
                 = succeed "," do
-                  %a{:href => "index.html"} Rival
+                  %a{:href => "index.html"} Bacchan.al
             .col-sm-6
               .footer-social-links
                 %a{:href => "#"}
