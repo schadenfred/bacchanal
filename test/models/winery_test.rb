@@ -16,6 +16,7 @@ describe Winery do
 
     specify do
       must_respond_to(:properties)
+      must_respond_to(:owned_taggings)
     end
   end
 end

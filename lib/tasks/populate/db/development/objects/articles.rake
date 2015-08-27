@@ -12,9 +12,8 @@ namespace 'db:development:create' do
         author_id: user_ids.sample
       )
       article.save!
-      article.tag_list = Faker::Stoked.interests.sample(4)
-      article.category_list = Faker::Stoked.things.sample(4)
-      article.save
+      winery.tag(article, with: Faker::Stoked.interests.sample(4).flatten.join(","), on: :categories)      
+      winery.tag(article, with: Faker::Stoked.things.sample(4).flatten.join(","), on: :tags) 
     end
   end
 end

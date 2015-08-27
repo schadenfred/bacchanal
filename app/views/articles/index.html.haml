@@ -452,79 +452,14 @@
                         | 
                         = pluralize(article.comments.count, 'comment')
                         | Tags:
-                        - article.tag_list.each do |tag|
-                          = succeed "," do
-                            = link_to tag
+                        - article.all_tags_list.each_with_index do |tag, i|
+                          = i == 0 ? "" : ","
+                          = link_to tag
                   .post-entry
                     %p= simple_format(truncate(article.content, length: 250))
                   .post-more
-                    %a.more-link{:href => "blog-single-right.html"} Read more
-              .post
-                .post-header.font-alt
-                  %h2.post-title
-                    %a{:href => "blog-single-left.html"} Post with text only
-                  .post-meta
-                    By
-                    %a{:href => "#"} Mark Stone
-                    | 23 November | 3 Comments |
-                    = succeed "," do
-                      %a{:href => "#"} Marketing
-                    %a{:href => "#"} Web Design
-                .post-entry
-                  %p truncate(article.content, 300)
-                .post-more
-                  %a.more-link{:href => "blog-single-right.html"} Read more
-              / Post text only end
-              / Post quote start
-              .post
-                .post-quote
-                  %blockquote.font-serif
-                    %p " The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. "
-                    %p.font-inc.font-uppercase - Thomas Anderson
-              / Post quote end
-              / Post video start
-              / .post
-              /   .post-video
-              /     %iframe{:allowfullscreen => "", :height => "250", :src => "//www.youtube.com/embed/zpOULjyy-n8?rel=0", :width => "420"}
-              /   .post-header.font-alt
-              /     %h2.post-title
-              /       %a{:href => "blog-single-left.html"} Post with video
-              /     .post-meta
-              /       By
-              /       %a{:href => "#"} Mark Stone
-              /       | 23 November | 3 Comments |
-              /       = succeed "," do
-              /         %a{:href => "#"} Marketing
-              /       %a{:href => "#"} Web Design
-              /   .post-entry
-              /     %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-              /   .post-more
-              /     %a.more-link{:href => "blog-single-right.html"} Read more
-              / / Post video end
-              / / Post slider start
-              / .post
-              /   .post-images-slider
-              /     %ul.slides
-              /       %li
-              /         %img{:alt => "", :src => "assets/images/post-4.jpg"}/
-              /       %li
-              /         %img{:alt => "", :src => "assets/images/post-5.jpg"}/
-              /   .post-header.font-alt
-              /     %h2.post-title
-              /       %a{:href => "blog-single-left.html"} Post with slideshow
-              /     .post-meta
-              /       By
-              /       %a{:href => "#"} Mark Stone
-              /       | 23 November | 3 Comments |
-              /       = succeed "," do
-              /         %a{:href => "#"} Marketing
-              /       %a{:href => "#"} Web Design
-              /   .post-entry
-              /     %p A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-              /   .post-more
-              /     %a.more-link{:href => "blog-single-right.html"} Read more
-              / Post slider end
-              / Pagination start
+                    = link_to "Read more", poly_path(article), class: "more-link"
+              
               .pagination.font-alt
                 %a{:href => "#"}
                   %i.fa.fa-angle-left
@@ -550,76 +485,28 @@
               .widget
                 %h5.widget-title.font-alt Categories
                 %ul.icon-list
-                  %li
-                    %a{:href => "#"} Photography - 7
-                  %li
-                    %a{:href => "#"} Web Design - 3
-                  %li
-                    %a{:href => "#"} Illustration - 12
-                  %li
-                    %a{:href => "#"} Marketing - 1
-                  %li
-                    %a{:href => "#"} WordPress - 16
+                  - @bloggable.owned_taggings.where(context: "categories").each do |tagging|
+                    %li
+                      = link_to tagging.tag
               / Widget end
               / Widget start
               .widget
                 %h5.widget-title.font-alt Popular posts
                 %ul.widget-posts
-                  %li.clearfix
-                    .widget-posts-image
-                      %a{:href => "#"}
-                        %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
-                    .widget-posts-body
-                      .widget-posts-title
-                        %a{:href => "#"} Designer Desk Essentials
-                      .widget-posts-meta
-                        23 November
-                  %li.clearfix
-                    .widget-posts-image
-                      %a{:href => "#"}
-                        %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
-                    .widget-posts-body
-                      .widget-posts-title
-                        %a{:href => "#"} Realistic Business Card Mockup
-                      .widget-posts-meta
-                        15 November
-                  %li.clearfix
-                    .widget-posts-image
-                      %a{:href => "#"}
-                        %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
-                    .widget-posts-body
-                      .widget-posts-title
-                        %a{:href => "#"} Eco bag Mockup
-                      .widget-posts-meta
-                        5 November
-                  %li.clearfix
-                    .widget-posts-image
-                      %a{:href => "#"}
-                        %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
-                    .widget-posts-body
-                      .widget-posts-title
-                        %a{:href => "#"} Bottle Mockup
-                      .widget-posts-meta
-                        1 November
-              / Widget end
-              / Widget start
+                  - @articles.each do |article|
+                    %li.clearfix
+                      .widget-posts-image
+                        = link_to image_tag("rp-1.jpg"), "#"
+                      .widget-posts-body
+                        .widget-posts-title
+                          = link_to article.title, poly_path(article)
+                        .widget-posts-meta
+                          = time_tag article.created_at
               .widget
                 %h5.widget-title.font-alt Tags
                 .tags.font-serif
-                  %a{:href => "#", :rel => "tag"} Blog
-                  %a{:href => "#", :rel => "tag"} Photo
-                  %a{:href => "#", :rel => "tag"} Video
-                  %a{:href => "#", :rel => "tag"} Image
-                  %a{:href => "#", :rel => "tag"} Minimal
-                  %a{:href => "#", :rel => "tag"} Post
-                  %a{:href => "#", :rel => "tag"} Theme
-                  %a{:href => "#", :rel => "tag"} Ideas
-                  %a{:href => "#", :rel => "tag"} Tags
-                  %a{:href => "#", :rel => "tag"} Bootstrap
-                  %a{:href => "#", :rel => "tag"} Popular
-                  %a{:href => "#", :rel => "tag"} English
-              / Widget end
-              / Widget start
+                  - @bloggable.owned_taggings.where(context: "tags").each do |tagging|
+                    = link_to tagging.tag
               .widget
                 %h5.widget-title.font-alt Text
                 The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
@@ -628,6 +515,9 @@
               .widget
                 %h5.widget-title.font-alt Recent Comments
                 %ul.icon-list
+                  / # = @bloggable
+                  / = Comment.count
+                  / = Comment.where(commentable_id: Article.where(bloggable_type: @bloggable.class.to_s, bloggable_id: @bloggable.id), commentable_type: "Article").count
                   %li
                     Maria on
                     %a{:href => "#"} Designer Desk Essentials
@@ -738,7 +628,7 @@
               %p.copyright.font-alt
                 © 2015
                 = succeed "," do
-                  %a{:href => "index.html"} Rival
+                  %a{:href => "index.html"} Bacchan.al
             .col-sm-6
               .footer-social-links
                 %a{:href => "#"}
