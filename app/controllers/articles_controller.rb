@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_bloggable, only: [:create, :index, :new]
 
   def index
-    @articles = @bloggable.articles.all
+    @articles = @bloggable.articles.order(:created_at).page params[:page]
   end
 
   def show

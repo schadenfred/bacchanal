@@ -461,14 +461,17 @@
                     = link_to "Read more", poly_path(article), class: "more-link"
               
               .pagination.font-alt
-                %a{:href => "#"}
-                  %i.fa.fa-angle-left
-                %a.active{:href => "#"} 1
-                %a{:href => "#"} 2
-                %a{:href => "#"} 3
-                %a{:href => "#"} 4
-                %a{:href => "#"}
-                  %i.fa.fa-angle-right
+              = paginate @articles
+              / %hr
+              / .pagination.font-alt
+              /   %a{:href => "#"}
+              /     %i.fa.fa-angle-left
+              /   %a.active{:href => "#"} 1
+              /   %a{:href => "#"} 2
+              /   %a{:href => "#"} 3
+              /   %a{:href => "#"} 4
+              /   %a{:href => "#"}
+              /     %i.fa.fa-angle-right
               / Pagination end
             / Content column end
             / Sidebar column start
@@ -508,51 +511,31 @@
                   - @bloggable.owned_taggings.where(context: "tags").each do |tagging|
                     = link_to tagging.tag
               .widget
-                %h5.widget-title.font-alt Text
-                The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
-              / Widget end
+                %h5.widget-title.font-alt= "about #{@bloggable.name}"
+                = simple_format(@bloggable.mission)
               / Widget start
               .widget
                 %h5.widget-title.font-alt Recent Comments
                 %ul.icon-list
-                  / # = @bloggable
-                  / = Comment.count
-                  / = Comment.where(commentable_id: Article.where(bloggable_type: @bloggable.class.to_s, bloggable_id: @bloggable.id), commentable_type: "Article").count
-                  %li
-                    Maria on
-                    %a{:href => "#"} Designer Desk Essentials
-                  %li
-                    John on
-                    %a{:href => "#"} Realistic Business Card Mockup
-                  %li
-                    Andy on
-                    %a{:href => "#"} Eco bag Mockup
-                  %li
-                    Jack on
-                    %a{:href => "#"} Bottle Mockup
-                  %li
-                    Mark on
-                    %a{:href => "#"} Our trip to the Alps
-              / Widget end
-            / Sidebar column end
-          / .row
-      / Blog standar end
-      / Widgets start
+                  - @bloggable.comments.each do |comment|
+                    %li
+                      = comment.commenter.name
+                      = link_to comment.commentable.title
       .module-small.bg-dark
         .container
           .row
             .col-sm-3
               / Widget start
               .widget
-                %h5.widget-title.font-alt About Rival
-                %p The languages only differ in their grammar, their pronunciation and their most common words.
+                %h5.widget-title.font-alt
+                  = @bloggable.name 
+                  story
+                = simple_format(@bloggable.mission)
                 %p
-                  Phone: +1 234 567 89 10
-                  %br>/
-                  Fax: +1 234 567 89 10
+                  Phone: +1 510 207 3450
                 %p
                   Email:
-                  %a{:href => "#"} somecompany@example.com
+                  = mail_to "fred.schoeneman@gmail.com"
               / Widget end
             .col-sm-3
               / Widget start
@@ -627,8 +610,7 @@
             .col-sm-6
               %p.copyright.font-alt
                 © 2015
-                = succeed "," do
-                  %a{:href => "index.html"} Bacchan.al
+                %a{:href => "index.html"} Bacchan.al
             .col-sm-6
               .footer-social-links
                 %a{:href => "#"}

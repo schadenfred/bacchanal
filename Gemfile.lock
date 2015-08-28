@@ -446,6 +446,7 @@ DEPENDENCIES
   guard-minitest
   haml-rails
   jquery-rails
+  kaminari
   kgio
   launchy
   meta-tags-helpers (~> 0.2.0)

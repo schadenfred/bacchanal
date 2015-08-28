@@ -22,8 +22,9 @@ describe Org do
 
   specify "associations" do 
 
-    # must_have_many :articles
-    # must_have_many :products
+    must_have_many :articles
+    must_have_many :comments
+
   end
 
   specify "scopes" do 

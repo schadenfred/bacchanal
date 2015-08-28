@@ -7,4 +7,5 @@ class Org < ActiveRecord::Base
   acts_as_tagger
 
   has_many :articles
+  has_many :comments, through: :articles
 end
