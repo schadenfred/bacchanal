@@ -1659,12 +1659,12 @@ Post
 }
 
 .pagination a {
-	border: 1px solid #eaeaea;
+	/*border: 1px solid #eaeaea;
 	display: inline-block;
 	text-transform: uppercase;
 	text-align: center;
 	color: #999;
-	padding: 4px 12px;
+	padding: 4px 12px;*/
 }
 
 .pagination a.active {

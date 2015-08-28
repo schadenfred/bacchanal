@@ -437,6 +437,10 @@
         .container
           .row
             .col-sm-8
+              = paginate @articles
+              %hr
+              .pagination.font-alt
+                = paginate @articles
               - @articles.each do |article|
                 .post
                   .post-thumbnail
@@ -461,7 +465,7 @@
                     = link_to "Read more", poly_path(article), class: "more-link"
               
               .pagination.font-alt
-              = paginate @articles
+                = paginate @articles
               / %hr
               / .pagination.font-alt
               /   %a{:href => "#"}
