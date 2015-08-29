@@ -6,7 +6,10 @@ class Org < ActiveRecord::Base
 
   acts_as_tagger
 
+  store_accessor :properties, :history, :mission
+
   has_many :articles
   has_many :categories, through: :articles
   has_many :comments, through: :articles
+  has_many :positions, as: :positionable
 end

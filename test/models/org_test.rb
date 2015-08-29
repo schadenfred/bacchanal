@@ -25,10 +25,10 @@ describe Org do
 
     must_have_many :articles
     must_have_many :comments
+    must_have_many :positions
   end
 
   specify "scopes" do 
     
-    # must_respond_to(:wineries)
   end 
 end

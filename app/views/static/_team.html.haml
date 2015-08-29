@@ -68,11 +68,12 @@
                 / %a{:href => "#"}
                 /   %i.fa.fa-skype
           .team-descr.font-alt
-            .team-name Fred Schoeneman
+            .team-name
+              / # - u == User.where(email: "fred.schoeneman@bacchan.al").first
+              / = u.email
+              / = Org.where(name: "bacchan.al").first.positions.where(user_id: User.where(email: "fred.schoeneman@bacchan.al").first)
             .team-role 
-            Founder
-            Developer
-            Designer
+              = Position.where(user_id: User.find_by(email: "fred.schoeneman@bacchan.al")).first.title
       / Team item end
       / Team item star
 /       .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp

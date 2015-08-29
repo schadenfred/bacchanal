@@ -2,7 +2,6 @@ namespace 'db:development:create' do
 
   task users: :environment do
 
-    # satisfy_dependencies(["role"])
     
     # tester_roles = Role.all.pluck(:name)
 
@@ -19,7 +18,7 @@ namespace 'db:development:create' do
         first = fullname.split.first
         last_initial = fullname.split.last.chars.first
         last = fullname.split.last
-        test_domain = "@bloocher.com"
+        test_domain = "@bacchan.al"
         # if tester_role.nil?
         #   email = first + "." + last_initial + test_domain
         # else

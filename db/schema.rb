@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828234239) do
+ActiveRecord::Schema.define(version: 20150829081224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 20150828234239) do
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+
+  create_table "authentications", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "buttafly_mappings", force: :cascade do |t|
     t.integer  "originable_id"
@@ -145,6 +153,18 @@ ActiveRecord::Schema.define(version: 20150828234239) do
     t.string   "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "positionable_id"
+    t.string   "positionable_type"
+    t.string   "title"
+    t.string   "description"
+    t.date     "tenure_start"
+    t.date     "tenure_end"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "products", force: :cascade do |t|
