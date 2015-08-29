@@ -4,20 +4,22 @@
 //= require bootstrap
 
 // vendor
-//= require jquery.mb.YTPlayer.min
+//= require jquery.mb.YTPlayer
 //= require appear
-//= require jquery.simple-text-rotator.min
+//= require jquery.simple-text-rotator
 //= require jqBootstrapValidation
 //= require gmaps
-//= require isotope.pkgd.min
+//= require isotope.pkgd
 //= require imagesloaded.pkgd
-//= require jquery.flexslider-min
-//= require jquery.magnific-popup.min
+//= require jquery.flexslider
+//= require jquery.magnific-popup
 //= require jquery.fitvids
+//= require jquery.tagcanvas
 //= require smoothscroll
 //= require wow.min
-//= require owl.carousel.min
+//= require owl.carousel
 //= require contact
+//= require wineries
 //= require custom
 //= require static
 

@@ -1,7 +1,8 @@
-# require "test_helper"
+require "test_helper"
 
-# class WineriesHelperTest < ActionView::TestCase
-#   def test_sanity
-#     flunk "Need real tests"
-#   end
-# end
+describe WineriesHelper do 
+
+  it "#flavor_choices" do 
+    flavor_choices.must_equal "blah"
+  end
+end

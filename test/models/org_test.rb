@@ -8,6 +8,7 @@ describe Org do
 
     specify "columns & types" do 
       
+      must_have_column(:blog_title, :string)
       must_have_column(:name, :string)
       must_have_column(:slug, :string)
       must_have_column(:properties, :hstore)
@@ -24,7 +25,6 @@ describe Org do
 
     must_have_many :articles
     must_have_many :comments
-
   end
 
   specify "scopes" do 

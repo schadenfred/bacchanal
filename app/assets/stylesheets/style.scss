@@ -5,7 +5,7 @@
 @import url("http://fonts.googleapis.com/css?family=Volkhov:400italic");
 @import url("http://fonts.googleapis.com/css?family=Old+Standard+TT");
 @import url("http://fonts.googleapis.com/css?family=Playfair+Display");
-
+@import url("http://fonts.googleapis.com/css?family=Special+Elite");
 /*$font-manifesto: 'Playfair Display', serif;*/
 $font-manifesto: 'Old Standard TT', serif;
 
@@ -1658,19 +1658,21 @@ Post
 	padding-left: 5px;
 }
 
-.pagination a {
-	/*border: 1px solid #eaeaea;
+.pagination span {
+	border: 1px solid #eaeaea;
 	display: inline-block;
 	text-transform: uppercase;
 	text-align: center;
-	color: #999;
-	padding: 4px 12px;*/
+	padding: 4px 12px;
+	a {
+		color: #999;
+	}
 }
 
-.pagination a.active {
-	border-color: #CACACA;
-}
-
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 2.2em; }
+.css3 { font-size: 3.4em; }
+.css4 { font-size: 4.6em; }
 /* -------------------------------------------------------------------
 Widgets
 ------------------------------------------------------------------- */

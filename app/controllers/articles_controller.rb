@@ -4,8 +4,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = @bloggable.articles.order(:created_at).page params[:page]
+    @tags = @bloggable.articles.tag_counts_on(:tags)
+
   end
 
+  def tag_cloud
+    @tags = @bloggable.tag_counts_on(:tags)
+
+  end
   def show
   end
 

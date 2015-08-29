@@ -1,0 +1,17 @@
+#wineryCanvasContainer
+  %canvas#wineryTags{:height => "300", :width => "300"}
+    %p Anything in here will be replaced on browsers that support the canvas element
+    %ul
+      - @tags.each do |tag|
+        %li
+          = link_to tag.name, data: { weight: tag.taggings_count }
+      / %li
+      /   %a{:href => "http://www.google.com", :target => "_blank"} Google
+      / %li
+      /   %a{:href => "/fish"} Fish
+      / %li
+      /   %a{:href => "/chips"} Chips
+      / %li
+      /   %a{:href => "/salt"} Salt
+      / %li
+      /   %a{:href => "/vinegar"} Vinegar
