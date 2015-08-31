@@ -4,5 +4,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :articles       
+  has_many :articles 
+
+  has_one :avatar, class_name: "Photo"      
 end

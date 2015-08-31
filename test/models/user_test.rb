@@ -16,7 +16,6 @@ describe User do
 
       must_have_index(:email) 
       must_have_index(:name) 
-      must_have_index(:name) 
       must_have_index(:reset_password_token) 
       must_have_index([:invited_by_id, :invited_by_type]) 
     end
@@ -25,5 +24,7 @@ describe User do
   specify "associations" do 
 
     must_have_many(:articles)
+    
+    must_have_one(:avatar)
   end
 end

@@ -54,7 +54,7 @@ module TestMatchers
   end
 
   def must_have_one(model)
-    subject.reflections[model.to_sym].macro.must_equal :has_one
+    subject.reflect_on_all_associations(:has_one).map(&:name).must_include model
   end
 
   def wont_belong_to(parent_model)

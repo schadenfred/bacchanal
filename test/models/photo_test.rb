@@ -1,11 +1,22 @@
 require "test_helper"
 
-class PhotoTest < ActiveSupport::TestCase
-  def photo
-    @photo ||= Photo.new
+describe Photo do 
+
+  subject { Photo }
+
+  describe "db" do 
+    
+    specify "columns & types" do 
+
+      must_have_column(:caption)
+      must_have_column(:image_name)
+      must_have_column(:image_uid)
+      must_have_column(:name)
+    end
   end
 
-  def test_valid
-    assert photo.valid?
+  specify "associations" do 
+
+    must_belong_to(:user)
   end
-end
+end       
