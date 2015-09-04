@@ -1,12 +1,6 @@
 
 .main
-  %section.module-small.bg-dark.bg-dark-30{"data-background" => "assets/images/section-8.jpg"}
-    .container
-      .row
-        .col-sm-6.col-sm-offset-3
-          %h1.module-title.font-alt= @bloggable.name
-          .module-subtitle.font-serif.mb-0
-            = @bloggable.blog_title.titleize
+  = render "top"
   %section.module
     .container
       .row
@@ -36,163 +30,15 @@
           
           .pagination.font-alt
             = paginate @articles
-        .col-sm-4.col-md-3.col-md-offset-1.sidebar
-          / Widget start
-          .widget
-            %form{:role => "form"}
-              .search-box
-                %input.form-control{:placeholder => "Search...", :type => "text"}/
-                %button.search-btn{:type => "submit"}
-                  %i.fa.fa-search
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt cloud
-            = render partial: "tag_cloud", locals: { tags: @tags }
-            / - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| 
-            /   = link_to tag.name, :class => css_class
-            / - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-            /   = link_to tag.name, { :id => tag.name }, :class => css_class
-          .widget
-            %h5.widget-title.font-alt Categories
-            %ul.icon-list
-              - @bloggable.owned_taggings.where(context: "categories").each do |tagging|
-                %li
-                  = link_to tagging.tag
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Popular posts
-            %ul.widget-posts
-              - @articles.each do |article|
-                %li.clearfix
-                  .widget-posts-image
-                    = link_to image_tag("rp-1.jpg"), "#"
-                  .widget-posts-body
-                    .widget-posts-title
-                      = link_to article.title, poly_path(article)
-                    .widget-posts-meta
-                      = time_tag article.created_at
-          .widget
-            %h5.widget-title.font-alt Tags
-            .tags.font-serif
-              - @bloggable.owned_taggings.where(context: "tags").each do |tagging|
-                = link_to tagging.tag
-          .widget
-            %h5.widget-title.font-alt= "about #{@bloggable.name}"
-            = simple_format(@bloggable.mission)
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Recent Comments
-            %ul.icon-list
-              - @bloggable.comments.each do |comment|
-                %li
-                  = comment.commenter.name
-                  = link_to comment.commentable.title.titleize, poly_path(comment.commentable)
-  .module-small.bg-dark
-    .container
-      .row
-        .col-sm-3
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt
-              = @bloggable.name 
-              story
-            = simple_format(@bloggable.mission)
-            %p
-              Phone: +1 510 207 3450
-            %p
-              Email:
-              = mail_to "fred.schoeneman@gmail.com"
-          / Widget end
-        .col-sm-3
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Recent Comments
-            %ul.icon-list
-              %li
-                Maria on
-                %a{:href => "#"} Designer Desk Essentials
-              %li
-                John on
-                %a{:href => "#"} Realistic Business Card Mockup
-              %li
-                Andy on
-                %a{:href => "#"} Eco bag Mockup
-              %li
-                Jack on
-                %a{:href => "#"} Bottle Mockup
-              %li
-                Mark on
-                %a{:href => "#"} Our trip to the Alps
-          / Widget end
-        .col-sm-3
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Categories
-            %ul.icon-list
-              %li
-                %a{:href => "#"} Photography - 7
-              %li
-                %a{:href => "#"} Web Design - 3
-              %li
-                %a{:href => "#"} Illustration - 12
-              %li
-                %a{:href => "#"} Marketing - 1
-              %li
-                %a{:href => "#"} WordPress - 16
-          / Widget end
-        .col-sm-3
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Popular posts
-            %ul.widget-posts
-              %li.clearfix
-                .widget-posts-image
-                  %a{:href => "#"}
-                    %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
-                .widget-posts-body
-                  .widget-posts-title
-                    %a{:href => "#"} Designer Desk Essentials
-                  .widget-posts-meta
-                    23 November
-              %li.clearfix
-                .widget-posts-image
-                  %a{:href => "#"}
-                    %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
-                .widget-posts-body
-                  .widget-posts-title
-                    %a{:href => "#"} Realistic Business Card Mockup
-                  .widget-posts-meta
-                    15 November
-          / Widget end
-      / .row
-  / Widgets end
-  / Divider
+        = render "side"
+  = render 'widgets'
   %hr.divider-d/
   / Divider
   / Footer start
-  %footer.footer.bg-dark
-    .container
-      .row
-        .col-sm-6
-          %p.copyright.font-alt
-            © 2015
-            %a{:href => "index.html"} Bacchan.al
-        .col-sm-6
-          .footer-social-links
-            %a{:href => "#"}
-              %i.fa.fa-facebook
-            %a{:href => "#"}
-              %i.fa.fa-twitter
-            %a{:href => "#"}
-              %i.fa.fa-dribbble
-            %a{:href => "#"}
-              %i.fa.fa-skype
-      / .row
+  = render "footer"
   / Footer end
   / Wrapper start
   / Scroll-up
-  .scroll-up
-  %a{:href => "#totop"}
-    %i.fa.fa-angle-double-up
+.scroll-up
+%a{:href => "#totop"}
+  %i.fa.fa-angle-double-up

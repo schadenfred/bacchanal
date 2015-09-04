@@ -4,6 +4,12 @@ module ApplicationHelper
     polymorphic_path([article.org, article])
   end
 
+  def markdown(text)
+    markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    markdown.render(text)
+  end 
+
+
   def flavor_choices
     [
       "spicy" => { 

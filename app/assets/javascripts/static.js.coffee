@@ -9,3 +9,6 @@ $('#manifesto').hover (->
     $('#muggles').fadeIn 'slow'
     return
   return
+$ ->
+  $('[data-toggle="tooltip"]').tooltip()
+  return

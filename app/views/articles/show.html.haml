@@ -432,8 +432,95 @@
       %section.module
         .container
           .row
+            / Content column start
+            .col-sm-8
+              / Post start
+              .post
+                .post-thumbnail
+                  %a{:href => "blog-single-left.html"}
+                    %img{:alt => "", :src => "assets/images/post-4.jpg"}/
+                .post-header.font-alt
+                  %h1.post-title
+                    %a{:href => "blog-single-left.html"} Our trip to the Alps
+                  .post-meta
+                    By
+                    %a{:href => "#"} Mark Stone
+                    | 23 November | 3 Comments |
+                    = succeed "," do
+                      %a{:href => "#"} Photography
+                    %a{:href => "#"} Web Design
+                .post-entry
+                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
+                  %p Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.
+                  %blockquote
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                  %p If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.
+                  %ul
+                    %li The European languages are members of the same family.
+                    %li Their separate existence is a myth.
+                    %li For science, music, sport, etc, Europe uses the same vocabulary.
+                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
+              / Post end
+              / Comments start
+              .comments
+                %h4.comment-title.font-alt There are 3 comments
+                / Comment 1 start
+                .comment.clearfix
+                  .comment-avatar
+                    %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
+                  .comment-content.clearfix
+                    .comment-author.font-alt
+                      %a{:href => "#"} John Doe
+                    .comment-body
+                      %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+                    .comment-meta.font-alt
+                      Today, 14:55 -
+                      %a{:href => "#"} Reply
+                  / Comment 2 start
+                  .comment.clearfix
+                    .comment-avatar
+                      %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
+                    .comment-content.clearfix
+                      .comment-author.font-alt
+                        %a{:href => "#"} Mark Stone
+                      .comment-body
+                        %p Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+                      .comment-meta.font-alt
+                        Today, 14:55 -
+                        %a{:href => "#"} Reply
+                  / Comment 2 end
+                / Comment 1 end
+                / Comment 3 start
+                .comment.clearfix
+                  .comment-avatar
+                    %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"}/
+                  .comment-content.clearfix
+                    .comment-author.font-alt
+                      %a{:href => "#"} Andy
+                    .comment-body
+                      %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+                    .comment-meta.font-alt
+                      Today, 14:55 -
+                      %a{:href => "#"} Reply
+                / Comment 3 end
+              / Comments end
+              / Comment form start
+              .comment-form
+                %h4.comment-form-title.font-alt Add your comment
+                %form{:method => "post"}
+                  .form-group
+                    %label.sr-only{:for => "name"} Name
+                    %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
+                  .form-group
+                    %label.sr-only{:for => "email"} Name
+                    %input#email.form-control{:name => "email", :placeholder => "E-mail", :type => "text"}/
+                  .form-group
+                    %textarea#comment.form-control{:name => "comment", :placeholder => "Comment", :rows => "4"}
+                  %button.btn.btn-round.btn-d{:type => "submit"} Post comment
+              / Comment form end
+            / Content column end
             / Sidebar column start
-            .col-sm-4.col-md-3.sidebar
+            .col-sm-4.col-md-3.col-md-offset-1.sidebar
               / Widget start
               .widget
                 %form{:role => "form"}
@@ -541,93 +628,6 @@
                     %a{:href => "#"} Our trip to the Alps
               / Widget end
             / Sidebar column end
-            / Content column start
-            .col-sm-8.col-md-offset-1
-              / Post start
-              .post
-                .post-thumbnail
-                  %a{:href => "blog-single-left.html"}
-                    %img{:alt => "", :src => "assets/images/post-4.jpg"}/
-                .post-header.font-alt
-                  %h1.post-title
-                    %a{:href => "blog-single-left.html"} Our trip to the Alps
-                  .post-meta
-                    By
-                    %a{:href => "#"} Mark Stone
-                    | 23 November | 3 Comments |
-                    = succeed "," do
-                      %a{:href => "#"} Photography
-                    %a{:href => "#"} Web Design
-                .post-entry
-                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
-                  %p Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.
-                  %blockquote
-                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                  %p If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.
-                  %ul
-                    %li The European languages are members of the same family.
-                    %li Their separate existence is a myth.
-                    %li For science, music, sport, etc, Europe uses the same vocabulary.
-                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
-              / Post end
-              / Comments start
-              .comments
-                %h4.comment-title.font-alt There are 3 comments
-                / Comment 1 start
-                .comment.clearfix
-                  .comment-avatar
-                    %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
-                  .comment-content.clearfix
-                    .comment-author.font-alt
-                      %a{:href => "#"} John Doe
-                    .comment-body
-                      %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                    .comment-meta.font-alt
-                      Today, 14:55 -
-                      %a{:href => "#"} Reply
-                  / Comment 2 start
-                  .comment.clearfix
-                    .comment-avatar
-                      %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
-                    .comment-content.clearfix
-                      .comment-author.font-alt
-                        %a{:href => "#"} Mark Stone
-                      .comment-body
-                        %p Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                      .comment-meta.font-alt
-                        Today, 14:55 -
-                        %a{:href => "#"} Reply
-                  / Comment 2 end
-                / Comment 1 end
-                / Comment 3 start
-                .comment.clearfix
-                  .comment-avatar
-                    %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"}/
-                  .comment-content.clearfix
-                    .comment-author.font-alt
-                      %a{:href => "#"} Andy
-                    .comment-body
-                      %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                    .comment-meta.font-alt
-                      Today, 14:55 -
-                      %a{:href => "#"} Reply
-                / Comment 3 end
-              / Comments end
-              / Comment form start
-              .comment-form
-                %h4.comment-form-title.font-alt Add your comment
-                %form{:method => "post"}
-                  .form-group
-                    %label.sr-only{:for => "name"} Name
-                    %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
-                  .form-group
-                    %label.sr-only{:for => "email"} Name
-                    %input#email.form-control{:name => "email", :placeholder => "E-mail", :type => "text"}/
-                  .form-group
-                    %textarea#comment.form-control{:name => "comment", :placeholder => "Comment", :rows => "4"}
-                  %button.btn.btn-round.btn-d{:type => "submit"} Post comment
-              / Comment form end
-            / Content column end
           / .row
       / Post single end
       / Widgets start

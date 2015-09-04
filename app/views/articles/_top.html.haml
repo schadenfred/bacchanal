@@ -1,0 +1,8 @@
+.main
+  %section.module-small.bg-dark.bg-dark-30{"data-background" => "assets/images/section-8.jpg"}
+    .container
+      .row
+        .col-sm-6.col-sm-offset-3
+          %h1.module-title.font-alt= @bloggable.name
+          .module-subtitle.font-serif.mb-0
+            = @bloggable.blog_title.titleize
