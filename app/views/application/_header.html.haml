@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "Bacchan.al", root_path, class: "navbar-brand"
+      = yield :brand
     #custom-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         = render 'application/header/navigation_links'

@@ -1,15 +1,6 @@
-!!!
-%html{:lang => "en"}
-  %head
-    = render 'head'
-  %body
-    = render 'preloader'
-    = render 'header'
-    = render 'messages'
+- content_for :brand do
+  = link_to @bloggable.name, root_path, class: "navbar-brand"
+- content_for :main do 
+  %section#home.home-section.home-parallax.home-fade.bg-dark-30
     = yield
-    
-    
-    / Javascript files
-
-    %script{:src => "http://maps.google.com/maps/api/js?sensor=true", :type => "text/javascript"} 
-    = javascript_include_tag 'application'
+= render template: "layouts/application"
