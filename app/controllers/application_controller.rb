@@ -5,4 +5,13 @@ class ApplicationController < ActionController::Base
 
   # devise helper for authentication
   # before_action :authenticate_user!
+  before_action :http_basic_authenticate!
+
+  private
+
+    def http_basic_authenticate!
+      http_basic_authenticate_with(
+          name: "bacchus", password: "godofwhine"
+      ) if Rails.env.production?
+    end
 end
