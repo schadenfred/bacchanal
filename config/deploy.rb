@@ -35,6 +35,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_dirs,  %w{public/assets}
 
+
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
@@ -74,13 +75,6 @@ namespace :deploy do
     end
   end
 
-  desc 'Reset dummy data'
-  task :reseed do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'db:development:populate'
-    end
-  end
-
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
@@ -90,3 +84,17 @@ end
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
+
+namespace :rake do
+  desc "Invoke rake task"
+  task :invoke do
+    on roles(:app) do
+      within "#{current_path}" do
+        with rails_env: :production do
+          execute :rake, ENV['task']
+          # !!!see NOTE at end of answer!!!
+        end
+      end
+    end
+  end
+end
