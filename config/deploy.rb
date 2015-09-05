@@ -74,6 +74,13 @@ namespace :deploy do
     end
   end
 
+  desc 'Reset dummy data'
+  task :reseed do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'db:development:populate'
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
