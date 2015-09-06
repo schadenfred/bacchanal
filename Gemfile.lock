@@ -312,6 +312,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     puma (2.12.3)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -353,6 +355,7 @@ GEM
     redcarpet (3.3.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rolify (4.1.1)
     roo (2.1.1)
       nokogiri (~> 1)
       rubyzip (~> 1.1, < 2.0.0)
@@ -461,10 +464,12 @@ DEPENDENCIES
   omniauth-twitter
   pg
   puma
+  pundit
   rack-cache
   rails (= 4.2.3)
   rails_12factor
   redcarpet
+  rolify
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form

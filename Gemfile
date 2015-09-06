@@ -47,6 +47,12 @@ gem 'omniauth-instagram'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
+# define user roles on a resource level
+gem 'rolify'
+
+# authorization
+gem 'pundit'
+
 # form helpers and bootstrap styling
 gem 'simple_form'
 gem 'country_select', github: 'stefanpenner/country_select'

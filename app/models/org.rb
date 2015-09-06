@@ -1,6 +1,7 @@
 class Org < ActiveRecord::Base
 
   extend FriendlyId
+  resourcify
 
   friendly_id :name, use: :slugged
 
