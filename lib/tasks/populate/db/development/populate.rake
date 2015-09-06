@@ -2,6 +2,7 @@ namespace 'db:development' do
 
   @accounts_activations = 20
   @accounts_admins = 20
+  @addresses = 20
   @activations = 5
   @accounts_admins = 5
   @artists = 5

@@ -1,7 +1,7 @@
 namespace 'db:development' do 
 
   desc "Kill existing database connections"
-  if Rails.env.development?
+  # if Rails.env.development?
     task kill_connections: :environment
       
       puts "#{green("==>")} killing development db connections"
@@ -17,7 +17,7 @@ ps xa \
   | xargs kill
 EOF
       puts `#{sh}`
-    end
+    # end
 
     task "db:drop" => :kill_connections
 end
