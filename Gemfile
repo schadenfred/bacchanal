@@ -40,9 +40,6 @@ gem 'redcarpet'
 gem 'devise'
 gem 'devise_invitable'
 
-# payments
-gem 'payola-payments'
-
 # omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-gplus'
@@ -118,12 +115,6 @@ group :development do
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
-
-  # fake data for development
-  gem 'faker'
-  # gem 'faker-stoked', path: '~/work/opensource/faker-stoked'
-  gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
-  gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
 end
 
 group :test do 
