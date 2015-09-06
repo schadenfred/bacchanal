@@ -78,8 +78,6 @@ namespace :deploy do
   desc "Invoke rake task"
   task :invoke do
     on roles(:app) do
-      invoke 'deploy'
-
       within "#{current_path}" do
         with rails_env: :production do
           execute :rake, ENV['task']

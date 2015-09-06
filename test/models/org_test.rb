@@ -25,6 +25,7 @@ describe Org do
 
     must_have_many :articles
     must_have_many :addresses
+    must_have_many :addresses_addressables
     must_have_many :comments
     must_have_many :positions
   end
