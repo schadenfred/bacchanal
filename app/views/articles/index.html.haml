@@ -24,7 +24,7 @@
                       = i == 0 ? "" : ","
                       = link_to tag
               .post-entry
-                %p= simple_format(truncate(article.content, length: 250))
+                = simple_format(truncate(article.content, length: 250))
               .post-more
                 = link_to "Read more", poly_path(article), class: "more-link"
           

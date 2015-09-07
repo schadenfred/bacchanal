@@ -8,6 +8,7 @@ describe Article do
 
     specify "columns & types" do 
 
+      must_have_column(:aasm_state)
       must_have_column(:author_id, :integer)
       must_have_column(:content, :text)
       must_have_column(:slug)
@@ -15,7 +16,7 @@ describe Article do
     end
 
     specify "indexes" do
-
+      must_have_index(:slug)
     end
   end
 

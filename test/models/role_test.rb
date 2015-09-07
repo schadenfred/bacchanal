@@ -38,7 +38,6 @@ describe Role do
       Then  { user.has_role?(:cool_role, org).must_equal true }
       And   { user.has_role?(:cool_role).must_equal false }
       And   { user.has_role?(:cool_role, :any).must_equal true }
-      And   { User.with_role(:cool_role).must_include user }
     end
     
     describe "after removing role" do 
