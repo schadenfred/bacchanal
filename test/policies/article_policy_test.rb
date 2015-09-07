@@ -9,7 +9,7 @@ describe ApplicationPolicy do
   
   context "for a visitor" do 
 
-    # let(:user)    { FactoryGirl.create(:user) }
+    let(:user)    { nil }
     let(:article) { FactoryGirl.create(:article) }
 
     context "as owner" do 
@@ -18,8 +18,8 @@ describe ApplicationPolicy do
       # Then  { 
       # byebug
       #  subject.show?.must_equal true }
-      Given { policy = ArticlePolicy.new( user, article ) }
-      Then { policy()}
+      Given(:policy) { ArticlePolicy.new( user, article ) }
+      Then { subject.policy.public_send(:update).must_equal true}
     end
 
     context "as author" do 
