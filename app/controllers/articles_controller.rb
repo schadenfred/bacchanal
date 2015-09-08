@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
     @tags = @bloggable.tag_counts_on(:tags)
 
   end
+
   def show
   end
 
@@ -25,9 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
-    @article = @bloggable.articles.new(article_params)
-
+    @article = @bloggable.articles.new(article_params.merge( "author_id" =>  current_user.id ))
     if @article.save
       redirect_to [@bloggable, :articles], notice: 'Article was successfully created.'
     else

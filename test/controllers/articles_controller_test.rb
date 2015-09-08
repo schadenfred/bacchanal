@@ -1,10 +1,14 @@
 require "test_helper"
 
+
 describe ArticlesController do
 
+  Given(:user) { FactoryGirl.create(:user) }
   Given(:article)  { FactoryGirl.create(:article) }
   Given(:winery)   { FactoryGirl.create(:winery) }
 
+  Given { sign_in user }
+  
   describe "#new" do 
 
     Given { get :new, winery_id: winery.id }

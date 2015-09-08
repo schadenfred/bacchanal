@@ -11,8 +11,7 @@ require 'minitest/given'
 
 include TestMatchers 
 include FactoryGirl::Syntax::Methods
-  include Warden::Test::Helpers
-
+include Devise::TestHelpers
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!

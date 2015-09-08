@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
 
+  include AASM
   extend FriendlyId
+  resourcify
 
   friendly_id :title, use: :slugged
 
@@ -13,4 +15,19 @@ class Article < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :org, presence: true
+  validates :author, presence: true
+
+  aasm do
+    state :draft, :initial => true
+    state :published
+    state :archived
+
+    event :publish do
+      transitions :from => :draft, :to => :published
+    end
+
+    event :archive do
+      transitions :from => [:draft, :published], :to => :archived
+    end
+  end
 end

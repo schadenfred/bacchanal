@@ -31,5 +31,15 @@ describe Article do
 
     assert subject.new.respond_to?(:tag_list)
     assert subject.new.respond_to?(:category_list)
+    assert subject.new.respond_to?(:published?)
+    assert subject.new.respond_to?(:draft?)
+    assert subject.new.respond_to?(:archived?)
+  end
+
+  describe "changing state" do 
+
+    Given(:article) { FactoryGirl.create(:article) }
+    Then { article.aasm_state.must_equal "draft" }
+
   end
 end

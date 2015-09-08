@@ -1,68 +1,64 @@
 require 'test_helper'
 
-describe ApplicationPolicy do 
-
-  subject { ArticlePolicy.new(user, article) }
-
-  let(:article) { FactoryGirl.create(:article) }
-
+describe ArticlePolicy do 
   
-  context "for a visitor" do 
-
-    let(:user)    { nil }
-    let(:article) { FactoryGirl.create(:article) }
-
-    context "as owner" do 
-
-      # Given { user.add_role :author, article } 
-      # Then  { 
-      # byebug
-      #  subject.show?.must_equal true }
-      Given(:policy) { ArticlePolicy.new( user, article ) }
-      Then { subject.policy.public_send(:update).must_equal true}
+  Given(:user)            { FactoryGirl.create(:user) }
+  Given(:article)         { FactoryGirl.create(:article, author_id: user.id) }
+  Given(:policy)          { ArticlePolicy.new(user, article) }
+  Given(:fellow_author)   { FactoryGirl.create(:user) }
+  
+  context "user is author" do
+    
+    context "when unpublished" do 
+      
+      Then { assert policy.show? }
     end
 
-    context "as author" do 
+    context "when published" do 
 
-      # Given { user.add_role :author, article } 
-      # Then  { subject.update?.must_equal true }
+      Given { article.publish!}
+      Then  { assert policy.show? 
+              assert policy.update?
+              assert policy.destroy?
+              assert policy.publish?
+              assert policy.archive? 
+            }
+    end 
+
+    context "when archived" do 
+
+      Given { article.archive! }
+      Then  { assert policy.show? }
     end
   end
-end
-# class ArticlePolicyTest < ActiveSupport::TestCase
 
-#   def test_scope
-#   end
+  context "user is not author" do 
 
-#   def test_show
-#   end
+    Given(:policy) { ArticlePolicy.new(fellow_author, article) }
+    
+    context "when unpublished" do 
 
-#   def test_create
-#   end
+      Then { 
+        refute policy.show? 
+        refute policy.update?
+        refute policy.edit? 
+        refute policy.publish? 
+        refute policy.archive? 
+        refute policy.destroy? 
+      }
+    end
 
-#   def test_update
-#   end
+    context "when published" do 
+    
+      Given { article.publish! }
+      Then  { assert policy.show? }
 
-#   def test_destroy
-#   end
-# end
+    end
 
-# require 'test_helper'
+    context "when archived" do 
 
-# describe ApplicationPolicy do 
-
-#   subject { ArticlePolicy.new(user, article) }
-
-#   let(:article) { FactoryGirl.create(:article) }
-
-#   context "for a visitor" do 
-
-#     Given(:user) { nil }
-
-#     it "must pass" do 
-#       byebug
-#       article
-#     end
-#     # Then { permit(:show).must_equal true }
-#   end
-# end
+      Given { article.archive! }
+      Then  { refute policy.show? }
+    end
+  end
+end  

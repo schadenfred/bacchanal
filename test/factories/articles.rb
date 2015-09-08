@@ -3,6 +3,7 @@ FactoryGirl.define do
     content "MyText"
     title "MyString"
     org
+    author
   end
 
 end

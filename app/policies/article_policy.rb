@@ -6,10 +6,22 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def show?
-    # user.has_role? :owner
-
+    record.published? || record.author == user
   end
 
   def update?
+    record.author == user
+  end
+
+  def publish?
+    record.author == user
+  end
+
+  def archive?
+    record.author == user
+  end
+
+  def destroy?
+    record.author == user
   end
 end
