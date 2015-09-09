@@ -4,13 +4,11 @@
     = render 'head'
   %body
     = render 'preloader'
-    = render 'header'
     = render 'messages'
-
-    / # = render 'static/parallax'
-    / = render 'parallax'
-
+    = render 'header'
+    = render 'top'
+    
     = content_for?(:main) ? yield(:main) : yield
 
-    %script{:src => "http://maps.google.com/maps/api/js?sensor=true", :type => "text/javascript"} 
+    / %script{:src => "http://maps.google.com/maps/api/js?sensor=true", :type => "text/javascript"} 
     = javascript_include_tag 'application'

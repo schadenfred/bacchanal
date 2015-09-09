@@ -1,0 +1,14 @@
+- content_for :graphic do 
+  = image_path("rp-1.jpg")
+- content_for :brand do 
+  / # = link_to @org.name, @org, class: "navbar-brand"
+
+- content_for :navlinks do 
+  = render 'application/header/authentication_links'
+
+- content_for :top  
+    
+- content_for :main do 
+  / %section#home.home-section.home-parallax.home-fade.bg-dark-30{"data-background" => image_path("abstract-4.jpg")}
+  / = yield
+= render template: "layouts/application"

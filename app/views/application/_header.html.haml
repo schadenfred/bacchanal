@@ -9,5 +9,4 @@
       = yield :brand
     #custom-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        = render 'application/header/navigation_links'
-        = render 'application/header/authorization_links'
+        = yield :navlinks

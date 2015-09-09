@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_bloggable, only: [:create, :index, :new]
-  layout 'articles'
+  layout 'orgs'
 
   def index
     @articles = @bloggable.articles.order(:created_at).page params[:page]
