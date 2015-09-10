@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+  skip_before_action :authenticate_for_beta, only: :home
   
   def about
   end

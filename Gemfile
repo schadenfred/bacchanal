@@ -40,6 +40,8 @@ gem 'redcarpet'
 gem 'devise'
 gem 'devise_invitable'
 
+# subscription & payments
+gem 'payola-payments'
 # omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-gplus'
