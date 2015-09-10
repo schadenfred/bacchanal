@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Payola::Engine => '/payola', as: :payola
   mount Buttafly::Engine, at: "/buttafly"
   
   devise_for :users
