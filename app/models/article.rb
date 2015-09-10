@@ -2,6 +2,7 @@ class Article < ActiveRecord::Base
 
   include AASM
   extend FriendlyId
+  
   resourcify
 
   friendly_id :title, use: :slugged

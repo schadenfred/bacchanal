@@ -56,12 +56,12 @@ module StaticHelper
       "grange" => {
         price: "19"
       },
-      "silver" => {
+      "port" => {
         price: "29",
         tagline: "best value",
         highlighted: true
       },
-      "gold" => {
+      "javier" => {
         price: "39",
         tagline: 0,
         highlighted: false
