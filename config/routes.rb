@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/help',    to: "static#help"
   get '/contact', to: "static#contact"
   get '/home',    to: "static#home"
-  get '/sample',    to: "articles#sample"
 
   concern :media_promotable do 
     
