@@ -9,6 +9,14 @@ module ApplicationHelper
     end
   end
 
+  def auth_btn
+    "btn btn-lg btn-block btn-round btn-d"
+  end
+
+  def auth_field
+    "form-control input-lg"
+  end
+
   def poly_path(article)
     polymorphic_path([article.org, article])
   end

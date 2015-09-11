@@ -18,4 +18,7 @@
         .col-sm-6.col-sm-offset-3.mb-sm-40
           %form.form
             = yield :devise_form
+            %hr
+            = render "devise/shared/links"
+
 = render template: "layouts/application"

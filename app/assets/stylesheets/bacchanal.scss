@@ -1,3 +1,7 @@
+.auth-button {
+  @extend .btn;
+}
+
 .branding-section {
     position: relative;
     background-color: #fff;
