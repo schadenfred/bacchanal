@@ -2,8 +2,9 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_bloggable, only: [:create, :index, :new]
   layout 'orgs'
-
+  
   def index
+    
     @articles = @bloggable.articles.order(:created_at).page params[:page]
     @tags = @bloggable.articles.tag_counts_on(:tags)
 
@@ -54,12 +55,14 @@ class ArticlesController < ApplicationController
     def set_article
 
       @article = Article.friendly.find(params[:id])
+      @org = @article.org
     end
 
     def set_bloggable
 
       klass = [Winery, Org].detect { |c| params["#{c.name.underscore}_id"]}
       @bloggable = klass.friendly.find(params["#{klass.name.underscore}_id"])
+      @org = @bloggable
     end
 
     def article_params
