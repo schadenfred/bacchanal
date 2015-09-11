@@ -5,9 +5,9 @@
         / Widget start
         .widget
           %h5.widget-title.font-alt
-            / = @org.name /
+            = @bloggable.name 
             story
-          / = simple_format(@org.mission)
+          = simple_format(@bloggable.mission)
           %p
             Phone: +1 510 207 3450
           %p
