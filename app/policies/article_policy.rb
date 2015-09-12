@@ -1,12 +1,16 @@
 class ArticlePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+        scope
     end
   end
 
   def show?
     record.published? || record.author == user
+  end
+
+  def new?
+    true
   end
 
   def update?

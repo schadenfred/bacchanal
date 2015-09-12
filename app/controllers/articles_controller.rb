@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
+  layout 'orgs'
+  
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_bloggable, only: [:create, :index, :new]
-  layout 'orgs'
   
   def index
     
@@ -11,15 +12,14 @@ class ArticlesController < ApplicationController
   end
 
   def tag_cloud
+    
     @tags = @bloggable.tag_counts_on(:tags)
-
   end
 
   def show
   end
 
   def new
-
     @article = @bloggable.articles.new
   end
 
@@ -27,7 +27,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = @bloggable.articles.new(article_params.merge( "author_id" =>  current_user.id ))
+    byebug
+    @article = @bloggable.articles.new(article_params.merge(author_id: current_user.id ))
     if @article.save
       redirect_to [@bloggable, :articles], notice: 'Article was successfully created.'
     else

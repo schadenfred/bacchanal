@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
 
   include AASM
+  
   extend FriendlyId
   
   resourcify
