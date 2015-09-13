@@ -1,5 +1,6 @@
 class WineriesController < ApplicationController
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @wineries = Winery.all

@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def auth_btn
-    "btn btn-lg btn-block btn-round btn-d"
+    "btn btn-block"
   end
 
   def auth_field

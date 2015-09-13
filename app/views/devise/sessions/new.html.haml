@@ -1,14 +1,9 @@
 - content_for :devise_action do 
   Log in
 - content_for :devise_form do 
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-group 
-      = f.email_field :email, placeholder: "robert@porker.com", autofocus: true, class: auth_field
-    .form-group
-      = f.password_field :password, placeholder: "password", autocomplete: "off", class: auth_field
-    - if devise_mapping.rememberable?
-      %br
-      = f.check_box :remember_me, { checked: true}
-      = f.label :remember_me
-    .actions
-      = f.submit "Log in", class: auth_btn 
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = f.input :email, label: false, placeholder: "robert@porker.com", autofocus: true, input_html: { class: auth_field }
+    = f.input :password, label: false, placeholder: "********", autocomplete: "off", input_html: { class: auth_field }
+    = f.input :remember_me, as: :boolean, label: false, :inline_label => "Don't make me log in all the time" if devise_mapping.rememberable?
+    
+    = f.button :submit, "Log in", class: auth_btn 

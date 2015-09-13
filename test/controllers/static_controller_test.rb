@@ -1,34 +1,21 @@
 require 'test_helper'
 
-class StaticControllerTest < ActionController::TestCase
-  test "should get about" do
-    get :about
-    assert_response :success
-  end
+describe StaticController do 
 
-  test "should get terms" do
-    get :terms
-    assert_response :success
-  end
+  Given(:user) { FactoryGirl.create(:user) }
+  Given { sign_out user}
 
-  test "should get privacy" do
-    get :privacy
-    assert_response :success
-  end
+  static_pages = %w[about terms privacy help contact home]
 
-  test "should get help" do
-    get :help
-    assert_response :success
-  end
+  static_pages.each do |page|
 
-  test "should get contact" do
-    get :contact
-    assert_response :success
-  end
+    describe "get /#{page}" do
 
-  test "should get home" do
-    get :home
-    assert_response :success
-  end
+      it "must succeed" do 
 
+        get page.to_sym
+        assert_response :success
+      end
+    end
+  end
 end

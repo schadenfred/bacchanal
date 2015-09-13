@@ -1,8 +1,10 @@
 class ArticlesController < ApplicationController
   layout 'orgs'
   
+  # before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_bloggable, only: [:create, :index, :new]
+
   
   def index
     
@@ -27,7 +29,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    byebug
+    
     @article = @bloggable.articles.new(article_params.merge(author_id: current_user.id ))
     if @article.save
       redirect_to [@bloggable, :articles], notice: 'Article was successfully created.'

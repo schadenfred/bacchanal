@@ -11,14 +11,15 @@ class ApplicationPolicy
   end
 
   def show?
-    # scope.where(:id => record.id).exists?
+    scope.where(:id => record.id).exists?
   end
 
   def create?
-    true
+    false
   end
 
   def new?
+    byebug
     create?
   end
 
@@ -27,7 +28,7 @@ class ApplicationPolicy
   end
 
   def edit?
-    false
+    update?
   end
 
   def destroy?

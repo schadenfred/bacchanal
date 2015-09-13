@@ -1,31 +1,27 @@
 class ArticlePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-        scope
+      scope
     end
   end
 
   def show?
-    record.published? || record.author == user
-  end
-
-  def new?
-    true
+    record.published? || user == record.author
   end
 
   def update?
-    record.author == user
-  end
-
-  def publish?
-    record.author == user
-  end
-
-  def archive?
-    record.author == user
+    user == record.author
   end
 
   def destroy?
-    record.author == user
+    user == record.author
+  end
+
+  def publish?
+    user == record.author
+  end
+
+  def archive?
+    user == record.author
   end
 end

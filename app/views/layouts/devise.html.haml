@@ -3,10 +3,9 @@
 - content_for :brand do 
   = link_to "Bacchan.al", root_path, class: "navbar-brand"
 - content_for :navlinks do 
-  = render 'application/header/navigation_links'
-  = render 'application/header/authentication_links'
+  = render 'application/header/devise_authentication_links'
 .main
-  %section.module-small.bg-dark.bg-dark-60{"data-background" => "assets/images/section-4.jpg"}
+  %section.module-small.bg-dark.bg-dark-60{"data-background" => image_tag("section-4.jpg")}
     .container
       .row
         .col-sm-6.col-sm-offset-3

@@ -6,7 +6,8 @@ namespace 'db:development:create' do
     # tester_roles = Role.all.pluck(:name)
 
     testers = [
-      "fred schoeneman"
+      "fred schoeneman",
+      "alisa mathewson"
     ]
 
     
@@ -24,16 +25,16 @@ namespace 'db:development:create' do
         # else
           # email = first + "." + last_initial + "." + tester_role.downcase + test_domain
         # end
-        email = first + "." + last_initial + "." + test_domain
+        email = first + "." + last + test_domain
         user = User.create( 
           name: fullname, # + tester_role,
           email: email,
           password: "password",
           bio: Faker::Stoked.paragraphs(3)
         )
-        # user.confirm!
+        user.confirm
         # user.add_role tester_role.to_sym
-      # end
+    # end
     end
     
     small_notice("generic users")

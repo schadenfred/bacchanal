@@ -9,11 +9,11 @@ describe ArticlesController do
   context "authenticated user" do 
 
     Given { sign_in user }
-  
+
     describe "#new" do 
 
       Given { get :new, winery_id: winery.id }
-      Then  { assert_response 302}
+      Then  { assert_response 200 }
       And   { assert_not_nil assigns :bloggable }    
       And   { assert_not_nil assigns :article }    
     end

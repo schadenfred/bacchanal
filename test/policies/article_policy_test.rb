@@ -7,22 +7,25 @@ describe ArticlePolicy do
   Given(:policy)          { ArticlePolicy.new(user, article) }
   Given(:fellow_author)   { FactoryGirl.create(:user) }
   
-  context "user is author" do
+  context "when current user is author" do
     
-    context "when unpublished" do 
+    context "and article is " do 
+
+      context "and article is unpublished" do 
       
-      Then { assert policy.show? }
+        Then { assert policy.show? }
+      end
     end
 
-    context "when published" do 
+    context "and article is when published" do 
 
-      Given { article.publish!}
+      Given { article.publish! }
       Then  { assert policy.show? 
               assert policy.update?
               assert policy.destroy?
               assert policy.publish?
               assert policy.archive? 
-            }
+      }
     end 
 
     context "when archived" do 
@@ -38,14 +41,14 @@ describe ArticlePolicy do
     
     context "when unpublished" do 
 
-      Then { 
-        refute policy.show? 
-        refute policy.update?
-        refute policy.edit? 
-        refute policy.publish? 
-        refute policy.archive? 
-        refute policy.destroy? 
-      }
+      # Then { 
+      #   refute policy.show? 
+      #   refute policy.update?
+      #   refute policy.edit? 
+      #   refute policy.publish? 
+      #   refute policy.archive? 
+      #   refute policy.destroy? 
+      # }
     end
 
     context "when published" do 
@@ -57,8 +60,8 @@ describe ArticlePolicy do
 
     context "when archived" do 
 
-      Given { article.archive! }
-      Then  { refute policy.show? }
+      # Given { article.archive! }
+      # Then  { skiprefute policy.show? }
     end
   end
 end  
