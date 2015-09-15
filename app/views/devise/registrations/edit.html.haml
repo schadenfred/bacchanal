@@ -12,7 +12,8 @@
     = f.input :current_password, autocomplete: "off"
     .actions
       = f.button :submit, "Update", class: auth_btn
-  %h3 Cancel my account
+  %hr
+  %h3 Unhappy?
   %p
-    Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: auth_btn}
-  = link_to "Back", :back
+    Every party needs a pooper.
+    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "No! Please! Don't! Leave!?!" }, method: :delete, class: auth_btn
