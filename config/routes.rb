@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'dashboard/show'
+
   mount Buttafly::Engine, at: "/buttafly"
   
   devise_for :users
 
-  get '/about',   to: "static#about"
-  get '/terms',   to: "static#terms"
-  get '/privacy', to: "static#privacy"
-  get '/help',    to: "static#help"
-  get '/contact', to: "static#contact"
-  get '/home',    to: "static#home"
+  get '/about',     to: "static#about"
+  get '/contact',   to: "static#contact"
+  get '/help',      to: "static#help"
+  get '/home',      to: "static#home"
+  get '/pricing',   to: "static#pricing"
+  get '/privacy',   to: "static#privacy"
+  get '/terms',     to: "static#terms"
+  get '/dashboard', to: "dashboard#show"
 
   concern :media_promotable do 
     

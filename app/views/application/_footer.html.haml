@@ -1,12 +1,18 @@
-/ Footer start
 %footer.footer.bg-dark
   .container
     .row
-      .col-sm-6
-        %p.copyright.font-alt
+      .col-sm-2
+        .copyright.font-alt
           © 2015
           = link_to "Bacchan.al", root_url
-      .col-sm-6
+      .col-sm-6.col-sm-offset-2 
+        .font-alt
+          - static_page_links.each do |page|
+            = link_to page, send("#{page}_path")
+          - static_section_links.each do |section|
+            | 
+            = link_to section.capitalize, "##{section}", class: "section-scroll"  
+      .col-sm-2
         .footer-social-links
           %a{:href => "#"}
             %i.fa.fa-facebook
@@ -16,5 +22,3 @@
             %i.fa.fa-dribbble
           %a{:href => "#"}
             %i.fa.fa-skype
-    / .row
-/ Footer end

@@ -15,9 +15,9 @@
     .container
       .row
         .col-sm-6.col-sm-offset-3.mb-sm-40
-          %form.form
-            = yield :devise_form
+          = yield :devise_form
+          - unless user_signed_in?
             %hr
-            = render "devise/shared/links"
+            = render "devise/shared/links" 
 
 = render template: "layouts/application"

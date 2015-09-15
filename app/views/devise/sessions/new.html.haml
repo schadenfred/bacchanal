@@ -2,8 +2,11 @@
   Log in
 - content_for :devise_form do 
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    = f.input :email, label: false, placeholder: "robert@porker.com", autofocus: true, input_html: { class: auth_field }
-    = f.input :password, label: false, placeholder: "********", autocomplete: "off", input_html: { class: auth_field }
-    = f.input :remember_me, as: :boolean, label: false, :inline_label => "Don't make me log in all the time" if devise_mapping.rememberable?
-    
-    = f.button :submit, "Log in", class: auth_btn 
+    .form-inputs
+      = f.input :email, required: false, autofocus: true
+      = f.input :password, required: false
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    .form-actions
+      = f.button :submit, "Log in", class: auth_btn
+
+

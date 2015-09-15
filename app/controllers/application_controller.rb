@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
-  # TODO refactor so it isn't so ugly?
   
-  # before_action :authenticate_for_beta
+  # While in development, and staging
+  before_action :authenticate_for_beta
+
+  before_action :authenticate_user!
+
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

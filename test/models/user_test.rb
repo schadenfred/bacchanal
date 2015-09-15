@@ -8,6 +8,7 @@ describe User do
 
     specify "columns & types" do 
 
+      must_have_column(:avatar_id, :integer)
       must_have_column(:email)
       must_have_column(:name)
     end
@@ -24,7 +25,7 @@ describe User do
   specify "associations" do 
 
     must_have_many(:articles)
-    
+    must_have_many(:positions)
     must_have_one(:avatar)
   end
 end

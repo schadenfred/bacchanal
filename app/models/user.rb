@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     :trackable, :validatable
 
   has_many :articles 
+  has_many :positions    
 
-  has_one :avatar, class_name: "Photo"      
+  has_one :avatar, as: :photographable    
 end

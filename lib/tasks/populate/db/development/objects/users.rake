@@ -32,6 +32,8 @@ namespace 'db:development:create' do
           password: "password",
           bio: Faker::Stoked.paragraphs(3)
         )
+        user.invite!
+        user.accept_invitation!
         user.confirm
         # user.add_role tester_role.to_sym
     # end

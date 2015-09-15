@@ -17,6 +17,6 @@ describe Photo do
 
   specify "associations" do 
 
-    must_belong_to(:user)
+    must_belong_to(:photographable)
   end
 end       

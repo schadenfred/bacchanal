@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911225417) do
+ActiveRecord::Schema.define(version: 20150914022308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -276,6 +276,9 @@ ActiveRecord::Schema.define(version: 20150911225417) do
     t.datetime "updated_at",        null: false
   end
 
+  add_index "positions", ["positionable_id", "positionable_type"], name: "index_positions_on_positionable_id_and_positionable_type", using: :btree
+  add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
@@ -348,6 +351,7 @@ ActiveRecord::Schema.define(version: 20150911225417) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.integer  "avatar_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

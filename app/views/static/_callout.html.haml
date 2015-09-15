@@ -5,9 +5,9 @@
       .col-sm-6.col-md-8.col-lg-6.col-lg-offset-2
         .callout-text.font-alt
           %h3.callout-title Want to see your winery in here?
-          It's free, easy, and will help people find out about you. No strings.
+          Send us an email with a bit about you and it.
       .col-sm-6.col-md-4.col-lg-2
         .callout-btn-box
-          %a.btn.btn-w.btn-round{:href => "portfolio-wide-gutter-col3.html"} Create a winery page
+          = mail_to "fred@bacchan.al", "request invitation", subject: "Add me to the bacchanalia", body: "Tell us a bit about yourself -- we're super curious.", class: "btn btn-w btn-round"
     / .row
 / Callout end

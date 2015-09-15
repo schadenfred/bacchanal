@@ -3,19 +3,19 @@
   %head
     = render 'head'
   %body
-    = render 'messages'
     = render 'preloader'
-    = render 'header'
+    = content_for?(:header) ? yield(:header) : (render 'header')
+    = render 'messages'
     = yield :top
 
     .main
       = content_for?(:main) ? yield(:main) : yield
 
       %hr.divider-d/
-      / = render 'widgets'
+      = render 'widgets'
 
       = render 'footer'
       = render 'scroll_up'
 
-    / %script{:src => "http://maps.google.com/maps/api/js?sensor=true", :type => "text/javascript"} 
+    %script{:src => "http://maps.google.com/maps/api/js?sensor=true", :type => "text/javascript"} 
     = javascript_include_tag 'application'

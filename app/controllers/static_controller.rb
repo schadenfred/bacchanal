@@ -19,6 +19,7 @@ class StaticController < ApplicationController
   end
 
   def home
+    @company = Org.where(name: "Bacchan.al").first
   end
 
   def sample

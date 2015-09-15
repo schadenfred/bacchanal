@@ -1,5 +1,13 @@
 module StaticHelper
 
+  def static_section_links
+    %w[home about features wineries team news]
+  end
+
+  def static_page_links
+    %w[pricing]
+  end
+
   def wine_quotes
     values = [
       [
