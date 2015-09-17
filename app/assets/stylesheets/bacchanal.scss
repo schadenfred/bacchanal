@@ -2,6 +2,12 @@
   @extend .btn;
 }
 
+.col-center {
+   float: none;
+   margin-right: auto;
+   margin-left: auto;
+ }
+ 
 .branding-section {
     position: relative;
     background-color: #fff;

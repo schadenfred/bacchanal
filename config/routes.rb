@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'dashboard/show'
-
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match '/logout', to: 'sessions#destroy', via: [:get, :post]
+  
   mount Buttafly::Engine, at: "/buttafly"
   
   devise_for :users
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get '/privacy',   to: "static#privacy"
   get '/terms',     to: "static#terms"
   get '/dashboard', to: "dashboard#show"
+  get '/profile',   to: "profile#show"
 
   concern :media_promotable do 
     
