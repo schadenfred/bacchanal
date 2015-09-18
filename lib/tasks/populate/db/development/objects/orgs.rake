@@ -5,7 +5,7 @@ namespace 'db:development:create' do
     satisfy_dependencies(["user"])
 
     bacchanal = Org.create!(
-      name: "Bacchan.al",
+      name: "Ferrington",
       blog_title: "Odds, Ends",
       mission: "Bacchan.al helps small farmers and food producers who care to get paid more than those who don't."
     )
