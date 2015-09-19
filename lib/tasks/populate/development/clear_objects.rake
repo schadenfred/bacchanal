@@ -5,7 +5,7 @@ namespace 'db:development' do
 
     puts "#{green("==>")} resetting development database"
 
-    if Rails.env.development?
+    unless Rails.env.production?
 
       puts "#{green("  -->")} dropping test & development db's"
       Rake::Task['db:drop'].invoke
