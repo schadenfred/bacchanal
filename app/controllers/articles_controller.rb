@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
+
   layout 'orgs'
+
+  skip_before_action :authenticate_user!, only: [:index, :show]
   
-  # before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_bloggable, only: [:create, :index, :new]
 
