@@ -28,12 +28,6 @@ describe "TaskTest" do
           it "must be a task" do 
             subject.class.must_equal Rake::Task
           end
-
-          it "must be invokeable" do 
-
-            subject.invoke
-            Address.count.wont_equal nil
-          end
         end
       end
     end
