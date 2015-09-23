@@ -7,5 +7,11 @@ require 'tsortable'
 include RakeColorizer 
 include RakePrettifier
 
+# task aliases
+
+desc "Alias for db:populate:development"
+task "populate" =>  ["db:populate:development"]
+
+
 
 

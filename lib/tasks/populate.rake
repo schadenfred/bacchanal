@@ -1,7 +1,7 @@
 namespace 'db' do 
 
   namespace 'populate' do
-    
+
     def populators(environment_path)
       populators = []
       populator_paths = Dir.glob(environment_path + "*.populator.rb")

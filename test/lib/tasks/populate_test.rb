@@ -10,13 +10,6 @@ describe "TaskTest" do
         subject.class.must_equal Rake::Task
       end
 
-      describe "methods" do 
-
-        it ":environment_paths" do 
-          environment_paths.class.must_equal Array
-        end
-      end
-
       describe "development" do 
 
         it "must be a task" do 
