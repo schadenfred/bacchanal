@@ -1,3 +1,10 @@
+- content_for :brand do 
+  = link_to "Bacchan.al", root_path, class: "navbar-brand"
+- content_for :navlinks do 
+  = render 'application/header/navigation_links' unless current_user
+  = render 'application/header/authentication_links'
+- content_for :banner do 
+  = render 'home_banner'
 = render 'parallax'
 .main
   = render 'wineries'

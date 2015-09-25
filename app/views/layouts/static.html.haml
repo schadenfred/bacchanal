@@ -1,7 +1,0 @@
-- content_for :brand do 
-  = link_to "Bacchan.al", root_path, class: "navbar-brand"
-- content_for :navlinks do 
-  = render 'application/header/navigation_links' unless current_user
-  = render 'application/header/authentication_links'
-
-= render template: "layouts/application"

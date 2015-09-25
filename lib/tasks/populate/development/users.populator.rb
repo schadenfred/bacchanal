@@ -1,4 +1,3 @@
-
     # tester_roles = Role.all.pluck(:name)
 
     testers = [

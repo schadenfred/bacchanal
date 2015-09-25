@@ -30,4 +30,10 @@ describe User do
 
     must_have_one(:avatar)
   end
+
+  specify "method" do 
+
+    subject.new.respond_to?(:articles).must_equal true
+    
+  end
 end

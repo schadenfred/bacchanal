@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
   acts_as_taggable_on :categories
 
   belongs_to :org
-  belongs_to :author, class_name: "User", foreign_key: :author_id
+  belongs_to :author, class_name: "User", foreign_key: "author_id"
 
   has_many :comments, as: :commentable
 

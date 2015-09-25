@@ -1,7 +1,7 @@
 module StaticHelper
 
   def static_section_links
-    %w[home about features wineries team news]
+    %w[home about wineries team news]
   end
 
   def static_page_links
@@ -64,12 +64,12 @@ module StaticHelper
       "grange" => {
         price: "19"
       },
-      "port" => {
+      "patron" => {
         price: "29",
         tagline: "best value",
         highlighted: true
       },
-      "javier" => {
+      "doyen" => {
         price: "39",
         tagline: 0,
         highlighted: false

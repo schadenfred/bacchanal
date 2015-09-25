@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     :timeoutable, :omniauthable, :recoverable, :registerable, :rememberable, 
     :trackable, :validatable
 
-  has_many :articles 
+  has_many :articles, foreign_key: "author_id"
   has_many :identities 
   has_many :positions    
 
