@@ -1,28 +1,6 @@
+fred = User.where(email: "fred.schoeneman@bacchan.al").first
 
-positionables = %w[org]
+fred.positions.create(positionable: Org.first, tenure_start: Date.today - 3.months, title: "Proprietor")
 
-positionables.each do |positionable|
-
-  pm = positionable.classify.constantize
-
-  titles = %w[winemaker sales farmer owner labor bookkeeper]
-
-  pm.all[0..2].each do |object|
-
-    user_count = User.count
-
-    5.times do 
-
-      begin_date = (Date.today - rand(1..1000).days)
-      end_date = (begin_date + rand(1..6).years)
-      Position.create(
-        user_id: rand(1..user_count),
-        positionable_id: object.id,
-        positionable_type: object.class.name,
-        title: titles.sample,
-        tenure_start: begin_date,
-        tenure_end: end_date
-      )
-    end
-  end
-end
+alisa = User.where(email: "alisa.mathewson@bacchan.al").first
+alisa.positions.create(positionable: Org.first, tenure_start: (Date.today - 3.months), tenure_end: (Date.today - 1.week), title: "Biology & Ecology Intern")
