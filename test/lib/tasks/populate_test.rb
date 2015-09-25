@@ -1,14 +1,10 @@
 require 'test_helper'
 
 describe "TaskTest" do
-  
+
   describe "db" do 
 
     describe "populate" do 
-
-      it "must be a task" do 
-        subject.class.must_equal Rake::Task
-      end
 
       describe "development" do 
 

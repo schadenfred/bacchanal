@@ -86,8 +86,10 @@ gem 'kgio'
 # Buttafly engine for importing spreadsheet data, local version
 gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
 
+# development data
+gem 'monsanto', github: 'schadenfred/monsanto'
+
 gem 'faker'
-# gem 'faker-stoked', path: '~/work/opensource/faker-stoked'
 gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
 gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
 

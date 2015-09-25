@@ -30,6 +30,12 @@ GIT
     faker-stoked (0.2.8)
 
 GIT
+  remote: git://github.com/schadenfred/monsanto.git
+  revision: 6d38ea2bc619e62c2381e838bc3e9fa04563a73e
+  specs:
+    monsanto (0.1.0)
+
+GIT
   remote: git://github.com/stefanpenner/country_select.git
   revision: 20f83bda911abd7c1d5cb96fd37f9ea22d892f0e
   specs:
@@ -455,6 +461,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   mocha
+  monsanto!
   omniauth-facebook
   omniauth-gplus
   omniauth-instagram
