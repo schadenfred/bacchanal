@@ -31,9 +31,9 @@ GIT
 
 GIT
   remote: git://github.com/schadenfred/monsanto.git
-  revision: 6d38ea2bc619e62c2381e838bc3e9fa04563a73e
+  revision: eefc1264522d361fc8dc772142846a3d9d502a66
   specs:
-    monsanto (0.1.0)
+    monsanto (0.1.1)
 
 GIT
   remote: git://github.com/stefanpenner/country_select.git
