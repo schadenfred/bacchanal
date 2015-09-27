@@ -89,7 +89,7 @@ gem 'kgio'
 gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
 
 # development data
-gem 'monsanto', path: '~/work/opensource/monsanto'
+gem 'monsanto'#, path: '~/work/opensource/monsanto'
 
 gem 'faker'
 gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
