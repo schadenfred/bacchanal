@@ -47,8 +47,10 @@ module StaticHelper
       ]
     ]
     quotes = []
+    keys = %w[quote author note]
     values.each do |value|
-      quotes << Hash[["quote", "author", "note"].zip(values.first)]
+      zipped = keys.zip(value)
+      quotes << Hash[zipped]
     end
     quotes
   end

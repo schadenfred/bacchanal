@@ -3,7 +3,11 @@ require "test_helper"
 describe StaticHelper do 
 
   it ":wine_quotes" do 
+    # wine_quotes.must_equal "blah"
     wine_quotes.first["author"].must_equal "Isak Dinesen"
+    wine_quotes.first["note"].must_equal "Writer"
+    wine_quotes.last["author"].must_equal "Homer"
+    wine_quotes.last["note"].must_equal "The Odyssey"
   end
 
   it ":pricing_plans" do 
