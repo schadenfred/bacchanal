@@ -21,11 +21,16 @@ class PhotosController < ApplicationController
 
   # POST /photos
   def create
+    byebug
     @photo = Photo.new(photo_params)
 
     if @photo.save
-      redirect_to @photo, notice: 'Photo was successfully created.'
+      render json: { message: "success", fileID: @image.id }, :status => 200
+
+      # redirect_to @photo, notice: 'Photo was successfully created.'
     else
+      render json: { error: @image.errors.full_messages.join(',')}, :status => 400
+
       render :new
     end
   end
@@ -53,6 +58,6 @@ class PhotosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def photo_params
-      params.require(:photo).permit(:image, :image_uid, :image_name, :name, :caption)
+      params.require(:photo).permit! #(:image, :image_uid, :image_name, :name, :caption)
     end
 end

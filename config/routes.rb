@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     # concerns :media_promotable
   end 
 
+  resources :photos
+
   # resources :articles, only: [:destroy, :edit, :new, :update]
 
   resources :competitions, shallow: true do 

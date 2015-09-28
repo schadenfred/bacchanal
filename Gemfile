@@ -74,7 +74,7 @@ gem 'figaro'
 
 # image uploads
 gem 'dragonfly'
-gem 'dropzonejs-rails', '~> 0.4.16'
+gem 'dropzonejs-rails'
 
 
 # keep track of state on assignments

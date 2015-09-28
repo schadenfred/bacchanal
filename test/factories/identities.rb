@@ -4,9 +4,10 @@ FactoryGirl.define do
   end
 
   factory :identity do
-    user nil
+    user
     provider "MyString"
     uid
+    privacy true
 
     %w[twitter facebook linkedin dribbble pinterest tumblr instagram].each do |identity|
 
