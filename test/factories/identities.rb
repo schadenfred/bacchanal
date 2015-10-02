@@ -7,7 +7,7 @@ FactoryGirl.define do
     user
     provider "MyString"
     uid
-    privacy true
+    private true
 
     %w[twitter facebook linkedin dribbble pinterest tumblr instagram].each do |identity|
 
