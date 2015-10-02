@@ -21,6 +21,7 @@
 //= require owl.carousel
 //= require contact
 //= require wineries
+//= require photos
 //= require custom
 //= require static
 

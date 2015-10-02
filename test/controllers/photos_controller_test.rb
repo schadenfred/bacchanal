@@ -1,21 +1,66 @@
-# require "test_helper"
+require "test_helper"
 
-# class PhotosControllerTest < ActionController::TestCase
-#   def photo
-#     @photo ||= photos :one
-#   end
+describe PhotosController do 
 
-#   def test_index
-#     get :index
-#     assert_response :success
-#     assert_not_nil assigns(:photos)
-#   end
+  Given(:user)        { FactoryGirl.create(:user) }
+  Given(:org)         { FactoryGirl.create(:org) }
+  Given(:winery)      { FactoryGirl.create(:winery) }
+  Given(:photo_attrs) { FactoryGirl.attributes_for(:photo) }
+  Given(:make_request) { post :create, photo: photo_attrs }
 
-#   def test_new
-#     get :new
-#     assert_response :success
-#   end
+  context "when authenticated" do 
+  
+    Given { sign_in user } 
+    
+    describe "#create without :photographable" do 
 
+      # Then do
+      #   assert_difference("Photo.count") do
+      #     make_request
+      #   end
+      #   response.status.must_equal 200
+      # end
+      # And { Photo.last.photographable.must_equal nil}
+    end
+
+    describe "#create without :photographable" do
+
+      # public :set_photographable 
+      
+      # Then { set_photographable.must_equal "blah" }
+
+    
+
+      Given(:winery) { FactoryGirl.create(:winery) }
+      Given(:request_path) { "http://test.com/wineries/#{winery.slug}/articles" } 
+      Given { @request.env['HTTP_REFERER'] = request_path }
+      Then do
+        assert_difference("Photo.count") do
+          make_request
+        end
+
+        response.status.must_equal 200
+      end
+      And { Photo.last.photographable.slug.must_equal winery.slug }
+    end
+
+    context "when not authenticated" do
+      
+      Given { sign_out user }
+      Given { post :create, photo: photo_attrs }
+      Then  { assert_response 302 }
+    end 
+
+      # it "" do 
+
+      #   assert_difference("Photo.count") do
+      #     post :create, photo: { caption: attrs[:caption], image_name: attrs[:image_name], image_uid: attrs[:image_uid], name: attrs[:name] }
+      #   end
+
+      #   assert_redirected_to photo_path(assigns(:photo))
+      # end
+  end
+end
 #   def test_create
 #     assert_difference("Photo.count") do
 #       post :create, photo: { caption: photo.caption, image_name: photo.image_name, image_uid: photo.image_uid, name: photo.name }

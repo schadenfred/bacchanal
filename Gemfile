@@ -143,6 +143,9 @@ group :test do
 
   # clean out database between runs
   gem 'database_cleaner'
+
+  # nyan cat, motherfuckers:
+  gem 'minitest-nyan-cat'
 end
 
 group :production do 

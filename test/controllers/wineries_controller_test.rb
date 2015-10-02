@@ -12,7 +12,7 @@ describe WineriesController do
     describe "GET :new" do 
 
       Given { get :new }
-      Then { assert_response :success }
+      Then  { assert_response :success }
        # Given { get :new }
       # Then  { assert_response :success }
       # And   { assert_not_nil assigns :winery }

@@ -21,6 +21,7 @@ describe ArticlesController do
     describe "#create" do 
 
       Given(:make_request) { post :create, winery_id: winery.id, article: { title: "Sweet title", content: "sweet content" }}
+      
       Then do
         assert_difference("Article.count") do
           make_request

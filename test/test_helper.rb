@@ -7,6 +7,7 @@ require 'minitest/rails'
 require 'minitest/rails/capybara'
 require 'database_cleaner'
 require 'minitest/given'
+require 'minitest/nyan_cat'
 
 
 Dir[File.expand_path('test/support/*.rb')].each { |file| require file }
