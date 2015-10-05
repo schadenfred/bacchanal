@@ -23,62 +23,82 @@
             .post-entry
               = simple_format(@article.content)
           / Comments start
-          .comments
-            %h4.comment-title.font-alt There are 3 comments
-            / Comment 1 start
-            .comment.clearfix
-              .comment-avatar
-                %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
-              .comment-content.clearfix
-                .comment-author.font-alt
-                  %a{:href => "#"} John Doe
-                .comment-body
-                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                .comment-meta.font-alt
-                  Today, 14:55 -
-                  %a{:href => "#"} Reply
-              / Comment 2 start
-              .comment.clearfix
-                .comment-avatar
-                  %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
-                .comment-content.clearfix
-                  .comment-author.font-alt
-                    %a{:href => "#"} Mark Stone
-                  .comment-body
-                    %p Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                  .comment-meta.font-alt
-                    Today, 14:55 -
-                    %a{:href => "#"} Reply
-              / Comment 2 end
-            / Comment 1 end
-            / Comment 3 start
-            .comment.clearfix
-              .comment-avatar
-                %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"}/
-              .comment-content.clearfix
-                .comment-author.font-alt
-                  %a{:href => "#"} Andy
-                .comment-body
-                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                .comment-meta.font-alt
-                  Today, 14:55 -
-                  %a{:href => "#"} Reply
-            / Comment 3 end
-          / Comments end
-          / Comment form start
-          .comment-form
-            %h4.comment-form-title.font-alt Add your comment
-            %form{:method => "post"}
-              .form-group
-                %label.sr-only{:for => "name"} Name
-                %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
-              .form-group
-                %label.sr-only{:for => "email"} Name
-                %input#email.form-control{:name => "email", :placeholder => "E-mail", :type => "text"}/
-              .form-group
-                %textarea#comment.form-control{:name => "comment", :placeholder => "Comment", :rows => "4"}
-              %button.btn.btn-round.btn-d{:type => "submit"} Post comment
-          / Comment form end
+          
+          / %hr
+          
+          / - for message in @article.comments
+          /   .message
+          /     / .created_at= message.created_at.strftime("%B %d, %Y")
+          /     .content
+          /       = message.content
+          /     .actions
+          /       / = link_to "Reply", new_message_path(:parent_id => message)
+          /       |
+          /       / \#{link_to "Destroy", message, :confirm => "Are you sure?", :method => :delete}
+
+          / / = render partial: "comments/form", object: @comment 
+          = nested_comments @comments
+          = render "comments/form"
+          %hr 
+          / .comments
+          /   %h4.comment-title.font-alt #{pluralize(@article.comments.count, 'comment')}
+          /   - @article.comments.each do |comment|
+          /     = render partial: "comments/comment", object: comment
+          /     / .comment.clearfix
+          /     /   .comment-avatar
+          /     /     = link_to image_tag("commenter-thumb.jpg")
+          /     / .comment-content.clearfix
+          /     /   .comment-author.font-alt
+          /     /     = link_to comment.commenter.name
+          /     /   .comment-body
+          /     /     = comment.content
+          /     /   .comment-meta.font-alt
+          /     /     = time_ago_in_words(comment.created_at)
+          /     /     ago.
+          /     /     = link_to "reply"
+          /     /     = link_to "delete"
+
+          /   .comment.clearfix
+          /     .comment-avatar
+          /       %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
+          /     .comment-content.clearfix
+          /       .comment-author.font-alt
+          /         %a{:href => "#"} John Doe
+          /       .comment-body
+          /         %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+          /       .comment-meta.font-alt
+          /         Today, 14:55 -
+          /         %a{:href => "#"} Reply
+          /     / Comment 2 start
+          /     .comment.clearfix
+          /       .comment-avatar
+          /         %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
+          /       .comment-content.clearfix
+          /         .comment-author.font-alt
+          /           %a{:href => "#"} Mark Stone
+          /         .comment-body
+          /           %p Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+          /         .comment-meta.font-alt
+          /           Today, 14:55 -
+          /           %a{:href => "#"} Reply
+          /     / Comment 2 end
+          /   / Comment 1 end
+          /   / Comment 3 start
+          /   .comment.clearfix
+          /     .comment-avatar
+          /       %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"}/
+          /     .comment-content.clearfix
+          /       .comment-author.font-alt
+          /         %a{:href => "#"} Andy
+          /       .comment-body
+          /         %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+          /       .comment-meta.font-alt
+          /         Today, 14:55 -
+          /         %a{:href => "#"} Reply
+          /   / Comment 3 end
+          / / Comments end
+          / / Comment form start
+
         / Content column end
         / Sidebar column start
         .col-sm-4.col-md-3.col-md-offset-1.sidebar

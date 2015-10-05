@@ -76,9 +76,11 @@ gem 'figaro'
 gem 'dragonfly'
 gem 'dropzonejs-rails'
 
-
 # keep track of state on assignments
 gem 'aasm'
+
+# allow comments to reference parents and children
+gem 'ancestry'
 
 # caching for pictures, among other things
 gem 'rack-cache'

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments #, only: [:create, :update, :destroy]
+
   resources :orgs do 
     # concerns :media_promotable
   end 

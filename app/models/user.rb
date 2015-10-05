@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :identities 
   has_many :positions    
   has_many :photos, foreign_key: "photographer_id"
+  has_many :comments, foreign_key: "commenter_id"
 
   has_one :avatar, as: :photographable    
 end

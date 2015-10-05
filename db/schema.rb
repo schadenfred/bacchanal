@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929210527) do
+ActiveRecord::Schema.define(version: 20151003223041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +100,10 @@ ActiveRecord::Schema.define(version: 20150929210527) do
     t.string   "commentable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "ancestry"
   end
+
+  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
 
   create_table "competitions", force: :cascade do |t|
     t.datetime "created_at", null: false

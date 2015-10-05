@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
   belongs_to :org
   belongs_to :author, class_name: "User", foreign_key: "author_id"
 
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :org, presence: true
   validates :author, presence: true
