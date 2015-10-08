@@ -1,21 +1,16 @@
-.media-body
-  %h4.media-heading= comment.commenter.name
-  %i= comment.created_at.strftime('%b %d, %Y at %H:%M')
-  %p= simple_format comment.content
-  .actions
-    = link_to "Reply", new_comment_path(org: @article.org, id: @article.id, :parent_id => comment.id)
+.comment.clearfix
+  .comment-avatar
+    = link_to image_tag("commenter-thumb.jpg")
+  .comment-content.clearfix
+    .comment-author.font-alt
+      = link_to comment.commenter.name
+    .comment-body
+      %p= comment.content
+    .comment-meta.font-alt
+      = time_ago_in_words(comment.created_at)
+      ago.
+      / = link_to "Reply", new_polymorphic_path([@commentable, Comment.new],parent_id: comment)
+      / = link_to "reply", new_comment_path, id: "new_link", remote: true
+      = link_to "delete", comment, confirm: "Whoah, you sure?", method: :delete
   = nested_comments comment.children
 
-/ .comment.clearfix
-/   .comment-avatar
-/     = link_to image_tag("commeArtinter-thumb.jpg")
-/ .comment-content.clearfix
-/   .comment-author.font-alt
-/     = link_to comment.commenter.name
-/   .comment-body
-/     = comment.content
-/   .comment-meta.font-alt
-/     = time_ago_in_words(comment.created_at)
-/     ago.
-/     = link_to "reply"
-/     = link_to "delete"

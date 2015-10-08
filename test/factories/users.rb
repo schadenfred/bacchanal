@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   factory :user, aliases: [:confirmed_user, :winemaker, :farmer, 
-    :reviewer, :owner, :activator, :author, :photographer] do
+    :reviewer, :owner, :activator, :author, :photographer, :commenter] do
  
     email
     # sequence(:name)       {|n| "username#{n}" }

@@ -1,21 +1,12 @@
-= form_for @comment do |f|
-  = f.hidden_field :parent_id
-  = f.hidden_field :commentable_type, value: "Article"
-  = f.hidden_field :commentable_id, value: params[:id]
-  %p
-    = f.label :content, "New comment"
-    %br
-    = f.text_area :content, :rows => 4
-  %p
-    = f.submit "Post Comment"
+.comment-form
+  %h4.comment-form-title.font-alt Add your .02
 
-/ / .comment-form
+  = simple_form_for [@commentable, @comment] do |f|
 
-/ /   = simple_form_for(@comment) do |f|
-/ /     = f.error_notification
-/ /     = f.hidden_field :parent_id
-/ /     .form-group
-/ /       = f.input :content, label: false, as: :text, placeholder: "Add your .02", input_html: { rows: 7 },class: "form-control"
-
-/ /     .form-actions
-/ /       = f.button :submit, class: "btn btn-round btn-d"
+    = f.hidden_field :parent_id
+    = f.hidden_field :commentable_type, value: @comment
+    = f.hidden_field :commentable_id, value: params[:id]
+    .form-group
+      = f.input :content, label: false, as: :text, input_html: { rows: 7 }, class: "form-control"
+    .form-actions
+      = f.button :submit, class: "btn btn-round btn-d"

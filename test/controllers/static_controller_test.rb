@@ -13,6 +13,7 @@ describe StaticController do
     describe "get /#{page}" do
 
       it "must succeed" do 
+
         org
         get page.to_sym
         assert_response :success

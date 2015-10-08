@@ -19,10 +19,17 @@ Rails.application.routes.draw do
 
   concern :media_promotable do 
     
-    resources :articles
+    resources :articles do 
+      resources :comments
+    end
+
     shallow do 
       resources :galleries, :photos
     end
+  end
+
+  resources :articles do 
+    resources :comments
   end
 
   resources :comments #, only: [:create, :update, :destroy]

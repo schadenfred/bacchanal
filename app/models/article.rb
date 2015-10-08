@@ -18,6 +18,7 @@ class Article < ActiveRecord::Base
 
   validates :org, presence: true
   validates :author, presence: true
+  validates :title, uniqueness: { scope: :org_id }
 
   aasm do
     state :draft, :initial => true

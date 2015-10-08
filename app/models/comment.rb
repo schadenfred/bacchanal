@@ -6,4 +6,7 @@ class Comment < ActiveRecord::Base
   # associations
   belongs_to :commentable, polymorphic: true
   belongs_to :commenter, class_name: "User"
+
+  # validations
+  validates :commenter, presence: true
 end

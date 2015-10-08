@@ -428,34 +428,208 @@
     / Navigation end
     / Wrapper start
     .main
-      / Header section start
-      %section.module.bg-dark.bg-dark-30{"data-background" => "assets/images/section-8.jpg"}
-        .container
-          .row
-            .col-sm-6.col-sm-offset-3
-              %h1.module-title.font-alt.mb-0 Forms
-          / .row
-      / Header section end
-      / Components start
+      / Post single start
       %section.module
         .container
           .row
-            .col-sm-8.col-sm-offset-2
-              %h4.font-alt.mb-0 Basic Forms
-              %hr.divider-w.mt-10.mb-20/
-              .form-group
-                %input.form-control.input-lg{:placeholder => "Large input", :type => "text"}/
-              .form-group
-                %input.form-control{:placeholder => "Default input", :type => "text"}/
-              .form-group
-                %input.form-control.input-sm{:placeholder => "Small input", :type => "text"}/
-              .form-group
-                %input.form-control{:disabled => "disabled", :placeholder => "Disabled input", :type => "text"}/
-              .form-group
-                %input.form-control{:placeholder => "Readonly input", :readonly => "readonly", :type => "text"}/
-              %textarea.form-control{:placeholder => "Textarea", :rows => "7"}
+            / Content column start
+            .col-sm-8
+              / Post start
+              .post
+                .post-thumbnail
+                  %a{:href => "blog-single-left.html"}
+                    %img{:alt => "", :src => "assets/images/post-4.jpg"}/
+                .post-header.font-alt
+                  %h1.post-title
+                    %a{:href => "blog-single-left.html"} Our trip to the Alps
+                  .post-meta
+                    By
+                    %a{:href => "#"} Mark Stone
+                    | 23 November | 3 Comments |
+                    = succeed "," do
+                      %a{:href => "#"} Photography
+                    %a{:href => "#"} Web Design
+                .post-entry
+                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
+                  %p Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.
+                  %blockquote
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                  %p If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.
+                  %ul
+                    %li The European languages are members of the same family.
+                    %li Their separate existence is a myth.
+                    %li For science, music, sport, etc, Europe uses the same vocabulary.
+                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
+              / Post end
+              / Comments start
+              .comments
+                %h4.comment-title.font-alt There are 3 comments
+                / Comment 1 start
+                .comment.clearfix
+                  .comment-avatar
+                    %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
+                  .comment-content.clearfix
+                    .comment-author.font-alt
+                      %a{:href => "#"} John Doe
+                    .comment-body
+                      %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+                    .comment-meta.font-alt
+                      Today, 14:55 -
+                      %a{:href => "#"} Reply
+                  / Comment 2 start
+                  .comment.clearfix
+                    .comment-avatar
+                      %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
+                    .comment-content.clearfix
+                      .comment-author.font-alt
+                        %a{:href => "#"} Mark Stone
+                      .comment-body
+                        %p Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+                      .comment-meta.font-alt
+                        Today, 14:55 -
+                        %a{:href => "#"} Reply
+                  / Comment 2 end
+                / Comment 1 end
+                / Comment 3 start
+                .comment.clearfix
+                  .comment-avatar
+                    %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"}/
+                  .comment-content.clearfix
+                    .comment-author.font-alt
+                      %a{:href => "#"} Andy
+                    .comment-body
+                      %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
+                    .comment-meta.font-alt
+                      Today, 14:55 -
+                      %a{:href => "#"} Reply
+                / Comment 3 end
+              / Comments end
+              / Comment form start
+              .comment-form
+                %h4.comment-form-title.font-alt Add your comment
+                %form{:method => "post"}
+                  .form-group
+                    %label.sr-only{:for => "name"} Name
+                    %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
+                  .form-group
+                    %label.sr-only{:for => "email"} Name
+                    %input#email.form-control{:name => "email", :placeholder => "E-mail", :type => "text"}/
+                  .form-group
+                    %textarea#comment.form-control{:name => "comment", :placeholder => "Comment", :rows => "4"}
+                  %button.btn.btn-round.btn-d{:type => "submit"} Post comment
+              / Comment form end
+            / Content column end
+            / Sidebar column start
+            .col-sm-4.col-md-3.col-md-offset-1.sidebar
+              / Widget start
+              .widget
+                %form{:role => "form"}
+                  .search-box
+                    %input.form-control{:placeholder => "Search...", :type => "text"}/
+                    %button.search-btn{:type => "submit"}
+                      %i.fa.fa-search
+              / Widget end
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Categories
+                %ul.icon-list
+                  %li
+                    %a{:href => "#"} Photography - 7
+                  %li
+                    %a{:href => "#"} Web Design - 3
+                  %li
+                    %a{:href => "#"} Illustration - 12
+                  %li
+                    %a{:href => "#"} Marketing - 1
+                  %li
+                    %a{:href => "#"} WordPress - 16
+              / Widget end
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Popular posts
+                %ul.widget-posts
+                  %li.clearfix
+                    .widget-posts-image
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+                    .widget-posts-body
+                      .widget-posts-title
+                        %a{:href => "#"} Designer Desk Essentials
+                      .widget-posts-meta
+                        23 November
+                  %li.clearfix
+                    .widget-posts-image
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+                    .widget-posts-body
+                      .widget-posts-title
+                        %a{:href => "#"} Realistic Business Card Mockup
+                      .widget-posts-meta
+                        15 November
+                  %li.clearfix
+                    .widget-posts-image
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
+                    .widget-posts-body
+                      .widget-posts-title
+                        %a{:href => "#"} Eco bag Mockup
+                      .widget-posts-meta
+                        5 November
+                  %li.clearfix
+                    .widget-posts-image
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
+                    .widget-posts-body
+                      .widget-posts-title
+                        %a{:href => "#"} Bottle Mockup
+                      .widget-posts-meta
+                        1 November
+              / Widget end
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Tags
+                .tags.font-serif
+                  %a{:href => "#", :rel => "tag"} Blog
+                  %a{:href => "#", :rel => "tag"} Photo
+                  %a{:href => "#", :rel => "tag"} Video
+                  %a{:href => "#", :rel => "tag"} Image
+                  %a{:href => "#", :rel => "tag"} Minimal
+                  %a{:href => "#", :rel => "tag"} Post
+                  %a{:href => "#", :rel => "tag"} Theme
+                  %a{:href => "#", :rel => "tag"} Ideas
+                  %a{:href => "#", :rel => "tag"} Tags
+                  %a{:href => "#", :rel => "tag"} Bootstrap
+                  %a{:href => "#", :rel => "tag"} Popular
+                  %a{:href => "#", :rel => "tag"} English
+              / Widget end
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Text
+                The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
+              / Widget end
+              / Widget start
+              .widget
+                %h5.widget-title.font-alt Recent Comments
+                %ul.icon-list
+                  %li
+                    Maria on
+                    %a{:href => "#"} Designer Desk Essentials
+                  %li
+                    John on
+                    %a{:href => "#"} Realistic Business Card Mockup
+                  %li
+                    Andy on
+                    %a{:href => "#"} Eco bag Mockup
+                  %li
+                    Jack on
+                    %a{:href => "#"} Bottle Mockup
+                  %li
+                    Mark on
+                    %a{:href => "#"} Our trip to the Alps
+              / Widget end
+            / Sidebar column end
           / .row
-      / Components start
+      / Post single end
       / Widgets start
       .module-small.bg-dark
         .container

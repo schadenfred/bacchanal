@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  include Commentable
+
   skip_before_action :authenticate_user!, only: [:index, :show]
   
   before_action :set_article, only: [:show, :edit, :update, :destroy]
@@ -19,6 +21,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    
+    @comments = @article.comments
+    @commentable = @article
+    @comment = Comment.new
   end
 
   def new
