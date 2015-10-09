@@ -10,7 +10,13 @@
       = time_ago_in_words(comment.created_at)
       ago.
       / = link_to "Reply", new_polymorphic_path([@commentable, Comment.new],parent_id: comment)
-      / = link_to "reply", new_comment_path, id: "new_link", remote: true
-      = link_to "delete", comment, confirm: "Whoah, you sure?", method: :delete
+      = link_to "New Task", new_comment_path, data: { id: comment.id }, id: "new_link_#{@comment.id}", remote: true
+
+
+      / = link_to "reply", new_comment_path, id: "reply-to", data: { id: comment.id }, remote: true
+      / # = link_to "reply", "#", :id => "reply-to-comment", :"data-id" => mcomment.id
+
+      / = link_to "delete", comment, confirm: "Whoah, you sure?", method: :delete
+
   = nested_comments comment.children
 

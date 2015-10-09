@@ -28,7 +28,7 @@
           .comments
             %h4.comment-title.font-alt #{pluralize(@article.comments.count, 'comment')}
             = nested_comments @comments
-            = render "comments/form"
+            / = render "comments/form"
             / - @article.comments.each do |comment|
             /   = render partial: "comments/comment", object: comment
 
@@ -64,43 +64,43 @@
           / Widget start
           .widget
             %h5.widget-title.font-alt Popular posts
-            %ul.widget-posts
-              %li.clearfix
-                .widget-posts-image
-                  %a{:href => "#"}
-                    %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
-                .widget-posts-body
-                  .widget-posts-title
-                    %a{:href => "#"} Designer Desk Essentials
-                  .widget-posts-meta
-                    23 November
-              %li.clearfix
-                .widget-posts-image
-                  %a{:href => "#"}
-                    %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
-                .widget-posts-body
-                  .widget-posts-title
-                    %a{:href => "#"} Realistic Business Card Mockup
-                  .widget-posts-meta
-                    15 November
-              %li.clearfix
-                .widget-posts-image
-                  %a{:href => "#"}
-                    %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
-                .widget-posts-body
-                  .widget-posts-title
-                    %a{:href => "#"} Eco bag Mockup
-                  .widget-posts-meta
-                    5 November
-              %li.clearfix
-                .widget-posts-image
-                  %a{:href => "#"}
-                    %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
-                .widget-posts-body
-                  .widget-posts-title
-                    %a{:href => "#"} Bottle Mockup
-                  .widget-posts-meta
-                    1 November
+            / %ul.widget-posts
+            /   %li.clearfix
+            /     .widget-posts-image
+            /       %a{:href => "#"}
+            /         %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+            /     .widget-posts-body
+            /       .widget-posts-title
+            /         %a{:href => "#"} Designer Desk Essentials
+            /       .widget-posts-meta
+            /         23 November
+            /   %li.clearfix
+            /     .widget-posts-image
+            /       %a{:href => "#"}
+            /         %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+            /     .widget-posts-body
+            /       .widget-posts-title
+            /         %a{:href => "#"} Realistic Business Card Mockup
+            /       .widget-posts-meta
+            /         15 November
+            /   %li.clearfix
+            /     .widget-posts-image
+            /       %a{:href => "#"}
+            /         %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
+            /     .widget-posts-body
+            /       .widget-posts-title
+            /         %a{:href => "#"} Eco bag Mockup
+            /       .widget-posts-meta
+            /         5 November
+            /   %li.clearfix
+            /     .widget-posts-image
+            /       %a{:href => "#"}
+            /         %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
+            /     .widget-posts-body
+            /       .widget-posts-title
+            /         %a{:href => "#"} Bottle Mockup
+            /       .widget-posts-meta
+            /         1 November
           / Widget end
           / Widget start
           .widget

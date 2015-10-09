@@ -3,12 +3,10 @@ class CommentsController < ApplicationController
   include CommentableAncestry
 
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :set_commentable, only: [:create, :new]
+  before_action :set_commentable, only: [:create]
 
   def new
-    @comment = Comment.new( parent_id: params["parent_id"],
-                            commentable_id: @commentable.id,
-                            commentable_type: @commentable.class.to_s)
+    @comment = Comment.new
   end
 
   def edit
