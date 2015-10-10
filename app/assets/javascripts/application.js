@@ -24,4 +24,5 @@
 //= require photos
 //= require custom
 //= require static
+//= require articles
 

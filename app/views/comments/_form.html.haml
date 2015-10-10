@@ -1,12 +1,14 @@
-.comment-form
-  %h4.comment-form-title.font-alt Add your .02
+%h4.comment-form-title.font-alt Add your .02
 
-  = simple_form_for @comment, remote: true do |f|
+= simple_form_for @comment, remote: true do |f|
 
-    = f.hidden_field :parent_id
-    = f.hidden_field :commentable_type, value: @comment
-    = f.hidden_field :commentable_id, value: params[:id]
-    .form-group
-      = f.input :content, label: false, as: :text, input_html: { rows: 7 }, class: "form-control"
-    .form-actions
-      = f.button :submit, class: "btn btn-round btn-d"
+  = f.hidden_field :parent_id, value: parent_id
+  / = f.hidden_field :commentable_type, value: @comment
+  / = f.hidden_field :commentable_id, value: params[:id]
+  .form-group
+    = f.input :content, label: false, as: :text, input_html: { rows: 7 }, class: "form-control"
+  .form-actions
+    = f.button :submit, class: "btn btn-round btn-d"
+    %button.btn.btn-round.btn-d{ class: "cancel-btn", id: parent_id }
+      cancel
+    

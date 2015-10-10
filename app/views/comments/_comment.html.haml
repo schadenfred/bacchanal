@@ -1,4 +1,4 @@
-.comment.clearfix
+.comment.clearfix{ id: "comment-#{comment.id}" }
   .comment-avatar
     = link_to image_tag("commenter-thumb.jpg")
   .comment-content.clearfix
@@ -10,15 +10,17 @@
       = time_ago_in_words(comment.created_at)
       ago.
       / = link_to "Reply", new_polymorphic_path([@commentable, Comment.new],parent_id: comment)
-      = comment.id
-      = link_to "reply", new_comment_path, data: { id: comment.id }, id: "new_link", remote: true
-      = render "form"
+      = link_to "reply", "", class: "reply-to", id: "#{comment.id}", remote: true
+      = link_to "delete", comment, class: "delete-comment", confirm: "Whoah, you sure?", method: :delete
+      .comment-form
+        = render partial: "comments/form", locals: { parent_id: comment.id}
+      
+
 
 
       / = link_to "reply", new_comment_path, id: "reply-to", data: { id: comment.id }, remote: true
       / # = link_to "reply", "#", :id => "reply-to-comment", :"data-id" => mcomment.id
 
-      / = link_to "delete", comment, confirm: "Whoah, you sure?", method: :delete
 
   = nested_comments comment.children
 

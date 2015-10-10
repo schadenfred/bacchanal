@@ -13,12 +13,18 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.create!(comment_params)
-    if @comment.save
-      redirect_to @comment.commentable, notice: 'Comment was successfully created.'
-    else
-      render :new
+
+    @comment = @commentable.comments.create!(comment_params.merge(commenter_id: current_user.id))
+    respond_to do |format|
+      format.html { redirect_to tasks_url }
+      format.js
     end
+    # @comment = current_user.comments.create!(comment_params)
+    # if @comment.save
+    #   redirect_to @comment.commentable, notice: 'Comment was successfully created.'
+    # else
+    #   render :new
+    # end
   end
 
   def update
@@ -45,6 +51,6 @@ class CommentsController < ApplicationController
     end
     
     def comment_params
-      params.require(:comment).permit(:content, :commentable_id, :commentable_type)
+      params.require(:comment).permit(:content, :parent_id)
     end
 end
