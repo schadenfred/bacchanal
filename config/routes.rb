@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :comments #, only: [:create, :update, :destroy]
 
   resources :orgs do 
-    # concerns :media_promotable
+    concerns :media_promotable
   end 
 
   resources :photos

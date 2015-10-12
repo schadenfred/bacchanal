@@ -28,7 +28,7 @@
           .comments
             %h4.comment-title.font-alt #{pluralize(@article.comments.count, 'comment')}
             = nested_comments @comments
-            / = render "comments/form"
+            = render "comments/form"
             / - @article.comments.each do |comment|
             /   = render partial: "comments/comment", object: comment
 

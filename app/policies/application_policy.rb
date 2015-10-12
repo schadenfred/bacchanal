@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    create?
   end
 
   def show?
@@ -15,11 +15,10 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    @user.has_role? :admin if @user
   end
 
   def new?
-    byebug
     create?
   end
 

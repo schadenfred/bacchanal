@@ -1,6 +1,1 @@
-// $("#reply-to").data("id").hide().after('<%= j render("form") %>');
-
-// $("#new_link[data-id]").hide();
-// $("#reply-to-form-[data-id]").show();
-// $("#reply-to-form-[data-id]").show();
-
+$('#new-reply-to-<%= @comment.parent.id %>').hide().after('<%= j render "comments/form"%>');

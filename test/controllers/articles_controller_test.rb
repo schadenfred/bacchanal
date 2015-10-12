@@ -18,6 +18,10 @@ describe ArticlesController do
       And   { assert_not_nil assigns :article }    
     end
     
+    describe "#show" do
+      Given { get :show, winery_id: winery.slug, id: article.slug }
+      Then  { assert_response 200 }
+    end 
     describe "#create" do 
 
       Given(:make_request) { post :create, winery_id: winery.id, article: { title: "Sweet title", content: "sweet content" }}

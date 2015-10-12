@@ -3,17 +3,18 @@ FactoryGirl.define do
   sequence(:email) do |n| 
     "user#{n}@test.com" 
   end
+  sequence(:name)       {|n| "username#{n}" }
 
   factory :user, aliases: [:confirmed_user, :winemaker, :farmer, 
     :reviewer, :owner, :activator, :author, :photographer, :commenter] do
  
+    name
     email
-    # sequence(:name)       {|n| "username#{n}" }
     password              "password"
     confirmed_at Time.now
 
-    factory :admin do 
-      # after(:create) { |user| user.add_role(:admin) } 
+    factory :admin do
+      after(:create) { |user| user.add_role(:admin) } 
     end
 
     factory :user_with_showcase do 

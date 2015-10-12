@@ -10,10 +10,11 @@
       = time_ago_in_words(comment.created_at)
       ago.
       / = link_to "Reply", new_polymorphic_path([@commentable, Comment.new],parent_id: comment)
-      = link_to "reply", "", class: "reply-to", id: "#{comment.id}", remote: true
-      = link_to "delete", comment, class: "delete-comment", confirm: "Whoah, you sure?", method: :delete
-      .comment-form
-        = render partial: "comments/form", locals: { parent_id: comment.id}
+      - if policy(@comment).new?
+        = link_to "reply", new_comment_path(comment: { parent_id: comment.id }), id: "new-reply-to-#{comment.id}", remote: true
+      / = link_to "delete", comment, class: "delete-comment", confirm: "Whoah, you sure?", method: :delete
+      / .comment-form
+      / = render partial: "comments/form", locals: { parent_id: comment.id}
       
 
 

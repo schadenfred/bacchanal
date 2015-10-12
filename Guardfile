@@ -36,6 +36,11 @@ guard :minitest do
 
   watch(%r{^app/(.+)\.rb$})                               { |m| 
     "test/#{m[1]}_test.rb" }
+  watch(%r{^app/policies/(.+)\.rb$})                      { |m| 
+    "test/policies/#{m[1]}_test.rb" }
+
+  watch(%r{^app/policies/application_policy\.rb$})        { |m| 
+    "test/policies" }  
   watch(%r{^app/controllers/application_controller\.rb$}) { 
     'test/controllers' }
   watch(%r{^app/controllers/(.+)_controller\.rb$})        { |m| 

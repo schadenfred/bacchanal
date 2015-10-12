@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe ArticlePolicy do 
   
-  Given(:user)            { FactoryGirl.create(:user) }
+  Given(:user)            { FactoryGirl.create(:admin) }
   Given(:article)         { FactoryGirl.create(:article, author_id: user.id) }
   Given(:policy)          { ArticlePolicy.new(user, article) }
   Given(:fellow_author)   { FactoryGirl.create(:user) }

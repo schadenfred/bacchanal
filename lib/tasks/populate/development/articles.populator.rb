@@ -3,7 +3,7 @@ winery = Winery.first
 
 users.each do |user|
   article = user.articles.new(
-    title: Faker::Stoked.food,
+    title: Faker::Stoked.food + ": " + Faker::Stoked.food,
     content: Faker::Stoked.paragraphs(3),
     org: winery
   )

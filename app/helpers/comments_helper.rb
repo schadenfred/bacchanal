@@ -5,4 +5,15 @@ module CommentsHelper
       content_tag(:div, render(comment), :class => "media")
     end.join.html_safe
   end
+
+  def comment_call_to_action(comment)
+    base_call = "add your .02"
+    if comment.parent
+      base_call + "to what #{comment.parent.commenter.name}'s comment above"
+    elsif @commentable.comments.nil?
+      "Be the first to #{base_call}"
+    else
+      base_call
+    end
+  end
 end

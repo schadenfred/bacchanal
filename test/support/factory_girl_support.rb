@@ -1,4 +1,7 @@
 require 'factory_girl_rails'
 
-include FactoryGirl::Syntax::Methods
+# class MiniTest::Unit::TestCase
+#   include FactoryGirl::Syntax::Methods
+# end
+# include FactoryGirl::Syntax::Methods
 
