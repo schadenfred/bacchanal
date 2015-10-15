@@ -1,0 +1,4 @@
+$('#reply-to-comment-<%= @comment.parent.id %>').show();
+$('#delete-comment-<%= @comment.parent.id %>').show();
+$('#comment-form-<%= @comment.parent.id %>').hide();
+$('#nested-comment-ex-<%= @comment.parent.id %>').append('<%= j render(@comment) %>');

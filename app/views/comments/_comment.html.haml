@@ -1,4 +1,4 @@
-.comment.clearfix{ id: "comment-#{comment.id}" }
+.comment.clearfix{ id: "comment-#{comment.id}"}
   .comment-avatar
     = link_to image_tag("commenter-thumb.jpg")
   .comment-content.clearfix
@@ -6,22 +6,15 @@
       = link_to comment.commenter.name
     .comment-body
       %p= comment.content
-    .comment-meta.font-alt
+    .comment-meta.font-alt 
       = time_ago_in_words(comment.created_at)
       ago.
-      / = link_to "Reply", new_polymorphic_path([@commentable, Comment.new],parent_id: comment)
       - if policy(@comment).new?
-        = link_to "reply", new_comment_path(comment: { parent_id: comment.id }), id: "new-reply-to-#{comment.id}", remote: true
-      / = link_to "delete", comment, class: "delete-comment", confirm: "Whoah, you sure?", method: :delete
-      / .comment-form
-      / = render partial: "comments/form", locals: { parent_id: comment.id}
-      
-
-
-
-      / = link_to "reply", new_comment_path, id: "reply-to", data: { id: comment.id }, remote: true
-      / # = link_to "reply", "#", :id => "reply-to-comment", :"data-id" => mcomment.id
-
+        = link_to "reply", new_comment_path(comment: { parent_id: comment.id }), id: "reply-to-comment-#{comment.id}", remote: true
+      - if policy(comment).destroy?
+        = link_to "delete", comment, method: :delete, id: "delete-comment-#{comment.id}", remote: true
+  .row
+    .nested-comment{ id: "nested-comment-ex-#{comment.id}"}
 
   = nested_comments comment.children
 

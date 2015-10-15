@@ -13,10 +13,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-
     @comment = @commentable.comments.create!(comment_params.merge(commenter_id: current_user.id))
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      
+      format.html { redirect_to root_url }
       format.js
     end
   end
@@ -30,12 +30,17 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
-
+    @comment = Comment.destroy(params[:id])
     respond_to do |format|
       format.html { redirect_to root_url }
       format.js
     end
+    # @comment.destroy
+
+    # respond_to do |format|
+    #   format.html { redirect_to root_url }
+    #   format.js
+    # end
   end
 
   private  

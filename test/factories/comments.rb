@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :comment do
-    content "MyString"
-    commentable_id 1
-    commentable_type "MyString"
+    content "Democrats I have met while yachting"
+    association :commentable, factory: :winery
     commenter
   end
 end

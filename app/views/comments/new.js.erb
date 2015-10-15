@@ -1,1 +1,3 @@
-$('#new-reply-to-<%= @comment.parent.id %>').hide().after('<%= j render "comments/form"%>');
+$('#delete-comment-<%= @comment.parent.id %>').hide();
+$('#reply-to-comment-<%= @comment.parent.id %>').hide().after("<%= j render "comments/form"%>");
+// $("#cancel-reply-<%= @comment.parent.id %>").show();

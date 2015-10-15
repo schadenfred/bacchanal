@@ -5,12 +5,22 @@ class CommentPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    create?
+  end
+
   def update?
-    @user == record.commenter
+    if @user
+      @user == record.commenter or @user.has_role? :admin
+    end
   end
 
   def edit?
     update?
+  end
+
+  def create?
+    @user
   end
 
   def destroy?

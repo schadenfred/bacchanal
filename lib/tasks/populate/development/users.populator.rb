@@ -40,26 +40,28 @@ testers.each do |fullname|
     user.invite!
     user.accept_invitation!
     user.confirm
-    user.add_role :admin
-    # user.add_role tester_role.to_sym
+    user.add_role :alien
 # end
 end
 
+fred = User.where(name: "fred schoeneman").first
+fred.add_role :admin
+fred.save!
 # small_notice("generic users")
 # (@users.to_i - (testers.count * tester_roles.count)).times do |n|
-(@users.to_i - (testers.count)).times do |n|
-  name = Faker::Stoked.celebroty 
-  email = Faker::Internet.email
-  password  = "password"
-  user = User.new(name: name,
-                  :email => email,
-                  :password => password,
-                  bio: Faker::Stoked.bio)  
-  # user.skip_confirmation!
-  user.save!
+# (@users.to_i - (testers.count)).times do |n|
+#   name = Faker::Stoked.celebroty 
+#   email = Faker::Internet.email
+#   password  = "password"
+#   user = User.new(name: name,
+#                   :email => email,
+#                   :password => password,
+#                   bio: Faker::Stoked.bio)  
+#   # user.skip_confirmation!
+#   user.save!
 
   
   # user.confirm!
-end
+# end
 
 

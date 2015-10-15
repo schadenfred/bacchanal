@@ -9,7 +9,7 @@ module CommentsHelper
   def comment_call_to_action(comment)
     base_call = "add your .02"
     if comment.parent
-      base_call + "to what #{comment.parent.commenter.name}'s comment above"
+      base_call + " to what #{comment.parent.commenter.name} wrote above"
     elsif @commentable.comments.nil?
       "Be the first to #{base_call}"
     else

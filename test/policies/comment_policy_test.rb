@@ -2,16 +2,15 @@ require 'test_helper'
 
 describe CommentPolicy do 
 
-  Given(:commenter)       { create(:admin) }
-  # Given(:comment_replier) { create(:user) }
-  Given(:comment)   { create(:comment, commenter_id: commenter.id) }
-  # Given(:policy)    { CommentPolicy.new(commenter, comment) }
+  Given(:admin)           { create(:admin) }
+  Given(:comment_replier) { create(:user) }
+  Given(:comment)         { create(:comment) }
   
   describe "collection actions" do 
 
     %w[new index create].each do |action|
 
-      Then { assert_permit commenter, :comment, action.to_sym }
+      Then { assert_permit comment.commenter, :comment, action.to_sym }
     end
   end
 
@@ -19,17 +18,27 @@ describe CommentPolicy do
     
     %w[edit update destroy].each do |action|
 
-      context "user is not commenter" do 
+      context "user is comment commenter" do 
 
-        Then { assert_permit commenter, comment, action }
+        Then { assert_permit comment.commenter, comment, action }
+      end
+
+      context "user is not comment commenter" do 
+
+        Then { refute_permit comment_replier, comment, action }
+      end
+
+      context "user is admin" do
+
+        Then { assert_permit admin, comment, action }
       end
     end
   end 
 
-  describe "scope" do 
+  # describe "scope" do 
 
-    # Then { 
-    #   assert_permit commenter, :comment, :create }
+  #   # Then { 
+  #   #   assert_permit commenter, :comment, :create }
 
-  end
+  # end
 end
