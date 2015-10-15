@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment
   end
 
   def create
@@ -22,10 +23,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
-    else
-      render :edit
+    @comment.update(comment_params)
+    respond_to do |format|
+      format.html { redirect_to @comment.commentable }
+      format.js
     end
   end
 

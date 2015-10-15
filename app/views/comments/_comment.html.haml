@@ -6,7 +6,6 @@
       = link_to comment.commenter.name
     .comment-body
       %p= comment.content
-      / # = render 'comments/form', class: "comment-edit-form"
     .comment-meta.font-alt 
       = time_ago_in_words(comment.created_at)
       ago.
@@ -14,6 +13,9 @@
         = link_to "reply", new_comment_path(comment: { parent_id: comment.id }), id: "reply-to-comment-#{comment.id}", remote: true
       - if policy(comment).destroy?
         = link_to "delete", comment, method: :delete, id: "delete-comment-#{comment.id}", remote: true
+      - if policy(comment).update?
+        = link_to "edit", edit_comment_path(comment),  id: "edit-comment-#{comment.id}", remote: true
+
   .row
     .nested-comment{ id: "nested-comment-ex-#{comment.id}"}
 

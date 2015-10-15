@@ -1,10 +1,16 @@
-$(".comment-edit-form").hide();
+$(".cancel-btn").click(function() {
 
-$( ".comment-body" ).click(function() {
-  $( this ).hide().after("<%= j render "comments/form"%>");
-  // $( this ).slideUp();
-  // $( this ).sli("<%= j render "comments/form"%>");
+  $( this ).hide();
 });
+
+
+// $( ".comment-body" ).click(function() {
+//   $( this ).find("p").remove();
+//   $( this ).find(".comment-form").show();
+//   // .after("<%= j render "comments/form"%>");
+//   // $( this ).slideUp();
+//   // $( this ).sli("<%= j render "comments/form"%>");
+// });
 // $(".comment-body").click(function (){
 
 //   $("#comment-" + this.id).find("p").hide();
