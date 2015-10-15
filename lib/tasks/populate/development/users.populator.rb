@@ -12,7 +12,8 @@ testers = [
   "greg spanel",
   "melinda marks",
   "biren talati",
-  "sarah schoeneman"
+  "sarah schoeneman",
+  "kimberly miller"
 ]
 
 
