@@ -1,3 +1,16 @@
+$(".comment-edit-form").hide();
+
+$( ".comment-body" ).click(function() {
+  $( this ).hide().after("<%= j render "comments/form"%>");
+  // $( this ).slideUp();
+  // $( this ).sli("<%= j render "comments/form"%>");
+});
+// $(".comment-body").click(function (){
+
+//   $("#comment-" + this.id).find("p").hide();
+
+// });
+
 // $(".cancel-reply").click(function (){
 //   $(".comment").find(".comment-form").hide();
 //   $("#comment-" + this.id).find(".comment-form").show();

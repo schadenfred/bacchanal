@@ -6,6 +6,7 @@
       = link_to comment.commenter.name
     .comment-body
       %p= comment.content
+      / # = render 'comments/form', class: "comment-edit-form"
     .comment-meta.font-alt 
       = time_ago_in_words(comment.created_at)
       ago.
