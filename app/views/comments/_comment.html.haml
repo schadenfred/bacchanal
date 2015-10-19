@@ -7,17 +7,24 @@
     .comment-body
       %p= comment.content
     .comment-meta.font-alt 
-      = time_ago_in_words(comment.created_at)
-      ago.
-      - if policy(@comment).new?
-        = link_to "reply", new_comment_path(comment: { parent_id: comment.id }), id: "reply-to-comment-#{comment.id}", remote: true
-      - if policy(comment).destroy?
-        = link_to "delete", comment, method: :delete, id: "delete-comment-#{comment.id}", remote: true
-      - if policy(comment).update?
-        = link_to "edit", edit_comment_path(comment),  id: "edit-comment-#{comment.id}", remote: true
-
-  .row
-    .nested-comment{ id: "nested-comment-ex-#{comment.id}"}
+      .col-sm-5
+        .comment-age
+          = time_ago_in_words(comment.created_at) + " ago."
+      .col-sm-7
+        .comment-actions.pull-right
+          - if policy(@comment).new?
+            = link_to "reply", new_comment_path(comment: { parent_id: comment.id }), remote: true
+          - if policy(comment).destroy?
+            = link_to "delete", comment, method: :delete, id: "delete-comment-#{comment.id}", remote: true
+          - if policy(comment).update?
+            = link_to "edit", edit_comment_path(comment),  id: "edit-comment-#{comment.id}", remote: true
+        .comment-reply-cancel.pull-right{ id: "cancel-reply-#{comment.id}" }
+          = link_to "cancel"
+        
+        
+    .comment-reply
+    
+    .nested-comment
 
   = nested_comments comment.children
 

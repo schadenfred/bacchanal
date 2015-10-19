@@ -1,12 +1,6 @@
-$('#delete-comment-<%= @comment.parent.id %>').hide();
-$('#reply-to-comment-<%= @comment.parent.id %>').hide().after("<%= j render "comments/form"%>");
-$("#cancel-reply-<%= @comment.parent.id %>").show();
+var $comment = $('#comment-<%= @comment.parent.id %>').children(".comment-content");
 
-
-
-// $('#delete-comment-<%= @comment.id %>').hide();
-// $('#reply-to-comment-<%= @comment.parent.id %>').hide()
-// $("#cancel-reply-<%= @comment.parent.id %>").show();
-// $("#comment-<%= @comment.id %>").find('.comment-body').slideUp();
-// $("#comment-<%= @comment.id %>").find('.comment-content').append("<%= j render "comments/form"%>");
+$comment.find('.comment-actions').hide();
+$comment.find('.comment-reply-cancel').show();
+$comment.find('.comment-reply').append("<%= j render "comments/form"%>");
 

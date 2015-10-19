@@ -1,1 +1,12 @@
-$('#delete-comment-<%= @comment.parent.id %>').hide();
+var $comment = $('#comment-<%= @comment.id %>');
+
+$comment.find('.comment-actions').show();
+$comment.find('.comment-form').hide();
+$comment.find('.nested-body').replaceWith('<%= j render(@comment) %>');
+$comment.find('.comment-reply-cancel').hide();
+// $('#delete-comment-<%= @comment.parent.id %>').hide();
+
+// $('#reply-to-comment-<%= @comment.parent.id %>').show();
+// $('#delete-comment-<%= @comment.parent.id %>').show();
+// $('#comment-form-<%= @comment.parent.id %>').hide();
+// $('#nested-comment-ex-<%= @comment.parent.id %>').append('<%= j render(@comment) %>');

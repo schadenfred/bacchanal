@@ -20,9 +20,9 @@
 //= require wow.min
 //= require owl.carousel
 //= require contact
-//= require wineries
 //= require photos
 //= require custom
 //= require static
 //= require articles
+//= require comments
 
