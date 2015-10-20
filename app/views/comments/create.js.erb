@@ -2,5 +2,5 @@ var $comment = $('#comment-<%= @comment.parent.id %>');
 
 $comment.find('.comment-actions').show();
 $comment.find('.comment-form').hide();
-$comment.find('.comment-reply').append('<%= j render(@comment) %>');
+$comment.find('.nested-comment').after('<%= j render(@comment) %>');
 $comment.find('.comment-reply-cancel').hide();

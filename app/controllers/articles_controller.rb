@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
 
   def show
     
-    @comments = @article.comments
+    @comments = @article.comments.where(ancestry: nil)
     @commentable = @article
     @comment = Comment.new
   end
