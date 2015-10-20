@@ -7,6 +7,7 @@
 #   ], :without_protection => true)
 
 testers = [
+  "seemant kulleen",
   "fred schoeneman",
   "alisa mathewson",
   "greg spanel",

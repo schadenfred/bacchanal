@@ -1,6 +1,14 @@
-var $comment = $('#comment-<%= @comment.parent.id %>');
+<% if @comment.ancestry.nil? %>
+  $('.comments').append('<%= j render(@comment) %>');
+  $('.comment-reply-cancel').hide();
+  $('#comment_content').val('');
 
-$comment.find('.comment-actions').show();
-$comment.find('.comment-form').hide();
-$comment.find('.nested-comment').after('<%= j render(@comment) %>');
-$comment.find('.comment-reply-cancel').hide();
+<% else %>
+
+  var $comment = $('#comment-<%= @comment.parent.id %>');
+
+  $comment.find('.comment-actions').show();
+  $comment.find('.comment-form').hide();
+  $comment.find('.nested-comment').after('<%= j render(@comment) %>');
+  $comment.find('.comment-reply-cancel').hide();
+<% end %>

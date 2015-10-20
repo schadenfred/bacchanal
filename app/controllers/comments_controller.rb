@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def create
+    
     @comment = @commentable.comments.create!(comment_params.merge(commenter_id: current_user.id))
+    
     respond_to do |format|
       
       format.html { redirect_to root_url }

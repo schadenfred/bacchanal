@@ -22,21 +22,11 @@
                   = link_to tag
             .post-entry
               = simple_format(@article.content)
-          / Comments start
-          
-          / = render "comments/form"
           .comments
             %h4.comment-title.font-alt #{pluralize(@article.comments.count, 'comment')}
             = nested_comments @comments
-            / = render "comments/form"
-            / - @article.comments.each do |comment|
-            /   = render partial: "comments/comment", object: comment
+          = render "comments/form"
 
-          / Comments end
-          / Comment form start
-
-        / Content column end
-        / Sidebar column start
         .col-sm-4.col-md-3.col-md-offset-1.sidebar
           / Widget start
           .widget

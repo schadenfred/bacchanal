@@ -1,4 +1,4 @@
-.comment-form{ id: "#{@comment.parent.nil? ? nil : "comment-form-#{@comment.parent.id}"}" }    
+.comment-form    
   / %h4.comment-form-title.font-alt= comment_call_to_action(@comment)
   = simple_form_for @comment, remote: true do |f|
 

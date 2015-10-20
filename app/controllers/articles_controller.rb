@@ -24,7 +24,8 @@ class ArticlesController < ApplicationController
     
     @comments = @article.comments.where(ancestry: nil)
     @commentable = @article
-    @comment = Comment.new
+    # @comment = Comment.new
+    @new_comment = Comment.new
   end
 
   def new

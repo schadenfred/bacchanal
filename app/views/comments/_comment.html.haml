@@ -8,7 +8,7 @@
       %p= comment.content
     .comment-meta.font-alt 
       .comment-age.pull-left
-        = time_ago_in_words(comment.created_at) + " ago."
+        = time_ago_in_words(comment.created_at) + " ago"
       
       .comment-actions.pull-right
         - if policy(comment).destroy?
