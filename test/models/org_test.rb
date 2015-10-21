@@ -24,13 +24,19 @@ describe Org do
   specify "associations" do 
 
     must_have_many :articles
-    must_have_many :addresses
-    must_have_many :addresses_addressables
     must_have_many :comments
     must_have_many :positions
+    must_have_many :addresses
   end
 
   specify "scopes" do 
     
-  end 
+  end
+
+  describe "email" do
+
+    Given(:user) { FactoryGirl.create(:user) } 
+    Given(:address_attrs) { FactoryGirl.attributes_for(:address) } 
+    Given(:user_with_address) { user.addreses.create(address_attrs) }
+  end
 end

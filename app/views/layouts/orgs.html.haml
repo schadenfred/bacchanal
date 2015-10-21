@@ -11,15 +11,16 @@
   %section.module.bg-dark-30{"data-background" => yield(:graphic) }
     .hs-caption
       .caption-content
-        .col-sm-8.col-sm-offset-2
-          .hs-title-size-4.font-alt.mb-40
-            %span 
-              = @org.name
-          / .hs-title-size-1.font-alt.mb-30
-          /   for the reading press
-        .col-sm-4.col-sm-offset-4
-          %h2.module-title.font-alt 
-            = @org.try(:blog_title)
+        = link_to @org do 
+          .col-sm-8.col-sm-offset-2
+            .hs-title-size-4.font-alt.mb-40
+              %span 
+                / = @org.name
+            / .hs-title-size-1.font-alt.mb-30
+            /   for the reading press
+          .col-sm-4.col-sm-offset-4
+            %h2.module-title.font-alt 
+              = @org.try(:blog_title)
 
           / %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#about"}  
           /   %h5 the manifesto for the reading

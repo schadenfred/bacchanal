@@ -24,5 +24,13 @@ FactoryGirl.define do
     factory :unconfirmed_user, parent: :user do 
       # confirmed_at nil
     end
+
+    factory :user_with_address do 
+      
+      after_create do |user|
+        
+        user.addresses << FactoryGirl.create(:address)
+      end
+    end
   end
 end

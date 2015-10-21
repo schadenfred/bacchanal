@@ -10,7 +10,7 @@
   / Widget start
   .widget
     %h5.widget-title.font-alt cloud
-    = render partial: "tag_cloud", locals: { tags: @tags }
+    / = render partial: "tag_cloud", locals: { tags: @tags }
     / - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| 
     /   = link_to tag.name, :class => css_class
     / - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
@@ -18,36 +18,36 @@
   .widget
     %h5.widget-title.font-alt Categories
     %ul.icon-list
-      - @bloggable.owned_taggings.where(context: "categories").each do |tagging|
-        %li
-          = link_to tagging.tag
+      / - @bloggable.owned_taggings.where(context: "categories").each do |tagging|
+      /   %li
+      /     = link_to tagging.tag
   / Widget end
   / Widget start
   .widget
     %h5.widget-title.font-alt Popular posts
     %ul.widget-posts
-      - @articles.each do |article|
-        %li.clearfix
-          .widget-posts-image
-            = link_to image_tag("rp-1.jpg"), "#"
-          .widget-posts-body
-            .widget-posts-title
-              = link_to article.title, poly_path(article)
-            .widget-posts-meta
-              = time_tag article.created_at
+      / - @articles.each do |article|
+      /   %li.clearfix
+      /     .widget-posts-image
+      /       = link_to image_tag("rp-1.jpg"), "#"
+      /     .widget-posts-body
+      /       .widget-posts-title
+      /         = link_to article.title, poly_path(article)
+      /       .widget-posts-meta
+      /         = time_tag article.created_at
   .widget
     %h5.widget-title.font-alt Tags
     .tags.font-serif
-      - @bloggable.owned_taggings.where(context: "tags").each do |tagging|
-        = link_to tagging.tag
+      / - @bloggable.owned_taggings.where(context: "tags").each do |tagging|
+      /   = link_to tagging.tag
   .widget
-    %h5.widget-title.font-alt= "about #{@bloggable.name}"
-    = simple_format(@bloggable.mission)
+    / %h5.widget-title.font-alt= "about #{@bloggable.name}"
+    / = simple_format(@bloggable.mission)
   / Widget start
   .widget
     %h5.widget-title.font-alt Recent Comments
     %ul.icon-list
-      - @bloggable.comments.each do |comment|
-        %li
-          = comment.commenter.name
-          = link_to comment.commentable.title.titleize, poly_path(comment.commentable)
+      / - @bloggable.comments.each do |comment|
+      /   %li
+      /     = comment.commenter.name
+      /     = link_to comment.commentable.title.titleize, poly_path(comment.commentable)

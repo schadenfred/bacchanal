@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   
   extend FriendlyId
 
+  # include AddressableConcern
+
   friendly_id :name, use: :slugged
   
   rolify

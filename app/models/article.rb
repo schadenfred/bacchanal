@@ -20,6 +20,8 @@ class Article < ActiveRecord::Base
   validates :author, presence: true
   validates :title, uniqueness: { scope: :org_id }
 
+  default_scope { order("created_at desc") }
+
   aasm do
     state :draft, :initial => true
     state :published

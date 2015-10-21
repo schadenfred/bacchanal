@@ -26,114 +26,112 @@
             %h4.comment-title.font-alt #{pluralize(@article.comments.count, 'comment')}
             = nested_comments @comments
           = render "comments/form"
+          = render "side"
 
-        .col-sm-4.col-md-3.col-md-offset-1.sidebar
-          / Widget start
-          .widget
-            %form{:role => "form"}
-              .search-box
-                %input.form-control{:placeholder => "Search...", :type => "text"}/
-                %button.search-btn{:type => "submit"}
-                  %i.fa.fa-search
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Categories
-            %ul.icon-list
-              %li
-                %a{:href => "#"} Photography - 7
-              %li
-                %a{:href => "#"} Web Design - 3
-              %li
-                %a{:href => "#"} Illustration - 12
-              %li
-                %a{:href => "#"} Marketing - 1
-              %li
-                %a{:href => "#"} WordPress - 16
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Popular posts
-            / %ul.widget-posts
-            /   %li.clearfix
-            /     .widget-posts-image
-            /       %a{:href => "#"}
-            /         %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
-            /     .widget-posts-body
-            /       .widget-posts-title
-            /         %a{:href => "#"} Designer Desk Essentials
-            /       .widget-posts-meta
-            /         23 November
-            /   %li.clearfix
-            /     .widget-posts-image
-            /       %a{:href => "#"}
-            /         %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
-            /     .widget-posts-body
-            /       .widget-posts-title
-            /         %a{:href => "#"} Realistic Business Card Mockup
-            /       .widget-posts-meta
-            /         15 November
-            /   %li.clearfix
-            /     .widget-posts-image
-            /       %a{:href => "#"}
-            /         %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
-            /     .widget-posts-body
-            /       .widget-posts-title
-            /         %a{:href => "#"} Eco bag Mockup
-            /       .widget-posts-meta
-            /         5 November
-            /   %li.clearfix
-            /     .widget-posts-image
-            /       %a{:href => "#"}
-            /         %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
-            /     .widget-posts-body
-            /       .widget-posts-title
-            /         %a{:href => "#"} Bottle Mockup
-            /       .widget-posts-meta
-            /         1 November
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Tags
-            .tags.font-serif
-              %a{:href => "#", :rel => "tag"} Blog
-              %a{:href => "#", :rel => "tag"} Photo
-              %a{:href => "#", :rel => "tag"} Video
-              %a{:href => "#", :rel => "tag"} Image
-              %a{:href => "#", :rel => "tag"} Minimal
-              %a{:href => "#", :rel => "tag"} Post
-              %a{:href => "#", :rel => "tag"} Theme
-              %a{:href => "#", :rel => "tag"} Ideas
-              %a{:href => "#", :rel => "tag"} Tags
-              %a{:href => "#", :rel => "tag"} Bootstrap
-              %a{:href => "#", :rel => "tag"} Popular
-              %a{:href => "#", :rel => "tag"} English
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Text
-            The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
-          / Widget end
-          / Widget start
-          .widget
-            %h5.widget-title.font-alt Recent Comments
-            %ul.icon-list
-              %li
-                Maria on
-                %a{:href => "#"} Designer Desk Essentials
-              %li
-                John on
-                %a{:href => "#"} Realistic Business Card Mockup
-              %li
-                Andy on
-                %a{:href => "#"} Eco bag Mockup
-              %li
-                Jack on
-                %a{:href => "#"} Bottle Mockup
-              %li
-                Mark on
-                %a{:href => "#"} Our trip to the Alps
-          / Widget end
-        / Sidebar column end
-      / .row
-  / Post single end
+  /       .col-sm-4.col-md-3.col-md-offset-1.sidebar
+  /         .widget
+  /           %form{:role => "form"}
+  /             .search-box
+  /               %input.form-control{:placeholder => "Search...", :type => "text"}/
+  /               %button.search-btn{:type => "submit"}
+  /                 %i.fa.fa-search
+  /         .widget
+  /           %h5.widget-title.font-alt Categories
+  /           %ul.icon-list
+  /             %li
+  /               %a{:href => "#"} Photography - 7
+  /             %li
+  /               %a{:href => "#"} Web Design - 3
+  /             %li
+  /               %a{:href => "#"} Illustration - 12
+  /             %li
+  /               %a{:href => "#"} Marketing - 1
+  /             %li
+  /               %a{:href => "#"} WordPress - 16
+  /         / Widget end
+  /         / Widget start
+  /         .widget
+  /           %h5.widget-title.font-alt Popular posts
+  /           / %ul.widget-posts
+  /           /   %li.clearfix
+  /           /     .widget-posts-image
+  /           /       %a{:href => "#"}
+  /           /         %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+  /           /     .widget-posts-body
+  /           /       .widget-posts-title
+  /           /         %a{:href => "#"} Designer Desk Essentials
+  /           /       .widget-posts-meta
+  /           /         23 November
+  /           /   %li.clearfix
+  /           /     .widget-posts-image
+  /           /       %a{:href => "#"}
+  /           /         %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+  /           /     .widget-posts-body
+  /           /       .widget-posts-title
+  /           /         %a{:href => "#"} Realistic Business Card Mockup
+  /           /       .widget-posts-meta
+  /           /         15 November
+  /           /   %li.clearfix
+  /           /     .widget-posts-image
+  /           /       %a{:href => "#"}
+  /           /         %img{:alt => "", :src => "assets/images/rp-3.jpg"}/
+  /           /     .widget-posts-body
+  /           /       .widget-posts-title
+  /           /         %a{:href => "#"} Eco bag Mockup
+  /           /       .widget-posts-meta
+  /           /         5 November
+  /           /   %li.clearfix
+  /           /     .widget-posts-image
+  /           /       %a{:href => "#"}
+  /           /         %img{:alt => "", :src => "assets/images/rp-4.jpg"}/
+  /           /     .widget-posts-body
+  /           /       .widget-posts-title
+  /           /         %a{:href => "#"} Bottle Mockup
+  /           /       .widget-posts-meta
+  /           /         1 November
+  /         / Widget end
+  /         / Widget start
+  /         .widget
+  /           %h5.widget-title.font-alt Tags
+  /           .tags.font-serif
+  /             %a{:href => "#", :rel => "tag"} Blog
+  /             %a{:href => "#", :rel => "tag"} Photo
+  /             %a{:href => "#", :rel => "tag"} Video
+  /             %a{:href => "#", :rel => "tag"} Image
+  /             %a{:href => "#", :rel => "tag"} Minimal
+  /             %a{:href => "#", :rel => "tag"} Post
+  /             %a{:href => "#", :rel => "tag"} Theme
+  /             %a{:href => "#", :rel => "tag"} Ideas
+  /             %a{:href => "#", :rel => "tag"} Tags
+  /             %a{:href => "#", :rel => "tag"} Bootstrap
+  /             %a{:href => "#", :rel => "tag"} Popular
+  /             %a{:href => "#", :rel => "tag"} English
+  /         / Widget end
+  /         / Widget start
+  /         .widget
+  /           %h5.widget-title.font-alt Text
+  /           The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
+  /         / Widget end
+  /         / Widget start
+  /         .widget
+  /           %h5.widget-title.font-alt Recent Comments
+  /           %ul.icon-list
+  /             %li
+  /               Maria on
+  /               %a{:href => "#"} Designer Desk Essentials
+  /             %li
+  /               John on
+  /               %a{:href => "#"} Realistic Business Card Mockup
+  /             %li
+  /               Andy on
+  /               %a{:href => "#"} Eco bag Mockup
+  /             %li
+  /               Jack on
+  /               %a{:href => "#"} Bottle Mockup
+  /             %li
+  /               Mark on
+  /               %a{:href => "#"} Our trip to the Alps
+  /         / Widget end
+  /       / Sidebar column end
+  /     / .row
+  / / Post single end

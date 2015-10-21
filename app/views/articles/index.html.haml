@@ -1,47 +1,115 @@
-- content_for :resource_name do 
+/ - content_for :resource_name do 
 
-  = @org.name
+/   = link_to @org.name, @org
 .main
   = render "top"
   %section.module
     .container
+      .row.post-columns-post-masonry
+        - @articles.in_groups_of(2, false) do |group|
+          .col-sm-6.col-md-4.col-lg-4
+            - group.each do |article|
+              .post
+                .post-thumbnail
+                  = link_to image_tag("post-4.jpg"), poly_path(article)
+                .post-header.font-alt
+                  %h2.post-title
+                    = link_to article.title, poly_path(article)
+                    .post-meta
+                      By
+                      = link_to article.author.name, "#"
+                      | 
+                      = time_ago_in_words(article.created_at) + " ago." 
+                      | 
+                      = pluralize(article.comments.count, 'comment')
+                      | Tags:
+                      - article.all_tags_list.each_with_index do |tag, i|
+                        = i == 0 ? "" : ","
+                        = link_to tag
+                .post-entry
+                  = simple_format(truncate(article.content, length: 250))
+                .post-more
+                  = link_to "Read more", poly_path(article), class: "more-link"
+            
+      .pagination.font-alt
+        = paginate @articles
+  .module-small.bg-dark
+    .container
       .row
-        .col-sm-8
-          - @articles.each do |article|
-            .post
-              .post-thumbnail
-                = link_to image_tag("post-4.jpg"), poly_path(article)
-              .post-header.font-alt
-                %h2.post-title
-                  = link_to article.title, poly_path(article)
-                  .post-meta
-                    By
-                    = link_to article.author.name, "#"
-                    | 
-                    = time_ago_in_words(article.created_at) + " ago." 
-                    | 
-                    = pluralize(article.comments.count, 'comment')
-                    | Tags:
-                    - article.all_tags_list.each_with_index do |tag, i|
-                      = i == 0 ? "" : ","
-                      = link_to tag
-              .post-entry
-                = simple_format(truncate(article.content, length: 250))
-              .post-more
-                = link_to "Read more", poly_path(article), class: "more-link"
-          
-          .pagination.font-alt
-            = paginate @articles
-        = render "side"
-  / = render 'widgets'
-/   %hr.divider-d/
-/   / Divider
-/   / Footer start
-/   / = render "footer"
-/   / Footer end
-/   / Wrapper start
-/   / Scroll-up
-/ .scroll-up
-/ %a{:href => "#totop"}
-/   %i.fa.fa-angle-double-up
-/ / 
+        .col-sm-3
+          / Widget start
+          .widget
+            %h5.widget-title.font-alt About #{@bloggable.name}
+            %p 
+              = @bloggable.mission
+            / - if @bloggable.phone
+            /   %p
+            /     Phone: #{@bloggable.phone}
+            /     %br>/
+            / - if @bloggable.fax
+            /   Fax: #{bloggable.fax}
+            / - if @bloggable.email
+            /   %p
+            /     Email:
+            /     = mail_to @bloggable.email
+        /   / Widget end
+        / .col-sm-3
+        /   / Widget start
+        /   .widget
+        /     %h5.widget-title.font-alt Recent Comments
+        /     %ul.icon-list
+        /       %li
+        /         Maria on
+        /         %a{:href => "#"} Designer Desk Essentials
+        /       %li
+        /         John on
+        /         %a{:href => "#"} Realistic Business Card Mockup
+        /       %li
+        /         Andy on
+        /         %a{:href => "#"} Eco bag Mockup
+        /       %li
+        /         Jack on
+        /         %a{:href => "#"} Bottle Mockup
+        /       %li
+        /         Mark on
+        /         %a{:href => "#"} Our trip to the Alps
+        /   / Widget end
+        / .col-sm-3
+        /   / Widget start
+        /   .widget
+        /     %h5.widget-title.font-alt Categories
+        /     %ul.icon-list
+        /       %li
+        /         %a{:href => "#"} Photography - 7
+        /       %li
+        /         %a{:href => "#"} Web Design - 3
+        /       %li
+        /         %a{:href => "#"} Illustration - 12
+        /       %li
+        /         %a{:href => "#"} Marketing - 1
+        /       %li
+        /         %a{:href => "#"} WordPress - 16
+        /   / Widget end
+        / .col-sm-3
+        /   / Widget start
+        /   .widget
+        /     %h5.widget-title.font-alt Popular posts
+        /     %ul.widget-posts
+        /       %li.clearfix
+        /         .widget-posts-image
+        /           %a{:href => "#"}
+        /             %img{:alt => "", :src => "assets/images/rp-1.jpg"}/
+        /         .widget-posts-body
+        /           .widget-posts-title
+        /             %a{:href => "#"} Designer Desk Essentials
+        /           .widget-posts-meta
+        /             23 November
+        /       %li.clearfix
+        /         .widget-posts-image
+        /           %a{:href => "#"}
+        /             %img{:alt => "", :src => "assets/images/rp-2.jpg"}/
+        /         .widget-posts-body
+        /           .widget-posts-title
+        /             %a{:href => "#"} Realistic Business Card Mockup
+        /           .widget-posts-meta
+        /             15 November
