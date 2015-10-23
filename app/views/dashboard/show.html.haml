@@ -1,3 +1,6 @@
+- present @user do |dashboard_presenter| 
+  .profile
+    get some
 - content_for :header do 
   = render 'normal_header'
    
@@ -10,103 +13,104 @@
 - content_for :navlinks do 
   = render 'application/header/authentication_links'
 
+
 .main
   %section.module
     .container
+      %h2.module-title.font-alt
+        Dashboard
+
       .row
-        .col-sm-8
+        .col-sm-12
           %div
-            %ul.nav.nav-tabs{:role => "tablist"}
-              %li.active{:role => "presentation"}
-                %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+            %ul.nav.nav-pills{:role => "tablist"}
               %li{:role => "presentation"}
-                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Your organization stuff
+                %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+              %li.dropdown{:role => "presentation"}
+                %a#drop4.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Organizations
+                  %span.caret
+                %ul#menu1.dropdown-menu{"aria-labelledby" => "drop4"}
+                  %li
+                    %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+                  %li
+                    %a{:href => "#"} Something else here
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => "#"} Separated link
               %li{:role => "presentation"}
                 %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} your site administration stuff
               %li{:role => "presentation"}
                 %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} Your settings
-            / Tab panes
+
             .tab-content
-              #home.tab-pane.active{:role => "tabpanel"} 
-                #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
-                  .panel.panel-default
-                    #headingOne.panel-heading{:role => "tab"}
-                      %h4.panel-title
-                        %a{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne", :role => "button"}
-                          Collapsible Group Item #1
-                    #collapseOne.panel-collapse.collapse.in{"aria-labelledby" => "headingOne", :role => "tabpanel"}
-                      .panel-body
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  .panel.panel-default
-                    #headingTwo.panel-heading{:role => "tab"}
-                      %h4.panel-title
-                        %a.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo", :role => "button"}
-                          Collapsible Group Item #2
-                    #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
-                      .panel-body
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  .panel.panel-default
-                    #headingThree.panel-heading{:role => "tab"}
-                      %h4.panel-title
-                        %a.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree", :role => "button"}
-                          Collapsible Group Item #3
-                    #collapseThree.panel-collapse.collapse{"aria-labelledby" => "headingThree", :role => "tabpanel"}
-                      .panel-body
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              #home.tab-pane.fade{:role => "tabpanel"} 
+                %h3 my positions
+                %h3 my comments
+                %h3 my identities
+                %h3 my accounts
+                %h3 my addresses
+                %h3 my photos
+                %h3 my galleries
+                %h3 my articles
+                %h3 my organizations
 
-              #profile.tab-pane.fade{:role => "tabpanel"} ...
-              #messages.tab-pane.fade{:role => "tabpanel"} ...
-              #settings.tab-pane.fade{:role => "tabpanel"} ...
-          #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
-            .panel.panel-default
-              #headingOne.panel-heading{:role => "tab"}
-                %h4.panel-title
-                  %a{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne", :role => "button"}
-                    Collapsible Group Item #1
-              #collapseOne.panel-collapse.collapse.in{"aria-labelledby" => "headingOne", :role => "tabpanel"}
-                .panel-body
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            .panel.panel-default
-              #headingTwo.panel-heading{:role => "tab"}
-                %h4.panel-title
-                  %a.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo", :role => "button"}
-                    Collapsible Group Item #2
-              #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
-                .panel-body
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            .panel.panel-default
-              #headingThree.panel-heading{:role => "tab"}
-                %h4.panel-title
-                  %a.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree", :role => "button"}
-                    Collapsible Group Item #3
-              #collapseThree.panel-collapse.collapse{"aria-labelledby" => "headingThree", :role => "tabpanel"}
-                .panel-body
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      .row
-        .col-sm-8
-          %h2.module-title.font-alt
-            Dashboard
+            / .tab-content
+            /   #home.tab-pane.fade{:role => "tabpanel"} 
+      /       %ul.nav.nav-pills{:role => "tablist"}
+      /         %li{:role => "presentation"}
+      /           %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+      /         %li.active.dropdown{:role => "presentation"}
+      /           %a.dropdown-toggle{"aria-controls" => "profile", "data-toggle" => "dropdown", :href => "#profile", :role => "button"} Your organization stuff
+      /         %li{:role => "presentation"}
+      /           %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} your site administration stuff
+      /         %li{:role => "presentation"}
+      /           %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} Your settings
+      /       / Tab panes
+      /       .tab-content
+      /         #home.tab-pane.fade{:role => "tabpanel"} 
+      /           %h3 my positions
+      /           %h3 my comments
+      /           %h3 my identities
+      /           %h3 my accounts
+      /           %h3 my addresses
+      /           %h3 my photos
+      /           %h3 my galleries
+      /           %h3 my articles
+      /           %h3 my organizations
+      /         #profile.tab-pane.fade{:role => "tabpanel"}
+      /           %ul.nav.nav-pills{:role => "tablist"}
+      /             %li{:role => "presentation"}
+      /               %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} bink wines
+      /             %li{:role => "presentation"}
+      /               %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"} ferrington vineyard
+      /             %li{:role => "presentation"}
+      /               %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} fathers & daughters cellars
+      /             %li{:role => "presentation"}
+      /               %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} gallo wines
 
-          %h3 my positions
-          %h3 my comments
-          %h3 my identities
-          %h3 my accounts
-          %h3 my addresses
-          %h3 my photos
-          %h3 my galleries
-          %h3 my articles
-          / article_comments
-          %h3 my organizations
-          / org addresses
-          / org roles
-          / org photos
-          / org articles
-          / org articles comments
-          / org galleries
-          / org positions
-          / org products
-          / / org product reviews 
-          / / org product photos
-          / / org product galleries
+
+      /         #messages.tab-pane.fade{:role => "tabpanel"}
+      /         #settings.tab-pane.fade{:role => "tabpanel"}
+
+      / .row
+      /   .col-sm-8
+
+      /     / article_comments
+      /     / org addresses
+      /     / org roles
+      /     / org photos
+      /     / org articles
+      /     / org articles comments
+      /     / org galleries
+      /     / org positions
+      /     / org products
+      /     / / org product reviews 
+      /     / / org product photos
+      /     / / org product galleries
 
 

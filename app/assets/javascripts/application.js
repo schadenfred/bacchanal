@@ -25,4 +25,5 @@
 //= require static
 //= require articles
 //= require comments
+//= require dashboard
 

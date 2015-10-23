@@ -5,32 +5,33 @@
   = render "top"
   %section.module
     .container
-      .row.post-columns-post-masonry
-        - @articles.in_groups_of(2, false) do |group|
-          .col-sm-6.col-md-4.col-lg-4
-            - group.each do |article|
-              .post
-                .post-thumbnail
-                  = link_to image_tag("post-4.jpg"), poly_path(article)
-                .post-header.font-alt
-                  %h2.post-title
-                    = link_to article.title, poly_path(article)
+      .row.post-columns.post-masonry
+        - @articles.in_groups_of(5, false) do |group|
+          - group.each do |article|
+            .col-sm-6.col-md-4.col-lg-4
+              - present article do |presenter| 
+                .post
+                  .post-thumbnail
+
+                    = link_to image_tag("post-4.jpg"), poly_path(article)
+                  .post-header.font-alt
+                    %h2.post-title
+                      = presenter.linked_title
                     .post-meta
-                      By
-                      = link_to article.author.name, "#"
-                      | 
-                      = time_ago_in_words(article.created_at) + " ago." 
-                      | 
-                      = pluralize(article.comments.count, 'comment')
+                      By #{presenter.linked_author}
+                      = time_ago_in_words(article.created_at) + " ago."
+                      .row 
+                      = presenter.comments_count
                       | Tags:
-                      - article.all_tags_list.each_with_index do |tag, i|
-                        = i == 0 ? "" : ","
-                        = link_to tag
-                .post-entry
-                  = simple_format(truncate(article.content, length: 250))
-                .post-more
-                  = link_to "Read more", poly_path(article), class: "more-link"
-            
+                      = presenter.linked_tags
+                      / - article.all_tags_list.each_with_index do |tag, i|
+                      /   = i == 0 ? "" : ","
+                      /   = link_to tag
+                  .post-entry
+                    %p= simple_format(truncate(article.content, length: 250))
+                  .post-more
+                    = link_to "Read more", poly_path(article), class: "more-link"
+              
       .pagination.font-alt
         = paginate @articles
   .module-small.bg-dark

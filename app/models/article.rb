@@ -35,4 +35,9 @@ class Article < ActiveRecord::Base
       transitions :from => [:draft, :published], :to => :archived
     end
   end
+
+  def set_transition_timestamp(given_status, time=Time.now)
+    timestamp_field = "#{given_status}_at".to_sym
+    self[timestamp_field] = time
+  end
 end

@@ -29,10 +29,6 @@ describe Org do
     must_have_many :addresses
   end
 
-  specify "scopes" do 
-    
-  end
-
   describe "email" do
 
     Given(:user) { FactoryGirl.create(:user) } 
