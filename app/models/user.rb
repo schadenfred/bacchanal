@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   extend FriendlyId
 
-  # include AddressableConcern
+  include AddressableConcern
 
   friendly_id :name, use: :slugged
   
