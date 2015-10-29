@@ -6,38 +6,30 @@
         %h2.module-title.font-alt Pricing
         .module-subtitle.font-serif
           :markdown 
-            Our pricing will never be cheaper. Seriously. Any of these plans is a steal.
+            Our pricing will never be cheaper. Any of these plans is a steal. Seriously, thief. Stop. Thief.
           
           
-    / .row
     .row.multi-columns-row
-      / Price table start
-      - pricing_plans.each_with_index do |k,i|
+      - pricing_plans.each do |plan|
         .col-sm-6.col-md-3.col-lg-3
-          .price-table.font-alt{ class: k[1]["highlighted"] ? "best" : "" }
+          .price-table.font-alt{ class: plan["highlighted"] ? "best" : "" }
             %h4
-
-              = k[0]
-            - if k[1]["highlighted"] == true 
+              = plan[:name]
+            - if plan["highlighted"] == true 
               %p.small Best Choice
 
             .borderline
             %p.price
               %span> $
-              = k[1]["price"]
+              = plan[:price]
             %ul.price-details
-              - k[1]["features"].each do |feature|
-                %li{"data-toggle" => "tooltip", :href => "#", :title => feature[1]["description"]}
-                  - if feature[1]["plan"].nil? || feature[1]["plan"] <= i
-                    
-                    = feature[0].singularize
-                    .tooltip{:role => "tooltip"}
-                      .tooltip-inner
-                      .tooltip-arrow
-                        Some tooltip text!
-                  - else 
-                    %span
-                      = feature[0].singularize
+              - features_list.each do |feature|
+                %li{"data-toggle" => "tooltip", :href => "#", :title => feature[:description]}
+                = feature[:name]
+
+            /         - if feature.first["factorable"] == true
+            /           = blah
+            /         / = feature[0]
             %a.btn.btn-d.btn-round{:href => "#"} Sign Up
 
     .row.mt-40

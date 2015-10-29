@@ -22,71 +22,13 @@
           :markdown
             Bacchan.al is the best thing that has ever happened to you. Observe:
     .row.multi-columns-row
-      - features_list.each do |k,v|
+      - features_list.each do |feature|
         .col-sm-6.col-md-3.col-lg-3
           .features-item
             .features-icon
               %span
-                = fa_icon v["icon"]
+                = fa_icon feature[:icon]
             %h3.features-title.font-alt
-              = k
+              = feature[:name].pluralize
   
-            = v["description"] 
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span
-      /         = fa_icon "trophy"
-      /     %h3.features-title.font-alt Showcases (coming soon)
-      /     :markdown
-      /       List any wine from any any winery. A showcase could be all of the gewurztraminers made in the Anderson Valley in 2012, or your favorite sparkling wines, or a list of value wines you recommend for under twenty dollars, or it could be a list of the wines you are pouring in your tasting room today. Your rules, your showcase.
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span= fa_icon "glass"
-      /     %h3.features-title.font-alt  Wines
-      /     :markdown
-      /       List each of your wines, tag them with appellations, varietals, styles etcetera. Tell about how and when they were made, and from which vineyards you sourced their fruit.
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span
-      /         %span= fa_icon "photo"
-      /     %h3.features-title.font-alt Artists (coming soon)
-      /     :markdown
-      /       Pages for you and your art and easy ways for you to cross promote with wineries.
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span= fa_icon "leaf"
-      /     %h3.features-title.font-alt Vineyards
-      /     :markdown
-      /       A page for each vineyard, with a map delineating blocks, detailed information on climate, soil, how you farm, the varietal, rootstock, clone and irrigation, as well as verticals showing all the wines from different wineries sourced from each block.
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span
-      /         = fa_icon "institution"
-      /     %h3.features-title.font-alt Certifications (coming soon)
-      /     :markdown
-      /       Have your wine, vineyard, or winery certified by different organizations -- and make sure people can see your wine awards.
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span
-      /         = fa_icon "gavel"
-      /     %h3.features-title.font-alt Reviews (coming soon)
-      /     :markdown
-      /       The simplest possible wine review system that actually works.
-      / .col-sm-6.col-md-3.col-lg-3
-      /   .features-item
-      /     .features-icon
-      /       %span
-      /         = fa_icon "money"
-      /     %h3.features-title.font-alt Easier buying (coming soon)
-      /     :markdown
-      /       Put together a vertical or horizontal of wines from different wineries, have it packaged up and sent in one shipment and paid for with one credit card.
-      / Features end
-    / .row
-  / .container
-/ Features end
+            = feature[:description]

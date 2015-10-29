@@ -3,9 +3,13 @@
   .container
     .row
       .col-sm-6.col-sm-offset-3
-        %h2.module-title.font-alt Alt features
+        %h2.module-title.font-alt Features
         .module-subtitle.font-serif
-          A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+          :markdown
+            Bacchan.al is the best thing that has ever happened to you. Observe:
+        / %h2.module-title.font-alt Features
+        / .module-subtitle.font-serif
+        /   A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
     / .row
     .row
       .col-sm-6.col-md-3.col-lg-3
@@ -40,8 +44,11 @@
       / .col
       / Alt features image start
       .col-md-6.col-lg-6.hidden-xs.hidden-sm
-        .alt-services-image.align-center
-          = image_tag "promo.png"
+        / .alt-services-image.align-center
+        / = image_tag "promo.png"
+        / .work-caption.font-alt
+        %h3.work-title Breggovian Wines
+        The Mentos of fratis
 
       / Alt features image end
       .col-sm-6.col-md-3.col-lg-3
