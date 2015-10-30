@@ -3,7 +3,6 @@ require "test_helper"
 describe StaticHelper do 
 
   it ":wine_quotes" do 
-    # wine_quotes.must_equal "blah"
     wine_quotes.first["author"].must_equal "Isak Dinesen"
     wine_quotes.first["note"].must_equal "Writer"
     wine_quotes.last["author"].must_equal "Homer"
@@ -11,16 +10,16 @@ describe StaticHelper do
   end
 
   it ":pricing_plans" do 
-    plan = pricing_plans["grange"]
-    plan["price"].must_equal "19"
-    plan_features = plan["features"][0]
-    plan_features[0].must_equal "artist pages"
-    plan_features[1]["icon"].must_equal "paint-brush"
-    plan_features[1]["plan"].must_equal 0
+    plan = pricing_plans.first
+    plan[:name].must_match /dirt/
+    plan[:price].must_equal "9"
+    feature = plan[:features].first
+    feature[:name].must_match /winery page/
   end
 
   it ":features_list" do
-    features_list[0][0].must_equal "artist pages"
-    features_list[0][1][:icon].must_equal "paint-brush"
+    feature = features_list.first
+    feature[:name].must_match /winery page/
+    feature[:icon].must_match /heart/
   end 
 end

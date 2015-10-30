@@ -10,12 +10,13 @@
           
           
     .row.multi-columns-row
-      - pricing_plans.each do |plan|
+      - pricing_plans.each_with_index do |plan, index|
         .col-sm-6.col-md-3.col-lg-3
-          .price-table.font-alt{ class: plan["highlighted"] ? "best" : "" }
+          .price-table.font-alt{ class: plan[:highlighted] ? "best" : "" }
+
             %h4
               = plan[:name]
-            - if plan["highlighted"] == true 
+            - if plan[:highlighted] == true 
               %p.small Best Choice
 
             .borderline
@@ -25,14 +26,24 @@
             %ul.price-details
               - features_list.each do |feature|
                 %li{"data-toggle" => "tooltip", :href => "#", :title => feature[:description]}
-                = feature[:name]
-
-            /         - if feature.first["factorable"] == true
-            /           = blah
-            /         / = feature[0]
+                  - if feature[:plan].nil?
+                    = feature[:name]
+                  - elsif feature[:plan] == "unlimited"
+                    = "unlimited " + feature[:name].pluralize
+                  - elsif feature[:plan][index] == true
+                    = feature[:name]
+                  - elsif feature[:plan][index].is_a? Integer
+                    = pluralize(feature[:plan][index], feature[:name])
+                  - else
+                    %span
+                      - if feature[:singular]
+                        = feature[:name]
+                      - else
+                        = feature[:name].pluralize
             %a.btn.btn-d.btn-round{:href => "#"} Sign Up
 
     .row.mt-40
       .col-sm-6.col-sm-offset-3.align-center
-        :markdown
-          We have a free version that allows you to have a page for your farm, business, or winery. It will always be free, and provide outstanding value, the likes of which have never been seen. But if you choose a paid plan, you are encouraging ice cold new features, the absence tacky advertising, and helping people to know where their food comes from. 
+        .module-subtitle.font-serif
+          :markdown
+            Most of our features and pages are also available for free, though some may be supported with tasteful advertisements. If you choose a paid plan, you're encouraging ice cold new features, and helping people think a bit more about where their food comes from. 

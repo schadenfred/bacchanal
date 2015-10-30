@@ -29,6 +29,9 @@
               %span
                 = fa_icon feature[:icon]
             %h3.features-title.font-alt
-              = feature[:name].pluralize
-  
+              - if feature[:singular]
+                = feature[:name]
+              - else
+                = feature[:name].pluralize
+
             = feature[:description]
