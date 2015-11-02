@@ -35,6 +35,30 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_dirs,  %w{public/assets}
 
+## nginx
+
+# Server name for nginx, space separated values
+# No default value
+set :nginx_domains, "bacchan.al"
+
+# Use SSL on port 443 to serve on https. Every request to por 80
+# will be rewritten to 443
+# default value: false
+set :nginx_use_ssl, true
+
+# Name of SSL certificate file
+# default value: "#{application}.crt"
+set :nginx_ssl_certificate, 'www.bacchan.al.crt'
+
+# SSL certificate file path
+# default value: "/etc/ssl/certs"
+# set :nginx_ssl_certificate_path, "#{shared_path}/ssl/certs"
+
+# Name of SSL certificate private key
+# default value: "#{application}.key"
+set :nginx_ssl_certificate_key, 'www.bacchan.al.key'
+
+
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
