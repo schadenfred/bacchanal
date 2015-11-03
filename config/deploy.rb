@@ -90,7 +90,7 @@ namespace :deploy do
   task :initial do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
-      execute :sudo,
+      execute :sudo
       invoke 'deploy'
     end
   end
