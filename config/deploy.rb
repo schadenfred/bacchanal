@@ -9,9 +9,9 @@ set :puma_workers,    0
 
 # Don't change these unless you know what you're doing
 set :pty,             true
-set :use_sudo,        false
+# set :use_sudo,        false
 # prevent sudo prompting for password
-set :sudo_prompt, ""
+# set :sudo_prompt, ""
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
@@ -90,6 +90,7 @@ namespace :deploy do
   task :initial do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
+      execute :sudo,
       invoke 'deploy'
     end
   end
