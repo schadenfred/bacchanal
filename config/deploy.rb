@@ -39,6 +39,8 @@ set :linked_dirs,  %w{public/assets}
 
 # ## nginx
 
+set :nginx_service_path, "/etc/init.d/nginx"
+
 # # Server name for nginx, space separated values
 # # No default value
 # set :nginx_domains, "bacchan.al"
