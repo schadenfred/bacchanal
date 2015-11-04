@@ -42,10 +42,11 @@ set :linked_dirs,  %w{public/assets}
 # # Server name for nginx, space separated values
 # # No default value
 # set :nginx_domains, "foo.bar.com foo.other.com"
+set :nginx_domains, "bacchan.al www.bacchan.al"
 
 # # Redirected domains, all these will have a permanent redirect to the first of :nginx_domains
 # # No default value
-# set :nginx_redirected_domains, "bar.com other.com"
+set :nginx_redirected_domains, "bachan.al www.bachan.al"
 
 # # Sudo usage can be enables on task and/or path level.
 # # If sudo is enabled for a specific task (i.e. 'nginx:site:add') every
@@ -96,11 +97,12 @@ set :nginx_sudo_tasks, [] #['nginx:start', 'nginx:stop', 'nginx:restart', 'nginx
 # # Use SSL on port 443 to serve on https. Every request to por 80
 # # will be rewritten to 443
 # # default value: false
-# set :nginx_use_ssl, false
+set :nginx_use_ssl, true
 
 # # Name of SSL certificate file
 # # default value: "#{application}.crt"
 # set :nginx_ssl_certificate, 'my-domain.crt'
+set :nginx_ssl_certificate, 'www.bacchan.al.crt'
 
 # # SSL certificate file path
 # # default value: "/etc/ssl/certs"
@@ -109,6 +111,7 @@ set :nginx_sudo_tasks, [] #['nginx:start', 'nginx:stop', 'nginx:restart', 'nginx
 # # Name of SSL certificate private key
 # # default value: "#{application}.key"
 # set :nginx_ssl_certificate_key, 'my-domain.key'
+set :nginx_ssl_certificate_key, 'www.bacchnan.al.key'
 
 # # SSL certificate private key path
 # # default value: "/etc/ssl/private"
