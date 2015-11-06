@@ -12,22 +12,22 @@ end
   <%= server %><% end %>
 }
 
-<% if fetch(:nginx_use_ssl) %>
+# <% if fetch(:nginx_use_ssl) %>
 server {
   listen 80;
   rewrite ^(.*) https://$host$1 permanent;
 }
-<% end %>
+<!-- <% end %> -->
 
 server {
-<% if fetch(:nginx_use_ssl) %>
+# <% if fetch(:nginx_use_ssl) %>
   listen 443;
   ssl on;
   ssl_certificate /etc/ssl/certs/www.bacchan.al.chained.crt;
   ssl_certificate_key /etc/ssl/private/www.bacchan.al.key;
-<% else %>
-  listen 80;
-<% end %>
+# <% else %>
+  <!-- listen 80; -->
+# <% end %>
 
   client_max_body_size 4G;
   keepalive_timeout 10;
