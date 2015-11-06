@@ -22,7 +22,7 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # false when not using ActiveRecord
-set :nginx_use_ssl, false
+set :nginx_use_ssl, true
 
 
 ## Defaults:
