@@ -90,6 +90,9 @@ gem 'kgio'
 # Buttafly engine for importing spreadsheet data, local version
 gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
 
+# admin interface 
+gem 'administrate'
+
 # development data
 gem 'monsanto' #, github: 'schadenfred/monsanto'
 
