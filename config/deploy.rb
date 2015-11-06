@@ -23,7 +23,8 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # false when not using ActiveRecord
 set :nginx_use_ssl, true
-
+set :nginx_sites_available_path, "/etc/nginx/sites-available"
+set :nginx_sites_enabled_path, "/etc/nginx/sites-enabled"
 
 ## Defaults:
 # set :scm,           :git
