@@ -1,0 +1,32 @@
+%section#wines.module.pb-0
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h2.module-title.font-alt Wines
+    .row
+      .col-sm-12
+        %ul#filters.filter.font-alt.hidden-xs
+          %li
+            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} All
+          %li
+            %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Pinot Noir
+          %li
+            %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Chardonnay
+  .text-center
+    %ul#works-grid.works-grid.works-grid-gut.works-grid-5
+      %li.work-item.illustration.webdesign
+        %a{:href => "portfolio-single-1.html"}
+          .work-image
+            = image_tag "fanddcellars/pinot.jpg"
+          .work-caption.font-alt
+            %h3.work-title sauv
+            .work-descr
+              The Mentos of fratis
+      %li.work-item.marketing.photography
+        %a{:href => "portfolio-single-1.html"}
+          .work-image
+            = image_tag "fanddcellars/sauv.jpg"
+          .work-caption.font-alt
+            %h3.work-title Sarah Jane Estate
+            .work-descr
+              bodaceous bubbles
