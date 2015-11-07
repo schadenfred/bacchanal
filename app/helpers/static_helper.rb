@@ -1,11 +1,11 @@
 module StaticHelper
 
   def static_section_links
-    %w[home about wineries team news]
+    %w[about wineries team news]
   end
 
   def static_page_links
-    %w[pricing]
+    %w[pricing home]
   end
 
   def wine_quotes
