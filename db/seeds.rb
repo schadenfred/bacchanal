@@ -99,11 +99,9 @@ Position.create!(
   title: "Biology & ecology intern",
   description: "vineyard mapping & data analysis")
 
-3.times do |i|
-    ["guy pacurar", "sarah schoeneman", "kurt schoeneman"].each do |name|
-    winery.positions.create!(
-      user_id: User.where(name: name).first.id,
-      title: "proprietor"
-    )
-  end
+["guy pacurar", "sarah schoeneman", "kurt schoeneman"].each do |name|
+  winery.positions.create!(
+    user_id: User.where(name: name).first.id,
+    title: "proprietor"
+  )
 end
