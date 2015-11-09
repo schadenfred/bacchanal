@@ -28,6 +28,7 @@ describe Org do
     must_have_many :comments
     must_have_many :positions
     must_have_many :addresses
+    must_have_many :identities
   end
 
   describe "email" do

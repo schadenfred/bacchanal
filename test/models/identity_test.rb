@@ -8,14 +8,17 @@ describe Identity do
 
     specify "columns & types" do 
 
-      must_have_column(:user_id, :integer)
+      must_have_column(:identifiable_id, :integer)
+      must_have_column(:identifiable_type)
+      must_have_column(:link)
       must_have_column(:provider)
       must_have_column(:uid)
+      must_have_column(:private, :boolean)
     end
 
     specify "indexes" do
 
-      must_have_index(:user_id)
+      must_have_index([:identifiable_id, :identifiable_type])
     end
   end
 

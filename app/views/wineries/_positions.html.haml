@@ -1,0 +1,47 @@
+
+%section#team.module
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h2.module-title.font-alt People
+        
+    .row
+      - @winery.positions.in_groups_of(4, false).each do |group|
+        - group.each do |position|
+          .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+
+            .team-item
+              .team-image
+                - if position.user.avatar
+                  = position.user.avatar
+                - else 
+                  %figure{ class: "inkwell" }
+                    %img{:alt => "", :src => image_path("fanddcellars/sarahavatar.jpg")}
+                  
+                  .team-detail
+                    %h5.font-alt
+                      = position.title
+                    %p.font-serif
+                      = position.description
+                    .team-social
+                      - position.user.identities.each do |identity|
+                        %a{:href => "#"}
+                          %i.fa{ class: "fa-#{identity.provider}"}
+              .team-descr.font-alt
+                .team-name= position.user.name
+                .team-role= position.title
+
+
+/ Aden: class="aden"
+/ Reyes: class="reyes"
+/ Perpetua: class="perpetua"
+/ Inkwell: class="inkwell"
+/ Toaster: class="toaster"
+/ Walden: class="walden"
+/ Hudson: class="hudson"
+/ Gingham: class="gingham"
+/ Mayfair: class="mayfair"
+/ Lo-fi: class="lofi"
+/ X-Pro II: class="xpro2"
+/ 1977: class="_1977"
+/ Brooklyn: class="brooklyn"

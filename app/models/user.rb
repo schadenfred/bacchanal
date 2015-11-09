@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
           :trackable, :validatable
 
   has_many :articles, foreign_key: "author_id"
-  has_many :identities 
+  has_many :identities, as: :identifiable
   has_many :positions    
   has_many :photos, foreign_key: "photographer_id"
   has_many :comments, foreign_key: "commenter_id"
 
-  has_one :avatar, as: :photographable    
+  has_one :avatar, class_name: "Photo", as: :photographable    
 end

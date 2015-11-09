@@ -41,6 +41,11 @@ winery.addresses.create(
   website: "http://fanddcellars.com/",
   email: "pacurar.guy@gmail.com"
 )
+winery.identities.create!(
+  provider: "facebook",
+  link: "https://www.facebook.com/fathersanddaughterscellars/"
+)
+
 
 testers = [
   "seemant kulleen",
@@ -51,7 +56,8 @@ testers = [
   "biren talati",
   "sarah schoeneman",
   "guy pacurar",
-  "kimberly miller"
+  "kimberly miller", 
+  "kurt schoeneman"
 ]
 
 testers.each do |fullname|
@@ -93,9 +99,11 @@ Position.create!(
   title: "Biology & ecology intern",
   description: "vineyard mapping & data analysis")
 
-Position.create!(
-  user_id: guy.id,
-  positionable_id: winery.id,
-  positionable_type: "Winery",
-  title: "proprietor",
-  description: "bottle washer & inn keeper")
+3.times do |i|
+    ["guy pacurar", "sarah schoeneman", "kurt schoeneman"].each do |name|
+    winery.positions.create!(
+      user_id: User.where(name: name).first.id,
+      title: "proprietor"
+    )
+  end
+end
