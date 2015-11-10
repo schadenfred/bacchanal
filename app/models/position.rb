@@ -1,8 +1,7 @@
 class Position < ActiveRecord::Base
   
-  belongs_to :positionable, polymorphic: true
   belongs_to :user
   belongs_to :org
 
-  validates :positionable, :user, presence: true
+  validates :org, :user, presence: true
 end

@@ -37,6 +37,11 @@ GIT
       countries (~> 0.11.0)
       sort_alphabetical (~> 1.0)
 
+PATH
+  remote: ~/work/opensource/monsanto
+  specs:
+    monsanto (0.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -295,7 +300,6 @@ GEM
       metaclass (~> 0.0.1)
     momentjs-rails (2.10.6)
       railties (>= 3.1)
-    monsanto (0.1.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -523,7 +527,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   mocha
-  monsanto
+  monsanto!
   omniauth-facebook
   omniauth-gplus
   omniauth-instagram

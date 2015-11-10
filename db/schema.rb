@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108203637) do
+ActiveRecord::Schema.define(version: 20151109234813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,104 +158,6 @@ ActiveRecord::Schema.define(version: 20151108203637) do
   add_index "orgs", ["name"], name: "index_orgs_on_name", using: :btree
   add_index "orgs", ["slug"], name: "index_orgs_on_slug", using: :btree
 
-  create_table "payola_affiliates", force: :cascade do |t|
-    t.string   "code"
-    t.string   "email"
-    t.integer  "percent"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "payola_coupons", force: :cascade do |t|
-    t.string   "code"
-    t.integer  "percent_off"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "active",      default: true
-  end
-
-  create_table "payola_sales", force: :cascade do |t|
-    t.string   "email",                limit: 191
-    t.string   "guid",                 limit: 191
-    t.integer  "product_id"
-    t.string   "product_type",         limit: 100
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "state"
-    t.string   "stripe_id"
-    t.string   "stripe_token"
-    t.string   "card_last4"
-    t.date     "card_expiration"
-    t.string   "card_type"
-    t.text     "error"
-    t.integer  "amount"
-    t.integer  "fee_amount"
-    t.integer  "coupon_id"
-    t.boolean  "opt_in"
-    t.integer  "download_count"
-    t.integer  "affiliate_id"
-    t.text     "customer_address"
-    t.text     "business_address"
-    t.string   "stripe_customer_id",   limit: 191
-    t.string   "currency"
-    t.text     "signed_custom_fields"
-    t.integer  "owner_id"
-    t.string   "owner_type",           limit: 100
-  end
-
-  add_index "payola_sales", ["coupon_id"], name: "index_payola_sales_on_coupon_id", using: :btree
-  add_index "payola_sales", ["email"], name: "index_payola_sales_on_email", using: :btree
-  add_index "payola_sales", ["guid"], name: "index_payola_sales_on_guid", using: :btree
-  add_index "payola_sales", ["owner_id", "owner_type"], name: "index_payola_sales_on_owner_id_and_owner_type", using: :btree
-  add_index "payola_sales", ["product_id", "product_type"], name: "index_payola_sales_on_product", using: :btree
-  add_index "payola_sales", ["stripe_customer_id"], name: "index_payola_sales_on_stripe_customer_id", using: :btree
-
-  create_table "payola_stripe_webhooks", force: :cascade do |t|
-    t.string   "stripe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "payola_subscriptions", force: :cascade do |t|
-    t.string   "plan_type"
-    t.integer  "plan_id"
-    t.datetime "start"
-    t.string   "status"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.string   "stripe_customer_id"
-    t.boolean  "cancel_at_period_end"
-    t.datetime "current_period_start"
-    t.datetime "current_period_end"
-    t.datetime "ended_at"
-    t.datetime "trial_start"
-    t.datetime "trial_end"
-    t.datetime "canceled_at"
-    t.integer  "quantity"
-    t.string   "stripe_id"
-    t.string   "stripe_token"
-    t.string   "card_last4"
-    t.date     "card_expiration"
-    t.string   "card_type"
-    t.text     "error"
-    t.string   "state"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "currency"
-    t.integer  "amount"
-    t.string   "guid",                 limit: 191
-    t.string   "stripe_status"
-    t.integer  "affiliate_id"
-    t.string   "coupon"
-    t.text     "signed_custom_fields"
-    t.text     "customer_address"
-    t.text     "business_address"
-    t.integer  "setup_fee"
-  end
-
-  add_index "payola_subscriptions", ["guid"], name: "index_payola_subscriptions_on_guid", using: :btree
-
   create_table "photos", force: :cascade do |t|
     t.string   "image_uid"
     t.string   "image_name"
@@ -270,25 +172,29 @@ ActiveRecord::Schema.define(version: 20151108203637) do
 
   create_table "positions", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "positionable_id"
-    t.string   "positionable_type"
     t.string   "title"
     t.string   "description"
     t.date     "tenure_start"
     t.date     "tenure_end"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "org_id"
   end
 
-  add_index "positions", ["positionable_id", "positionable_type"], name: "index_positions_on_positionable_id_and_positionable_type", using: :btree
+  add_index "positions", ["org_id"], name: "index_positions_on_org_id", using: :btree
+  add_index "positions", ["tenure_end"], name: "index_positions_on_tenure_end", using: :btree
+  add_index "positions", ["tenure_start"], name: "index_positions_on_tenure_start", using: :btree
   add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
+  add_index "positions", ["title"], name: "index_positions_on_title", using: :btree
+  add_index "positions", ["user_id"], name: "index_positions_on_user_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.hstore   "properties"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "producer_id"
   end
 
   add_index "products", ["name"], name: "index_products_on_name", using: :btree

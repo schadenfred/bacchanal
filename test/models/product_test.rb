@@ -9,6 +9,7 @@ describe Product do
     specify "columns & types" do 
       must_have_column(:name, :string)
       must_have_column(:slug, :string)
+      must_have_column(:producer_id, :integer)
       must_have_column(:properties, :hstore)
     end
 

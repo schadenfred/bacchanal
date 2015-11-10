@@ -94,7 +94,8 @@ gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
 gem 'administrate'
 
 # development data
-gem 'monsanto' #, github: 'schadenfred/monsanto'
+# gem 'monsanto' #, github: 'schadenfred/monsanto'
+gem 'monsanto', path: '~/work/opensource/monsanto'#, require: false
 
 gem 'faker'
 gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'

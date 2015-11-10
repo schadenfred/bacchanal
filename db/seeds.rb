@@ -85,17 +85,13 @@ fred.save!
 alisa = User.where(name: "alisa mathewson").first
 guy = User.where(name: "guy pacurar").first
 
-Position.create!(
+bacchanal.positions.create!(
   user_id: fred.id,
-  positionable_id: bacchanal.id,
-  positionable_type: "Org",
   title: "Proprietor",
   description: "soup to nuts")
 
-Position.create!(
+bacchanal.positions.create!(
   user_id: alisa.id,
-  positionable_id: bacchanal.id,
-  positionable_type: "Org",
   title: "Biology & ecology intern",
   description: "vineyard mapping & data analysis")
 
@@ -105,3 +101,8 @@ Position.create!(
     title: "proprietor"
   )
 end
+
+winery.wines.create!(
+  name: Faker::Bloocher.varietal
+
+  )

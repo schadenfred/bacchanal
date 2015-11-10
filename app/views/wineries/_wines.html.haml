@@ -13,7 +13,17 @@
           %li
             %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Chardonnay
     .row
+      - @winery.wines.each do |wine|
+        = link_to wine_path(wine) do
+          .work-image
+            = image_tag "fanddcellars/pinot.jpg"
+          .work-caption.font-alt
+            %h3.work-title sauv
+            .work-descr
+              The Mentos of fratis
+    .row
       %ul#works-grid.works-grid.works-grid-gut.works-grid-5
+
         %li.work-item.illustration.webdesign
           %a{:href => "portfolio-single-1.html"}
             .work-image

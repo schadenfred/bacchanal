@@ -13,7 +13,7 @@ class Org < ActiveRecord::Base
   has_many :categories, through: :articles
   has_many :comments, through: :articles
   has_many :identities, as: :identifiable
-  has_many :positions, as: :positionable
+  has_many :positions
 
   store_accessor :properties, :history, :mission, :welcome_statement
 end

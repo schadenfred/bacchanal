@@ -9,8 +9,7 @@ describe Position do
     specify "columns & types" do 
 
       must_have_column(:user_id, :integer)
-      must_have_column(:positionable_id, :integer)
-      must_have_column(:positionable_type)
+      must_have_column(:org_id, :integer)
       must_have_column(:title)
       must_have_column(:description)
       must_have_column(:tenure_start, :date)
@@ -20,7 +19,7 @@ describe Position do
 
   specify "associations" do 
 
-    must_belong_to(:positionable)
+    must_belong_to(:org)
     must_belong_to(:user)
   end
 end
