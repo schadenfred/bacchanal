@@ -37,11 +37,6 @@ GIT
       countries (~> 0.11.0)
       sort_alphabetical (~> 1.0)
 
-PATH
-  remote: ~/work/opensource/monsanto
-  specs:
-    monsanto (0.1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -435,6 +430,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    seedbank (0.3.0)
     selectize-rails (0.12.1)
     selenium-webdriver (2.47.1)
       childprocess (~> 0.5)
@@ -529,7 +525,6 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   mocha
-  monsanto!
   omniauth-facebook
   omniauth-gplus
   omniauth-instagram
@@ -545,6 +540,7 @@ DEPENDENCIES
   redcarpet
   rolify
   sass-rails (~> 5.0)
+  seedbank
   selenium-webdriver
   simple_form
   spring

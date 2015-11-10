@@ -1,16 +1,17 @@
-satisfy_dependencies(["articles", "orgs"])
+after :articles, :users, :orgs do 
 
-article = Article.first
-users = User.all
+  article = Article.first
+  users = User.all
 
-users.each do |user|
-  byebug
-  article.comments.new(
-    content: Faker::Stoked.sentences(2),
-    commenter_id: user.id)
-  article.save!
+  users.each do |user|
+    
+    article.comments.new(
+      content: Faker::Stoked.sentences(2),
+      commenter_id: user.id)
+    article.save!
 
-end   
+  end   
+end
 
 # replier = User.first
 # second_replier = User.second
