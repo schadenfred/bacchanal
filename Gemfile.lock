@@ -268,6 +268,7 @@ GEM
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
+    magnific-popup-rails (0.9.9.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     meta-tags-helpers (0.2.0)
@@ -521,6 +522,7 @@ DEPENDENCIES
   kaminari
   kgio
   launchy
+  magnific-popup-rails
   meta-tags-helpers (~> 0.2.0)
   minitest-given
   minitest-nyan-cat

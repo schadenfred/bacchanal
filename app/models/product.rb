@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :producer
 
+  has_many :photos
+
   store_accessor :properties, :price
 
 end

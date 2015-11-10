@@ -1,6 +1,5 @@
 class WinesController < ApplicationController
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
-
   # GET /wines
   def index
     @wines = Wine.all

@@ -54,7 +54,7 @@
 					homeSection.height($(window).height() * 0.85);
 				}
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Home section effects
@@ -72,7 +72,7 @@
 					caption.css('opacity', (1 - topScroll/homeSection.height() * 1));
 				}
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Intro slider setup
@@ -95,7 +95,7 @@
 				},
 				useCSS: true
 			});
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Youtube video background
@@ -136,7 +136,7 @@
 					navbar.addClass('navbar-transparent');
 				}
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Navbar submenu
@@ -162,14 +162,14 @@
 					}
 				});
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Navbar hover dropdown on desctop
 		/* ---------------------------------------------- */
 
 		function hoverDropdown(width, mobileTest) {
-			if ((width > 767) && (mobileTest != true)) {
+			if ((width > 767) && (mobileTest !== true)) {
 				$('.navbar-custom .navbar-nav > li.dropdown, .navbar-custom li.dropdown > ul > li.dropdown').removeClass('open');
 				var delay = 0;
 				var setTimeoutConst;
@@ -195,7 +195,7 @@
 					$(this).parent().toggleClass('open');
 				});
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Navbar collapse on click
@@ -290,7 +290,7 @@
 				animation: "slide",
 				smoothHeight: true,
 			});
-		};
+		}
 
 		$('.post-images-slider').flexslider( {
 			animation: "slide",
@@ -311,14 +311,14 @@
 			}
 
 			// Check pagination true/false
-			if (($(this).data('pagination') > 0) && ($(this).data('pagination') == true)) {
+			if (($(this).data('pagination') > 0) && ($(this).data('pagination') === true)) {
 				pagination = true;
 			} else {
 				pagination = false;
 			}
 
 			// Check navigation true/false
-			if (($(this).data('navigation') > 0) && ($(this).data('navigation') == true)) {
+			if (($(this).data('navigation') > 0) && ($(this).data('navigation') === true)) {
 				navigation = true;
 			} else {
 				navigation = false;
@@ -385,13 +385,23 @@
 		$('body').fitVids();
 
 		/* ---------------------------------------------- /*
+		 * Open tabs by external link
+		/* ---------------------------------------------- */
+
+		$('.open-tab').click(function (e) {
+			var pattern = /#.+/gi;
+			var contentID = e.target.toString().match(pattern)[0];
+			$('.nav-tabs a[href="' + contentID + '"]').tab('show');
+		});
+
+		/* ---------------------------------------------- /*
 		 * Scroll Animation
 		/* ---------------------------------------------- */
 
 		$('.section-scroll').bind('click', function(e) {
 			var anchor = $(this);
 			$('html, body').stop().animate({
-				scrollTop: $(anchor.attr('href')).offset().top
+				scrollTop: $(anchor.attr('href')).offset().top - 50
 			}, 1000);
 			e.preventDefault();
 		});
@@ -472,7 +482,7 @@
 				styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
 			});
 
-			var image = new google.maps.MarkerImage('gmaps/map-icon.png',
+			var image = new google.maps.MarkerImage('assets/images/map-icon.png',
 				new google.maps.Size(59, 65),
 				new google.maps.Point(0, 0),
 				new google.maps.Point(24, 42)
@@ -488,7 +498,6 @@
 			});
 
 		}
-
 
 	});
 

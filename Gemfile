@@ -30,6 +30,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# magnific popup
+gem 'magnific-popup-rails'
+
 # use haml for templating
 gem 'haml-rails'
 
@@ -94,6 +97,7 @@ gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
 gem 'administrate'
 
 # development data
+# gem 'seedbank'
 # gem 'monsanto' #, github: 'schadenfred/monsanto'
 gem 'monsanto', path: '~/work/opensource/monsanto'#, require: false
 

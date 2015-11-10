@@ -13,31 +13,32 @@
           %li
             %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Chardonnay
     .row
-      - @winery.wines.each do |wine|
-        = link_to wine_path(wine) do
-          .work-image
-            = image_tag "fanddcellars/pinot.jpg"
-          .work-caption.font-alt
-            %h3.work-title sauv
-            .work-descr
-              The Mentos of fratis
-    .row
       %ul#works-grid.works-grid.works-grid-gut.works-grid-5
-
-        %li.work-item.illustration.webdesign
-          %a{:href => "portfolio-single-1.html"}
+        - @winery.wines.each do |wine|
+          = link_to winery_wine_path(@winery.id, wine.id), class: "work-item illustration webdesign" do
             .work-image
-              = image_tag "fanddcellars/pinot.jpg"
+              = image_tag("fanddcellars/pinot.jpg")
             .work-caption.font-alt
-              %h3.work-title sauv
+              %h3.work-title= @wine.name
               .work-descr
                 The Mentos of fratis
-        %li.work-item.marketing.photography
-          %a{:href => "portfolio-single-1.html"}
-            .work-image
-              = image_tag "fanddcellars/sauv.jpg"
-            .work-caption.font-alt
-              %h3.work-title Sarah Jane Estate
-              .work-descr
-                bodaceous bubbles
-    
+    / .row
+    /   %ul#works-grid.works-grid.works-grid-gut.works-grid-5
+
+    /     %li.work-item.illustration.webdesign
+    /       %a{:href => "portfolio-single-1.html"}
+    /         .work-image
+    /           = image_tag "fanddcellars/pinot.jpg"
+    /         .work-caption.font-alt
+    /           %h3.work-title sauv
+    /           .work-descr
+    /             The Mentos of fratis
+    /     %li.work-item.marketing.photography
+    /       %a{:href => "portfolio-single-1.html"}
+    /         .work-image
+    /           = image_tag "fanddcellars/sauv.jpg"
+    /         .work-caption.font-alt
+    /           %h3.work-title Sarah Jane Estate
+    /           .work-descr
+    /             bodaceous bubbles
+    / 

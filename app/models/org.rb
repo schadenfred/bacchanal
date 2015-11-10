@@ -14,6 +14,7 @@ class Org < ActiveRecord::Base
   has_many :comments, through: :articles
   has_many :identities, as: :identifiable
   has_many :positions
+  has_many :photos, as: :photographable
 
   store_accessor :properties, :history, :mission, :welcome_statement
 end

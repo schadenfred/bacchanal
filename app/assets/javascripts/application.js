@@ -9,19 +9,19 @@
 //= require appear
 //= require jquery.simple-text-rotator
 //= require jqBootstrapValidation
-//= require gmaps
-//= require isotope.pkgd
+
+//= require isotope.pkgd.min
 //= require imagesloaded.pkgd
 //= require jquery.flexslider
-//= require jquery.magnific-popup
+//= require magnific-popup
 //= require jquery.fitvids
 //= require jquery.tagcanvas
 //= require smoothscroll
 //= require wow.min
-//= require owl.carousel
+//= require owl.carousel.min
+//= require custom
 //= require contact
 //= require photos
-//= require custom
 //= require static
 //= require articles
 //= require comments

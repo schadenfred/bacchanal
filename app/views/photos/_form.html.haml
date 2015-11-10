@@ -1,11 +1,11 @@
-= simple_form_for(@photo) do |f|
+= simple_form_for :photos, method: "post", url: {controller: "photos", action: "create"} do |f|
   = f.error_notification
 
   .form-inputs
-    / = f.input :image_uid
-    / = f.input :image_name
-    / = f.input :name
-    / = f.input :caption
+    = f.hidden_field :photographable_type, :value => photographable.class
+    = f.hidden_field :photographable_id, :value => photographable.id
+    = f.input :name
+    = f.input :caption
     = f.file_field :image
 
   .form-actions

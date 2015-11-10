@@ -22,5 +22,6 @@ describe Product do
   specify "associations" do 
 
     must_belong_to :producer
+    must_have_many :photos
   end 
 end
