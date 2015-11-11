@@ -3,7 +3,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :producer
 
-  has_many :photos
+  has_many :photos, as: :photographable
+
 
   store_accessor :properties, :price
 

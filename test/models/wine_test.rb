@@ -13,7 +13,6 @@ describe Wine do
   specify "associations" do 
 
     must_belong_to :winery
-
     must_have_many :photos
   end 
 end

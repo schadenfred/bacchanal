@@ -7,3 +7,16 @@ winery = Winery.create!(
     It is our hope that through our wine, we can share with you some of the magic of this very special vineyard."
     )
 
+
+
+5.times do 
+
+  winery = Winery.new(
+    name: Faker::Bloocher.winery,
+    blog_title: Faker::Stoked.saying,
+    mission: Faker::Stoked.sentence,
+    welcome_statement: Faker::Stoked.paragraphs(3)
+  )
+  winery.save
+
+end

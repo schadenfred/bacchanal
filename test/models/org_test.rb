@@ -27,6 +27,7 @@ describe Org do
     must_have_many :addresses
     must_have_many :articles
     must_have_many :comments
+    must_have_many :galleries
     must_have_many :identities
     must_have_many :positions
     must_have_many :photos
@@ -37,5 +38,13 @@ describe Org do
     Given(:user) { FactoryGirl.create(:user) } 
     Given(:address_attrs) { FactoryGirl.attributes_for(:address) } 
     Given(:user_with_address) { user.addreses.create(address_attrs) }
+  end
+
+  describe ":gallery(name)" do 
+
+    Given(:default_gallery)     { FactoryGirl.create(:default_gallery) }
+    Given(:org) { default_gallery.org }
+    Then { default_gallery.name.must_equal "default" }
+    And  { org.default_gallery.must_equal default_gallery }
   end
 end

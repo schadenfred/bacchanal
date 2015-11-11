@@ -1,6 +1,6 @@
-after :articles, :users, :orgs do 
+after :articles, :users, :wineries do 
 
-  article = Article.first
+  winery = Winery.find_byArticle.first
   users = User.all
 
   users.each do |user|

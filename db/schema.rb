@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109234813) do
+ActiveRecord::Schema.define(version: 20151111025817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,16 @@ ActiveRecord::Schema.define(version: 20151109234813) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "galleries", force: :cascade do |t|
+    t.string   "name"
+    t.json     "properties"
+    t.integer  "org_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "galleries", ["org_id"], name: "index_galleries_on_org_id", using: :btree
+
   create_table "identities", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -210,6 +220,16 @@ ActiveRecord::Schema.define(version: 20151109234813) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "slides", force: :cascade do |t|
+    t.integer  "gallery_id"
+    t.integer  "photo_id"
+    t.hstore   "properties"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "slides", ["photo_id", "gallery_id"], name: "index_slides_on_photo_id_and_gallery_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
