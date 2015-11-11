@@ -17,51 +17,54 @@
           %li
             %a.wow.fadeInUp{"data-filter" => ".webdesign", "data-wow-delay" => "0.8s", :href => "#"} Mendocino
   %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
-    %li.work-item.illustration.webdesign
-      %a{:href => "portfolio-single-1.html"}
-        .work-image
-          = image_tag "wineries/winery-1.jpg"
-        .work-caption.font-alt
-          %h3.work-title Breggovian Wines
-          .work-descr
-            The Mentos of fratis
-    %li.work-item.marketing.photography
-      %a{:href => "portfolio-single-1.html"}
-        .work-image
-          = image_tag "wineries/winery-2.jpg"
-        .work-caption.font-alt
-          %h3.work-title Sarah Jane Estate
-          .work-descr
-            bodaceous bubbles
-    %li.work-item.illustration.photography
-      %a{:href => "portfolio-single-1.html"}
-        .work-image
-          = image_tag "wineries/winery-3.jpg"
-        .work-caption.font-alt
-          %h3.work-title Schoeneman & Granddaughter wines
-          .work-descr
-            Grape juice
-    %li.work-item.marketing.photography
-      %a{:href => "portfolio-single-1.html"}
-        .work-image
-          = image_tag "wineries/winery-4.jpg"
-        .work-caption.font-alt
-          %h3.work-title Judson
-          .work-descr
-            Zinfandel & primitivo
-    %li.work-item.illustration.webdesign
-      %a{:href => "portfolio-single-1.html"}
-        .work-image
-          = image_tag "wineries/winery-5.jpg"
-        .work-caption.font-alt
-          %h3.work-title Pacurar
-          .work-descr
-            Sparkling wines
-    %li.work-item.marketing.webdesign
-      %a{:href => "portfolio-single-1.html"}
-        .work-image
-          = image_tag "wineries/winery-6.jpg"
-        .work-caption.font-alt
-          %h3.work-title Shekhar
-          .work-descr
-            Fine portos
+    / - @wineries.first do |winery|
+    - @wineries.each do |winery|
+      %li.work-item.illustration.webdesign
+        = link_to winery do 
+          = image_tag(winery.default_gallery.slides.first.photo.image.url)
+          .work-caption.font-alt
+            %h3.work-title
+              = winery.name
+            .work-descr
+              = winery.default_gallery.slides.first.call_to_action
+
+    / %li.work-item.marketing.photography
+    /   %a{:href => "portfolio-single-1.html"}
+    /     .work-image
+    /       = image_tag "wineries/winery-2.jpg"
+    /     .work-caption.font-alt
+    /       %h3.work-title Sarah Jane Estate
+    /       .work-descr
+    /         bodaceous bubbles
+    / %li.work-item.illustration.photography
+    /   %a{:href => "portfolio-single-1.html"}
+    /     .work-image
+    /       = image_tag "wineries/winery-3.jpg"
+    /     .work-caption.font-alt
+    /       %h3.work-title Schoeneman & Granddaughter wines
+    /       .work-descr
+    /         Grape juice
+    / %li.work-item.marketing.photography
+    /   %a{:href => "portfolio-single-1.html"}
+    /     .work-image
+    /       = image_tag "wineries/winery-4.jpg"
+    /     .work-caption.font-alt
+    /       %h3.work-title Judson
+    /       .work-descr
+    /         Zinfandel & primitivo
+    / %li.work-item.illustration.webdesign
+    /   %a{:href => "portfolio-single-1.html"}
+    /     .work-image
+    /       = image_tag "wineries/winery-5.jpg"
+    /     .work-caption.font-alt
+    /       %h3.work-title Pacurar
+    /       .work-descr
+    /         Sparkling wines
+    / %li.work-item.marketing.webdesign
+    /   %a{:href => "portfolio-single-1.html"}
+    /     .work-image
+    /       = image_tag "wineries/winery-6.jpg"
+    /     .work-caption.font-alt
+    /       %h3.work-title Shekhar
+    /       .work-descr
+    /         Fine portos

@@ -40,11 +40,17 @@ describe Org do
     Given(:user_with_address) { user.addreses.create(address_attrs) }
   end
 
-  describe ":gallery(name)" do 
+  Given(:default_gallery)     { FactoryGirl.create(:default_gallery) }
+  Given(:org) { default_gallery.org }
+  
+  describe ":default_gallery" do 
 
-    Given(:default_gallery)     { FactoryGirl.create(:default_gallery) }
-    Given(:org) { default_gallery.org }
     Then { default_gallery.name.must_equal "default" }
     And  { org.default_gallery.must_equal default_gallery }
+  end
+
+  describe ":gallery(name)" do 
+
+    Then { org.gallery("default").must_equal default_gallery }
   end
 end

@@ -25,4 +25,10 @@ describe Slide do
       assert subject.new.respond_to? :bullet_small
     end
   end
+
+  specify "associations" do 
+
+    must_belong_to :gallery
+    must_belong_to :photo
+  end
 end

@@ -19,6 +19,7 @@ class StaticController < ApplicationController
   end
 
   def home
+    @wineries = Winery.last(6)
     @company = Org.where(name: "Bacchan.al").first
   end
 

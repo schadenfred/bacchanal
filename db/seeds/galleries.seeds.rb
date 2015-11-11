@@ -1,15 +1,16 @@
 after :wineries, :photos do 
 
-  winery = Winery.find_by(slug: "fathers-daughters-cellars")
+  wineries = Winery.last(6)
 
-  gallery = winery.galleries.new(
-    name: "default",
-    properties: {
-      order: []
-    }
-  )
-  byebug
+  wineries.each do |winery|
 
 
-
+    gallery = winery.galleries.new(
+      name: "default",
+      properties: {
+        order: []
+      }
+    )
+    gallery.save!
+  end
 end

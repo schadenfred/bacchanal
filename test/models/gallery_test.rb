@@ -24,6 +24,11 @@ describe Gallery do
     end
   end
 
+  specify "associations" do 
+    
+    must_have_many :slides
+  end
+
   describe "validations" do 
 
     Given(:gallery) { FactoryGirl.build(:gallery) }

@@ -22,4 +22,8 @@ class Org < ActiveRecord::Base
   def default_gallery
     galleries.find_by(name: "default")
   end
+
+  def gallery(name)
+    galleries.find_by(name: name)
+  end
 end

@@ -4,6 +4,8 @@ class Gallery < ActiveRecord::Base
 
   belongs_to :org
 
+  has_many :slides
+
   validates :org, presence: true
   validates :name, presence: true
 
