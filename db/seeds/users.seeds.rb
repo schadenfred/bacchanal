@@ -5,6 +5,8 @@ testers = [
   "greg spanel",
   "guy pacurar",
   "kimberly miller",
+  "heather schoeneman",
+  "kurt schoeneman",
   "melinda marks",
   "sarah schoeneman",
   "seemant kulleen"

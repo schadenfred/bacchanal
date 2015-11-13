@@ -1,37 +1,29 @@
-# satisfy_dependencies(["users", "orgs"])
+after :users, :wineries, :orgs do 
+  bacchanal = Org.find_by(name: "Bacchan.al")
+  bacchanaliens = ["fred schoeneman", "heather schoeneman"]
 
-# fred = User.where(email: "fred.schoeneman@bacchan.al").first
+  winery = Winery.find_by(slug: "fathers-daughters-cellars")
+  winery_users = ["sarah schoeneman", "kurt schoeneman", "guy pacurar"]
 
-# fred.positions.create!(org_id: Org.first.id, tenure_start: Date.today - 3.months, title: "Proprietor")
+  winery_users.each do |user|
 
-# # alisa = User.where(email: "alisa.mathewson@bacchan.al").first
-# # alisa.positions.create(org_id: Org.first.id, tenure_start: (Date.today - 3.months), tenure_end: (Date.today - 1.week), title: "Biology & Ecology Intern")
+    winery.positions.create(
+      user_id: User.find_by(name: user).id,
+      title: Faker::Stoked.job,
+      description: Faker::Stoked.sentence,
+      tenure_start:  Date.today - 3.months
+    )
+  end
 
+  bacchanaliens.each do |user|
 
-# # positionables = %w[winery producer competition]
+    position = bacchanal.positions.new(
+      user_id: User.find_by(name: user).id,
+      title: Faker::Stoked.job,
+      description: Faker::Stoked.sentence,
+      tenure_start:  Date.today - 3.months
+    )
+    position.save
+  end
+end
 
-# # positionables.each do |positionable|
-
-# #   pm = positionable.classify.constantize
-
-# #   titles = %w[winemaker sales farmer owner labor bookkeeper]
-
-# #   pm.all[0..2].each do |object|
-
-# #     user_ids = User.pluck(:id)
-
-# #     5.times do 
-
-# #       begin_date = (Date.today - rand(1..1000).days)
-# #       end_date = (begin_date + rand(1..6).years)
-# #       Position.create!(
-# #         user_id: user_ids.sample,
-# #         positionable_id: object.id,
-# #         positionable_type: object.class.name,
-# #         title: titles.sample,
-# #         tenure_start: begin_date,
-# #         tenure_end: end_date
-# #       )
-# #     end
-# #   end
-# # end

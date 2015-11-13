@@ -1,6 +1,3 @@
-- present @user do |dashboard_presenter| 
-  .profile
-    get some
 - content_for :header do 
   = render 'normal_header'
    
@@ -17,100 +14,20 @@
 .main
   %section.module
     .container
-      %h2.module-title.font-alt
-        Dashboard
-
       .row
-        .col-sm-12
-          %div
-            %ul.nav.nav-pills{:role => "tablist"}
-              %li{:role => "presentation"}
-                %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
-              %li.dropdown{:role => "presentation"}
-                %a#drop4.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                  Organizations
-                  %span.caret
-                %ul#menu1.dropdown-menu{"aria-labelledby" => "drop4"}
-                  %li
-                    %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
-                  %li
-                    %a{:href => "#"} Action
-                  %li
-                    %a{:href => "#"} Another action
-                  %li
-                    %a{:href => "#"} Something else here
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Separated link
-              %li{:role => "presentation"}
-                %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} your site administration stuff
-              %li{:role => "presentation"}
-                %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} Your settings
-
+        .col-sm-8.col-sm-offset-2
+          %h4.font-alt.mb-0 Dashy
+          %hr.divider-w.mt-10.mb-20/
+          %div{:role => "tabpanel"}
+            %ul.nav.nav-tabs.font-alt{:role => "tablist"}
+              - Dir["app/views/dashboard/*/"].each_with_index do |directory, i|
+                %li{ class: i == 2 ? "active" : "" }
+                  %a{"data-toggle" => "tab", :href => "##{directory.split("/").last}"}
+                    %span.icon-basket
+                    = directory.split("/").last
             .tab-content
-              #home.tab-pane.fade{:role => "tabpanel"} 
-                %h3 my positions
-                %h3 my comments
-                %h3 my identities
-                %h3 my accounts
-                %h3 my addresses
-                %h3 my photos
-                %h3 my galleries
-                %h3 my articles
-                %h3 my organizations
-
-            / .tab-content
-            /   #home.tab-pane.fade{:role => "tabpanel"} 
-      /       %ul.nav.nav-pills{:role => "tablist"}
-      /         %li{:role => "presentation"}
-      /           %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
-      /         %li.active.dropdown{:role => "presentation"}
-      /           %a.dropdown-toggle{"aria-controls" => "profile", "data-toggle" => "dropdown", :href => "#profile", :role => "button"} Your organization stuff
-      /         %li{:role => "presentation"}
-      /           %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} your site administration stuff
-      /         %li{:role => "presentation"}
-      /           %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} Your settings
-      /       / Tab panes
-      /       .tab-content
-      /         #home.tab-pane.fade{:role => "tabpanel"} 
-      /           %h3 my positions
-      /           %h3 my comments
-      /           %h3 my identities
-      /           %h3 my accounts
-      /           %h3 my addresses
-      /           %h3 my photos
-      /           %h3 my galleries
-      /           %h3 my articles
-      /           %h3 my organizations
-      /         #profile.tab-pane.fade{:role => "tabpanel"}
-      /           %ul.nav.nav-pills{:role => "tablist"}
-      /             %li{:role => "presentation"}
-      /               %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} bink wines
-      /             %li{:role => "presentation"}
-      /               %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"} ferrington vineyard
-      /             %li{:role => "presentation"}
-      /               %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} fathers & daughters cellars
-      /             %li{:role => "presentation"}
-      /               %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} gallo wines
-
-
-      /         #messages.tab-pane.fade{:role => "tabpanel"}
-      /         #settings.tab-pane.fade{:role => "tabpanel"}
-
-      / .row
-      /   .col-sm-8
-
-      /     / article_comments
-      /     / org addresses
-      /     / org roles
-      /     / org photos
-      /     / org articles
-      /     / org articles comments
-      /     / org galleries
-      /     / org positions
-      /     / org products
-      /     / / org product reviews 
-      /     / / org product photos
-      /     / / org product galleries
-
+              - Dir["app/views/dashboard/*/"].each_with_index do |directory, i|
+                - dashboard = directory.split("/").last
+                .tab-pane.fade{ id: dashboard, class: i == 2 ? "in active" : ""}
+                  = render "#{dashboard}" 
 

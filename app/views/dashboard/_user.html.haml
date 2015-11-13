@@ -1,0 +1,59 @@
+%h4.font-alt.mb-0 Your stuff
+%hr.divider-w.mt-10.mb-20/
+#accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+  - Dir["app/views/dashboard/user/*.html.haml"].each do |file|
+    - partial = file.split("_").last.split(".").first
+    .panel.panel-default
+      = render "dashboard/user/#{partial}"
+
+
+/ %li.active
+/   %a{"data-toggle" => "tab", :href => "#support"}
+/     %span.icon-tools-2
+/     Support
+
+
+/ %li.dropdown{:role => "presentation"}
+/   %a#user-dash.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+/     Your stuff              
+/     %span.caret
+/   %ul#menu1.dropdown-menu{"aria-labelledby" => "user-dash"}
+/     / %li
+/     /   %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+/     %li{:role => "presentation"}
+/       %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+/     %li
+/       %a{:href => "#"} Action
+/     %li
+/       %a{:href => "#"} Another action
+/     %li
+/       %a{:href => "#"} Something else here
+/     %li.divider{:role => "separator"}
+/     %li
+/       %a{:href => "#"} Separated link  
+
+/     .tab-content
+/       #home.tab-pane{:role => "tabpanel"} 
+/         %h3 my positions
+/         %h3 my comments
+/         %h3 my identities
+/         %h3 my accounts
+/         %h3 my addresses
+/         %h3 my photos
+/         %h3 my galleries
+/         %h3 my articles
+/         %h3 my organizations
+
+/ / %li.active{:role => "presentation"}
+/ /   %a.active{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Your stuff
+/ /   .tab-content
+/ /     #home.tab-pane.active{:role => "tabpanel"} 
+/ /       %h3 my positions
+/ /       %h3 my comments
+/ /       %h3 my identities
+/ /       %h3 my accounts
+/ /       %h3 my addresses
+/ /       %h3 my photos
+/ /       %h3 my galleries
+/ /       %h3 my articles
+/ /       %h3 my organizations

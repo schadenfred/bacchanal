@@ -1,0 +1,23 @@
+- present @user do |presenter| 
+  .panel-heading
+    %h4.panel-title.font-alt
+      %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#avatars"}
+        Your avatars
+  #avatars.panel-collapse.collapse
+    .panel-body
+      %table.table.table-condensed
+        %thead
+          %tr
+            %th title
+            %th organization      
+            %th description
+            %th tenure start
+            %th tenure end
+        %tbody
+          - presenter.positions.each do |position|
+            %tr
+              %td= position.title
+              %td= position.org.name
+              %td= truncate(position.description)
+              %td= time_ago_in_words(position.tenure_start)
+              %td= position.tenure_end ? time_ago_in_words(position.tenure_end) : "current"

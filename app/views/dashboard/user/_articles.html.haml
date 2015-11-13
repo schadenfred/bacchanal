@@ -1,0 +1,19 @@
+- present @user do |presenter| 
+  .panel-heading
+    %h4.panel-title.font-alt
+      %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#articles"}
+        Your articles
+  #articles.panel-collapse.collapse.in
+    .panel-body
+      %table.table.table-condensed
+        %thead
+          %tr
+            %th title
+            %th organization      
+            %th status
+        %tbody
+          - presenter.articles_written.each do |article|
+            %tr
+              %td= link_to article.title, winery_article_path(article.org, article)
+              %td= article.org.name
+              %td= article.aasm_state

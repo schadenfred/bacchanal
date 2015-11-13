@@ -37,9 +37,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles do 
-    resources :comments
-  end
+  # resources :articles do 
+  #   resources :comments
+  # end
 
   resources :comments #, only: [:create, :update, :destroy]
 

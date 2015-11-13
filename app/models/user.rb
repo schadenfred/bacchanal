@@ -8,12 +8,9 @@ class User < ActiveRecord::Base
   
   rolify
 
-  ## devise modules to be added as necessary:
-  # :timeoutable
-  
   devise  :confirmable, :database_authenticatable, :invitable, :lockable, 
           :omniauthable, :recoverable, :registerable, :rememberable, 
-          :trackable, :validatable
+          :trackable, :validatable  # :timeoutable
 
   has_many :articles, foreign_key: "author_id"
   has_many :identities, as: :identifiable

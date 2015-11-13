@@ -17,6 +17,8 @@ class Org < ActiveRecord::Base
   has_many :positions
   has_many :photos, as: :photographable
 
+  validates :name, uniqueness: true
+
   store_accessor :properties, :history, :mission, :welcome_statement
 
   def default_gallery

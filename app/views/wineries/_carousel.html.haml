@@ -1,52 +1,13 @@
 %section#home.home-section.home-parallax.home-fade.home-full-height
   .hero-slider
     %ul.slides
-      %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path(@winery.default_gallery.slides.first.photo.image.url)})", class: randofilter }
-        .hs-caption
-          .caption-content
-            .hs-title-size-4.font-alt.mb-40
-              = @winery.name
-            .hs-title-size-2.font-alt.mb-30
-              = link_to "Our wines", "#wines"
-        / .hs-caption
-        /   .caption-content
-
-        /     / .hs-title-size-1.font-alt.mb-30
-        /     /   = @winery.name
-        /     /   / %span.rotate wineries | vineyards | lovers
-        /     .hs-title-size-4.font-alt.mb-40
-        /       = @winery.name
-
-        /     / %a.section-scroll.btn.btn-border-w{:href => "#about"} Manifesto
-      %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path("fanddcellars/family-2.jpg")})"}
-        .hs-caption
-          .caption-content
-            .hs-title-size-4.font-alt.mb-40
-              = @winery.name
-            .hs-title-size-2.font-alt.mb-30
-              = link_to "Our wines", "#wines"
-        
-
-        / .hs-caption
-        /   .caption-content
-        /     .hs-title-size-2.font-alt.mb-30
-        /       = @winery.name
-        /     /   Bacchan.al
-        /     /   %br/
-        /     /   Change the way you see your food
-        /     / %a.section-scroll.btn.btn-mod.btn-border-w{:href => "#about"} Learn More
-      %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path("fanddcellars/vineyard.jpg")})"}
-        .hs-caption
-          .caption-content
-            .hs-title-size-4.font-alt.mb-40
-              = @winery.name
-            .hs-title-size-2.font-alt.mb-30
-              = link_to "Our wines", "#wines"
-          / .caption-content
-          /   .hs-title-size-1.font-alt.mb-30
-          /     Change your frame 
-          /   .hs-title-size-3.font-alt.mb-40
-          /     Forget the hype
-          /   %a.section-scroll.btn.btn-mod.btn-border-w{:href => "#about"} Manifesto
+      - @winery.default_gallery.slides.each do |slide|
+        %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path(slide.photo.image.url)})", class: randofilter }
+          .hs-caption
+            .caption-content
+              .hs-title-size-4.font-alt.mb-40
+                = @winery.name
+              .hs-title-size-2.font-alt.mb-30
+                = link_to "Our wines", "#wines", class: "section-scroll btn btn-border-w"
   
 

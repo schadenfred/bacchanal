@@ -33,7 +33,7 @@ describe AddressesAddressable do
 
   describe "instance methods" do 
     
-    subject { AddressesAddressable.new }
+    subject { FactoryGirl.build_stubbed(:addresses_addressable) }
 
     %w[shipping billing primary].each do |role|
 
