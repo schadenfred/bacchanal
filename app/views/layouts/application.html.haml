@@ -5,16 +5,17 @@
     = yield :head
   %body
     = render 'preloader'
-    = yield :header
+
+    = render 'header_transparent'
     .main
       / = render 'messages'
       = content_for?(:main) ? yield(:main) : yield
 
-      %hr.divider-d/
-      / = render 'widgets'
+    /   %hr.divider-d/
+    /   / = render 'widgets'
 
-      = render 'footer'
-      = render 'scroll_up'
+    /   = render 'footer'
+    /   = render 'scroll_up'
 
     %script{:src => "//maps.google.com/maps/api/js?sensor=true", :type => "text/javascript"} 
     = javascript_include_tag 'application'
