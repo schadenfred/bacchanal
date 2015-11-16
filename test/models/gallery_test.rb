@@ -27,6 +27,7 @@ describe Gallery do
   specify "associations" do 
     
     must_have_many :slides
+    must_have_many :photos
   end
 
   describe "validations" do 

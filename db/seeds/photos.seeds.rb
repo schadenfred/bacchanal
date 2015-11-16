@@ -10,14 +10,34 @@ after :users, :wineries do
       @photo = user.photos.new(
         image: File.new(files.sample),
         caption: Faker::Stoked.thing,
-        name: Faker::Stoked.thing,
+        name: Faker::Stoked.thing
 
       )
       @photo.save!
     end
   end
 end
+  # wineries = Winery.first(6)
 
+  # wineries.each do |winery|
+
+  #   3.times do 
+
+  #     photo = winery.default_gallery.photos.create(
+
+  #       )      
+  #     # photo slide = winery.default_gallery.slides.create(
+  #     #   call_to_action: Faker::Stoked.sport,
+  #     #   bullet_big: Faker::Stoked.interest,
+  #     #   bullet_small: Faker::Stoked.place,
+  #     #   photos_attributes
+  #     # )
+  #     # byebug
+  #     # # slide.phophoto_id: photos.sample.id,
+  #     # slide.save!
+  #   end
+  # end
+# end
 # image_path = Rails.root.join('test', 'samples', 'fanddcellars', 'sauv.jpg').to_s 
 
 # uploader = Dragonfly[:images] 

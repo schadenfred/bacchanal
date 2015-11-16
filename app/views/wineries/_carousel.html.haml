@@ -2,7 +2,7 @@
   .hero-slider
     %ul.slides
       - @winery.default_gallery.slides.each do |slide|
-        %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path(slide.photo.image.url)})", class: randofilter }
+        %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path(slide.photo.image.url)})" } 
           .hs-caption
             .caption-content
               .hs-title-size-4.font-alt.mb-40

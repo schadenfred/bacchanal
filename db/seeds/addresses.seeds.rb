@@ -1,4 +1,4 @@
-after :users, :orgs do 
+after :users, :orgs, :wineries do 
 
   3.times do 
 

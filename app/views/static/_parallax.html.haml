@@ -1,3 +1,23 @@
-%section#home.home-section.home-parallax.home-fade.bg-dark-30{"data-background" => image_path("rp-1.jpg")}
-  = yield :banner
+/ %section#home.home-section.home-parallax.home-fade.bg-dark-30{"data-background" => image_path("rp-1.jpg")}
+
+%section#home.home-section.home-parallax.home-fade.home-full-height
+  .hero-slider
+    %ul.slides
+      - @company.default_gallery.slides.each do |slide|
+        %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path(slide.photo.image.url)})" }
+        .hs-caption
+          .caption-content
+            .col-sm-8.col-sm-offset-2
+              .hs-title-size-1.font-alt.mb-30
+                Bacchan.al is for the 
+                / .hs-title-size-1.font-alt.mb-30  
+              .hs-title-size-4.font-alt.mb-40
+                %span 
+                  .rotate wineries | vineyards | lovers | farmers | cooks | artists
+              / .hs-title-size-1.font-alt.mb-30
+              /   for the reading press
+            .col-sm-4.col-sm-offset-4
+              %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#about"}  
+                %h5 the manifesto for the reading
   
+

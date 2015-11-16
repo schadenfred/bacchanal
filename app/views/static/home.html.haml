@@ -1,3 +1,8 @@
+- content_for :head do 
+  = render 'meta_tags'
+- content_for :header do
+  = render 'header_transparent' 
+
 - content_for :footer do
   .col-sm-2
     .copyright.font-alt
@@ -21,25 +26,16 @@
       %a{:href => "#"}
         %i.fa.fa-skype
 
-  .font-alt
-    - static_section_links.each do |section|
-      = link_to section.capitalize, "##{section}", class: "section-scroll"  
-    - static_page_links.each do |page|
-      = link_to page, send("#{page}_path")
-- content_for :footer_brand do
-  .copyright.font-alt
-    © 2015
-    = link_to "Bacchan.al", root_url
-
-- content_for :brand do 
-  = link_to "Bacchan.al", root_path, class: "navbar-brand"
-- content_for :navlinks do 
-  = render 'application/header/navigation_links' unless current_user
-  = render 'application/header/authentication_links'
-- content_for :banner do 
-  = render 'home_banner'
-= render 'parallax'
+%section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-30{"data-background" => "assets/images/section-21.jpg"}
+  .hs-caption
+    .caption-content
+      .hs-title-size-1.font-alt.mb-30
+        Hello &amp; welcome
+      .hs-title-size-4.font-alt.mb-40
+        We are Rival
+      %a.section-scroll.btn.btn-border-w.btn-round{:href => "#about"} Learn More
 .main
+  / = render 'parallax'
   = render 'wineries'
   %hr.divider-w/
   = render 'callout'

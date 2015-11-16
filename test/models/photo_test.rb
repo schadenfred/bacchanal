@@ -22,6 +22,7 @@ describe Photo do
 
     must_belong_to(:photographable)
     must_belong_to(:photographer)
+    must_have_many(:slides)
   end
 
   describe "validations" do 

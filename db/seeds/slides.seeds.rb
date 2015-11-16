@@ -1,19 +1,23 @@
-after :galleries, :photos do 
+after :galleries do 
 
-  galleries = Gallery.all
+  files = Dir[File.expand_path('test/samples/wineries/*.jpg')]
+  photographer = User.all.sample
+  wineries = Winery.last(5)
 
-  photos = Photo.all
-
-  galleries.each do |gallery|
-
-    3.times do 
-      slide = gallery.slides.new(
-        photo_id: photos.sample.id,
-        call_to_action: Faker::Stoked.sport,
-        bullet_big: Faker::Stoked.interest,
-        bullet_small: Faker::Stoked.place
-      )
-      slide.save!
-    end
+  wineries.each do |winery|
+    
+    photo = winery.default_gallery.photos.new(
+      image: File.new(files.sample),
+      caption: Faker::Stoked.thing,
+      name: Faker::Stoked.thing,
+      photographer_id: photographer.id,
+      slides_attributes: [ {
+        gallery_id: winery.id,
+        call_to_action: Faker::Stoked.thing,
+        bullet_big: "bullet big",
+        bullet_small: "bullet small"
+      } ]
+    )
+    photo.save
   end
 end

@@ -4,9 +4,13 @@ class Gallery < ActiveRecord::Base
 
   belongs_to :org
 
+  has_many :photos, through: :slides
   has_many :slides
 
-  validates :org, presence: true
   validates :name, presence: true
+  validates :org, presence: true
+
+  validates :name, uniqueness: { scope: :org_id }
+
 
 end

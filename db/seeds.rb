@@ -1,71 +1,106 @@
-# # This file should contain all the record creation needed to seed the database with its default values.
-# # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-# #
-# # Examples:
-# #
-# #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-# #   Mayor.create(name: 'Emanuel', city: cities.first)
+# users
 
-# bacchanal = Org.create!(
-#   name: "Bacchan.al",
-#   blog_title: "Odds, Ends",
-#   mission: "Bacchan.al helps small farmers and food producers tell their authentic stories.")
+testers = [
+  "alisa mathewson",
+  "biren talati",
+  "fred schoeneman",
+  "greg spanel",
+  "guy pacurar",
+  "kimberly miller",
+  "heather schoeneman",
+  "kurt schoeneman",
+  "melinda marks",
+  "sarah schoeneman",
+  "seemant kulleen"
+]
 
-# bacchanal.addresses.create(
-#   line_1: "PO box 1014",
-#   line_2: nil,
-#   city: "Boonville",
-#   state: "CA",
-#   country: "US",
-#   phone: "510.207.3450",
-#   website: "bacchan.al",
-#   email: "cerberus@bacchan.al"
-# )
+testers.each do |fullname|
+  first = fullname.split.first
+  last = fullname.split.last
+  last_initial = fullname.split.last.chars.first
+  test_domain = "@bacchan.al"
+  email = first + "." + last + test_domain
 
-# winery = Winery.create!(
-#   name: "Fathers & Daughters Cellars",
-#   blog_title: nil,
-#   mission: "Hand-crafted small batch wines from Ferrington Vineyard in the Anderson Valley, California.", 
-#   welcome_statement: "There are five of us. I’m one of the dads and I have two daughters, Taylor and Ella. My wife, Sarah, is the daughter of our little group’s patriarch, Kurt Schoeneman. Kurt is the owner of the Anderson Valley’s storied Ferrington Vineyard, the source of our fruit. Together, we make up Fathers & Daughters Cellars.
+  user = User.create!( 
+    name: fullname,
+    email: email,
+    password: "password",
+    bio: Faker::Stoked.paragraphs(3)
+  )
+  user.invite!
+  user.accept_invitation!
+  user.confirm
+end
 
-#     It is our hope that through our wine, we can share with you some of the magic of this very special vineyard."
-#     )
+# company
 
-# winery.addresses.create(
-#   line_1: "PO Box 29",
-#   line_2: nil,
-#   city: "Philo",
-#   state: "CA",
-#   country: "US",
-#   phone: "707-813-1137",
-#   website: "http://fanddcellars.com/",
-#   email: "pacurar.guy@gmail.com"
-# )
-# winery.identities.create!(
-#   provider: "facebook",
-#   link: "https://www.facebook.com/fathersanddaughterscellars/"
-# )
+bacchanal = Org.create!(
+  name: "Bacchan.al",
+  blog_title: "Odds, Ends",
+  mission: "Bacchan.al helps small farmers and food producers tell their authentic stories.",
+  history: Faker::Stoked.paragraphs( 3 )
+)
 
+user = User.find_by(name: "fred schoeneman")
 
+gallery = bacchanal.galleries.create(
+  name: "default"
+)
+gallery.save
 
-# bacchanal.positions.create!(
-#   user_id: fred.id,
-#   title: "Proprietor",
-#   description: "soup to nuts")
+typewriter_pics = Dir[File.expand_path('test/samples/bacchanal/*.jpg')]
 
-# bacchanal.positions.create!(
-#   user_id: alisa.id,
-#   title: "Biology & ecology intern",
-#   description: "vineyard mapping & data analysis")
+typewriter_pics.each do |pic|
 
-# ["guy pacurar", "sarah schoeneman", "kurt schoeneman"].each do |name|
-#   winery.positions.create!(
-#     user_id: User.where(name: name).first.id,
-#     title: "proprietor"
-#   )
-# end
+  photo = gallery.photos.new(
+    photographer_id: user.id,
+    image: File.new(pic),
+    caption: Faker::Stoked.thing,
+    name: Faker::Stoked.thing,
+    slides_attributes: [
+      {
+        gallery_id: gallery.id,
+        call_to_action: Faker::Stoked.thing,
+        bullet_big: "bullet big",
+        bullet_small: "bullet small"
+      }
+    ]
+  )
+  photo.save!
+end
 
-# winery.wines.create!(
-#   name: Faker::Bloocher.varietal
+# Fathers and Daughters seed
+winery = Winery.create!(
+  name: "Fathers & Daughters Cellars",
+  blog_title: "Not sons and mothers",
+  mission: "Hand-crafted small batch wines from Ferrington Vineyard in the Anderson Valley, California.",
+  history: "There are five of us. I’m one of the dads and I have two daughters, Taylor and Ella. My wife, Sarah, is the daughter of our little group’s patriarch, Kurt Schoeneman. Kurt is the owner of the Anderson Valley’s storied Ferrington Vineyard, the source of our fruit. Together, we make up Fathers & Daughters Cellars.
 
-#   )
+  It is our hope that through our wine, we can share with you some of the magic of this very special vineyard."
+)
+
+user = User.find_by(name: "guy pacurar")
+
+gallery = winery.galleries.create!(
+  name: "default"
+)
+gallery.save
+
+pics = Dir[File.expand_path('test/samples/fanddcellars/landscape/*.jpg')]
+
+pics.each do |pic|
+
+  photo = Photo.new(
+    photographer_id: user.id,
+    image: File.new(pic),
+    caption: Faker::Stoked.thing,
+    name: Faker::Stoked.thing,
+    slides_attributes: [ {
+        gallery_id: gallery.id,
+        call_to_action: Faker::Stoked.thing,
+        bullet_big: "bullet big",
+        bullet_small: "bullet small"
+    } ]
+  )
+  photo.save!
+end

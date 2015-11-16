@@ -2,13 +2,12 @@
 %html{:lang => "en"}
   %head
     = render 'head'
+    = yield :head
   %body
     = render 'preloader'
-    = content_for?(:header) ? yield(:header) : (render 'header')
-    = render 'messages'
-    = yield :top
-
+    = yield :header
     .main
+      / = render 'messages'
       = content_for?(:main) ? yield(:main) : yield
 
       %hr.divider-d/
