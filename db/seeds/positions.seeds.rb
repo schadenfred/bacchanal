@@ -1,6 +1,25 @@
 after :users, :wineries, :orgs do 
   bacchanal = Org.find_by(name: "Bacchan.al")
-  bacchanaliens = ["fred schoeneman", "heather schoeneman"]
+  bacchanaliens = [ 
+    { 
+      name: "fred schoeneman", 
+      title: "Proprietor",
+      description: "Programmer. Writer. Skier. Wine slayer."
+    },
+    {
+      name: "heather schoeneman",
+      title: "quality control",
+      description: "I'm Fred's Mom, which makes me pretty awesome. Kidding. Not really. I'm awesome. And better looking than your Mom, too."
+    },
+
+    {
+      name: "kurt schoeneman",
+      title: "Fred's Dad.",
+      description: "I talk a lot."
+    }
+  ]
+
+
 
   winery = Winery.find_by(slug: "fathers-daughters-cellars")
   winery_users = ["sarah schoeneman", "kurt schoeneman", "guy pacurar"]
@@ -18,9 +37,9 @@ after :users, :wineries, :orgs do
   bacchanaliens.each do |user|
 
     position = bacchanal.positions.new(
-      user_id: User.find_by(name: user).id,
-      title: Faker::Stoked.job,
-      description: Faker::Stoked.sentence,
+      user_id: User.find_by(name: user[:name]).id,
+      title: user[:title],
+      description: user[:description],
       tenure_start:  Date.today - 3.months
     )
     position.save

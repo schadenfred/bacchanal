@@ -7,7 +7,8 @@
       .col-sm-12
         %ul#filters.filter.font-alt.hidden-xs
           %li
-            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} Appellations
+            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} Appellations:
+
           %li
             %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Anderson Valley
           %li
@@ -17,11 +18,10 @@
           %li
             %a.wow.fadeInUp{"data-filter" => ".webdesign", "data-wow-delay" => "0.8s", :href => "#"} Mendocino
   %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
-    / - @wineries.first do |winery|
     - @wineries.each do |winery|
       %li.work-item.illustration.webdesign
         = link_to winery do 
-          = image_tag(winery.default_gallery.slides.first.photo.image.url)
+          = image_tag(winery.default_gallery.slides.first.photo.image.thumb('900x600#').url)
           .work-caption.font-alt
             %h3.work-title
               = winery.name

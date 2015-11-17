@@ -14,8 +14,12 @@
 %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.default_gallery.photos[1].image.url)}
   .hs-caption
     .caption-content
-      .hs-title-size-1.font-alt.mb-30
-        / = image_tag(@company.default_gallery.photos.last.image.url)
-      .hs-title-size-3.font-alt.mb-40
-        %span.rotate We are contemporary | We are amazing | We are best
-      %a.section-scroll.btn.btn-border-w.btn-circle{:href => "#about"} Learn More
+      .col-sm-8.col-sm-offset-2
+        .hs-title-size-1.font-alt.mb-30
+          Bacchan.al is for the 
+        .hs-title-size-4.font-alt.mb-40
+          %span 
+            .rotate wineries | vineyards | lovers | farmers | cooks | artists
+      .col-sm-4.col-sm-offset-4
+        %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#about"}  
+          %h5 the manifesto for the reading

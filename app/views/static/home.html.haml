@@ -1,5 +1,6 @@
 - content_for :head do 
   = render 'meta_tags'
+
 - content_for :header do
   = render 'header_transparent' 
 
@@ -16,35 +17,18 @@
         = link_to page, send("#{page}_path")
   .col-sm-2
     .footer-social-links
-    
-      %a{:href => "#"}
-        %i.fa.fa-facebook
-      %a{:href => "#"}
-        %i.fa.fa-twitter
-      %a{:href => "#"}
-        %i.fa.fa-dribbble
-      %a{:href => "#"}
-        %i.fa.fa-skype
+      - @company.identities.each do |identity| 
+        %a{:href => identity.link}
+          %i.fa{ class: "fa-#{identity.provider}" }
 
-%section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-30{"data-background" => image_tag(@company.default_gallery.photos.first.image.url) }
-  .hs-caption
-    .caption-content
-      .hs-title-size-1.font-alt.mb-30
-        Hello &amp; welcome
-      .hs-title-size-4.font-alt.mb-40
-        We are Rival
-      %a.section-scroll.btn.btn-border-w.btn-round{:href => "#about"} Learn More
-.main
-  / = render 'parallax'
-  = render 'wineries'
-  %hr.divider-w/
-  = render 'callout'
-  = render 'manifesto'
-  / = render 'alt_features'
-  / %hr.divider-w/
-  = render 'count_to'
-  = render 'team'
-  = render 'wine_quotes'
-  / = render 'latest_articles'
-  / = render 'map'
-  
+
+= render 'wineries'
+= render 'manifesto'
+= render 'count_to'
+= render 'team'
+= render 'callout'
+/ %hr.divider-w/
+= render 'pricing'
+= render 'wine_quotes'
+/ = render 'latest_articles'
+/ = render 'map'

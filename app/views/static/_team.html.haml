@@ -7,24 +7,24 @@
         .module-subtitle.font-serif
           = Faker::Stoked.sentences(2)
     .row
-      - @company.positions.each do |position|
-      
-        .col-sm-6.col-sm-offset-2.col-md-3.mb-sm-20.wow.fadeInUp
-          .team-item
-            .team-image
-              / - if position.user.avatar 
-              / /   = position.user.avatar
-              / - else 
-              %img{:alt => "", :src => image_path("team-1.jpg")}
-              .team-detail
-                %h5.font-alt
-                  = position.title
-                %p.font-serif
-                  = position.description
-                .team-social
-                  - position.user.identities.each do |identity|
-                    %a{:href => "#"}
-                      %i.fa{ class: "fa-#{identity.provider}"}
-            .team-descr.font-alt
-              .team-name= position.user.name
-              .team-role= position.title
+      .div{ class: "col-sm-offset-2"}
+        - @company.positions.each do |position|
+          .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+            .team-item
+              .team-image
+                / - if position.user.avatar 
+                / /   = position.user.avatar
+                / - else 
+                %img{:alt => "", :src => image_path("team-1.jpg")}
+                .team-detail
+                  %h5.font-alt
+                    = position.title
+                  %p.font-serif
+                    = position.description
+                  .team-social
+                    - position.user.identities.each do |identity|
+                      %a{:href => identity.link}
+                        %i.fa{ class: "fa-#{identity.provider}"}
+              .team-descr.font-alt
+                .team-name= position.user.name
+                .team-role= position.title
