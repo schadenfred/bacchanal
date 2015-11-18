@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'dashy/index'
+
+  get 'dashy/index'
+
+  mount_ember_app :dash, to: "/dashy", controller: "dashy", action: "index"
+
   resources :galleries
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
