@@ -3,7 +3,7 @@
     %h4.panel-title.font-alt
       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#identities"}
         Your identities
-  #identities.panel-collapse.collapse
+  #identities.panel-collapse.collapse.in
     .panel-body
       %table.table.table-condensed
         %thead
@@ -21,3 +21,9 @@
               %td= truncate(position.description)
               %td= time_ago_in_words(position.tenure_start)
               %td= position.tenure_end ? time_ago_in_words(position.tenure_end) : "current"
+    / Small modal
+  %button.btn.btn-primary{"data-target" => ".bs-example-modal-sm", "data-toggle" => "modal", :type => "button"} Small modal
+  .modal.fade.bs-example-modal-sm{"aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-sm
+      .modal-content
+        \...
