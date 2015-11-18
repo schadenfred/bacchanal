@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'dashy/index'
+  # mount_ember_app :dashy, to: "/dashy"
+  mount_ember_app :dashy, to: "/dashy", controller: "dashy", action: "index"
+  get "/dashy", to: "dashy#index"
+  get "/dashy/*path", to: "dashy#index" # tell Rails to catch all routes under `admin/`
 
-  get 'dashy/index'
-
-  mount_ember_app :dash, to: "/dashy", controller: "dashy", action: "index"
 
   resources :galleries
   namespace :admin do

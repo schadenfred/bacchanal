@@ -31,6 +31,7 @@
 /doc/api/
 /doc/app/
 /doc/features.html
+/node_modules/
 /doc/specs.html
 /public/cache
 /public/stylesheets/compiled

@@ -31,7 +31,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 
 # ember framework for admin & dashboards
-gem 'ember-cli-rails'
+gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails'
 
 # use haml for templating
 gem 'haml-rails'

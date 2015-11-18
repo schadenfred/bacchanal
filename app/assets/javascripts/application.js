@@ -13,7 +13,7 @@
 //= require isotope.pkgd.min
 //= require imagesloaded.pkgd
 //= require jquery.flexslider
-//= require magnific-popup
+//= require jquery.magnific-popup
 //= require jquery.fitvids
 //= require jquery.tagcanvas
 //= require smoothscroll
