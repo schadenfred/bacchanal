@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  require 'route_drawer'
+
+  draw :api, :v1
+
+  draw :engines, :buttafly
+
   mount_ember_app :dashy, to: "/dashy", controller: "dashy", action: "index"
 
-  resources :galleries
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource
@@ -13,8 +18,6 @@ Rails.application.routes.draw do
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
-  
-  mount Buttafly::Engine, at: "/buttafly"
   
   devise_for :users
 
@@ -34,16 +37,13 @@ Rails.application.routes.draw do
       resources :comments
     end
 
+  resources :galleries
     shallow do 
       resources :galleries, :photos
     end
   end
 
-  # resources :articles do 
-  #   resources :comments
-  # end
-
-  resources :comments #, only: [:create, :update, :destroy]
+  resources :comments
 
   resources :orgs do 
     concerns :media_promotable
@@ -51,15 +51,11 @@ Rails.application.routes.draw do
 
   resources :photos
 
-  # resources :articles, only: [:destroy, :edit, :new, :update]
-
   resources :competitions, shallow: true do 
-    # concerns :media_promotable
     resources :events
   end
 
   resources :producers do 
-    # concerns :media_promotable
     resources :products
   end 
   
