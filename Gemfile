@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # rails 
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.5'
 
 # js engine
 gem 'execjs'
@@ -32,6 +32,9 @@ gem 'jquery-rails'
 
 # ember framework for admin & dashboards
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails'
+
+# provide serialized json for ember
+# gem 'active_model_serializers'
 
 # use haml for templating
 gem 'haml-rails'
@@ -117,6 +120,9 @@ group :development, :test do
   gem 'guard'
   gem 'guard-minitest'
   gem 'guard-livereload'
+
+  # silence error on guard:
+  # gem 'listen', '~> 2.7.12'
 
   # debugger
   gem 'byebug'
