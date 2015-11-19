@@ -1,9 +1,9 @@
-require "test_helper"
+# require "test_helper"
 
-class DashyControllerTest < ActionController::TestCase
-  def test_index
-    get :index
-    assert_response :success
-  end
+# class DashyControllerTest < ActionController::TestCase
+#   def test_index
+#     get :index
+#     assert_response :success
+#   end
 
-end
+# end

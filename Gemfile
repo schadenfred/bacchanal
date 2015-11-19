@@ -34,7 +34,7 @@ gem 'jquery-rails'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails'
 
 # provide serialized json for ember
-# gem 'active_model_serializers'
+gem 'active_model_serializers'
 
 # use haml for templating
 gem 'haml-rails'
