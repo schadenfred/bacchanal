@@ -79,10 +79,12 @@ namespace :deploy do
   end
 
   desc "Install ImageMagick"
-   task :install_imagemagick, :roles => :app do
-     sudo "apt-get install libxml2-dev libmagick9-dev imagemagick -y"
-     #sudo "gem install rmagick"
-   end
+    task :install_imagemagick do
+      on roles(:app) do 
+        sudo "apt-get install libxml2-dev libmagick9-dev imagemagick -y"
+      end
+    end
+  end
   
   desc "Invoke rake task"
   task :invoke do
