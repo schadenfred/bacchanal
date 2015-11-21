@@ -77,14 +77,6 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-
-  desc "Install ImageMagick"
-    task :install_imagemagick do
-      on roles(:app) do 
-        sudo "apt-get install libxml2-dev libmagick9-dev imagemagick -y"
-      end
-    end
-  end
   
   desc "Invoke rake task"
   task :invoke do
