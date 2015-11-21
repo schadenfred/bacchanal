@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   draw :engines, :buttafly
 
-  mount_ember_app :dashy, to: "/dashy", controller: "dashy", action: "index"
-
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource

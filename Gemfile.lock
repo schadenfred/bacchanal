@@ -37,15 +37,6 @@ GIT
       countries (~> 1.2.0)
       sort_alphabetical (~> 1.0)
 
-GIT
-  remote: git://github.com/thoughtbot/ember-cli-rails.git
-  revision: 8be43cc8247cab839513a5776ba28367ff740548
-  specs:
-    ember-cli-rails (0.5.3)
-      non-stupid-digest-assets (~> 1.0.0)
-      railties (>= 3.2, < 5)
-      sprockets (>= 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -320,7 +311,6 @@ GEM
     net-ssh (3.0.1)
     nokogiri (1.6.6.3)
       mini_portile (~> 0.6.0)
-    non-stupid-digest-assets (1.0.5)
     normalize-rails (3.0.3)
     notiffany (0.0.8)
       nenv (~> 0.1)
@@ -516,7 +506,6 @@ DEPENDENCIES
   devise_invitable
   dragonfly
   dropzonejs-rails
-  ember-cli-rails!
   execjs
   factory_girl_rails (~> 4.0)
   faker

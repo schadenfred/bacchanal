@@ -30,9 +30,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# ember framework for admin & dashboards
-gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails'
-
 # provide serialized json for ember
 gem 'active_model_serializers'
 
