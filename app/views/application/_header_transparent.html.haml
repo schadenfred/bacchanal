@@ -11,7 +11,7 @@
       %ul.nav.navbar-nav.navbar-right
         = render 'application/header/navigation_links' unless current_user
         = render 'application/header/authentication_links'
-%section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.gallery("default").photos.third.image.url)}
+%section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.gallery("default").photos.first.image.url)}
   .hs-caption
     .caption-content
       .col-sm-8.col-sm-offset-2
