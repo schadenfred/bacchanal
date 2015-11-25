@@ -41,7 +41,7 @@ describe Org do
   end
 
   Given(:default_gallery)     { FactoryGirl.create(:default_gallery) }
-  Given(:org) { default_gallery.org }
+  Given(:org) { default_gallery.galleriable }
   
   describe ":default_gallery" do 
 

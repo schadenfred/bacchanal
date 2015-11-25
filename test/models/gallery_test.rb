@@ -9,8 +9,10 @@ describe Gallery do
     specify "columns & types" do 
       
       must_have_column(:name, :string)
-      must_have_column(:org_id, :integer)
+      must_have_column(:galleriable_type, :string)
+      must_have_column(:galleriable_id, :integer)
       must_have_column(:properties, :json)
+
     end
 
     specify "store_accessor" do 
@@ -20,7 +22,7 @@ describe Gallery do
 
     specify "indexes" do
       
-      must_have_index(:org_id) 
+      must_have_index([:galleriable_id, :galleriable_type]) 
     end
   end
 
@@ -39,7 +41,7 @@ describe Gallery do
       describe "of parent org" do 
 
         Given { gallery.save }
-        Then  { gallery.update(org_id: nil).must_equal false }
+        Then  { gallery.update(galleriable_id: nil).must_equal false }
       end
 
       describe "of name" do 

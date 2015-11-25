@@ -14,5 +14,6 @@ describe Wine do
 
     must_belong_to :winery
     must_have_many :photos
+    must_have_many :galleries
   end 
 end

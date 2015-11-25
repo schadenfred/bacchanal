@@ -2,15 +2,16 @@ class Gallery < ActiveRecord::Base
 
   store_accessor :properties
 
-  belongs_to :org
+  belongs_to :galleriable, polymorphic: true
 
   has_many :photos, through: :slides
   has_many :slides
 
   validates :name, presence: true
-  validates :org, presence: true
 
-  validates :name, uniqueness: { scope: :org_id }
+  validates :galleriable, presence: true
+
+  validates :name, uniqueness: { scope: [:galleriable_id, :galleriable_type] }
 
 
 end
