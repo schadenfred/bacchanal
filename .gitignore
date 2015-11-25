@@ -25,6 +25,7 @@
 *.sassc
 .redcar/
 .sass-cache
+.byebug_history
 /config/database.yml
 /coverage.data
 /coverage/

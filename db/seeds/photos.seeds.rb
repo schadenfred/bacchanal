@@ -7,60 +7,54 @@ after :users, :wineries do
 
   wineries.each do |winery|
     3.times do 
-      @photo = user.photos.new(
+      @photo = winery.photos.new(
         image: File.new(files.sample),
         caption: Faker::Stoked.thing,
-        name: Faker::Stoked.thing
+        name: Faker::Stoked.thing,
+        photographer_id: user.id
 
       )
       @photo.save!
     end
   end
+
+  winery = Winery.find_by(slug: "fathers-daughters-cellars")
+
+  user = User.find_by(name: "guy pacurar")
+
+  gallery = winery.default_gallery
+
+  pics = Dir[File.expand_path('test/samples/fanddcellars/landscape/*.jpg')]
+
+  pics.each do |pic|
+
+    photo = Photo.new(
+      photographer_id: user.id,
+      image: File.new(pic),
+      caption: Faker::Stoked.thing,
+      name: Faker::Stoked.thing,
+      slides_attributes: [ {
+          gallery_id: gallery.id,
+          call_to_action: Faker::Stoked.thing,
+          bullet_big: "bullet big",
+          bullet_small: "bullet small"
+      } ]
+    )
+    photo.save!
+  end
+
+    
+  users = { "fred schoeneman" => "fred.jpg"}
+  users.each do |avatar|
+    
+    user = User.find_by(name: avatar.first)
+    user.create_avatar(
+      image: File.new( Rails.root.join("test", "samples", "bacchanal", "team", avatar.second) ),
+      caption: Faker::Stoked.thing,
+      photographer_id: user.id,
+      name: Faker::Stoked.thing
+
+    )
+    user.save!
+  end
 end
-  # wineries = Winery.first(6)
-
-  # wineries.each do |winery|
-
-  #   3.times do 
-
-  #     photo = winery.default_gallery.photos.create(
-
-  #       )      
-  #     # photo slide = winery.default_gallery.slides.create(
-  #     #   call_to_action: Faker::Stoked.sport,
-  #     #   bullet_big: Faker::Stoked.interest,
-  #     #   bullet_small: Faker::Stoked.place,
-  #     #   photos_attributes
-  #     # )
-  #     # byebug
-  #     # # slide.phophoto_id: photos.sample.id,
-  #     # slide.save!
-  #   end
-  # end
-# end
-# image_path = Rails.root.join('test', 'samples', 'fanddcellars', 'sauv.jpg').to_s 
-
-# uploader = Dragonfly[:images] 
-# uploaded_image = uploader.fetch_file(image_path) 
-
-# image = Image.create image: uploaded_image 
-
-# if image.valid? 
-#   puts "#{image.title} Created" 
-# else 
-#   puts "Error on create #{image.title}" 
-# end
-# files = Dir[File.expand_path('test/samples/*.rb')]
-
-# image_path = Rails.root.join('test', 'samples', 'fanddcellars', 'sauv.jpg').to_s 
-
-# uploader = Dragonfly[:images] 
-# uploaded_image = uploader.fetch_file(image_path) 
-
-# image = Image.create image: uploaded_image 
-
-# if image.valid? 
-#   puts "#{image.title} Created" 
-# else 
-#   puts "Error on create #{image.title}" 
-# end

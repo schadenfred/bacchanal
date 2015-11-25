@@ -15,8 +15,12 @@ class User < ActiveRecord::Base
   has_many :articles, foreign_key: "author_id"
   has_many :identities, as: :identifiable
   has_many :positions    
-  has_many :photos, foreign_key: "photographer_id"
+  has_many :photographed, foreign_key: "photographer_id", class_name: "Photo"
   has_many :comments, foreign_key: "commenter_id"
 
-  has_one :avatar, class_name: "Photo", as: :photographable    
+  has_one :avatar, as: :photographable, class_name: "Photo"
+
+  # def avatar
+  #   photos.find_by(name: "avatar").first
+  # end
 end

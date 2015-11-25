@@ -28,14 +28,14 @@ describe User do
     must_have_many(:articles)
     must_have_many(:identities)
     must_have_many(:positions)
-    must_have_many(:photos)
+    must_have_many(:photographed)
 
     must_have_one(:avatar)
   end
 
-  specify "method" do 
+  specify "methods" do 
 
     subject.new.respond_to?(:articles).must_equal true
-    
+    subject.new.respond_to?(:avatar).must_equal true
   end
 end

@@ -17,7 +17,8 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = current_user.photos.new(photo_params)
+
+    @photo = current_user.photographed.new(photo_params)
     if @photographable 
       @photo.update(
         photographable_id: @photographable.id, 
