@@ -41,3 +41,5 @@ end
   user.accept_invitation!
   user.confirm
 end
+
+

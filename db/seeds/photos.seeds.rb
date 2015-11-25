@@ -43,13 +43,14 @@ after :users, :wineries do
     photo.save!
   end
 
+  fillers = Dir[File.expand_path('test/samples/avatars/fillers/*')]
+
+  users = User.all 
+
+  users.each do |user|
     
-  users = { "fred schoeneman" => "fred.jpg"}
-  users.each do |avatar|
-    
-    user = User.find_by(name: avatar.first)
     user.create_avatar(
-      image: File.new( Rails.root.join("test", "samples", "bacchanal", "team", avatar.second) ),
+      image: File.new( fillers.sample ),
       caption: Faker::Stoked.thing,
       photographer_id: user.id,
       name: Faker::Stoked.thing
