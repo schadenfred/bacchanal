@@ -3,19 +3,16 @@ class Org < ActiveRecord::Base
   include AddressableConcern
   include CommentableConcern
   include GalleriableConcern
+  include IdentifiableConcern
 
   extend FriendlyId
-
-  resourcify
-
   friendly_id :name, use: :slugged
-
+  
   acts_as_tagger
+  resourcify
 
   has_many :articles
   has_many :categories, through: :articles
-  has_many :comments, as: :commentable
-  has_many :identities, as: :identifiable
   has_many :positions
 
   validates :name, uniqueness: true

@@ -25,9 +25,6 @@ describe Org do
   specify "associations" do 
 
     must_have_many :articles
-    must_have_many :comments
-    must_have_many :identities
     must_have_many :positions
-    must_have_many :photos
   end
 end

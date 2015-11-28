@@ -24,7 +24,6 @@ describe User do
 
   specify "associations" do 
 
-    must_have_many(:addresses)
     must_have_many(:articles)
     must_have_many(:identities)
     must_have_many(:positions)
