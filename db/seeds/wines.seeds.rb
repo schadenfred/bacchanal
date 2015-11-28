@@ -17,16 +17,16 @@ after :wineries, :users do
 
     3.times do |n|
 
-      wine.photos.new(
+      gallery.photos.new(
         photographer_id: photographer.id,
         name: "label",
         caption: Faker::Stoked.thing,
-        image: Dir[File.expand_path('test/samples/fanddcellars/landscape/*.jpg')].sample,
+        image: Dir[File.expand_path('test/samples/fanddcellars/labels/*')].sample,
         slides_attributes: [ {
           gallery_id: gallery.id
         }]
       )
-      wine.save!
+      gallery.save!
     end
   end
 end

@@ -4,10 +4,8 @@ FactoryGirl.define do
 
     name "MyString"
     properties "MyString"
-    association :galleriable, factory: :org
 
     trait :default do 
-
       name "default"
     end
     

@@ -24,7 +24,6 @@ describe Article do
 
     must_belong_to(:org)
     must_belong_to(:author)
-    must_have_many(:comments)
   end
 
   describe "validations" do 

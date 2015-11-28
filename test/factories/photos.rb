@@ -1,8 +1,8 @@
 FactoryGirl.define do
   
   factory :photo do
-    image_uid "MyString"
-    image_name "MyString"
+    image Rails.root.join("test", "samples", "labels", "wine-label.jpg")
+    # image_name "MyString"
     name "MyString"
     caption "MyString"
     photographer

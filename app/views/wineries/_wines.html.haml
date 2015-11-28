@@ -15,9 +15,11 @@
     .row
       %ul#works-grid.works-grid.works-grid-gut.works-grid-5
         - @winery.wines.each do |wine|
+          / = wine.default_gallery ? wine.default_gallery : "blah"
+
           = link_to winery_wine_path(@winery.id, wine.id), class: "work-item illustration webdesign" do
             .work-image
-              = image_tag("fanddcellars/pinot.jpg")
+              = image_tag(wine.default_photo.image.thumb('100x200#').url) if wine.default_photo.image_stored?
             .work-caption.font-alt
               %h3.work-title= wine.name
               .work-descr

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  include CommentableAncestry
+  include CommentableControllerConcern
 
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_commentable, only: [:create]

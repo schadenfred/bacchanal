@@ -19,9 +19,6 @@ module AddressableConcern
     default_address.fax
   end
 
-  # def email
-  #   default_address.email
-  # end
   def phone
     default_address.phone
   end

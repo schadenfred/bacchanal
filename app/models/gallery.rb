@@ -5,6 +5,9 @@ class Gallery < ActiveRecord::Base
   belongs_to :galleriable, polymorphic: true
 
   has_many :photos, through: :slides
+  
+  accepts_nested_attributes_for :photos
+
   has_many :slides
 
   validates :name, presence: true

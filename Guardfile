@@ -55,4 +55,8 @@ guard :minitest do
   watch(%r{^test/policies/.+_test\.rb$})
   watch(%r{^test/test_helper\.rb$}) { 'test' }
 
-end
+  # concerns
+  watch(%r{^test/models/concerns/.+_test\.rb$})
+
+  watch(%r{^app/models/concerns/(.+)\.rb$})  { |m| "test/models/concerns/#{m[1]}_test.rb" }
+  end

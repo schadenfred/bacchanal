@@ -1,4 +1,5 @@
-module CommentableAncestry
+module CommentableControllerConcern
+
   extend ActiveSupport::Concern
  
   included do

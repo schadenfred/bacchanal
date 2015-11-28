@@ -13,7 +13,9 @@ describe Wine do
   specify "associations" do 
 
     must_belong_to :winery
+    
     must_have_many :photos
+    must_have_many :slides
     must_have_many :galleries
   end 
 end
