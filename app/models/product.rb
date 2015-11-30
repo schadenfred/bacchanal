@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  
   include Targetable
   include GalleriableConcern
 
@@ -6,8 +7,6 @@ class Product < ActiveRecord::Base
 
   has_many :photos, as: :photographable
   has_many :galleries, as: :galleriable
-
-
 
   store_accessor :properties, :price
 

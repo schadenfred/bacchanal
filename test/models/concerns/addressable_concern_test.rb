@@ -14,7 +14,8 @@ describe "AddressableConcern" do
     describe "#{addressable_model.to_s}" do
       
       subject { addressable_model.constantize.new }
-      specify "" do 
+      
+      specify "must respond to" do 
         assert subject.respond_to? :default_address 
         assert subject.respond_to? :mailing_address
         assert subject.respond_to? :fax
