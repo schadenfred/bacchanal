@@ -20,5 +20,6 @@ describe Appellation do
   specify "associations" do 
 
     must_have_many :addresses
+    must_have_many :addressable
   end
 end

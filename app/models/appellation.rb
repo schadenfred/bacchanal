@@ -1,4 +1,5 @@
 class Appellation < ActiveRecord::Base
 
-  has_many :appellable, through: :appellations_appellable
+  has_many :addresses, through: :addresses_appellable
+  has_many :addressable, through: :addresses
 end

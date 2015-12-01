@@ -9,6 +9,7 @@ describe "AddressableConcern" do
     specify "associations" do 
       
       must_have_many :addresses
+      must_have_many :appellations
     end 
     
     describe "#{addressable_model.to_s}" do

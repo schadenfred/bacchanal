@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201012337) do
+ActiveRecord::Schema.define(version: 20151201084510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,12 @@ ActiveRecord::Schema.define(version: 20151201012337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "fax"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "addresses", ["city", "state"], name: "index_addresses_on_city_and_state", using: :btree
+  add_index "addresses", ["latitude", "longitude"], name: "index_addresses_on_latitude_and_longitude", using: :btree
   add_index "addresses", ["zip"], name: "index_addresses_on_zip", using: :btree
 
   create_table "addresses_addressables", force: :cascade do |t|
@@ -47,6 +50,15 @@ ActiveRecord::Schema.define(version: 20151201012337) do
 
   add_index "addresses_addressables", ["address_id"], name: "index_addresses_addressables_on_address_id", using: :btree
   add_index "addresses_addressables", ["addressable_id"], name: "index_addresses_addressables_on_addressable_id", using: :btree
+
+  create_table "addresses_appellables", force: :cascade do |t|
+    t.integer  "address_id"
+    t.integer  "appellation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "addresses_appellables", ["address_id", "appellation_id"], name: "index_addresses_appellables_on_address_id_and_appellation_id", using: :btree
 
   create_table "appellations", force: :cascade do |t|
     t.string   "name"

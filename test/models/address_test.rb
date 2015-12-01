@@ -23,6 +23,7 @@ describe Address do
 
       must_have_index(:zip) 
       must_have_index([:city, :state]) 
+      must_have_index([:latitude, :longitude]) 
     end
   end
 
@@ -30,6 +31,11 @@ describe Address do
 
     must_have_many :addresses_addressables
     must_have_many :addressables
-    # must_have_many :producers
-  end 
+  end
+
+  specify "geocodable_address" do 
+
+    address = FactoryGirl.build_stubbed(:address)
+    address.full_street_address.must_equal "281 41st Street Suite #33, Oakland, CA, US"
+  end
 end

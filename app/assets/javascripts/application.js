@@ -19,6 +19,7 @@
 //= require smoothscroll
 //= require wow.min
 //= require owl.carousel.min
+//= require gmaps
 //= require custom
 //= require contact
 //= require photos

@@ -6,5 +6,7 @@ class CreateAddressesAppellables < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :addresses_appellables, [:address_id, :appellation_id]
   end
 end
