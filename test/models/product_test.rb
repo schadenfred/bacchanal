@@ -23,5 +23,6 @@ describe Product do
 
     must_belong_to :producer
     must_have_many :photos
+    must_have_many :galleries
   end 
 end

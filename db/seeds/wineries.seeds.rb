@@ -19,6 +19,5 @@ after :users do
       welcome_statement: Faker::Stoked.paragraphs(3)
     )
     winery.save!
-
   end
 end

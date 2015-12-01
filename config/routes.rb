@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :appellations
   require 'route_drawer'
 
   draw :api, :v1

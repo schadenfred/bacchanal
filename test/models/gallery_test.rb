@@ -8,8 +8,8 @@ describe Gallery do
 
     specify "columns & types" do 
       
-      must_have_column(:name, :string)
-      must_have_column(:galleriable_type, :string)
+      must_have_column(:name)
+      must_have_column(:galleriable_type)
       must_have_column(:galleriable_id, :integer)
       must_have_column(:properties, :json)
 

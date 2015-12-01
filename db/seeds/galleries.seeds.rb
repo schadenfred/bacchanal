@@ -25,6 +25,7 @@ after :wineries, :orgs, :users do
         }
       ]
     )
+    
     photo.save!
   end
 

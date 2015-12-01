@@ -9,5 +9,6 @@ class Photo < ActiveRecord::Base
   accepts_nested_attributes_for :slides
 
   validates :photographer, presence: true
+  validates :image, presence: true
 end
 

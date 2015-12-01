@@ -12,8 +12,9 @@
 
             .team-item
               .team-image
-                - if position.user.avatar
-                  = position.user.avatar
+                - if position.user.avatar.image_stored?
+                  - avatar = position.user.avatar
+                  = image_tag(position.user.avatar.image.thumb('500x600#').url) 
                 - else 
                   - randoclass = randofilter
 

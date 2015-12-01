@@ -15,11 +15,14 @@
     .row
       %ul#works-grid.works-grid.works-grid-gut.works-grid-5
         - @winery.wines.each do |wine|
-          / = wine.default_gallery ? wine.default_gallery : "blah"
-
           = link_to winery_wine_path(@winery.id, wine.id), class: "work-item illustration webdesign" do
             .work-image
-              = image_tag(wine.default_photo.image.thumb('100x200#').url) if wine.default_photo.image_stored?
+              - img = wine.default_photo.image
+              = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  
+              / if wine.default_photo.image_stored?
+              / if wine.galleries.first.slides.first.photo.image_stored?
+              / - if wine.photos.first.image_stored?
+              /   = image_tag(wine.photos.first.image.thumb('100x200#').url) 
             .work-caption.font-alt
               %h3.work-title= wine.name
               .work-descr
