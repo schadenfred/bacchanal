@@ -31,6 +31,9 @@ describe Address do
 
     must_have_many :addresses_addressables
     must_have_many :addressables
+    must_have_many :addresses_appellables
+    must_have_many :appellations
+
   end
 
   specify "geocodable_address" do 

@@ -8,8 +8,8 @@ describe "AddressableConcern" do
 
     specify "associations" do 
       
+      must_have_many :addresses_addressables
       must_have_many :addresses
-      must_have_many :appellations
     end 
     
     describe "#{addressable_model.to_s}" do
@@ -26,6 +26,22 @@ describe "AddressableConcern" do
     end
   end
 
-  Given(:user) { FactoryGirl.create(:user_with_address) }
-  # Then { user.addresses.first.wont_equal nil }
+  Given(:winery) { FactoryGirl.create(:winery) }
+  Given(:address) { winery.addresses.create( attributes_for( :address ) ) }
+  Given(:appellation) { create(:appellation) }
+
+  describe "#appellations" do
+
+    Given { appellation.include_address( address ) }  
+
+    describe "should include winery" do 
+
+      Then  { appellation.wineries.must_include winery }
+    end
+
+    describe "winery appellations should include appellation" do 
+
+      Then  { winery.appellations.must_include appellation }
+    end
+  end
 end

@@ -4,8 +4,7 @@ module AddressableConcern
 
   included do 
     has_many :addresses_addressables, as: :addressable
-    has_many :addresses, through: :addresses_addressables, as: :addressable
-    has_many :appellations, through: :addresses
+    has_many :addresses, through: :addresses_addressables
   end
 
   def default_address

@@ -15,8 +15,12 @@ class Org < ActiveRecord::Base
   has_many :categories, through: :articles
   has_many :positions
 
-  validates :name, uniqueness: true
+  def self.types
+    %w(Producer)
+  end
 
+  scope :producers, -> { where(type: 'Lion') } 
+  
   store_accessor :properties, :history, :mission, :welcome_statement
 
   def gallery(name)

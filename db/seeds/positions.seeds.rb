@@ -4,7 +4,7 @@ after :users, :wineries, :orgs do
     { 
       name: "fred schoeneman", 
       title: "Proprietor",
-      description: "Programmer. Writer. Skier. Wine slayer."
+      description: "Skier. Programmer. Writer. Wineslayer."
     },
     {
       name: "heather schoeneman",

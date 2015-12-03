@@ -6,14 +6,16 @@ describe Product do
 
   describe "db" do 
 
-    specify "columns & types" do 
-      must_have_column(:name, :string)
-      must_have_column(:slug, :string)
-      must_have_column(:producer_id, :integer)
+    specify "columns & types" do
+
+      must_have_column(:name)
+      must_have_column(:slug)
+      must_have_column(:org_id, :integer)
       must_have_column(:properties, :hstore)
     end
 
     specify "indexes" do
+    
       must_have_index(:name) 
       must_have_index(:slug) 
     end
