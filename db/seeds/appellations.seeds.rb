@@ -36,5 +36,11 @@ after :addresses do
       )
       
     end
+
+    addresses.each do |address|
+      appellation = Appellation.find_by(name: appellation_type.sample.keys.first)
+      appellation.include_address(address)
+      
+    end
   end
 end 

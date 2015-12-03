@@ -2,6 +2,10 @@ require "test_helper"
 
 describe StaticHelper do 
 
+  it ":appellation_classes(appellations_array)" do 
+    appellation_classes(["Redwood Valley", "Mendocino"]).must_equal "redwood-valley mendocino"
+  end
+
   it ":wine_quotes" do 
     wine_quotes.first["author"].must_equal "Isak Dinesen"
     wine_quotes.first["note"].must_equal "Writer"

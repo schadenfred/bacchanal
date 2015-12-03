@@ -2,7 +2,7 @@ after :users, :orgs, :wineries, :addresses do
 
   addresses = Address.all
   users = User.first(10)
-  orgs = Org.first(6)
+  orgs = Org.all
 
   [users, orgs].each do |addressables|
     addressables.each do |addressable|

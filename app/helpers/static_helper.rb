@@ -10,6 +10,12 @@ module StaticHelper
     %w[]
   end
 
+  def appellation_classes(appellations)
+    
+    appellations.map! {|item| item.parameterize }
+    appellations.join(" ")
+  end
+
   def wine_quotes
     values = [
       [

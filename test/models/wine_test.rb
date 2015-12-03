@@ -29,6 +29,6 @@ describe Wine do
   describe "appellations" do 
 
     Given { appellation }
-    Then  { winery.appellations.must_include appellation } 
+    Then  { wine.appellations.must_include appellation }
   end 
 end

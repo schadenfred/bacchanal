@@ -7,19 +7,24 @@
       .col-sm-12
         %ul#filters.filter.font-alt.hidden-xs
           %li
-            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} Appellations:
-
-          %li
-            %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Anderson Valley
-          %li
-            %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Russian River
-          %li
-            %a.wow.fadeInUp{"data-filter" => ".photography", "data-wow-delay" => "0.6s", :href => "#"} Sonoma
-          %li
-            %a.wow.fadeInUp{"data-filter" => ".webdesign", "data-wow-delay" => "0.8s", :href => "#"} Mendocino
+            / %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} Appellations:
+          - @appellations.each do |appellation|
+            %li
+              %a.wow.fadeInUp{"data-filter" => ".#{appellation.name.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
+                = appellation.name
+          
+          / %li
+          /   %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Anderson Valley
+          / %li
+          /   %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Russian River
+          / %li
+          /   %a.wow.fadeInUp{"data-filter" => ".photography", "data-wow-delay" => "0.6s", :href => "#"} Sonoma
+          / %li
+          /   %a.wow.fadeInUp{"data-filter" => ".webdesign", "data-wow-delay" => "0.8s", :href => "#"} Mendocino
   %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
     - @wineries.each do |winery|
-      %li.work-item.illustration.webdesign
+      %li.work-item{ class: appellation_classes(winery.appellations.pluck(:name))}
+        / = appellation_classes(winery.appellations.pluck(:name))
         = link_to winery do
           - photo = winery.default_gallery.slides.first.photo 
           = image_tag(photo.image.thumb('900x600#').url) if photo.image_stored?
