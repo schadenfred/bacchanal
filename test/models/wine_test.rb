@@ -29,6 +29,8 @@ describe Wine do
   describe "appellations" do 
 
     Given { appellation }
-    Then  { wine.appellations.must_include appellation }
+    Then  { wine = winery.wines.create(name: "blah")
+      wine.name.must_equal "blah" }
+# .appellations.must_include appellation }
   end 
 end

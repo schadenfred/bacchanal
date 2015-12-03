@@ -5,5 +5,5 @@ class Winery < Producer
 
   store_accessor :bottled_on, :released_on 
 
-  has_many :wines, class_name: "Wine", foreign_key: :org_id
+  has_many :wines, class_name: "Product", foreign_key: :org_id
 end
