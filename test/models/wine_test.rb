@@ -21,16 +21,14 @@ describe Wine do
     must_have_many :galleries
   end
 
-  Given(:winery) { Winery.create(name: "cool winery name") }
-  Given(:wine) { winery.wines.create( name: "cool wine name" ) }
+  Given(:winery)  { FactoryGirl.create(:winery) }
+  Given(:wine)    { winery.wines.create(FactoryGirl.attributes_for( :wine ) ) }
   Given(:address) { winery.addresses.create( attributes_for( :address) ) }
   Given(:appellation) { address.appellations.create( attributes_for( :appellation ) ) }
   
-  describe "appellations" do 
+  describe "must have appellations" do 
 
     Given { appellation }
-    Then  { wine = winery.wines.create(name: "blah")
-      wine.name.must_equal "blah" }
-# .appellations.must_include appellation }
-  end 
+    Then  { wine.appellations.must_include appellation } 
+  end
 end

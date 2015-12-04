@@ -10,7 +10,8 @@ describe Product do
 
       must_have_column(:name)
       must_have_column(:slug)
-      must_have_column(:org_id, :integer)
+      must_have_column(:type)
+      must_have_column(:producer_id, :integer)
       must_have_column(:properties, :hstore)
     end
 

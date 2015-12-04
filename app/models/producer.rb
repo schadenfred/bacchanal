@@ -1,5 +1,4 @@
 class Producer < Org
 
-  has_many :products, as: :produceable
-
+  has_many :products
 end

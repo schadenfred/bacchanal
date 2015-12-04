@@ -206,6 +206,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    geocoder (1.2.12)
     given_core (3.7.1)
       sorcerer (>= 0.3.7)
     globalid (0.3.6)
@@ -514,6 +515,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  geocoder
   guard
   guard-livereload
   guard-minitest

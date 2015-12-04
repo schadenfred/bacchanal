@@ -99,7 +99,7 @@ gem 'administrate'
 # development data
 gem 'seedbank'
 
-# gem 'geocoder'
+gem 'geocoder'
 # gem 'monsanto' #, github: 'schadenfred/monsanto'
 # gem 'monsanto', path: '~/work/opensource/monsanto'#, require: false
 
