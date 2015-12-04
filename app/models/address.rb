@@ -7,9 +7,9 @@ class Address < ActiveRecord::Base
   has_many :addresses_appellables
   has_many :appellations, through: :addresses_appellables
 
-  geocoded_by :full_street_address
+  # geocoded_by :full_street_address
 
-  after_validation :geocode
+  # after_validation :geocode
 
   def full_street_address
 
