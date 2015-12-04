@@ -19,7 +19,7 @@ class Org < ActiveRecord::Base
     %w(Producer)
   end
 
-  scope :producers, -> { where(type: 'Lion') } 
+  # scope :producers, -> { where(type: 'Lion') } 
   
   store_accessor :properties, :history, :mission, :welcome_statement
 
