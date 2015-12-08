@@ -1,0 +1,2 @@
+class Farm < Org
+end

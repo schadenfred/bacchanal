@@ -7,7 +7,8 @@ after :wineries, :users do
       
     wine = winery.wines.new(
       name: Faker::Bloocher.vineyard + " " + Faker::Bloocher.varietal,
-      price: rand(20..100)
+      price: rand(20..100), 
+      vintage: rand(2009..2015)
     )
     wine.save!
 

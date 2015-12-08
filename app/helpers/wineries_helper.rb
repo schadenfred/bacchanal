@@ -2,6 +2,7 @@ module WineriesHelper
 
   include ActsAsTaggableOn::TagsHelper
 
+
   def flavor_choices
     { "spicy" => { 
         "spicy" => [

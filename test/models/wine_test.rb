@@ -21,6 +21,11 @@ describe Wine do
     must_have_many :galleries
   end
 
+  specify "indexes" do 
+
+    must_have_index :properties
+  end
+
   Given(:winery)  { FactoryGirl.create(:winery) }
   Given(:wine)    { winery.wines.create(FactoryGirl.attributes_for( :wine ) ) }
   Given(:address) { winery.addresses.create( attributes_for( :address) ) }
