@@ -1,0 +1,2 @@
+class Vineyard < Orchard
+end

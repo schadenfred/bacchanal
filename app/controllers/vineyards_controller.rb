@@ -1,0 +1,2 @@
+class VineyardsController < ApplicationController
+end
