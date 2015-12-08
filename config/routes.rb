@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :vineyards
   resources :appellations
   require 'route_drawer'
 
