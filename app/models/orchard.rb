@@ -1,0 +1,2 @@
+class Orchard < Farm
+end

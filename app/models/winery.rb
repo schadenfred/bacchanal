@@ -9,4 +9,22 @@ class Winery < Producer
 
   validates :name, presence: true
   validates :name, presence: true
+
+  def vintages 
+    vintages = []
+    wines.each do |wine|
+      vintages << wine.vintage
+    end 
+    vintages.uniq
+  end
+
+  def wines_in_vintage(vintage)
+    wines.where("properties @> hstore(:key, :value)", key: "vintage", value: "#{vintage}")
+
+
+    # wines.where(
+    #   "properties -> :key LIKE :value", key: "vintage", value: "#{vintage}")
+
+  end
 end
+

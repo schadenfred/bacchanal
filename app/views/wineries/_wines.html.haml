@@ -5,45 +5,22 @@
         %h2.module-title.font-alt Wines
     .row
       .col-sm-12
-        %ul#filters.filter.font-alt.hidden-xs
-          %li
-            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} All
-          %li
-            %a.wow.fadeInUp{"data-filter" => ".illustration", "data-wow-delay" => "0.2s", :href => "#"} Pinot Noir
-          %li
-            %a.wow.fadeInUp{"data-filter" => ".marketing", "data-wow-delay" => "0.4s", :href => "#"} Chardonnay
+        = render "vintages"
     .row
-      %ul#works-grid.works-grid.works-grid-gut.works-grid-5
-        - @winery.wines.each do |wine|
-          = link_to winery_wine_path(@winery.id, wine.id), class: "work-item illustration webdesign" do
-            .work-image
-              - img = wine.default_photo.image
-              = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  
-              / if wine.default_photo.image_stored?
-              / if wine.galleries.first.slides.first.photo.image_stored?
-              / - if wine.photos.first.image_stored?
-              /   = image_tag(wine.photos.first.image.thumb('100x200#').url) 
-            .work-caption.font-alt
-              %h3.work-title= wine.name
-              .work-descr
-                The Mentos of fratis
+      .col-sm-12
+        = render "categories"
     / .row
-    /   %ul#works-grid.works-grid.works-grid-gut.works-grid-5
-
-    /     %li.work-item.illustration.webdesign
-    /       %a{:href => "portfolio-single-1.html"}
-    /         .work-image
-    /           = image_tag "fanddcellars/pinot.jpg"
-    /         .work-caption.font-alt
-    /           %h3.work-title sauv
-    /           .work-descr
-    /             The Mentos of fratis
-    /     %li.work-item.marketing.photography
-    /       %a{:href => "portfolio-single-1.html"}
-    /         .work-image
-    /           = image_tag "fanddcellars/sauv.jpg"
-    /         .work-caption.font-alt
-    /           %h3.work-title Sarah Jane Estate
-    /           .work-descr
-    /             bodaceous bubbles
-    / 
+    /   .col-sm-12
+    /     / = render "appellations"
+    .row
+      .col-sm-12
+        %ul#works-grid.works-grid.works-grid-gut.works-grid-5
+          - @winery.wines.each do |wine|
+            = link_to winery_wine_path(@winery.id, wine.id), class: "work-item vintage-#{wine.vintage} appellation_classes(wine.appellations.pluck(:name))" do
+              .work-image
+                - img = wine.default_photo.image
+                = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  
+              .work-caption.font-alt
+                %h3.work-title= wine.name
+                .work-descr
+                  = wine.vintage

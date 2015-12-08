@@ -6,4 +6,5 @@ describe WineriesHelper do
     flavor_choices["spicy"]["spicy"].must_include "clove"
     flavor_choices["fruity"]["citrus"].must_include "lemon"
   end
+
 end
