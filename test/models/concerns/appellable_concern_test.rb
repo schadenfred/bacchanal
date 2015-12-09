@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe "AppellableConcern" do 
 
-  ["winery"].each do |appellable_model|
+  ["winery", "vineyard"].each do |appellable_model|
 
     subject { appellable_model.capitalize.constantize } 
 

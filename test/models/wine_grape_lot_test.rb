@@ -1,11 +1,12 @@
 require "test_helper"
 
-class WineGrapeLotTest < ActiveSupport::TestCase
-  def wine_grape_lot
-    @wine_grape_lot ||= WineGrapeLot.new
-  end
+describe WineGrapeLot do 
 
-  def test_valid
-    assert wine_grape_lot.valid?
+  subject { WineGrapeLot }
+
+  specify "associations" do 
+
+    must_belong_to :vineyard
+    must_belong_to :wine
   end
 end

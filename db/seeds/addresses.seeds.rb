@@ -1,9 +1,10 @@
-after :users, :orgs, :wineries do 
+after :users, :orgs do 
 
-  10.times do 
+  orgs = Org.all
 
+  orgs.each do |org|
 
-    address = Address.new(
+    address = org.addresses.new(
       line_1: Faker::Address.street_address,
       line_2: Faker::Address.street_suffix,
       city: Faker::Address.city,
