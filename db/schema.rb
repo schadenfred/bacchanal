@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208025809) do
+ActiveRecord::Schema.define(version: 20151208230150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,6 +174,13 @@ ActiveRecord::Schema.define(version: 20151208025809) do
 
   add_index "identities", ["identifiable_id", "identifiable_type"], name: "index_identities_on_identifiable_id_and_identifiable_type", using: :btree
 
+  create_table "lots", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "farm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orgs", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
@@ -183,6 +190,7 @@ ActiveRecord::Schema.define(version: 20151208025809) do
     t.datetime "updated_at", null: false
     t.string   "blog_title"
     t.integer  "logo_id"
+    t.integer  "parent_id"
   end
 
   add_index "orgs", ["name"], name: "index_orgs_on_name", using: :btree

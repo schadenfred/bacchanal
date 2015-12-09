@@ -19,6 +19,8 @@ describe Wine do
     must_have_many :photos
     must_have_many :slides
     must_have_many :galleries
+    must_have_many :wine_grape_lots
+    must_have_many :vineyards
   end
 
   specify "indexes" do 
@@ -33,6 +35,6 @@ describe Wine do
   describe "must have appellations" do 
 
     Given { address.appellations.create( attributes_for( :appellation ) ) }
-    Then  { wine.appellations.size.must_equal 1 } 
+    Then { wine.appellations.size.must_equal 1 } 
   end
 end

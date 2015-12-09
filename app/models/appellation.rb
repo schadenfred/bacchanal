@@ -6,6 +6,7 @@ class Appellation < ActiveRecord::Base
   has_many :addressables, through: :addresses_addressables
   has_many :wineries, through: :addresses_addressables, source: :addressable, source_type: "Org"
   has_many :wines, through: :addresses_addressables, source: :addressable, source_type: "Org"
+  has_many :vineyards, through: :addresses_addressables, source: :addressable, source_type: "Org"
  
 
   def include_address(address)
