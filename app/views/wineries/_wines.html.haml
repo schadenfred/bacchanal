@@ -5,18 +5,17 @@
         %h2.module-title.font-alt Wines
     .row
       .col-sm-12
-        = render "vintages"
-    .row
-      .col-sm-12
-        = render "categories"
-    / .row
-    /   .col-sm-12
-    /     / = render "appellations"
+        %ul#filters.filter.font-alt
+          - %w[appellations vintages varietals].each do |partial|
+            %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} 
+            all:
+            = render partial
+            %hr
     .row
       .col-sm-12
         %ul#works-grid.works-grid.works-grid-gut.works-grid-5
           - @winery.wines.each do |wine|
-            = link_to winery_wine_path(@winery.id, wine.id), class: "work-item vintage-#{wine.vintage} appellation_classes(wine.appellations.pluck(:name))" do
+            = link_to winery_wine_path(@winery.id, wine.id), class: "work-item vintage-#{wine.vintage} #{sortable_classes(wine.appellations.pluck(:name))} #{sortable_classes(wine.varietals)}" do
               .work-image
                 - img = wine.default_photo.image
                 = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  

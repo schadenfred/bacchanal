@@ -1,7 +1,3 @@
-.col-sm-12
-  %ul#filters.filter.font-alt.hidden-xs
-    %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} 
-      Appellations:
-    - @winery.appellations.each do |appellation|
-      %a.wow.fadeInUp{"data-filter" => ".#{appellation.name.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
-        = appellation.name
+- @winery.wines_appellations.distinct.each do |appellation|
+  %a.wow.fadeInUp{"data-filter" => ".#{appellation.name.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
+    = appellation.name

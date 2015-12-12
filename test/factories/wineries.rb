@@ -12,5 +12,12 @@ FactoryGirl.define do
         create_list(:wine, evaluator.wines_count, winery: winery)
       end
     end
+    
+    factory :winery_with_appellations do
+
+      after(:create) do |winery|
+        winery.addresses_addressables.create(address: FactoryGirl.create(:address_with_appellations) ) 
+      end
+    end
   end
 end

@@ -2,10 +2,10 @@ class Address < ActiveRecord::Base
 
   has_many :addresses_addressables, dependent: :destroy
   has_many :addressables, through: :addresses_addressables
-  has_many :orgs, through: :addresses_addressables
-  has_many :users, through: :addresses_addressables
   has_many :addresses_appellables
   has_many :appellations, through: :addresses_appellables
+  has_many :orgs, through: :addresses_addressables
+  has_many :users, through: :addresses_addressables
 
   # geocoded_by :full_street_address
 

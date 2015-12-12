@@ -1,0 +1,4 @@
+- @winery.varietals.each do |varietal|
+  %a.wow.fadeInUp{ "data-filter" => ".#{varietal.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
+    = varietal
+  

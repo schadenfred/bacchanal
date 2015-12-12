@@ -5,22 +5,19 @@
       .col-sm-6.col-sm-offset-3
         %h2.module-title.font-alt People
         
-    .row.col-centered
+    .row
       - @winery.positions.in_groups_of(4, false).each do |group|
-        - group.each do |position|
-          .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
-
-            .team-item
-              .team-image
+        .div{ class: group.size == 4 ? "" : "col-sm-offset-#{(4 - group.size) * 2  }" } 
+          - group.each do |position|
+            .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
+              .team-item.team-image
                 - if position.user.avatar.image_stored?
                   - avatar = position.user.avatar
-                  = image_tag(position.user.avatar.image.thumb('500x600#').url) 
+                  = image_tag(position.user.avatar.image.thumb('500x600#').url)
                 - else 
                   - randoclass = randofilter
-
                   %figure{ class: randoclass }
                     %img{:alt => "", :src => image_path("fanddcellars/guyavatar.jpg")}
-                  
                   .team-detail
                     %h5.font-alt
                       = randoclass

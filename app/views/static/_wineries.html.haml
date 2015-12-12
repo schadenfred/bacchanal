@@ -17,7 +17,6 @@
   %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
     - @wineries.each do |winery|
       %li.work-item{ class: appellation_classes(winery.appellations.pluck(:name))}
-        / = appellation_classes(winery.appellations.pluck(:name))
         = link_to winery do
           - photo = winery.default_gallery.slides.first.photo 
           = image_tag(photo.image.thumb('900x600#').url) if photo.image_stored?

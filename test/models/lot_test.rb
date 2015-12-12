@@ -1,11 +1,15 @@
 require "test_helper"
 
-class LotTest < ActiveSupport::TestCase
-  def lot
-    @lot ||= Lot.new
-  end
+describe Lot do 
 
-  def test_valid
-    assert lot.valid?
+  subject { Lot }
+
+  describe "db" do 
+
+    specify "columns & types" do 
+
+      must_have_column(:farm_id, :integer)
+      must_have_column(:product_id, :integer)
+    end  
   end
 end

@@ -4,6 +4,11 @@ describe Vineyard do
 
   subject { Vineyard }
 
+  specify "methods" do 
+
+    assert subject.new.respond_to? :varietal
+  end
+
   specify "associations" do 
 
     must_have_many(:wine_grape_lots)
