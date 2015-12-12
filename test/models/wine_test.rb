@@ -28,13 +28,21 @@ describe Wine do
     must_have_index :properties
   end
 
-  Given(:winery)  { FactoryGirl.create(:winery) }
-  Given(:wine)    { winery.wines.create(FactoryGirl.attributes_for( :wine ) ) }
-  Given(:address) { winery.addresses.create( attributes_for( :address) ) }
+  Given(:wine) { FactoryGirl.create(:wine) }
+  Given(:vineyard) { FactoryGirl.create(:vineyard, varietal: "pinot noir") }
+  Given(:address) { FactoryGirl.create(:address_with_appellations ) }
+  Given(:appellation) { address.appellations.first }
   
-  describe "must have appellations" do 
+  Given { vineyard.addresses_addressables.create(address: address ) }
+  Given { wine.wine_grape_lots.create(vineyard: vineyard ) }
+  
+  describe ":appellations" do 
 
-    Given { address.appellations.create( attributes_for( :appellation ) ) }
-    Then { wine.appellations.size.must_equal 1 } 
+    Then { wine.appellations.must_include appellation } 
+  end
+
+  describe ":varietals" do 
+
+    Then { wine.varietals.must_include "pinot noir" }
   end
 end

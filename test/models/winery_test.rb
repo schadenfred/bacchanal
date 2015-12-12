@@ -9,7 +9,7 @@ describe Winery do
     must_have_many(:wines)
   end
 
-  describe "attributes" do 
+  describe "store accessors" do 
 
     subject { Winery.new }
 
@@ -19,34 +19,48 @@ describe Winery do
     end
   end
 
-  describe "vintages" do 
+  Given(:winery) { FactoryGirl.create(:winery_with_wines)}
+  Given(:appellation) { create(:appellation, name: "napa" ) }
+  Given(:address) { create(:address_with_appellations) }
 
-    Given(:winery) { FactoryGirl.create(:winery_with_wines)}
+  describe "vintage methods" do 
+  
+    Given { address.addresses_appellables.create(appellation: appellation) }
+    Given { winery.addresses_addressables.create(address: address) }
 
-    describe "must list one vintage for all wines in it" do
-
-      Given(:existing_vintage) { winery.wines.first.vintage }
-      Given { winery.wines.last.update_attributes(vintage: existing_vintage ) }
-      Then  { winery.vintages.size.must_equal 4 }
-      And   { winery.vintages.must_include existing_vintage }
-    end
-
-    describe ":wines_in_vintage(vintage)" do 
-      Given(:wine) { winery.wines.first }
-      Then { winery.wines_in_vintage(wine.vintage).must_include wine }
-    end
-
-    describe "must list one varietal for all wines containing it" do
+    describe ":vintages must return unique vintages" do
 
       Given(:existing_vintage) { winery.wines.first.vintage }
-      Given { winery.wines.last.update_attributes(vintage: existing_vintage ) }
-      Then  { winery.vintages.size.must_equal 4 }
-      And   { winery.vintages.must_include existing_vintage }
+      When { winery.wines.last.update_attributes(vintage: existing_vintage ) }
+      Then { winery.vintages.size.must_equal 4 }
+      And { winery.vintages.must_include existing_vintage }
     end
 
-    describe ":wines_in_vintage(vintage)" do 
-      Given(:wine) { winery.wines.first }
+    describe ":wines_in_vintage(vintage) must return wines in a vintage" do 
+     
       Then { winery.wines_in_vintage(wine.vintage).must_include wine }
     end
+  end
+
+  Given(:appellation) { address.appellations.first }
+  Given(:vineyard) { create(:vineyard) }
+  Given(:winery) { create(:winery_with_wines) }
+  Given(:wine) { winery.wines.first }
+
+  
+  Given { vineyard.addresses_addressables.create(address: address) }
+  Given { wine.wine_grape_lots.create( vineyard: vineyard ) }
+  
+  describe "appellation methods" do
+  
+    describe ":wines_appellations" do 
+      
+      Then { winery.wines_appellations.must_include appellation }
+    end 
+  end
+  
+  describe "varietal methods" do 
+
+    Then { winery.varietals.must_include "chardonnay"}
   end
 end

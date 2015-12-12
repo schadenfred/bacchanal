@@ -1,4 +1,4 @@
-after :users, :orgs do 
+after :users, :orgs, :vineyards do 
 
   orgs = Org.all
 

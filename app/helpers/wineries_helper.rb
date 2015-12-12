@@ -2,6 +2,12 @@ module WineriesHelper
 
   include ActsAsTaggableOn::TagsHelper
 
+  def sortable_classes(array)
+    unless array.first.nil?
+      array.map! {|item| item.parameterize }
+      array.join(" ")
+    end
+  end
 
   def flavor_choices
     { "spicy" => { 

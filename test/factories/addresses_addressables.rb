@@ -4,6 +4,9 @@ FactoryGirl.define do
     association :addressable, factory: :user
     name "MyString"
     address_function 1
-  end
 
+    factory :vineyard_addresses_addressable do
+      association :addressable, factory: :vineyard
+    end
+  end
 end

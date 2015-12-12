@@ -15,6 +15,8 @@ class Org < ActiveRecord::Base
   has_many :categories, through: :articles
   has_many :positions
 
+  validates :name, presence: true
+
   def self.types
     %w(Producer)
   end

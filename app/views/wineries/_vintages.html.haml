@@ -1,6 +1,3 @@
-%ul#filters.filter.font-alt.hidden-xs
-  %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} 
-    Vintages:
-  - @winery.vintages.each do |vintage|
-    %a.wow.fadeInUp{"data-filter" => ".vintage-#{vintage}", "data-wow-delay" => "0.2s", :href => "#"}
-      = vintage
+- @winery.vintages.each do |vintage|
+  %a.wow.fadeInUp{"data-filter" => ".vintage-#{vintage}", "data-wow-delay" => "0.2s", :href => "#"}
+    %span.badge= vintage
