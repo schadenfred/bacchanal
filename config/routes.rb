@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/pricing',   to: "static#pricing"
   get '/privacy',   to: "static#privacy"
   get '/terms',     to: "static#terms"
+  get '/sample',     to: "static#sample"
   get '/dashboard', to: "dashboard#show"
   get '/profile',   to: "profile#show"
 

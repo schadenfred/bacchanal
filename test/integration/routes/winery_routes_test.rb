@@ -6,13 +6,6 @@ describe "producer route acceptance test" do
   
   resources.each do |resource|
 
-#     it "GET /#{resource}/1/products/1" do 
-# skip
-#       assert_generates "/#{resource}/1/products/1", { 
-#         controller: 'products', action: 'show', id: '1' 
-#       }
-#     end
-
     it "GET /#{resource}/1" do 
 
       assert_generates "/#{resource}/1", { 

@@ -15,5 +15,10 @@ FactoryGirl.define do
         create_list(:vineyard_addresses_addressable, evaluator.address_count, vineyard: vineyard)
       end
     end
+
+    factory :vineyard_with_blocks do 
+
+    end
+
   end
 end

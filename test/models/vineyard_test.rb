@@ -11,7 +11,13 @@ describe Vineyard do
 
   specify "associations" do 
 
+    # must_have_many(:blocks)
     must_have_many(:wine_grape_lots)
     must_have_many(:wines)
+  end
+
+  describe "#blocks" do 
+
+    # Given 
   end
 end
