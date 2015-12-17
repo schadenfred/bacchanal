@@ -1,4 +1,4 @@
-class WineryPolicy < ApplicationPolicy
+class WinePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
