@@ -42,6 +42,7 @@ class WineriesController < ApplicationController
 
     def set_winery
       @winery = Winery.friendly.find(params[:id])
+      @org = @winery
     end
 
     def winery_params

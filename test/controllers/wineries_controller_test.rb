@@ -4,6 +4,8 @@ describe WineriesController do
 
   Given(:user)    { FactoryGirl.create(:user) }
   Given(:winery)  { FactoryGirl.create(:winery) }
+
+  Given { FactoryGirl.create(:org, name: "Bacchan.al") }
   
   context "when authenticated" do 
 

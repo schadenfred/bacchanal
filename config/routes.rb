@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :vineyards
-  resources :appellations
   require 'route_drawer'
 
   draw :api, :v1
@@ -62,6 +60,12 @@ Rails.application.routes.draw do
   resources :wineries do 
     concerns :media_promotable
     resources :wines
+    resources :vineyards
+  end
+  resources :vineyards do 
+    concerns :media_promotable
+    resources :wines
+    resources :wineries
   end
     
   root 'static#home'

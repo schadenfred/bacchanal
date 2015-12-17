@@ -1,5 +1,17 @@
 %footer.footer.bg-dark.navbar.navbar-default.navbar-fixed-bottom
   .container
     .row
-      = yield :footer
-  / = javascript_include_tag 'gmaps'
+      .col-sm-4
+        .copyright.font-alt
+          = @org ? "© #{@org.created_at.year}" : "© 2015"
+          = @org ? @org.name : link_to("Bacchan.al", root_url)
+      .col-sm-5.col-sm-offset-1 
+        .font-alt
+          = yield :footer_links
+
+      .col-sm-2
+        .footer-social-links.pull-right
+          - if @org
+            - @org.identities.each do |identity|
+              %a{:href => identity.link}
+                %i.fa{ class: "fa-#{identity.provider}"}
