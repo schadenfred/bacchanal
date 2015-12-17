@@ -1,4 +1,5 @@
-- @winery.varietals.each do |varietal|
+- @winery.varietals.each_with_index do |varietal, index|
   %a.wow.fadeInUp{ "data-filter" => ".#{varietal.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
     = varietal
+    = varietal == @winery.varietals.last ? "" : "| "
   

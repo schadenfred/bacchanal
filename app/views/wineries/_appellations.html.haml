@@ -1,3 +1,4 @@
-- @winery.wines_appellations.distinct.each do |appellation|
+- @winery.wines_appellations.distinct.each_with_index do |appellation, index|
   %a.wow.fadeInUp{"data-filter" => ".#{appellation.name.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
+    = index == 0 ? "" : "| "
     = appellation.name

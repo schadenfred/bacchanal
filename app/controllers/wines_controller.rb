@@ -1,6 +1,8 @@
 class WinesController < ApplicationController
+
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
+  # layout 'wineries'
 
   def index
     @wines = Wine.all
@@ -41,8 +43,10 @@ class WinesController < ApplicationController
 
   private
 
+
     def set_wine
-      @wine = Wine.find(params[:id])
+      @wine = Wine.friendly.find(params[:id])
+      @org = @wine.winery
     end
 
     def wine_params

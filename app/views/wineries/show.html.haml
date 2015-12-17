@@ -1,13 +1,11 @@
 - content_for :footer do
-  .col-sm-8
-    .copyright.font-alt
-      © #{@winery.created_at.year}
-      = @winery.name
-  .col-sm-2
-    .footer-social-links
-      - @winery.identities.each do |identity|
-        %a{:href => identity.link}
-          %i.fa{ class: "fa-#{identity.provider}"}
+  - @winery = @winery
+
+- content_for :header do 
+  = render 'header_transparent'
+
+- content_for :carousel do 
+  = render "carousel"
 
 - content_for :navlinks do 
   = render 'application/header/authentication_links'
@@ -16,7 +14,6 @@
 
 - present @winery do |winery_presenter| 
 
-  = render "carousel"
   .main
     = render "wines"
     = render "positions"

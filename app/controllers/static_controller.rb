@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
+
   skip_before_action :authenticate_for_beta
   skip_before_action :authenticate_user!
-  
   
   def about
   end
@@ -21,7 +21,8 @@ class StaticController < ApplicationController
   def home
     @appellations = Appellation.all
     @wineries = Winery.last(6)
-    @company = Org.where(name: "Bacchan.al").first
+    @company = Org.find_by(name: "Bacchan.al")
+    @org = @company
   end
 
   def sample

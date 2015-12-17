@@ -3,7 +3,7 @@ require "test_helper"
 describe DashboardController do
   
   Given(:user) { FactoryGirl.create(:user) }
-  
+
   context "authenticated" do 
     
     Given { sign_in user }

@@ -9,10 +9,6 @@ class Api::V1::UsersController < ApplicationController
     respond_with user
   end
 
-  # def create
-  #   respond_with :api, :v1, User.create(ser_params)
-  # end
-
   def update
     respond_with user.update(user)
   end

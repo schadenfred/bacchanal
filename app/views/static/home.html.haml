@@ -1,27 +1,26 @@
 - content_for :head do 
   = render 'meta_tags'
 
-- content_for :header do
-  = render 'header_transparent' 
+- content_for :header
 
-- content_for :footer do
-  .col-sm-3
-    .copyright.font-alt
-      © 2015
-      = link_to "Bacchan.al", root_url
-  .col-sm-6.col-sm-offset-1 
-    .font-alt
-      - static_section_links.each do |section|
-        = link_to section.capitalize, "##{section}", class: "section-scroll"  
-        = "      "
-      / - static_page_links.each do |page|
-      /   = link_to page, send("#{page}_path")
-  .col-sm-2
-    .footer-social-links
-      - @company.identities.each do |identity| 
-        %a{:href => identity.link}
-          %i.fa{ class: "fa-#{identity.provider}" }
-
+- content_for :carousel do  
+  %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.gallery("default").photos.first.image.url)}
+    .hs-caption
+      .caption-content
+        .col-sm-8.col-sm-offset-2
+          .hs-title-size-1.font-alt.mb-30
+            Bacchan.al is for the 
+          .hs-title-size-4.font-alt.mb-40
+            %span 
+              .rotate wineries | vineyards | lovers | farmers | cooks | artists
+        .col-sm-6.col-sm-offset-3
+          %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#about"}  
+            %h5 the manifesto for the reading  
+- content_for :footer_links do 
+  - static_section_links.each do |section|
+    = link_to section.capitalize, "##{section}", class: "section-scroll"  
+  - static_page_links.each do |page|
+    = link_to page, send("#{page}_path")
 
 = render 'wineries'
 = render 'manifesto'
