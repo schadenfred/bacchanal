@@ -15,7 +15,7 @@ after :users, :wineries, :orgs do
     {
       name: "kurt schoeneman",
       title: "Fred's Dad.",
-      description: "It takes a lot of cheap bear to make good winegrapes. That's the magic right there."
+      description: "I like being a grandpa, old cars, the Oakland A's, The San Francisco Giants, The Golden State Warriors, and Grocery Outlet, in that order."
     }
   ]
 
