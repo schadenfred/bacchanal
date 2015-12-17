@@ -15,7 +15,7 @@ after :users, :wineries, :orgs do
     {
       name: "kurt schoeneman",
       title: "Fred's Dad.",
-      description: "I talk a lot."
+      description: "It takes a lot of cheap bear to make good winegrapes. That's the magic right there."
     }
   ]
 
