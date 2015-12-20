@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :reviews
   require 'route_drawer'
 
   draw :api, :v1
@@ -43,6 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :reviews
   resources :comments
 
   resources :orgs do 

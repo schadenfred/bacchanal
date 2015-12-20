@@ -19,6 +19,5 @@ FactoryGirl.define do
     factory :vineyard_with_blocks do 
 
     end
-
   end
 end

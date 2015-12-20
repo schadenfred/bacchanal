@@ -18,6 +18,5 @@ describe Vineyard do
 
   describe "#blocks" do 
 
-    # Given 
   end
 end

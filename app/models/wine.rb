@@ -21,6 +21,7 @@ class Wine < Product
     components = wine_grape_lots.map do |x| 
       { x.vineyard.varietal => x.percentage}
     end
+    byebug
     composition = components.sort_by { |component| component.values }.reverse
     unless unknown == 0
       composition << {"unknown" => unknown }
@@ -29,7 +30,6 @@ class Wine < Product
   end
 
   def previous_vintages
-
     winery.wines.where(name: name).where.not(id: self.id)
   end
 end
