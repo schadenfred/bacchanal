@@ -5,23 +5,29 @@
 //= require dropzone
 
 // vendor
-//= require jquery.mb.YTPlayer
 //= require appear
+//= require jquery.mb.YTPlayer
 //= require jquery.simple-text-rotator
 //= require jqBootstrapValidation
-
-//= require isotope.pkgd.min
-//= require imagesloaded.pkgd
 //= require jquery.flexslider
 //= require jquery.magnific-popup
 //= require jquery.fitvids
 //= require jquery.tagcanvas
+//= require imagesloaded.pkgd
+//= require isotope.pkgd
 //= require smoothscroll
-//= require wow.min
-//= require owl.carousel.min
-//= require gmaps
-//= require custom
+//= require owl.carousel
+//= require wow
+
+// app
+//= require articles
+//= require comments
 //= require contact
+//= require custom
+//= require dashboard
+//= require gmaps
+//= require photos
+//= require static
 //= require d3
 
 

@@ -11,6 +11,7 @@ class Wine < Product
   has_many :vineyards, through: :wine_grape_lots
   has_many :wine_grape_lots, foreign_key: :product_id, dependent: :destroy
 
+  validates :winery, presence: true
   def varietals
     vineyards.map{ |x| x.properties["varietal"]}.uniq
   end
@@ -29,6 +30,6 @@ class Wine < Product
 
   def previous_vintages
 
-    Wine.where(name: name, winery: winery).where().not(id: self.id)
+    winery.wines.where(name: name).where.not(id: self.id)
   end
 end

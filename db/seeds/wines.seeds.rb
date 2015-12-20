@@ -13,7 +13,18 @@ after :wineries, :users do
     )
     wine.save!
 
+
   end
+
+  3.times do |i|
+    wine = Wine.first
+    winery.wines.create!(
+      name: wine.name, 
+      price: wine.price, 
+      vintage: (wine.vintage.to_i - 1),
+      description: Faker::Stoked.paragraph)
+  end
+
 
   wines = winery.wines.all
 
