@@ -79,6 +79,9 @@ gem 'figaro'
 gem 'dragonfly'
 gem 'dropzonejs-rails'
 
+# data visualizations & flavor wheels
+gem 'd3-rails'
+
 # keep track of state on assignments
 gem 'aasm'
 

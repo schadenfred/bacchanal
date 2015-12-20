@@ -1,0 +1,5 @@
+/ - static_page_links.each do |page|
+/   %li=link_to page.capitalize, send("#{page}_path")
+- static_section_links.each do |section|
+  %li=link_to section.capitalize, "##{section}", class: "section-scroll"
+

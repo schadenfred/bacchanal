@@ -1,65 +1,63 @@
-.main
 %section.module
   .container
     .row
-      / Product images start
       .col-sm-6.mb-sm-40
-        = image_tag("shop/product-7.jpg")
-        / %a.gallery{:href => }
-        /   %img{:alt => "", :src => image_path("shop/product-7.jpg")}/
-        / %ul.product-gallery
-        /   %li.div{ data: "no-turbolink" }
-        /     %a.gallery{:href => "shop/product-8.jpg"}
-        /       %img{:alt => "", :src => image_path("shop/product-8.jpg")}/
-        /   / %li
-        /   /   %a.gallery{:href => "assets/images/shop/product-9.jpg"}
-        /   /     %img{:alt => "", :src => "assets/images/shop/product-9.jpg"}/
-        /   / %li
-        /   /   %a.gallery{:href => "assets/images/shop/product-10.jpg"}
-        /   /     %img{:alt => "", :src => "assets/images/shop/product-10.jpg"}/
-      / Product images end
-      / Product detail start
+        = image_tag(@wine.default_photo.image.thumb('500x600#').url)
       .col-sm-6
         .row
           .col-sm-12
-            %h1.product-title.font-alt Accessories Pack
+            %h1.product-title.font-alt= @wine.vintage + " " + @wine.name
         .row.mb-20
           .col-sm-12
-            %span
-              %i.fa.fa-star.star
-            %span
-              %i.fa.fa-star.star
-            %span
-              %i.fa.fa-star.star
-            %span
-              %i.fa.fa-star.star
-            %span
-              %i.fa.fa-star.star-off
-            / Open tab and scroll to tab
-            %a.open-tab.section-scroll{:href => "#reviews"} - 2 customer reviews
+            / %span
+            /   %i.fa.fa-star.star
+            / %span
+            /   %i.fa.fa-star.star
+            / %span
+            /   %i.fa.fa-star.star
+            / %span
+            /   %i.fa.fa-star.star
+            / %span
+            /   %i.fa.fa-star.star-off
+            / / Open tab and scroll to tab
+            / %a.open-tab.section-scroll{:href => "#reviews"} - 2 customer reviews
         .row.mb-20
           .col-sm-12
-            .price.font-alt
-              %span.amount £20.00
+            .col-sm-3
+              .price.font-alt
+                %span.amount= "$" + @wine.price
+            .col-sm-9
+              .product_meta
+                .col-sm-3
+                  .pull-right
+                    Composition:
+                .col-sm-9 
+                  .pull-left
+                    - @wine.composition.each do |varietal, percentage|
+                      = percentage.to_s + "\% " + varietal.capitalize
+                      %br
+
+            / .product_meta
+            /   Categories:
+            /   = succeed "," do
+            /     %a{:href => "#"} Man
+            /   = succeed "," do
+            /     %a{:href => "#"} Clothing
+            /   = succeed "." do
+            /     %a{:href => "#", :rel => "tag"} T-shirts      
         .row.mb-20
           .col-sm-12
             .description
-              %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
-        .row.mb-20
-          .col-sm-4.mb-sm-20
-            %input.form-control.input-lg{:max => "50", :min => "1", :name => "", :required => "required", :type => "number", :value => "1"}/
-          .col-sm-8
-            %a.btn.btn-lg.btn-block.btn-round.btn-b Add To Cart
-        .row.mb-20
-          .col-sm-12
-            .product_meta
-              Categories:
-              = succeed "," do
-                %a{:href => "#"} Man
-              = succeed "," do
-                %a{:href => "#"} Clothing
-              = succeed "." do
-                %a{:href => "#", :rel => "tag"} T-shirts
+              %p= @wine.description
+        / .row.mb-20
+        /   .col-sm-4.mb-sm-20
+        /     %input.form-control.input-lg{:max => "50", :min => "1", :name => "", :required => "required", :type => "number", :value => "1"}/
+        /   .col-sm-8
+        /     %a.btn.btn-lg.btn-block.btn-round.btn-b Add To Cart
+
+        .row
+
+          / = render 'flavor_wheel'
       / Product detail end
     / .row
     .row.mt-70
@@ -77,8 +75,7 @@
         .tab-content
           / Tab start
           #description.tab-pane.active
-            %p Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.
-            %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
+            %p= @wine.description
           / Tab end
           / Tab start
           #data-sheet.tab-pane
@@ -107,7 +104,10 @@
               / Review 1 start
               .comment.clearfix
                 .comment-avatar
-                  %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
+                  - avatar = @wine.winery.positions.first.user.avatar
+
+                  = image_tag(avatar.image.thumb('50x50#').url) if avatar.image_stored?
+                  / %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
                 .comment-content.clearfix
                   .comment-author.font-alt
                     %a{:href => "#"} John Doe
@@ -188,7 +188,7 @@
   .container
     .row
       .col-sm-6.col-sm-offset-3
-        %h2.module-title.font-alt Related Products
+        %h2.module-title.font-alt Previous vintages of this wine
     / .row
     .row.multi-columns-row
       / Shop item start
@@ -254,7 +254,7 @@
   .container
     .row
       .col-sm-6.col-sm-offset-3
-        %h2.module-title.font-alt Exclusive products
+        %h2.module-title.font-alt 
     / .row
     .row
       / Owl-carousel start

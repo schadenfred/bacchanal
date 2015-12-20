@@ -6,12 +6,13 @@
     .row
       .col-sm-12
         %ul#filters.filter.font-alt
-          - %w[appellations vintages varietals].each do |partial|
+          - %w[appellations vintages varietals].each_with_index do |partial, i|
+            - unless i == 0
+              %hr
             %li
               %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} 
                 = partial + ":           "
             = render partial
-            %hr
     .row
       .col-sm-12
         %ul#works-grid.works-grid.works-grid-gut.works-grid-5

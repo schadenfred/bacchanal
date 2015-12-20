@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reviews
   require 'route_drawer'
 
   draw :api, :v1

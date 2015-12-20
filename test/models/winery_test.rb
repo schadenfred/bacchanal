@@ -7,6 +7,7 @@ describe Winery do
   specify "associations" do 
 
     must_have_many(:wines)
+    must_have_many(:reviews)
   end
 
   describe "store accessors" do 

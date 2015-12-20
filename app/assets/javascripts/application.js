@@ -22,9 +22,6 @@
 //= require gmaps
 //= require custom
 //= require contact
-//= require photos
-//= require static
-//= require articles
-//= require comments
-//= require dashboard
+//= require d3
+
 

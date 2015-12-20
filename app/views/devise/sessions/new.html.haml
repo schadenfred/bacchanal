@@ -9,8 +9,6 @@
     = mail_to "fred.schoeneman@gmail.com", "request invitation", subject: "Invitation Request", body: "We'll be sending invites soon and if you click \"send\" on this email we'll have your email address for that purpose. It's certainly not required, but before you click send, we'd love to know a little bit about you and why you're curious about Bacchan.al. Thanks! \n\n -- Fred"
 - content_for :devise_form do 
 
-  %h2
-    We are invitation only at the moment. 
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-inputs
       = f.input :email, required: false, autofocus: true
@@ -18,5 +16,3 @@
       = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
     .form-actions
       = f.button :submit, "Sign in", class: auth_btn
-
-= render 'static/latest_articles'

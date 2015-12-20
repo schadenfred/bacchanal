@@ -1,6 +1,6 @@
 .comment.clearfix{ id: "comment-#{comment.id}"}
   .comment-avatar
-    = link_to image_tag("commenter-thumb.jpg")
+    = link_to image_tag(comment.commenter.avatar.image.thumb('50x50#').url)
   .comment-content.clearfix
     .comment-author.font-alt
       = link_to comment.commenter.name

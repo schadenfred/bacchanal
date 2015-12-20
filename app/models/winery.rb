@@ -8,7 +8,7 @@ class Winery < Producer
   has_many :wines, foreign_key: :producer_id
   has_many :vineyards, through: :wines
   has_many :wines_appellations, through: :vineyards, source: :appellations
-
+  has_many :reviews
   validates :name, presence: true
 
   def vintages 
