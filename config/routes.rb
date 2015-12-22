@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :attachments
   require 'route_drawer'
 
   draw :api, :v1

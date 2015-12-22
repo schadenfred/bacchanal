@@ -61,6 +61,7 @@ describe Wine do
       { "malbec" => 7 },
       { "unknown" => 10 } ] }
     Then { wine.composition.must_equal expected_composition }
+    And { wine.composition.second.values.first.class.must_equal "blah" }
   end
 
   describe "previous vintages" do 
