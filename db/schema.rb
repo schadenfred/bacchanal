@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218184613) do
+ActiveRecord::Schema.define(version: 20151222230308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,20 @@ ActiveRecord::Schema.define(version: 20151218184613) do
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "attachment_uid"
+    t.string   "attachment_name"
+    t.string   "attachable_type"
+    t.integer  "attachable_id"
+    t.string   "name"
+    t.string   "summary"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "attachments", ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type", using: :btree
+  add_index "attachments", ["attachment_uid"], name: "index_attachments_on_attachment_uid", using: :btree
 
   create_table "buttafly_mappings", force: :cascade do |t|
     t.integer  "originable_id"
