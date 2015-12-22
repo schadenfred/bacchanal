@@ -16,12 +16,12 @@ after :wineries, :users do
 
   end
 
-  3.times do |i|
+  9.times do |i|
     wine = Wine.first
     winery.wines.create!(
       name: wine.name, 
-      price: wine.price, 
-      vintage: (wine.vintage.to_i - 1),
+      price: rand(20..100), 
+      vintage: (wine.vintage.to_i - (+i)),
       description: Faker::Stoked.paragraph)
   end
 

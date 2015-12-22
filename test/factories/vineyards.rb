@@ -1,6 +1,7 @@
 FactoryGirl.define do
 
-  factory :vineyard do
+  factory :vineyard, aliases: [:parent_vineyard] do
+
 
     name
     varietal "chardonnay"
@@ -17,7 +18,13 @@ FactoryGirl.define do
     end
 
     factory :vineyard_with_blocks do 
+      transient do 
+        blocks_count 5
+      end
 
+      after(:create) do |vineyard, evaluator|
+        create_list(:block, evaluator.blocks_count, parent_vineyard: vineyard)
+      end
     end
   end
 end

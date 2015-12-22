@@ -11,8 +11,9 @@ describe Org do
       must_have_column(:blog_title)
       must_have_column(:logo_id, :integer)
       must_have_column(:name)
-      must_have_column(:slug)
+      must_have_column(:parent_id, :integer)
       must_have_column(:properties, :hstore)
+      must_have_column(:slug)
     end
 
     specify "indexes" do

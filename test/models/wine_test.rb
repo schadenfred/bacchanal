@@ -32,31 +32,35 @@ describe Wine do
   Given(:wine) { FactoryGirl.create(:wine) }
   Given(:vineyard) { FactoryGirl.create(:vineyard, varietal: "pinot noir") }
   Given(:second_vineyard) { FactoryGirl.create(:vineyard, varietal: "malbec") }
-  Given(:third_vineyard) { FactoryGirl.create(:vineyard, varietal: "muscadet") }
+  Given(:third_vineyard) { FactoryGirl.create(:vineyard, varietal: "muscadet")}
   Given(:address) { FactoryGirl.create(:address_with_appellations ) }
   Given(:appellation) { address.appellations.first }
   
-  Given { vineyard.addresses_addressables.create(address: address ) }
-  Given { wine.wine_grape_lots.create([{vineyard: vineyard, percentage: 43}, {vineyard: second_vineyard, percentage: 7}, {vineyard: third_vineyard, percentage: 40} ] ) }
-  Given { wine.wine_grape_lots.create(vineyard: vineyard ) }
+  Given { wine.wine_grape_lots.create( [
+    { vineyard: vineyard, percentage: 43 }, 
+    { vineyard: second_vineyard, percentage: 7 }, 
+    { vineyard: third_vineyard, percentage: 40 } ] ) }
   
   describe ":appellations" do 
 
+    Given { vineyard.addresses_addressables.create(address: address ) }
     Then { wine.appellations.must_include appellation } 
   end
 
   describe ":varietals" do 
 
     Then { wine.varietals.must_include "pinot noir" }
+    And { wine.varietals.must_include "muscadet" }
+    And { wine.varietals.must_include "malbec" }
   end
 
   describe ":composition" do 
-    # Given(:expected_composition) { { 
-    #     "pinot noir" => 43, 
-    #     "muscadet" => 40, 
-    #     "malbec" => 7,
-    #     "unknown" => 10 }}
-    # Then { wine.composition.must_equal expected_composition }
+    Given(:expected_composition) { [
+      { "pinot noir" => 43 }, 
+      { "muscadet" => 40 }, 
+      { "malbec" => 7 },
+      { "unknown" => 10 } ] }
+    Then { wine.composition.must_equal expected_composition }
   end
 
   describe "previous vintages" do 
