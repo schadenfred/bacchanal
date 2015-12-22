@@ -16,10 +16,8 @@
             .col-sm-9
               .product_meta
                 .pull-right
-                - @wine.composition.each_with_index do |component, index|
-                  = unless index == 0
-                    |
-                  = component.values.first.to_s + "\%"
+                - @wine.composition.each
+                  = component.values.first.to_s
                   = component.keys.first
                   
 
