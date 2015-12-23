@@ -2,7 +2,7 @@ after :galleries do
 
   files = Dir[File.expand_path('test/samples/wineries/*.jpg')]
   photographer = User.all.sample
-  wineries = Winery.last(5)
+  wineries = Winery.all
 
   wineries.each do |winery|
     
