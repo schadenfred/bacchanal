@@ -57,18 +57,24 @@
                 %tr
                   %th Title
                   %th Info
+                %tr 
+                  %td TA G/L
+                  %td 7.2
                 %tr
-                  %td Compositions
-                  %td Jeans
+                  %td pH
+                  %td 3.38
                 %tr
-                  %td Size
-                  %td 44, 46, 48
+                  %td Clones
+                  %td 828, Pommard, Waldenswil 2A
                 %tr
-                  %td Color
-                  %td Black
+                  %td Alcohol
+                  %td 13.9%
                 %tr
-                  %td Brand
-                  %td Somebrand
+                  %td Brix
+                  %td 23.8
+                %tr
+                  %td Regimen
+                  %td 100% French Oak, 20% new
           / Tab end
           / Tab start
           #reviews.tab-pane.active
@@ -86,55 +92,6 @@
                       %p= review.content
                     .comment-meta.font-alt
                       = time_ago_in_words(review.updated_at) + " ago"
-              / Review 1 start
-              .comment.clearfix
-                .comment-avatar
-                  / - avatar = @wine.winery.positions.first.user.avatar
-
-                  / = image_tag(avatar.image.thumb('50x50#').url) if avatar.image_stored?
-                  %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
-                .comment-content.clearfix
-                  .comment-author.font-alt
-                    %a{:href => "#"} John Doe
-                  .comment-body
-                    %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                  .comment-meta.font-alt
-                    Today, 14:55 -
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star-off
-              / Review 1 end
-              / Review 2 start
-              .comment.clearfix
-                .comment-avatar
-                  %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
-                .comment-content.clearfix
-                  .comment-author.font-alt
-                    %a{:href => "#"} Mark Stone
-                  .comment-body
-                    %p Faker::Stoked.sentences(3)
-                  .comment-meta.font-alt
-                    Today, 14:55 -
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star
-                    %span
-                      %i.fa.fa-star.star-off
-                    %span
-                      %i.fa.fa-star.star-off
-              / Review 2 end
-            / Reviews end
-            / Review form start
             .comment-form.mt-30
               %h4.comment-form-title.font-alt Add review
               %form{:method => "post"}
