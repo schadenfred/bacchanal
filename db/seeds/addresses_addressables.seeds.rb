@@ -1,4 +1,4 @@
-after :users, :orgs, :wineries, :addresses do 
+after :users, :orgs, :wineries, :vineyards, :addresses do 
 
   addresses = Address.all
   users = User.first(10)
@@ -6,28 +6,23 @@ after :users, :orgs, :wineries, :addresses do
 
   [users, orgs].each do |addressables|
     addressables.each do |addressable|
-      addressable.addresses_addressables.create(
+      addressable.addresses_addressables.create!(
         address_id: addresses.sample.id,
         name: "home",
         address_function: "shipping"
       )
-
-      addressable.addresses_addressables.create(
-        address_id: addresses.sample.id,
-        name: "work",
-        address_function: "billing"
-      )
     end
   end
+
+  user = users.first
+  address_names = %w[home work vacation]
+  address_functions = %w[shipping billing primary default]
+
+  address_functions.each do |address_function|
+    user.addresses_addressables.create!(
+      address: addresses.sample,
+      name: address_names.sample,
+      address_function: address_function
+    )
+  end
 end
-# orgs = Org.all
-# users = User.all
-# address_ids = Address.all.pluck(:id)
-
-# orgs.each do |org| 
-#   AddressesAddressable.create!(address_id: address_ids.sample)
-# end
-
-# users.each do |user|
-#   AddressesAddressable.create!(address_id: address_ids.sample)
-# end

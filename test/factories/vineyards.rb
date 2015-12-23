@@ -2,8 +2,7 @@ FactoryGirl.define do
 
   factory :vineyard, aliases: [:parent_vineyard] do
 
-
-    name
+    sequence(:name) { |n| "fancy vineyard#{n}" }
     varietal "chardonnay"
 
     factory :vineyard_with_addresses do 

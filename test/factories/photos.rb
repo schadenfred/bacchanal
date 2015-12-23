@@ -1,11 +1,10 @@
 FactoryGirl.define do
   
   factory :photo do
+
     image Rails.root.join("test", "samples", "labels", "wine-label.jpg")
-    # image_name "MyString"
-    name "MyString"
+    sequence(:name) { |n| "foto name-#{n}" }
     caption "MyString"
     photographer
   end
-
 end

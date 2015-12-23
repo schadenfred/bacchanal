@@ -4,7 +4,7 @@ FactoryGirl.define do
   
     attachment_uid "MyString"
     attachment_name "techsheet.pdf"
-    name "MyString"
+    sequence(:name) { |n| "techsheet-#{n}" }
     summary "MyString"
   end
 end

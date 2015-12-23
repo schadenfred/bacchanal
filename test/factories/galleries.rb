@@ -2,7 +2,8 @@ FactoryGirl.define do
 
   factory :gallery do
 
-    name "MyString"
+    sequence(:name) { |n| "gallery-name-#{n}" }
+
     properties "MyString"
 
     trait :default do 

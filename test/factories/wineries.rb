@@ -1,7 +1,8 @@
 FactoryGirl.define do
 
   factory :winery do
-    name
+    sequence(:name) { |n| "fancy winery-name#{n}" }
+
     
     factory :winery_with_wines do
       transient do

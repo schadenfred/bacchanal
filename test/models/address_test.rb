@@ -33,12 +33,11 @@ describe Address do
     must_have_many :addressables
     must_have_many :addresses_appellables
     must_have_many :appellations
-
   end
 
   specify "geocodable_address" do 
 
     address = FactoryGirl.build_stubbed(:address)
     address.full_street_address.must_equal "281 41st Street Suite #33, Oakland, CA, US"
-  end
+  end  
 end

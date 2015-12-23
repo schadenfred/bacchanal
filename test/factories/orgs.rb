@@ -1,14 +1,8 @@
 FactoryGirl.define do
   factory :org do
-    name "MyString"
+    sequence(:name) { |n| "organization-name-#{n}" }
     type ""
     slug "MyString"
     properties ""
-
-    # factory :org_with_galleries do
-    #   after(:create) do |instance| 
-    #     create_list(:gallery, 5, galleriable: instance) 
-    #   end
-    # end
   end
 end

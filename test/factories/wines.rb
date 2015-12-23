@@ -4,7 +4,8 @@ FactoryGirl.define do
   end
 
   factory :wine do
-    name "pinot noir"
+    sequence(:name) { |n| "fancy wine-name#{n}" }
+
     vintage
     winery
 

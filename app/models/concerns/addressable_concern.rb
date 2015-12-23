@@ -8,11 +8,11 @@ module AddressableConcern
   end
 
   def default_address
-    addresses_addressables.first.address
+    addresses_addressables.find_by(name: "default") || addresses.first
   end
 
   def mailing_address
-    addresses_addressables.first.address
+    addresses_addressables.find_by(name: "mailing") || addresses.first
   end
 
   def fax

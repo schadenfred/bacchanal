@@ -1,36 +1,27 @@
 after :articles, :users, :wineries do 
 
-  winery = Winery.find_by(slug: 'fathers-daughters-cellars')
+  winery = Winery.first
   article = winery.articles.first
-  users = User.all
+  commenters = User.first(10)
 
-  users.each do |user|
+  commenters.each do |commenter|
     
-    article.comments.new(
+    article.comments.create!(
       content: Faker::Stoked.sentences(2),
-      commenter_id: user.id)
-    article.save!
+      commenter_id: commenter.id)
+  end
 
-  end   
+  parent_comment = Comment.first
+  replier = User.find(11)
+  reply = Comment.create!(
+    commenter: replier,
+    parent_id: parent_comment.id,
+    content: Faker::Stoked.sentence
+  )
+
+  reply_to_reply = Comment.create!(
+    commenter: User.find(1),
+    parent_id: reply.id,
+    content: Faker::Stoked.paragraph
+  )
 end
-
-# replier = User.first
-# second_replier = User.second
-
-# first_level_comments = article.comments.last(3)
-# first_level_comments.each do |parent|
-#   article.comments.new(
-#     content: Faker::Stoked.sentences(2),
-#     commenter_id: replier.id,
-#     parent_id: parent.id)
-#   article.save!
-# end
-
-# second_level_comments = article.comments.last(3)
-# second_level_comments.each do |parent|
-#   article.comments.new(
-#     content: Faker::Stoked.sentences(2),
-#     commenter_id: second_replier.id,
-#     parent_id: parent.id)
-#   article.save!
-# end

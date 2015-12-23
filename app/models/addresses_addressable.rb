@@ -1,6 +1,6 @@
 class AddressesAddressable < ActiveRecord::Base
 
-  enum address_function: [ :shipping, :billing, :primary ]
+  enum address_function: [ :shipping, :billing, :primary, :default ]
   
   belongs_to :address
   belongs_to :addressable, polymorphic: true

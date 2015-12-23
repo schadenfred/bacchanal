@@ -7,6 +7,7 @@ class Address < ActiveRecord::Base
   has_many :orgs, through: :addresses_addressables
   has_many :users, through: :addresses_addressables
 
+  accepts_nested_attributes_for :addresses_addressables
   # geocoded_by :full_street_address
 
   # after_validation :geocode

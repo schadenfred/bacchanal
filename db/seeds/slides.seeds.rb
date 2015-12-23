@@ -1,8 +1,8 @@
-after :galleries do 
+after :galleries, :users do 
 
   files = Dir[File.expand_path('test/samples/wineries/*.jpg')]
   photographer = User.all.sample
-  wineries = Winery.all
+  wineries = Winery.first(6)
 
   wineries.each do |winery|
     
@@ -18,6 +18,6 @@ after :galleries do
         bullet_small: "bullet small"
       } ]
     )
-    photo.save
+    photo.save!
   end
 end
