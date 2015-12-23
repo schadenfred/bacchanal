@@ -16,7 +16,7 @@
             .col-sm-9
               .product_meta
                 .pull-right
-                - @wine.composition.each
+                - @wine.composition.each do |component|
                   = component.values.first.to_s
                   = component.keys.first
                   
@@ -31,11 +31,16 @@
             %a{"data-toggle" => "tab", :href => "#data-sheet"} Data sheet
           %li
             %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (2)
+          %li
+            %a{"data-toggle" => "tab", :href => "#documentation"} Documentation
         / Nav tabs end
         / Tab panes start
         .tab-content
+          #documentation.tab-pane.active
+            - @wine.attachments.each do |attachment| 
+              %p= link_to attachment.name, attachment.attachment.url
           / Tab start
-          #description.tab-pane.active
+          #description.tab-pane
             %p= @wine.description
           / Tab end
           / Tab start

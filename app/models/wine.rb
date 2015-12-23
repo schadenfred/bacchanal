@@ -1,6 +1,7 @@
 class Wine < Product
 
   include Targetable
+  include AttachableConcern
 
   store_accessor :properties, :vintage, :bottled_on, :released_on, :varietal
 

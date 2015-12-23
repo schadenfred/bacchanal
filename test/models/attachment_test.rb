@@ -26,5 +26,6 @@ describe Attachment do
   specify "associations" do 
 
     must_belong_to :attachable
+    must_belong_to :wine
   end
 end
