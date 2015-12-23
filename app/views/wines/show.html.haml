@@ -25,18 +25,18 @@
       .col-sm-12
         / Nav tabs start
         %ul.nav.nav-tabs.font-alt{:role => "tablist"}
-          %li.active
+          %li
             %a{"data-toggle" => "tab", :href => "#description"} Description
           %li
             %a{"data-toggle" => "tab", :href => "#data-sheet"} Data sheet
-          %li
-            %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (2)
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (#{@wine.curated_reviews.count})
           %li
             %a{"data-toggle" => "tab", :href => "#documentation"} Documentation
         / Nav tabs end
         / Tab panes start
         .tab-content
-          #documentation.tab-pane.active
+          #documentation.tab-pane
             - @wine.attachments.each do |attachment| 
               %dl.dl-horizontal
                 %dt
@@ -71,16 +71,28 @@
                   %td Somebrand
           / Tab end
           / Tab start
-          #reviews.tab-pane
+          #reviews.tab-pane.active
             / Reviews start
             .comments.reviews
+              - @wine.curated_reviews.each do |review|
+                .comment.clearfix
+                  .comment-avatar
+                    - avatar = review.reviewer.avatar
+                    = image_tag(avatar.image.thumb('50x50#').url) if avatar.image_stored?
+                  .comment-content.clearfix
+                    .comment-author.font-alt
+                      = link_to review.reviewer.name
+                    .comment-body
+                      %p= review.content
+                    .comment-meta.font-alt
+                      = time_ago_in_words(review.updated_at) + " ago"
               / Review 1 start
               .comment.clearfix
                 .comment-avatar
-                  - avatar = @wine.winery.positions.first.user.avatar
+                  / - avatar = @wine.winery.positions.first.user.avatar
 
-                  = image_tag(avatar.image.thumb('50x50#').url) if avatar.image_stored?
-                  / %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
+                  / = image_tag(avatar.image.thumb('50x50#').url) if avatar.image_stored?
+                  %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
                 .comment-content.clearfix
                   .comment-author.font-alt
                     %a{:href => "#"} John Doe
