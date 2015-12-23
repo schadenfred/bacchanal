@@ -38,7 +38,14 @@
         .tab-content
           #documentation.tab-pane.active
             - @wine.attachments.each do |attachment| 
-              %p= link_to attachment.name, attachment.attachment.url
+              %dl.dl-horizontal
+                %dt
+                  = link_to attachment.attachment.url do 
+                    %i.fa{ class: icon_for_extension(attachment.filename_extension) }
+                    = attachment.name
+                %dd
+                  = attachment.summary
+
           / Tab start
           #description.tab-pane
             %p= @wine.description

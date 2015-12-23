@@ -28,4 +28,10 @@ describe Attachment do
     must_belong_to :attachable
     must_belong_to :wine
   end
+
+  describe ":filename_extension" do 
+
+    Given(:attachment) { FactoryGirl.create(:attachment) }
+    Then { attachment.filename_extension.must_equal "pdf"}
+  end
 end

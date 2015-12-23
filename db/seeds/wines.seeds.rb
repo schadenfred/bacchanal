@@ -23,6 +23,12 @@ after :wineries, :users do
       price: rand(20..100), 
       vintage: (wine.vintage.to_i - (+i)),
       description: Faker::Stoked.paragraph)
+
+    wine.attachments.create!(
+      attachment: File.new(Dir[File.expand_path('test/samples/attachments/*')].sample),
+      summary: Faker::Stoked.sentence,
+      name: "tech sheet"
+    )
   end
 
 

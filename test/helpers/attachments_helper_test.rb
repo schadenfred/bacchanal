@@ -1,7 +1,9 @@
-# require "test_helper"
+require "test_helper"
 
-# class AttachmentsHelperTest < ActionView::TestCase
-#   def test_sanity
-#     flunk "Need real tests"
-#   end
-# end
+describe AttachmentsHelper do 
+
+  specify ":icon_for_extension(extension)" do
+    
+    icon_for_extension("pdf").must_equal "fa-file-pdf-o"  
+  end 
+end

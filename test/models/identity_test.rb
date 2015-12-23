@@ -22,10 +22,12 @@ describe Identity do
     end
   end
 
-#   specify "associations" do 
+  specify "associations" do 
 
-#     must_belong_to(:user)
-#   end
+    must_belong_to(:user)
+  end
+
+  
 
 #   describe "Identity.create_with_omniauth(auth)" do 
 
