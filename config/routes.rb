@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :curations
   resources :attachments
   require 'route_drawer'
 

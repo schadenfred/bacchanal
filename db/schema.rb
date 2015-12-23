@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222230308) do
+ActiveRecord::Schema.define(version: 20151223042335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,16 @@ ActiveRecord::Schema.define(version: 20151222230308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "curations", force: :cascade do |t|
+    t.string   "curatable_type"
+    t.integer  "curatable_id"
+    t.integer  "review_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "curations", ["curatable_id", "curatable_type"], name: "index_curations_on_curatable_id_and_curatable_type", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "competiton_id"
