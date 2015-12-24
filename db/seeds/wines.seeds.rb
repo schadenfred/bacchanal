@@ -1,34 +1,24 @@
 after :wineries, :users do 
 
-  winery = Winery.find_by(slug: "fathers-daughters-cellars")
-  photographer = User.find_by(name: "guy pacurar") 
+  winery = Winery.first
+  photographer = User.first 
 
   10.times do |i|
       
-    wine = winery.wines.new(
+    wine = winery.wines.create!(
       name: Faker::Bloocher.vineyard + " " + Faker::Bloocher.varietal,
       price: rand(20..100), 
       vintage: rand(2009..2015),
-      description: Faker::Stoked.paragraphs(2)
-    )
-    wine.save!
-
-
+      description: Faker::Stoked.paragraphs(2) )
   end
 
-  9.times do |i|
+  3.times do |i|
     wine = Wine.first
     winery.wines.create!(
       name: wine.name, 
       price: rand(20..100), 
       vintage: (wine.vintage.to_i - (+i)),
-      description: Faker::Stoked.paragraph)
-
-    wine.attachments.create!(
-      attachment: File.new(Dir[File.expand_path('test/samples/attachments/*')].sample),
-      summary: Faker::Stoked.sentence,
-      name: "tech sheet"
-    )
+      description: Faker::Stoked.paragraph )
   end
 
 

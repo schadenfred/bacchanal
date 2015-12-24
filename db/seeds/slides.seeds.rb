@@ -1,6 +1,6 @@
 after :galleries, :users do 
 
-  files = Dir[File.expand_path('test/samples/wineries/*.jpg')]
+  files = Dir[File.expand_path('test/samples/landscapes/*.jpg')]
   photographer = User.all.sample
   wineries = Winery.first(6)
 

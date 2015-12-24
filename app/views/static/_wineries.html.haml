@@ -21,7 +21,7 @@
           - photo = winery.default_gallery.try(:slides).first.try(:photo) 
           = image_tag(photo.image.thumb('900x600#').url) if photo.try(:image_stored?)
           .work-caption.font-alt
-            %h3.work-title
+            %h3.work-descr
               = winery.name
             .work-descr
               = winery.default_gallery.slides.first.try(:call_to_action)

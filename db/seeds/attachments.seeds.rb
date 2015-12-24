@@ -1,13 +1,9 @@
-# after :wines, :galleries, :slides, :photos do 
+after :wines do 
 
-#   winery = Winery.find_by(slug: "fathers-daughters-cellars")
-#   wine = winery.wines.first
+  wine = Wine.first
+  wine.attachments.create!(
+    attachment: File.new(Dir[File.expand_path('test/samples/attachments/*')].sample),
+    summary: Faker::Stoked.sentence,
+    name: "tech sheet" )
+end
 
-#   attachments = Dir[File.expand_path('test/samples/attachments/*.pdf')]
-
-#   wine.attachments.create!(
-#     attachment: File.new(attachments.sample),
-#     summary: Faker::Stoked.sentence,
-#     name: "tech sheet"
-#   )
-# end

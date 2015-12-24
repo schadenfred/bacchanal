@@ -1,6 +1,6 @@
 after :users, :wines do
 
-  users = User.first(11) 
+  users = User.all
   wine = Wine.first
 
   users.each do |user|
