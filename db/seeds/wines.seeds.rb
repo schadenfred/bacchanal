@@ -21,7 +21,6 @@ after :wineries, :users do
       description: Faker::Stoked.paragraph )
   end
 
-
   wines = winery.wines.all
 
   wines.each do |wine|

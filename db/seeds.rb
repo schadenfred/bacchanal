@@ -99,16 +99,6 @@ after :users do
 
   identities_hash = {
     "User" => {
-      # "guy pacurar" => [
-      #   {
-      #     provider: "facebook",
-      #     link: "https://www.facebook.com/fathersanddaughterscellars/?fref=nf"
-      #   }, {
-      #     provider: "linkedin", 
-      #     link: "https://www.linkedin.com/in/guy-pacurar-2993ba14"
-      #   }
-      # ],
-
       "fred schoeneman" => [
         {
           provider: "facebook",
@@ -130,13 +120,6 @@ after :users do
 
     },
     "Org" => {
-
-      # "Fathers & Daughters Cellars" => [
-      #   {
-      #     provider: "facebook",
-      #     link: "https://www.facebook.com/fathersanddaughterscellars"
-      #   }
-      # ] ,
 
       "Bacchan.al" => [
         {
@@ -160,16 +143,4 @@ after :users do
       end
     end
   end
-
-  # winery_users = ["sarah schoeneman", "kurt schoeneman", "guy pacurar"]
-
-  # winery_users.each do |user|
-
-  #   winery.positions.create(
-  #     user_id: User.find_by(name: user).id,
-  #     title: Faker::Stoked.job,
-  #     description: Faker::Stoked.sentence,
-  #     tenure_start:  Date.today - 3.months
-  #   )
-  # end
 end
