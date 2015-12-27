@@ -4,6 +4,7 @@
   description: @winery.try(:description), 
   keywords: @winery.try(:keywords), 
   og: { 
+    title: @winery.name,
     type: { 
       winery: { 
         varietal: @winery.try(:varietals),

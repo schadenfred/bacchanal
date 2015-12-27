@@ -1,10 +1,11 @@
 <%= meta_tags(
-  title: @wine.name, 
+  title: @wine.name,
   type: "website",
   author: @wine.try(:winemaker), 
   description: @wine.try(:description),
   keywords: @wine.try(:varietals),
   og: {
+    title: @wine.name, 
     type: {
       product: {
         wine: {
