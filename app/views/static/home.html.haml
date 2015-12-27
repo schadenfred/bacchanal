@@ -4,7 +4,7 @@
 - content_for :header
 
 - content_for :carousel do  
-  %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.gallery("default").photos.first.image.url)}
+  %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.try(:default_gallery).try(:photos).try(:first).try(:image).try(:url))}
     .hs-caption
       .caption-content
         .col-sm-8.col-sm-offset-2

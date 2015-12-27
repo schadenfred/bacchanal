@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   belongs_to :producer
-  store_accessor :properties, :price
+
+  store_accessor :properties, :price, :description
 
 end

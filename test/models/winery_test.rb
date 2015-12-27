@@ -64,4 +64,10 @@ describe Winery do
 
     Then { winery.varietals.must_include "chardonnay"}
   end
+
+  describe "metatags" do 
+
+    Then { winery.keywords.must_include "chardonnay"}
+    And { winery.keywords.must_include "anderson valley"}
+  end
 end

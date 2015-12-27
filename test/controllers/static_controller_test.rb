@@ -4,7 +4,7 @@ describe StaticController do
 
   Given(:user) { FactoryGirl.create(:user) }
   Given(:org)  { FactoryGirl.create(:org, name: "Bacchan.al") }
-  Given(:org)  { FactoryGirl.create(:org, name: "Bacchan.al") }
+
   Given { sign_out user}
 
   static_pages = %w[about terms privacy help contact]

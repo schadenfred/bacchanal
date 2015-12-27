@@ -1,0 +1,19 @@
+<%= meta_tags(
+  title: @wine.name, 
+  type: "website",
+  author: @wine.try(:winemaker), 
+  description: @wine.try(:description),
+  keywords: @wine.try(:varietals),
+  og: {
+    type: {
+      product: {
+        wine: {
+          varietal: @wine.try(:varietals),
+          appellation: @wine.try(:appellations).map(&:name)        
+        }
+      }
+    }
+  }
+  )
+%>
+

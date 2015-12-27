@@ -1,7 +1,8 @@
 %section#home.home-section.home-parallax.home-fade
   .hero-slider
     %ul.slides
-      - @winery.default_gallery.slides.each do |slide|
+
+      - @winery.default_gallery.try(:slides).try(:each) do |slide|
         %li.bg-dark-30.bg-dark{ style: "background-image: url(#{image_path(slide.photo.image.url)})" } 
           .hs-caption
             .caption-content

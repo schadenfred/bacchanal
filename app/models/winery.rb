@@ -23,5 +23,9 @@ class Winery < Producer
   def varietals
     vineyards.map{ |x| x.varietal}.uniq.compact
   end
+
+  def keywords
+    wines_appellations.pluck(:name) + varietals
+  end
 end
 
