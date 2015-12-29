@@ -1,4 +1,4 @@
-after :users, :orgs, :wineries, :vineyards, :addresses do 
+after :users, :blocks, :orgs, :wineries, :vineyards, :addresses do 
 
   addresses = Address.all
   users = User.first(10)
