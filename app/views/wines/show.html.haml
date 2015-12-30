@@ -7,36 +7,27 @@
         .row
           .col-sm-12
             %h1.product-title.font-alt= @wine.vintage + " " + @wine.name
-            = render "sunburst"
-            / = render "reviews_summary"
-        / .row.mb-20
-        /   .col-sm-12
-        /     .col-sm-3
-        /       .price.font-alt
-        /         %span.amount= "$" + @wine.price
-        /     .col-sm-9
-        /       .product_meta
-        /         .pull-right
-        /           / - @wine.composition.each do |component|
-
-        /           / .row
-        /           %ul.list-group
-        /             - @wine.composition.each do |c|
-        /               %li.list-group-item 
-        /                 = c.values.first.to_s + "\% "
-        /                 = c.keys.first
-                  
+            .col-sm-4
+              / = render "sunburst"
+              = render "review_summary"
+            .col-sm-8
+              .product_meta
+                - @wine.composition.each do |c|
+                  .row
+                    = c.values.first.to_s + "\% "
+                    = c.keys.first
+        = render 'add_to_wishlist'   
 
     .row.mt-70
       .col-sm-12
         / Nav tabs start
         %ul.nav.nav-tabs.font-alt{:role => "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (#{@wine.curated_reviews.count})
           %li
             %a{"data-toggle" => "tab", :href => "#description"} Description
           %li
             %a{"data-toggle" => "tab", :href => "#data-sheet"} Data sheet
-          %li.active
-            %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (#{@wine.curated_reviews.count})
           %li
             %a{"data-toggle" => "tab", :href => "#documentation"} Documentation
         / Nav tabs end
@@ -99,32 +90,7 @@
                     .comment-meta.font-alt
                       = time_ago_in_words(review.updated_at) + " ago"
             .comment-form.mt-30
-              %h4.comment-form-title.font-alt Add review
-              %form{:method => "post"}
-                .row
-                  .col-sm-4
-                    .form-group
-                      %label.sr-only{:for => "name"} Name
-                      %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
-                  .col-sm-4
-                    .form-group
-                      %label.sr-only{:for => "email"} Name
-                      %input#email.form-control{:name => "email", :placeholder => "E-mail", :type => "text"}/
-                  .col-sm-4
-                    .form-group
-                      %select.form-control
-                        %option{:disabled => "disabled", :selected => "true"} Rating
-                        %option{:value => "1"} 1
-                        %option{:value => "2"} 2
-                        %option{:value => "3"} 3
-                        %option{:value => "4"} 4
-                        %option{:value => "5"} 5
-                  .col-sm-12
-                    .form-group
-                      %textarea.form-control{:id => "", :name => "", :placeholder => "Review", :rows => "4"}
-                  .col-sm-12
-                    %button.btn.btn-round.btn-d{:type => "submit"} Submit Review
-            / Review form end
+              = render "review_form"
           / Tab end
         / Tab panes end
     / .row
