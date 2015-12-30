@@ -28,6 +28,5 @@
 //= require gmaps
 //= require photos
 //= require static
-//= require d3
 
 

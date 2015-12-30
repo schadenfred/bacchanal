@@ -7,23 +7,24 @@
         .row
           .col-sm-12
             %h1.product-title.font-alt= @wine.vintage + " " + @wine.name
-        / = render "reviews_summary"
-        .row.mb-20
-          .col-sm-12
-            .col-sm-3
-              .price.font-alt
-                %span.amount= "$" + @wine.price
-            .col-sm-9
-              .product_meta
-                .pull-right
-                  / - @wine.composition.each do |component|
+            = render "sunburst"
+            / = render "reviews_summary"
+        / .row.mb-20
+        /   .col-sm-12
+        /     .col-sm-3
+        /       .price.font-alt
+        /         %span.amount= "$" + @wine.price
+        /     .col-sm-9
+        /       .product_meta
+        /         .pull-right
+        /           / - @wine.composition.each do |component|
 
-                  / .row
-                  %ul.list-group
-                    - @wine.composition.each do |c|
-                      %li.list-group-item 
-                        = c.values.first.to_s + "\% "
-                        = c.keys.first
+        /           / .row
+        /           %ul.list-group
+        /             - @wine.composition.each do |c|
+        /               %li.list-group-item 
+        /                 = c.values.first.to_s + "\% "
+        /                 = c.keys.first
                   
 
     .row.mt-70
