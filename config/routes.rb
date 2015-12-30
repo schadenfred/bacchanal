@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :wishlists
+  resources :wishes
   resources :curations
   resources :attachments
   require 'route_drawer'

@@ -44,11 +44,12 @@ describe WineriesController do
   #   Then  { assert_redirected_to winery_path(assigns(:winery)) }
   # end
 
-  # describe "#show" do 
+  describe "#show" do 
     
-  #   Given { get :show, id: winery }
-  #   Then  { assert_response :success }
-  # end
+    Given { get :show, id: winery }
+    Then  { assert_response :success }
+
+  end
 
   # describe "#edit" do 
     

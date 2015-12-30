@@ -1,9 +1,19 @@
-# require "test_helper"
+require "test_helper"
 
-# class WinesControllerTest < ActionController::TestCase
-#   def wine
-#     @wine ||= wines :one
-#   end
+describe WinesController do 
+
+  Given(:user) { create(:user) }
+  Given(:wine) { create(:wine) }
+
+  Given { sign_in user }
+
+  describe "#show" do 
+
+    Given { get :show, winery_id: wine.winery.id, id: wine }
+    Then  { assert_response :success }
+    And   { assert_not_nil assigns(:wish) }
+  end
+end
 
 #   def test_index
 #     get :index

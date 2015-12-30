@@ -6,22 +6,23 @@ describe Wine do
 
   specify "properties" do 
 
-    assert subject.new.respond_to? :properties
-    assert subject.new.respond_to? :vintage
     assert subject.new.respond_to? :bottled_on
+    assert subject.new.respond_to? :properties
     assert subject.new.respond_to? :released_on
+    assert subject.new.respond_to? :vintage
   end
 
   specify "associations" do 
 
     must_belong_to :winery
 
+    must_have_many :galleries
     must_have_many :photos
     must_have_many :slides
-    must_have_many :galleries
     must_have_many :reviews
-    must_have_many :wine_grape_lots
     must_have_many :vineyards
+    must_have_many :wine_grape_lots
+    must_have_many :wishes
   end
 
   specify "indexes" do 

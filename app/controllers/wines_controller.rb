@@ -2,13 +2,16 @@ class WinesController < ApplicationController
 
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
-  # layout 'wineries'
 
   def index
     @wines = Wine.all
   end
 
   def show
+
+    if current_user
+      @wish = current_user.wishes.find_by(product_id: @wine.id) || current_user.wishes.new
+    end
   end
 
   def new

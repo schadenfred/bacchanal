@@ -2,7 +2,8 @@
   .container
     .row
       .col-sm-6.mb-sm-40
-        = image_tag(@wine.default_photo.image.thumb('500x600#').url)
+        - unless @wine.default_photo.nil?
+          = image_tag(@wine.default_photo.image.thumb('500x600#').url)
       .col-sm-6
         .row
           .col-sm-12

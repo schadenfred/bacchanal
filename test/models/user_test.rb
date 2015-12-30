@@ -29,6 +29,7 @@ describe User do
     must_have_many(:positions)
     must_have_many(:photographed)
     must_have_many(:reviews)
+    must_have_many(:wishes)
 
     must_have_one(:avatar)
   end

@@ -9,10 +9,10 @@ module GalleriableConcern
   end
 
   def default_gallery
-    galleries.find_by(name: "default")
+    galleries.find_by(name: "default") || nil
   end
 
   def default_photo
-    default_gallery.slides.first.photo
+    default_gallery ? default_gallery.slides.first.photo : nil
   end
 end
