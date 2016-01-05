@@ -10,7 +10,8 @@
       .row
         .col-sm-6.col-sm-offset-3
           %h1.module-title.font-alt
-            = yield :devise_action 
+            = yield :devise_action
+            = render 'messages' 
   %section.module
     .container
       .row

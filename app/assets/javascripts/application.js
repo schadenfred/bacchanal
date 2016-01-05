@@ -28,5 +28,6 @@
 //= require gmaps
 //= require photos
 //= require static
+//= require flash
 
 

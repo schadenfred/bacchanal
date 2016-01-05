@@ -16,12 +16,14 @@
     .row
       .col-sm-12
         %ul#works-grid.works-grid.works-grid-gut.works-grid-5
-          - @winery.wines.each do |wine|
-            = link_to winery_wine_path(@winery.slug, wine.slug), class: "work-item vintage-#{wine.vintage} #{sortable_classes(wine.appellations.pluck(:name))} #{sortable_classes(wine.varietals)}" do
-              .work-image
-                - img = wine.default_photo.image
-                = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  
-              .work-caption.font-alt
-                %h3.work-title= wine.name
-                .work-descr
-                  = wine.vintage
+          - unless @winery.wines.empty?
+            - @winery.wines.each do |wine|
+              = link_to winery_wine_path(@winery.slug, wine.slug), class: "work-item vintage-#{wine.vintage} #{sortable_classes(wine.appellations.pluck(:name))} #{sortable_classes(wine.varietals)}" do
+                .work-image
+                  - unless wine.nil?
+                    - img = wine.try(:default_photo).try(:image)
+                    = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  
+                .work-caption.font-alt
+                  %h3.work-title= wine.name
+                  .work-descr
+                    = wine.vintage

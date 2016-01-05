@@ -1,9 +1,9 @@
 - content_for :head do 
   = render 'meta_tags'
 
-- content_for :header
+- content_for :header 
 
-- content_for :carousel do  
+- content_for :carousel do 
   %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{"data-background" => image_url(@company.try(:default_gallery).try(:photos).try(:first).try(:image).try(:url))}
     .hs-caption
       .caption-content

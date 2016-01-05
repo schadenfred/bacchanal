@@ -31,7 +31,7 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   
-  config.action_mailer.default_url_options = { host: 'exmaple.com' }
+  config.action_mailer.default_url_options = { host: 'bacchan.al' }
 
 
   # Randomize the order test cases are executed.

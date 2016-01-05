@@ -1,4 +1,4 @@
-%section.module.bg-dark-60.pt-0.pb-0{"data-background" => image_url(@company.default_gallery.try(:photos).try(:first).try(:image).try(:url) ) }
+%section.module.bg-dark-60.pt-0.pb-0{"data-background" => image_url(@company.try(:default_gallery).try(:photos).try(:first).try(:image).try(:url) ) }
   .testimonials-slider.pt-140.pb-140
     %ul.slides
       - wine_quotes.each do |quote|

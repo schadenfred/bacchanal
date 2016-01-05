@@ -4,11 +4,10 @@
     = render 'head'
   %body
     = render 'preloader'
+
     = yield :header
     = yield :carousel 
     .main
-      / = render 'messages'
-      / # = content_for?(:main) ? yield(:main) : yield
       = yield
       /   %hr.divider-d/
       /   / = render 'widgets'

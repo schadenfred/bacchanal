@@ -8,6 +8,8 @@ require 'minitest/rails/capybara'
 require 'database_cleaner'
 require 'minitest/given'
 require 'minitest/nyan_cat'
+require 'tilt/redcarpet'
+
 
 
 Dir[File.expand_path('test/support/*.rb')].each { |file| require file }
@@ -16,15 +18,11 @@ include FactoryGirl::Syntax::Methods
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
-    after { Warden.test_reset! }
+  include Warden::Test::Helpers
+  include Capybara::Email::DSL
 
-
-    # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  # fixtures :all
-
+  # Warden.test_mode!
+  # after { Warden.test_reset! }
 end
 
 class ActionDispatch::IntegrationTest
