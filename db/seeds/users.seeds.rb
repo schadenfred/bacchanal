@@ -1,7 +1,6 @@
 testers = [
   "alisa mathewson",
   "biren talati",
-  "fred schoeneman",
   "greg spanel",
   "guy pacurar",
   "kimberly miller",
@@ -25,8 +24,6 @@ testers.each do |fullname|
     password: "password",
     bio: Faker::Stoked.paragraphs(3)
   )
-  user.invite!
-  user.accept_invitation!
   user.confirm
 end
 
@@ -37,8 +34,6 @@ end
     password: "password",
     bio: Faker::Stoked.paragraphs(3)
   )
-  user.invite!
-  user.accept_invitation!
   user.confirm
 end
 

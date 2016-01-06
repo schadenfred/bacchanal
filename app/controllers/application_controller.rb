@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   
   # only allow testing by beta users, remove when ready for production
-  # before_action :authenticate_for_beta
+  before_action :authenticate_for_beta
   before_action :authenticate_user!
 
   # Prevent CSRF attacks by raising an exception.

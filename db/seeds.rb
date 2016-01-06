@@ -10,13 +10,11 @@ after :users do
     name: "default" )
 
   user = User.create!( 
-    name: "Fred Schoeneman",
-    email: "fred@bacchan.al",
+    name: "fred schoeneman",
+    email: "fred.schoeneman@bacchan.al",
     password: "password",
     bio: Faker::Stoked.paragraphs(3)
   )
-  user.invite!
-  user.accept_invitation!
   user.confirm
 
   position = bacchanal.positions.create(
@@ -64,27 +62,6 @@ after :users do
       description: "I like being a grandpa, old cars, the Oakland A's, The San Francisco Giants, The Golden State Warriors, and Grocery Outlet, in that order."
     }
   ]
-
-  # winery = Winery.create!(
-  #   name: "Fathers & Daughters Cellars",
-  #   blog_title: "Not sons and mothers",
-  #   mission: "Hand-crafted small batch wines from Ferrington Vineyard in the Anderson Valley, California.",
-  #   history: "There are five of us. I’m one of the dads and I have two daughters, Taylor and Ella. My wife, Sarah, is the daughter of our little group’s patriarch, Kurt Schoeneman. Kurt is the owner of the Anderson Valley’s storied Ferrington Vineyard, the source of our fruit. Together, we make up Fathers & Daughters Cellars.
-
-  #   It is our hope that through our wine, we can share with you some of the magic of this very special vineyard."
-  # )
-
-  # winery_users = ["sarah schoeneman", "kurt schoeneman", "guy pacurar"]
-
-  # winery_users.each do |user|
-
-  #   winery.positions.create(
-  #     user_id: User.find_by(name: user).id,
-  #     title: Faker::Stoked.job,
-  #     description: Faker::Stoked.sentence,
-  #     tenure_start:  Date.today - 3.months
-  #   )
-  # end
 
   bacchanaliens.each do |user|
 

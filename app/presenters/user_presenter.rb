@@ -15,5 +15,4 @@ class UserPresenter < BasePresenter
   def name
     @model.name ? @model.name : @model.title
   end
-
 end

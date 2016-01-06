@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :wishes
-  resources :curations
-  resources :attachments
   require 'route_drawer'
 
   draw :api, :v1
-
   draw :engines, :buttafly
 
   namespace :admin do
@@ -20,7 +16,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
   
-  devise_for :users
+  devise_for :users, controllers: { invitations: "invitations"}
 
   get '/about',     to: "static#about"
   get '/contact',   to: "static#contact"
@@ -72,6 +68,11 @@ Rails.application.routes.draw do
     resources :wines
     resources :wineries
   end
-    
+  
+  resources :wishes
+  resources :curations
+  resources :attachments
+
+
   root 'static#home'
 end

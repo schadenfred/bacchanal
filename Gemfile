@@ -43,6 +43,9 @@ gem 'redcarpet'
 gem 'devise'
 gem 'devise_invitable'
 
+# cron jobs
+gem 'whenever', :require => false
+
 # omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-gplus'
@@ -72,7 +75,7 @@ gem 'kaminari'
 # tags across different models
 gem 'acts-as-taggable-on'
 
-# Configuration
+# server configuration
 gem 'figaro'
 
 # image uploads
