@@ -4,7 +4,7 @@ feature "Reset Password Feature Test" do
 
   let(:user) { create(:user) } 
   
-  scenario "from sign in page" do
+  scenario "unathenticated user resets from signin page" do
     visit new_user_session_path
     click_link "Forgot your password?"
     fill_in 'user_email', with: user.email
