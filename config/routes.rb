@@ -5,14 +5,6 @@ Rails.application.routes.draw do
   draw :api, :v1
   draw :engines, :buttafly
 
-  namespace :admin do
-    DashboardManifest::DASHBOARDS.each do |dashboard_resource|
-      resources dashboard_resource
-    end
-
-    root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
-  end
-
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
   
@@ -72,7 +64,6 @@ Rails.application.routes.draw do
   resources :wishes
   resources :curations
   resources :attachments
-
 
   root 'static#home'
 end
