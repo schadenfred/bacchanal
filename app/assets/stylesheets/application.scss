@@ -1,3 +1,5 @@
+@import "jquery-ui/autocomplete";
+@import "jquery-ui/datepicker";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "dropzone/dropzone";
@@ -6,7 +8,6 @@
 @import "font-awesome";
 @import "fonts";
 
-@import "et-line-font";
 @import "magnific-popup";
 @import "flexslider";
 @import "slider";

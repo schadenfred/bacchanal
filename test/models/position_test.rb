@@ -22,4 +22,20 @@ describe Position do
     must_belong_to(:org)
     must_belong_to(:user)
   end
+
+  let(:instance) { subject.new }
+  
+  specify "org_name" do 
+
+    assert instance.respond_to?(:org_name)
+  end
+
+  describe ":org_name=(name)" do 
+
+    Given(:position) { Position.new }
+
+    Then { assert_difference("Org.count") { 
+      position.org_name=("Gallo Wines")
+    }}
+  end
 end

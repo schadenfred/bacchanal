@@ -1,16 +1,14 @@
 class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
 
-  # GET /orgs
-  def index
-    @orgs = Org.all
+  def index 
+    @orgs = Org.pluck(:name)
+    render json: @orgs, root: false 
   end
 
-  # GET /orgs/1
   def show
   end
 
-  # GET /orgs/new
   def new
     @org = Org.new
   end

@@ -3,7 +3,7 @@
     %h4.panel-title.font-alt
       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#positions"}
         Your positions
-  #positions.panel-collapse.collapse
+  #positions.panel-collapse.collapse.in
     .panel-body
       %table.table.table-condensed
         %thead
@@ -21,3 +21,16 @@
               %td= truncate(position.description)
               %td= time_ago_in_words(position.tenure_start)
               %td= position.tenure_end ? time_ago_in_words(position.tenure_end) : "current"
+      = form_for :position do |f|
+        .col-sm-12
+          / = f.error_notification
+        .col-sm-12
+          .col-sm-3
+            / = f.input :title
+          .col-sm-3
+            = f.text_field :org
+          .col-sm-3
+            #searchresults
+            / = f.input :org, collection: @continents, as: :grouped_select, group_method: :countries
+
+
