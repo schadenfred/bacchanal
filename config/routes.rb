@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     resources :wineries
   end
   
+  resources :positions
   resources :wishes
   resources :curations
   resources :attachments

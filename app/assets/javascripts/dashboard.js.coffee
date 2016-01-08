@@ -1,5 +1,4 @@
 jQuery ->
 
-  $('#position_org').autocomplete
-    autofocus: off
-    source: "/orgs.json"
+  $('#position_org_name').autocomplete
+    source: $('#position_org_name').data('autocomplete-source')
