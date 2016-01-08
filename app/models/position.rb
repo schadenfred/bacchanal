@@ -2,6 +2,7 @@ class Position < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :org
+  belongs_to :positionable, polymorphic: true
 
   validates :org, :user, presence: true
 

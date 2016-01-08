@@ -9,11 +9,18 @@ describe Position do
     specify "columns & types" do 
 
       must_have_column(:user_id, :integer)
-      must_have_column(:org_id, :integer)
       must_have_column(:title)
+      must_have_column(:positionable_id, :integer)
+      must_have_column(:positionable_type)
       must_have_column(:description)
       must_have_column(:tenure_start, :date)
       must_have_column(:tenure_end, :date)
+    end
+
+    specify "indexes" do 
+
+      must_have_index :title
+      must_have_index [:positionable_id, :positionable_type]
     end
   end
 
@@ -25,17 +32,17 @@ describe Position do
 
   let(:instance) { subject.new }
   
-  specify "org_name" do 
+  # specify "org_name" do 
 
-    assert instance.respond_to?(:org_name)
-  end
+  #   assert instance.respond_to?(:org_name)
+  # end
 
-  describe ":org_name=(name)" do 
+  # describe ":org_name=(name)" do 
 
-    Given(:position) { Position.new }
+  #   Given(:position) { Position.new }
 
-    Then { assert_difference("Org.count") { 
-      position.org_name=("Gallo Wines")
-    }}
-  end
+  #   # Then { assert_difference("Org.count") { 
+  #   #   position.org_name=("Gallo Wines")
+  #   # }}
+  # end
 end

@@ -2,8 +2,9 @@ class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
 
   def index 
-    @orgs = Org.pluck(:name)
-    render json: @orgs, root: false 
+    render json: Org.terms_for(params[:term])
+    # @orgs = Org.all
+    # render json: @orgs.map(&:name), root: false
   end
 
   def show

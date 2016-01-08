@@ -4,6 +4,8 @@ class Org < ActiveRecord::Base
   include CommentableConcern
   include GalleriableConcern
   include IdentifiableConcern
+  include PositionableConcern
+
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -13,9 +15,8 @@ class Org < ActiveRecord::Base
 
   has_many :articles
   has_many :categories, through: :articles
-  has_many :positions
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   def self.types
     %w(Producer)
@@ -27,5 +28,10 @@ class Org < ActiveRecord::Base
 
   def gallery(name)
     galleries.find_by(name: name)
+  end
+
+  def self.terms_for(prefix)
+    suggestions = where("term like ?", "#{prefix}_%")
+    suggestions.order("popularity desc").limit(10).pluck(:term)
   end
 end

@@ -17,17 +17,19 @@
           - presenter.positions.each do |position|
             %tr
               %td= position.title
-              %td= position.org.name
+              %td= position.try(:positionable).try(:name)
               %td= truncate(position.description)
               %td= time_ago_in_words(position.tenure_start)
               %td= position.tenure_end ? time_ago_in_words(position.tenure_end) : "current"
       = form_for(:position, url: positions_path, method: :post) do |f|
+
         .col-sm-6
           .form-group
+            = f.hidden_field :user_id, value: current_user.id
             = f.text_field :title, placeholder: "Job or position title", class: "form-control"
         .col-sm-6
           .form-group
-            = f.text_field :org_name, placeholder: "Organization name", data: {autocomplete_source: Org.order(:name).map(&:name)}, class: "form-control"
+            = f.text_field :positionable_name, placeholder: "Winery, vineyard, or wine name", data: { autocomplete_source: orgs_path}, class: "form-control"
         .col-sm-12
           .form-group
             = f.text_area :description, placeholder: "description", class: "form-control"
