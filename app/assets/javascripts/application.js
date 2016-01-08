@@ -1,6 +1,6 @@
 // gems
 //= require jquery
-//= require jquery-ui/autocomplete
+//= require rails-jquery-tokeninput
 //= require jquery_ujs
 //= require bootstrap
 //= require dropzone

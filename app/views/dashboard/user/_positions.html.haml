@@ -29,7 +29,8 @@
             = f.text_field :title, placeholder: "Job or position title", class: "form-control"
         .col-sm-6
           .form-group
-            = f.text_field :positionable_name, placeholder: "Winery, vineyard, or wine name", data: { autocomplete_source: orgs_path}, class: "form-control"
+            = f.text_field :positionable_tokens, class: "form-control" 
+            / = f.text_field :names, 'data-tokeninput' => { collection: names }.to_json, class: "form-control"
         .col-sm-12
           .form-group
             = f.text_area :description, placeholder: "description", class: "form-control"
@@ -37,37 +38,5 @@
           .form-group
             = f.submit "create a new position", class: "btn btn-success btn-block" 
 
-
-          / %button.btn.btn-success.btn-round{:type => "button"}
-          /   %i.fa.fa-paper-plane-o
-          /     Submit  
-      / = form_for(@product) do |f|
-      /   .field
-      /     = f.label :name
-      /     %br/
-      /     = f.text_field :name
-      /   .field
-      /     = f.label :price
-      /     %br/
-      /     = f.text_field :price
-      /   .field
-      /     = f.label :category_id
-      /     %br/
-      /     = f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true
-      /   .actions
-      /     = f.submit
-
-
-      / = form_for :position do |f|
-      /   .col-sm-12
-      /     / = f.error_notification
-      /   .col-sm-12
-      /     .col-sm-3
-      /       / = f.input :title
-      /     .col-sm-3
-      /       = f.text_field :org
-      /     .col-sm-3
-      /       #searchresults
-      /       / = f.input :org, collection: @continents, as: :grouped_select, group_method: :countries
 
 
