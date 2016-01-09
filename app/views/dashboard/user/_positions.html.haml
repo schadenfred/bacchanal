@@ -30,12 +30,12 @@
             = f.hidden_field :positionable_type, value: "Org"
             = f.text_field :title, placeholder: "Job or position title", class: "form-control"
           .form-group
-            = f.label :tenure_begin
-            = f.text_field :tenure_start, class: "form-control"
-        .col-sm-6
-          .form-group
             = f.label :positionable_tokens, "Organization"
             = f.text_field :positionable_tokens, class: "form-control"
+        .col-sm-6
+          .form-group
+            = f.label :tenure_begin
+            = f.text_field :tenure_start, class: "form-control"
           .form-group
             = f.label :tenure_end
             = f.text_field :tenure_end, class: "form-control" 
