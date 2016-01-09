@@ -12,7 +12,7 @@
             %th you wrote
             %th commented at
         %tbody
-          - presenter.comments.each do |comment|
+          - presenter.comments.each unless presenter.comments.empty? do |comment|
             %tr
               %td= link_to truncate(comment.commentable.title, length: 35), commentable_path(comment)
               %td= link_to truncate(comment.content, length: 50), commentable_path(comment)

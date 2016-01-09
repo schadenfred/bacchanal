@@ -1,6 +1,8 @@
 // gems
 //= require jquery
 //= require rails-jquery-tokeninput
+//= require jquery-ui/datepicker
+
 //= require jquery_ujs
 //= require bootstrap
 //= require dropzone

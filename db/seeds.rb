@@ -17,13 +17,6 @@ after :users do
   )
   user.confirm
 
-  position = bacchanal.positions.create(
-    user: user,
-    title: "Proprietor",
-    description: "Builder. Skier. Writer. Wineslayer.",
-    tenure_start: Date.today - 3.months
-  )
-
   typewriter_pics = Dir[File.expand_path('test/samples/bacchanal/*.jpg')]
 
   typewriter_pics.each do |pic|

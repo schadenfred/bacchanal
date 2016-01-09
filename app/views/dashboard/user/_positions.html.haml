@@ -19,18 +19,26 @@
               %td= position.title
               %td= position.try(:positionable).try(:name)
               %td= truncate(position.description)
-              %td= time_ago_in_words(position.tenure_start)
-              %td= position.tenure_end ? time_ago_in_words(position.tenure_end) : "current"
+              / %td= time_ago_in_words(position.try(:tenure_start))
+              / %td= position.tenure_end ? time_ago_in_words(position.tenure_end) : "current"
       = form_for(:position, url: positions_path, method: :post) do |f|
 
         .col-sm-6
           .form-group
+            = f.label :title
             = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :positionable_type, value: "Org"
             = f.text_field :title, placeholder: "Job or position title", class: "form-control"
+          .form-group
+            = f.label :tenure_begin
+            = f.text_field :tenure_start, class: "form-control"
         .col-sm-6
           .form-group
-            = f.text_field :positionable_tokens, class: "form-control" 
-            / = f.text_field :names, 'data-tokeninput' => { collection: names }.to_json, class: "form-control"
+            = f.label :positionable_tokens, "Organization"
+            = f.text_field :positionable_tokens
+          .form-group
+            = f.label :tenure_end
+            = f.text_field :tenure_end, class: "form-control" 
         .col-sm-12
           .form-group
             = f.text_area :description, placeholder: "description", class: "form-control"

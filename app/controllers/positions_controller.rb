@@ -1,12 +1,18 @@
 class PositionsController < ApplicationController
 
+  before_action :set_user, only: [:create]
+
   def create
 
-    @position = Position.create!(position_params)
-    byebug
+    positionable_tokens = params[:position][:positionable_tokens].split(",")
+
+    positionable_tokens.each do |token|      
+      @user.positions.create(position_params.merge(positionable_id: token))
+    end
+
     respond_to do |format|
       
-      format.html { redirect_to root_url }
+      format.html { redirect_to :back, notice: "positiions updated" }
       format.js
     end
 
@@ -19,7 +25,10 @@ class PositionsController < ApplicationController
     end
     
     def position_params
-      params.require(:position).permit! #escription, :org_id, :tenure_start, :tenure_end)
+      params.require(:position).permit(:title, :description, :user_id, :positionable_id, :positionable_type)
     end
 
+    def set_user
+      @user = User.find(position_params[:user_id])
+    end
 end

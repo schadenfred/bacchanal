@@ -4,7 +4,7 @@ class Position < ActiveRecord::Base
   belongs_to :org
   belongs_to :positionable, polymorphic: true
 
-  validates :org, :user, presence: true
+  validates :positionable, :user, presence: true
 
   def org_name
     org.try(:name)
