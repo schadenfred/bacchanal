@@ -15,7 +15,7 @@
 
           
   %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
-    - @wineries.try(:each) unless @wineries.empty? do |winery|
+    - @wineries.each do |winery|
       %li.work-item{ class: appellation_classes(winery.appellations.pluck(:name))}
         = link_to winery do
           - photo = winery.default_gallery.try(:slides).first.try(:photo) 
