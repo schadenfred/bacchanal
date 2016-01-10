@@ -1,5 +1,5 @@
 <%= meta_tags( 
-  title: @winery.name, 
+  title: @winery.try(:name), 
   author: @winery.try(:owner), 
   description: @winery.try(:description), 
   keywords: @winery.try(:keywords), 
