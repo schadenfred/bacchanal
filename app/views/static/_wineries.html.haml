@@ -18,11 +18,11 @@
     - @wineries.each do |winery|
       %li.work-item{ class: appellation_classes(winery.appellations.pluck(:name))}
         = link_to winery do
-          - photo = winery.default_gallery.try(:slides).first.try(:photo) 
+          - photo = winery.default_gallery.try(:slides).try(:first).try(:photo) 
           = image_tag(photo.image.thumb('900x600#').url) if photo.try(:image_stored?)
           .work-caption.font-alt
             %h3.work-descr
               = winery.name
             .work-descr
-              = winery.default_gallery.slides.first.try(:call_to_action)
+              = winery.default_gallery.try(:slides).try(:first).try(:call_to_action)
 

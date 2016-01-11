@@ -1,0 +1,19 @@
+- present @user do |presenter| 
+  .panel-heading
+    %h4.panel-title.font-alt
+      %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#comments"}
+        Your comments
+  #comments.panel-collapse.collapse
+    .panel-body
+      %table.table.table-condensed
+        %thead
+          %tr
+            %th subject
+            %th you wrote
+            %th commented at
+        %tbody
+          - presenter.comments.each unless presenter.comments.empty? do |comment|
+            %tr
+              %td= link_to truncate(comment.commentable.title, length: 35), commentable_path(comment)
+              %td= link_to truncate(comment.content, length: 50), commentable_path(comment)
+              %td= link_to time_tag(comment.created_at), commentable_path(comment)

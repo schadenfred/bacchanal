@@ -21,19 +21,19 @@
     .container
       .row
         .col-sm-8.col-sm-offset-2
-          %h4.font-alt.mb-0 Dashy
+          %h4.font-alt.mb-0 Dashboard
 
           %hr.divider-w.mt-10.mb-20/
           %div{:role => "tabpanel"}
+            - panels = %w[user admin orgs settings]
             %ul.nav.nav-tabs.font-alt{:role => "tablist"}
-              - Dir["app/views/dashboard/*/"].each_with_index do |directory, i|
-                %li{ class: i == 2 ? "active" : "" }
-                  %a{"data-toggle" => "tab", :href => "##{directory.split("/").last}"}
+              - panels.each do |panel|
+                %li{ class: panel == "user" ? "active" : "" }
+                  %a{"data-toggle" => "tab", :href => "##{panel}"}
                     %span.icon-basket
-                    = directory.split("/").last
+                    = panel
             .tab-content
-              - Dir["app/views/dashboard/*/"].each_with_index do |directory, i|
-                - dashboard = directory.split("/").last
-                .tab-pane.fade{ id: dashboard, class: i == 2 ? "in active" : ""}
-                  = render "#{dashboard}" 
+              - panels.each do |panel|
+                .tab-pane.fade{ id: panel, class: panel == "user" ? "in active" : ""}
+                  = render "#{panel}" 
 
