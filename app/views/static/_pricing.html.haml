@@ -1,21 +1,21 @@
 %section#pricing.module
   .container
-    / .row
-    /   .col-sm-4.col-sm-offset-4
-    /     %h2.module-title.font-alt Pricing
-    /     .module-subtitle.font-serif
-    /       :markdown 
-    /         All prices are per year, and they will never be cheaper. Any of these plans is a steal, thieves.
+    .row
+      .col-sm-4.col-sm-offset-4
+        %h2.module-title.font-alt Monthly Pricing
+        .module-subtitle.font-serif
+          :markdown 
+            Per month. They will never be cheaper. 
 
 
           
           
     .row.multi-columns-row
       - pricing_plans.each_with_index do |plan, index|
-        .col-sm-6.col-md-3.col-lg-3
+        .col-sm-6.col-md-4.col-lg-4
           .price-table.font-alt{ class: plan[:highlighted] ? "best" : "" }
 
-            %h4
+            %h3
               = plan[:name]
             - if plan[:highlighted] == true 
               %p.small Best Choice
@@ -24,27 +24,51 @@
             %p.price
               %span> $
               = plan[:price]
+            %br
+            %p.small includes
+            %br
             %ul.price-details
-              - features_list.each do |feature|
-                %li{"data-toggle" => "tooltip", :href => "#", :title => feature[:description]}
-                  - if feature[:plan].nil?
-                    = feature[:name]
-                  - elsif feature[:plan] == "unlimited"
-                    = "unlimited " + feature[:name].pluralize
-                  - elsif feature[:plan][index] == true
-                    = feature[:name]
-                  - elsif feature[:plan][index].is_a? Integer
-                    = pluralize(feature[:plan][index], feature[:name])
+              
+              - priceable_features.each do |f|
+                %li{"data-toggle" => "tooltip", :href => "#", :title => feature(f)[:description]}
+                  - if feature(f)[:plan].nil?
+                    = feature(f)[:name]
+                  - elsif feature(f)[:plan] == "unlimited"
+                    = "unlimited " + feature(f)[:name].pluralize
+                  - elsif feature(f)[:plan][index] == true
+                    = feature(f)[:name]
+                  - elsif feature(f)[:plan][index].is_a? Integer
+                    = pluralize(feature(f)[:plan][index], feature(f)[:name])
                   - else
                     %span
-                      - if feature[:singular]
-                        = feature[:name]
+                      - if feature(f)[:singular]
+                        = feature(f)[:name]
                       - else
-                        = feature[:name].pluralize
+                        = feature(f)[:name].pluralize
+
+            /   - open_bar_features.each do |f|
+            /     %li{"data-toggle" => "tooltip", :href => "#", :title => feature(f)[:description]}
+            /       - if feature(f)[:plan].nil?
+            /         = feature(f)[:name]
+            /       - elsif feature(f)[:plan] == "unlimited"
+            /         = feature(f)[:name].pluralize
+            /       - elsif feature(f)[:plan][index] == true
+            /         = feature(f)[:name]
+            /       - elsif feature(f)[:plan][index].is_a? Integer
+            /         = pluralize(feature(f)[:plan][index], feature(f)[:name])
+            /       - else
+            /         %span
+            /           - if feature(f)[:singular]
+            /             = feature(f)[:name]
+            /           - else
+            /             = feature(f)[:name].pluralize
+
+            / %hr
+
             %a.btn.btn-d.btn-round{:href => "#"} Sign Up
 
     .row.mt-40
       .col-sm-6.col-sm-offset-3.align-center
         .module-subtitle.font-serif
           :markdown
-            Most of our features and pages are also available for free, though some may be supported with tasteful advertisements. If you stick with them, you'll be just fine. But if you choose a paid plan, you're encouraging ice cold new features and helping people think a bit more about where their food comes from.  
+            Not seeing the value of our plans or just can't afford one? Most of our features and pages are also available for free, though some may be supported with tasteful advertisements. We really do want to help you differentiate and succeed and make money, and this site should help you do that no matter what. But if you do choose one of our paid plans, you'll be encouraging ice cold new features and helping people to think about where their food comes from and why it all matters.   

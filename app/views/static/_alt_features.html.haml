@@ -1,85 +1,69 @@
-/ Alt features start
-%section#alt-features.module
+%section.module.bg-dark.bg-dark-60{"data-background" => image_path("abstract-4.jpg")}
   .container
     .row
       .col-sm-6.col-sm-offset-3
-        %h2.module-title.font-alt Features
-        .module-subtitle.font-serif
-          :markdown
-            Bacchan.al is the best thing that has ever happened to you. Observe:
-        / %h2.module-title.font-alt Features
-        / .module-subtitle.font-serif
-        /   A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+        %h1.module-title.font-alt Features
+        .module-subtitle.font-serif.mb-0
+          Our mission here at Bacchan.al is to help small farmers, wine, and food producers differentiate. We do this by presenting your data in a clean way. These are probably the most amazing features you've ever seen: 
     / .row
+/ Header section end
+/ Alt features start
+%section.module
+  .container
     .row
       .col-sm-6.col-md-3.col-lg-3
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-strategy
-          %h3.alt-features-title.font-alt Branding
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-tools-2
-          %h3.alt-features-title.font-alt Development
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-target
-          %h3.alt-features-title.font-alt Marketing
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-tools
-          %h3.alt-features-title.font-alt Design
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-      / .col
-      / Alt features image start
-      .col-md-6.col-lg-6.hidden-xs.hidden-sm
-        / .alt-services-image.align-center
-        / = image_tag "promo.png"
-        / .work-caption.font-alt
-        %h3.work-title Breggovian Wines
-        The Mentos of fratis
+        - ["awards", "certifications"].each do |feature_name|
+          .alt-features-item
+            .alt-features-icon
+              %span
+                = fa_icon feature_name["icon"]
+            %h3.features-title.font-alt
+            %h3.alt-features-title.font-alt
+              - if feature(feature_name)[:singular]
+                = feature_name
+              - else
+                = feature_name.pluralize
 
-      / Alt features image end
-      .col-sm-6.col-md-3.col-lg-3
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-camera
-          %h3.alt-features-title.font-alt Photography
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-mobile
-          %h3.alt-features-title.font-alt Mobile
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-linegraph
-          %h3.alt-features-title.font-alt Music
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-        / Alt features item start
-        .alt-features-item
-          .alt-features-icon
-            %span.icon-basket
-          %h3.alt-features-title.font-alt Shop
-          A wonderful serenity has taken possession of my entire soul like these sweet mornings.
-        / Alt features item end
-      / .col
-    / .row
-/ Alt features end
+            = feature(feature_name)[:description]
+
+
+      .col-md-6.col-lg-6.hidden-xs.hidden-sm
+        .alt-services-image
+          - if @org
+            = image_tag(@org.default_gallery.try(:photos).try(:third).try(:image).try(:thumb, "517x704#").try(:url))
+          / %img{:alt => "", :src => image_path("/site/typewriter-3.jpg")}
+          / "data-background" => image_path("abstract-4.jpg")}
+
+
+        / / Alt features item start
+        /     %span.icon-strategy
+        /   %h3.alt-features-title.font-alt Branding
+        /   A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+        / / Alt features item end
+        / / Alt features item start
+/         .alt-features-item
+/           .alt-features-icon
+/             %span.icon-tools-2
+/           %h3.alt-features-title.font-alt Development
+/           A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+/         / Alt features item end
+/         / Alt features item start
+/         .alt-features-item
+/           .alt-features-icon
+/             %span.icon-target
+/           %h3.alt-features-title.font-alt Marketing
+/           A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+/         / Alt features item end
+/         / Alt features item start
+/         .alt-features-item
+/           .alt-features-icon
+/             %span.icon-tools
+/           %h3.alt-features-title.font-alt Design
+/           A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+/         / Alt features item end
+/       / .col
+/       / Alt features image start
+/       / Alt features image end
+/       .col-sm-6.col-md-3.col-lg-3
+/         / Alt features item start
+/         .alt-features-item

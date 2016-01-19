@@ -67,33 +67,46 @@ module StaticHelper
 
     plans = [
       {
-        name: "dirt",
-        price: "9",
-        tagline: 0,
-        highlighted: false,
-        features: features_list
+        name: "Bacchanalien",
+        price: "20",
       }, {
-        name: "grange",
-        price: "19"
+        name: "maenad",
+        price: "50"
       }, {
-      name: "patron",
-        price: "29",
+      name: "satyr",
+        price: "130",
         tagline: "best value",
         highlighted: true
-      }, {
-        name: "doyen",
-        price: "39",
-        tagline: 0,
-        highlighted: false
       }
     ]
   end 
 
-  def features_list
+  def priceable_features
+    ["winery page", "vineyard page", "wine page", "curated reviews", "journal", "premium support"]
+  end
+
+  def open_bar_features
+    ["photos & photo galleries", "wine reviews", "curated reviews", "wine page", "certifications", "awards"]
+  end
+
+
+  def features
     [
       {
+        name: "awards",
+        plan: "unlimited",
+        icon: "trophy",
+        description: "Did your malbec win a silver medal? Brag it up!",
+        proposed: true
+      }, {
+        name: "curated reviews",
+        plan: "unlimited",
+        icon: "heart",
+        description: "Allows you to present the reviews of your wine you feel are most helpfu, instead of our default, which is to show the most reent ones."
+      
+      }, {
         name: "winery page",
-        plan: [1,1,1,1],
+        plan: [1,1,1],
         icon: "heart",
         description: "Sole control of your winery's page. Tell its history, and where it's headed. Requires verification"
       }, {
@@ -103,7 +116,7 @@ module StaticHelper
         description: "Sole control of each of your winery's wine pages. Tell wine lovers how a wine is different, when and how it was made, and which winegrape varietals from which vineyard blocks you sourced their fruit." 
       }, {
 
-        name: "photos & galleries",
+        name: "photos & photo galleries",
         plan: "unlimited",
         icon: "photo",
         description: "upload photos and use them on your winery, wine, and vineyard pages."      
@@ -114,14 +127,6 @@ module StaticHelper
         icon: "graduation-cap",
         description: "Have your wine, vineyard, or winery certified by different organizations -- and make sure people can see your wine awards.",
         proposed: true
-      }, {
-
-        name: "awards",
-        plan: "unlimited",
-        icon: "trophy",
-        description: "Did your malbec win a silver medal? Brag it up!",
-        proposed: true
-      
       }, {
         name: "wine reviews",
         plan: "unlimited",
@@ -141,8 +146,9 @@ module StaticHelper
         description: "A page for each vineyard, with a map delineating blocks, detailed information on climate, soil, how you farm, the varietal, rootstock, clone and irrigation, as well as verticals showing all the wines from different wineries sourced from each block. List your vineyard, tell its history, teach people about your process and who you are.", 
  
       }, {
-        name: "blog",
-        plan: [1,1,1,1],
+        name: "journal",
+        plan: [false, true, true],
+        singular: true,
         icon: "pencil-square-o",
         description: "Let people know what's going on with your winery, events, sales, new vintages, winery cat photos, whatever -- and then push each article to all social media without siloing its content on just one."
       
@@ -165,7 +171,7 @@ module StaticHelper
         
         name: "premium support",
         singular: true,
-        # plan: [],
+        plan: [false, false, true],
         icon: "phone",
         description: "Any user can email us with any questions, suggestions, or feature requests at any time. As a premium support customer, though, we will actually care."
       }, {
@@ -177,7 +183,7 @@ module StaticHelper
       }, {
         name: "SEO",
         singular: true,
-        plan: [false, false, false, true],
+        plan: [false, false, true],
         icon: "send-o",
         description: "We have some sweet SEO tricks that lots of developers don't know.",
         proposed: true
@@ -188,15 +194,19 @@ module StaticHelper
         icon: "pie-chart",
         description: "Encourage wine lovers to think about wine with your custom flavor wheel.",
         proposed: true
-      # }, {
-      #   mame: "store",
-      #   plan: 3,
-      #   icon: "send-o",
-      #   description: "Sell your wines. Direct. Except better, because your customers can combine shipments from you with other wineries.",
-      #   proposed: true
+      }, {
+        mame: "store",
+        plan: 3,
+        icon: "send-o",
+        description: "Sell your wines. Direct. Except better, because your customers can combine shipments from you with other wineries.",
+        proposed: true
       } 
     ]
-    # }.with_indifferent_access.sort_by { |feature| feature[1]["plan"] }
+  end
+
+  def feature(feature_name)
+    features.detect { |f| f[:name] == feature_name }
+
   end
 end
 

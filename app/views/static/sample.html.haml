@@ -428,327 +428,173 @@
     / Navigation end
     / Wrapper start
     .main
-      %section.module
-        .container
-          .row
-            / Product images start
-            .col-sm-6.mb-sm-40
-              %a.gallery{:href => "assets/images/shop/product-7.jpg"}
-                %img{:alt => "", :src => "assets/images/shop/product-7.jpg"}/
-              %ul.product-gallery
-                %li
-                  %a.gallery{:href => "assets/images/shop/product-8.jpg"}
-                    %img{:alt => "", :src => "assets/images/shop/product-8.jpg"}/
-                %li
-                  %a.gallery{:href => "assets/images/shop/product-9.jpg"}
-                    %img{:alt => "", :src => "assets/images/shop/product-9.jpg"}/
-                %li
-                  %a.gallery{:href => "assets/images/shop/product-10.jpg"}
-                    %img{:alt => "", :src => "assets/images/shop/product-10.jpg"}/
-            / Product images end
-            / Product detail start
-            .col-sm-6
-              .row
-                .col-sm-12
-                  %h1.product-title.font-alt Accessories Pack
-              .row.mb-20
-                .col-sm-12
-                  %span
-                    %i.fa.fa-star.star
-                  %span
-                    %i.fa.fa-star.star
-                  %span
-                    %i.fa.fa-star.star
-                  %span
-                    %i.fa.fa-star.star
-                  %span
-                    %i.fa.fa-star.star-off
-                  / Open tab and scroll to tab
-                  %a.open-tab.section-scroll{:href => "#reviews"} - 2 customer reviews
-              .row.mb-20
-                .col-sm-12
-                  .price.font-alt
-                    %span.amount £20.00
-              .row.mb-20
-                .col-sm-12
-                  .description
-                    %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
-              .row.mb-20
-                .col-sm-4.mb-sm-20
-                  %input.form-control.input-lg{:max => "50", :min => "1", :name => "", :required => "required", :type => "number", :value => "1"}/
-                .col-sm-8
-                  %a.btn.btn-lg.btn-block.btn-round.btn-b Add To Cart
-              .row.mb-20
-                .col-sm-12
-                  .product_meta
-                    Categories:
-                    = succeed "," do
-                      %a{:href => "#"} Man
-                    = succeed "," do
-                      %a{:href => "#"} Clothing
-                    = succeed "." do
-                      %a{:href => "#", :rel => "tag"} T-shirts
-            / Product detail end
-          / .row
-          .row.mt-70
-            .col-sm-12
-              / Nav tabs start
-              %ul.nav.nav-tabs.font-alt{:role => "tablist"}
-                %li.active
-                  %a{"data-toggle" => "tab", :href => "#description"} Description
-                %li
-                  %a{"data-toggle" => "tab", :href => "#data-sheet"} Data sheet
-                %li
-                  %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (2)
-              / Nav tabs end
-              / Tab panes start
-              .tab-content
-                / Tab start
-                #description.tab-pane.active
-                  %p Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.
-                  %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
-                / Tab end
-                / Tab start
-                #data-sheet.tab-pane
-                  %table.table.table-striped.ds-table
-                    %tbody
-                      %tr
-                        %th Title
-                        %th Info
-                      %tr
-                        %td Compositions
-                        %td Jeans
-                      %tr
-                        %td Size
-                        %td 44, 46, 48
-                      %tr
-                        %td Color
-                        %td Black
-                      %tr
-                        %td Brand
-                        %td Somebrand
-                / Tab end
-                / Tab start
-                #reviews.tab-pane
-                  / Reviews start
-                  .comments.reviews
-                    / Review 1 start
-                    .comment.clearfix
-                      .comment-avatar
-                        %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg"}/
-                      .comment-content.clearfix
-                        .comment-author.font-alt
-                          %a{:href => "#"} John Doe
-                        .comment-body
-                          %p The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                        .comment-meta.font-alt
-                          Today, 14:55 -
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star-off
-                    / Review 1 end
-                    / Review 2 start
-                    .comment.clearfix
-                      .comment-avatar
-                        %img{:alt => "avatar", :src => "https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg"}/
-                      .comment-content.clearfix
-                        .comment-author.font-alt
-                          %a{:href => "#"} Mark Stone
-                        .comment-body
-                          %p Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.
-                        .comment-meta.font-alt
-                          Today, 14:55 -
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star
-                          %span
-                            %i.fa.fa-star.star-off
-                          %span
-                            %i.fa.fa-star.star-off
-                    / Review 2 end
-                  / Reviews end
-                  / Review form start
-                  .comment-form.mt-30
-                    %h4.comment-form-title.font-alt Add review
-                    %form{:method => "post"}
-                      .row
-                        .col-sm-4
-                          .form-group
-                            %label.sr-only{:for => "name"} Name
-                            %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
-                        .col-sm-4
-                          .form-group
-                            %label.sr-only{:for => "email"} Name
-                            %input#email.form-control{:name => "email", :placeholder => "E-mail", :type => "text"}/
-                        .col-sm-4
-                          .form-group
-                            %select.form-control
-                              %option{:disabled => "disabled", :selected => "true"} Rating
-                              %option{:value => "1"} 1
-                              %option{:value => "2"} 2
-                              %option{:value => "3"} 3
-                              %option{:value => "4"} 4
-                              %option{:value => "5"} 5
-                        .col-sm-12
-                          .form-group
-                            %textarea.form-control{:id => "", :name => "", :placeholder => "Review", :rows => "4"}
-                        .col-sm-12
-                          %button.btn.btn-round.btn-d{:type => "submit"} Submit Review
-                  / Review form end
-                / Tab end
-              / Tab panes end
-          / .row
-      / Divider
-      %hr.divider-w/
-      / Divider
-      / Related Products start
-      %section.module-small
+      / Header section start
+      %section.module.bg-dark.bg-dark-60{"data-background" => "assets/images/section-4.jpg"}
         .container
           .row
             .col-sm-6.col-sm-offset-3
-              %h2.module-title.font-alt Related Products
+              %h1.module-title.font-alt Services
+              .module-subtitle.font-serif.mb-0
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
           / .row
+      / Header section end
+      / Alt features start
+      %section.module
+        .container
+          .row
+            .col-sm-6.col-md-3.col-lg-3
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-strategy
+                %h3.alt-features-title.font-alt Branding
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-tools-2
+                %h3.alt-features-title.font-alt Development
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-target
+                %h3.alt-features-title.font-alt Marketing
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-tools
+                %h3.alt-features-title.font-alt Design
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+            / .col
+            / Alt features image start
+            .col-md-6.col-lg-6.hidden-xs.hidden-sm
+              .alt-services-image
+                %img{:alt => "", :src => "assets/images/promo.png"}/
+            / Alt features image end
+            .col-sm-6.col-md-3.col-lg-3
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-camera
+                %h3.alt-features-title.font-alt Photography
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-mobile
+                %h3.alt-features-title.font-alt Mobile
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-linegraph
+                %h3.alt-features-title.font-alt Music
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+              / Alt features item start
+              .alt-features-item
+                .alt-features-icon
+                  %span.icon-basket
+                %h3.alt-features-title.font-alt Shop
+                A wonderful serenity has taken possession of my entire soul like these sweet mornings.
+              / Alt features item end
+            / .col
+          / .row
+      / Alt features end
+      / Callout start
+      %section.module-small.bg-dark
+        .container
+          .row
+            .col-sm-6.col-md-8.col-lg-6.col-lg-offset-2
+              .callout-text.font-alt
+                %h3.callout-title Want to see our works?
+                We are always open to interesting projects.
+            .col-sm-6.col-md-4.col-lg-2
+              .callout-btn-box
+                %a.btn.btn-w.btn-round{:href => "portfolio-wide-gutter-3col.html"} Lets view portfolio
+          / .row
+      / Callout end
+      / Pricing start
+      %section.module
+        .container
           .row.multi-columns-row
-            / Shop item start
             .col-sm-6.col-md-3.col-lg-3
-              .shop-item
-                .shop-item-image
-                  %img{:alt => "", :src => "assets/images/shop/product-7.jpg"}/
-                  .shop-item-detail
-                    %a.btn.btn-round.btn-b
-                      %span.icon-basket
-                      Add To Cart
-                %h4.shop-item-title.font-alt
-                  %a{:href => "#"} Accessories Pack
-                £9.00
-            / Shop item end
-            / Shop item start
+              .price-table.font-alt
+                %h4 Light
+                .borderline
+                %p.price
+                  %span> $
+                  9
+                %ul.price-details
+                  %li Free Support
+                  %li 15 Demos Included
+                  %li
+                    %span Newsletter
+                  %li
+                    %span Working Contact Form
+                  %li
+                    %span Unlimited Domains
+                %a.btn.btn-d.btn-round{:href => "#"} Sign Up
             .col-sm-6.col-md-3.col-lg-3
-              .shop-item
-                .shop-item-image
-                  %img{:alt => "", :src => "assets/images/shop/product-8.jpg"}/
-                  .shop-item-detail
-                    %a.btn.btn-round.btn-b
-                      %span.icon-basket
-                      Add To Cart
-                %h4.shop-item-title.font-alt
-                  %a{:href => "#"} Men’s Casual Pack
-                £12.00
-            / Shop item end
-            / Shop item start
+              .price-table.font-alt
+                %h4 Basic
+                .borderline
+                %p.price
+                  %span> $
+                  29
+                %ul.price-details
+                  %li Free Support
+                  %li 15 Demos Included
+                  %li Newsletter
+                  %li
+                    %span Working Contact Form
+                  %li
+                    %span Unlimited Domains
+                %a.btn.btn-d.btn-round{:href => "#"} Sign Up
             .col-sm-6.col-md-3.col-lg-3
-              .shop-item
-                .shop-item-image
-                  %img{:alt => "", :src => "assets/images/shop/product-9.jpg"}/
-                  .shop-item-detail
-                    %a.btn.btn-round.btn-b
-                      %span.icon-basket
-                      Add To Cart
-                %h4.shop-item-title.font-alt
-                  %a{:href => "#"} Men’s Garb
-                £6.00
-            / Shop item end
-            / Shop item start
+              .price-table.best.font-alt
+                %h4 Advanced
+                %p.small Best Choice
+                .borderline
+                %p.price
+                  %span> $
+                  64
+                %ul.price-details
+                  %li Free Support
+                  %li 20 Demos Included
+                  %li Newsletter
+                  %li Working Contact Form
+                  %li
+                    %span Unlimited Domains
+                %a.btn.btn-d.btn-round{:href => "#"} Sign Up
             .col-sm-6.col-md-3.col-lg-3
-              .shop-item
-                .shop-item-image
-                  %img{:alt => "", :src => "assets/images/shop/product-10.jpg"}/
-                  .shop-item-detail
-                    %a.btn.btn-round.btn-b
-                      %span.icon-basket
-                      Add To Cart
-                %h4.shop-item-title.font-alt
-                  %a{:href => "#"} Cold Garb
-                £14.00
-            / Shop item end
+              .price-table.font-alt
+                %h4 Ultimate
+                .borderline
+                %p.price
+                  %span> $
+                  119
+                %ul.price-details
+                  %li Free Support
+                  %li 15 Demos Included
+                  %li Newsletter
+                  %li Working Contact Form
+                  %li Unlimited Domains
+                %a.btn.btn-d.btn-round{:href => "#"} Sign Up
           / .row
-        / .container
-      / Related Products end
-      / Divider
-      %hr.divider-w/
-      / Divider
-      / Exclusive products start
-      %section.module
-        .container
-          .row
-            .col-sm-6.col-sm-offset-3
-              %h2.module-title.font-alt Exclusive products
+          .row.mt-40
+            .col-sm-6.col-sm-offset-3.align-center
+              %p Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.
           / .row
-          .row
-            / Owl-carousel start
-            .owl-carousel.text-center{"data-items" => "5", "data-navigation" => "false", "data-pagination" => "false"}
-              / ex-product start
-              .owl-item
-                .col-sm-12
-                  .ex-product
-                    %a{:href => "#"}
-                      %img{:alt => "", :src => "assets/images/shop/product-1.jpg"}/
-                    %h4.shop-item-title.font-alt
-                      %a{:href => "#"} Leather belt
-                    £12.00
-              / ex-product end
-              / ex-product start
-              .owl-item
-                .col-sm-12
-                  .ex-product
-                    %a{:href => "#"}
-                      %img{:alt => "", :src => "assets/images/shop/product-3.jpg"}/
-                    %h4.shop-item-title.font-alt
-                      %a{:href => "#"} Derby shoes
-                    £54.00
-              / ex-product end
-              / ex-product start
-              .owl-item
-                .col-sm-12
-                  .ex-product
-                    %a{:href => "#"}
-                      %img{:alt => "", :src => "assets/images/shop/product-2.jpg"}/
-                    %h4.shop-item-title.font-alt
-                      %a{:href => "#"} Leather belt
-                    £19.00
-              / ex-product end
-              / ex-product start
-              .owl-item
-                .col-sm-12
-                  .ex-product
-                    %a{:href => "#"}
-                      %img{:alt => "", :src => "assets/images/shop/product-4.jpg"}/
-                    %h4.shop-item-title.font-alt
-                      %a{:href => "#"} Leather belt
-                    £14.00
-              / ex-product end
-              / ex-product start
-              .owl-item
-                .col-sm-12
-                  .ex-product
-                    %a{:href => "#"}
-                      %img{:alt => "", :src => "assets/images/shop/product-5.jpg"}/
-                    %h4.shop-item-title.font-alt
-                      %a{:href => "#"} Chelsea boots
-                    £44.00
-              / ex-product end
-              / ex-product start
-              .owl-item
-                .col-sm-12
-                  .ex-product
-                    %a{:href => "#"}
-                      %img{:alt => "", :src => "assets/images/shop/product-6.jpg"}/
-                    %h4.shop-item-title.font-alt
-                      %a{:href => "#"} Leather belt
-                    £19.00
-              / ex-product end
-            / Owl-carousel end
-      / Exclusive products end
+      / Pricing end
       / Widgets start
       .module-small.bg-dark
         .container

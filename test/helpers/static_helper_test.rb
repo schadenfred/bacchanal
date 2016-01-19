@@ -14,16 +14,18 @@ describe StaticHelper do
   end
 
   it ":pricing_plans" do 
+    
     plan = pricing_plans.first
-    plan[:name].must_match /dirt/
-    plan[:price].must_equal "9"
-    feature = plan[:features].first
-    feature[:name].must_match /winery page/
+    plan[:name].must_match /alien/
+    plan[:price].must_equal "20"
   end
 
   it ":features_list" do
-    feature = features_list.first
-    feature[:name].must_match /winery page/
-    feature[:icon].must_match /heart/
+
+    features.map { |f| f[:name] }.must_include "winery page"
   end 
+
+  it ":feature(feature_name)" do
+    feature("winery page")[:name].must_equal "winery page"
+  end
 end
