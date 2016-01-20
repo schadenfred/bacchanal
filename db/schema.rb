@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108031920) do
+ActiveRecord::Schema.define(version: 20160120014334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160108031920) do
   end
 
   add_index "addresses_addressables", ["address_id"], name: "index_addresses_addressables_on_address_id", using: :btree
+  add_index "addresses_addressables", ["addressable_id", "addressable_type"], name: "addressable", using: :btree
   add_index "addresses_addressables", ["addressable_id"], name: "index_addresses_addressables_on_addressable_id", using: :btree
 
   create_table "addresses_appellables", force: :cascade do |t|
@@ -72,15 +73,15 @@ ActiveRecord::Schema.define(version: 20160108031920) do
     t.string   "title"
     t.string   "slug"
     t.integer  "author_id"
-    t.string   "bloggable_type"
-    t.integer  "bloggable_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "org_id"
     t.string   "aasm_state"
     t.datetime "published_at"
   end
 
+  add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
+  add_index "articles", ["org_id"], name: "index_articles_on_org_id", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "attachments", force: :cascade do |t|
@@ -139,6 +140,8 @@ ActiveRecord::Schema.define(version: 20160108031920) do
   end
 
   add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
 
   create_table "competitions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -154,6 +157,7 @@ ActiveRecord::Schema.define(version: 20160108031920) do
   end
 
   add_index "curations", ["curatable_id", "curatable_type"], name: "index_curations_on_curatable_id_and_curatable_type", using: :btree
+  add_index "curations", ["review_id"], name: "index_curations_on_review_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "competiton_id"
@@ -206,6 +210,8 @@ ActiveRecord::Schema.define(version: 20160108031920) do
     t.integer  "percentage"
   end
 
+  add_index "lots", ["product_id"], name: "index_lots_on_product_id", using: :btree
+
   create_table "orgs", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
@@ -232,6 +238,9 @@ ActiveRecord::Schema.define(version: 20160108031920) do
     t.integer  "photographable_id"
     t.string   "photographable_type"
   end
+
+  add_index "photos", ["photographable_id", "photographable_type"], name: "index_photos_on_photographable_id_and_photographable_type", using: :btree
+  add_index "photos", ["photographer_id"], name: "index_photos_on_photographer_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.integer  "user_id"
@@ -349,7 +358,6 @@ ActiveRecord::Schema.define(version: 20160108031920) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.integer  "avatar_id"
     t.string   "slug"
   end
 

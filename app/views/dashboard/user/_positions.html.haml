@@ -1,4 +1,4 @@
-- present @user do |presenter| 
+- present @user do |presenter|
   .panel-heading
     %h4.panel-title.font-alt
       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#positions"}
@@ -9,7 +9,7 @@
         %thead
           %tr
             %th title
-            %th organization      
+            %th organization
             %th description
             %th tenure start
             %th tenure end
@@ -38,13 +38,13 @@
             = f.text_field :tenure_start, class: "form-control"
           .form-group
             = f.label :tenure_end
-            = f.text_field :tenure_end, class: "form-control" 
+            = f.text_field :tenure_end, class: "form-control"
         .col-sm-12
           .form-group
             = f.text_area :description, placeholder: "description", class: "form-control"
         .col-sm-12
           .form-group
-            = f.submit "create a new position", class: "btn btn-success btn-block" 
+            = f.submit "create a new position", class: "btn btn-success btn-block"
 
 
 
