@@ -6,19 +6,19 @@
     .row
       .col-sm-12
         %ul#filters.filter.font-alt.hidden-xs
-          %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} 
+          %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"}
             Appellations:
           - @appellations.try(:each_with_index) do |appellation, index|
             %a.wow.fadeInUp{"data-filter" => ".#{appellation.name.parameterize}", "data-wow-delay" => "0.2s", :href => "#"}
               = index == 0 ? "" : "| "
               = appellation.name
 
-          
+
   %ul#works-grid.works-grid.works-grid-gut.works-grid-3.works-hover-w
     - @wineries.each do |winery|
       %li.work-item{ class: appellation_classes(winery.appellations.pluck(:name))}
         = link_to winery do
-          - photo = winery.default_gallery.try(:slides).try(:first).try(:photo) 
+          - photo = winery.default_gallery.try(:slides).try(:first).try(:photo)
           = image_tag(photo.image.thumb('900x600#').url) if photo.try(:image_stored?)
           .work-caption.font-alt
             %h3.work-descr

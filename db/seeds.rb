@@ -1,4 +1,4 @@
-after :users do 
+after :users do
 
   bacchanal = Org.create!(
     name: "Bacchan.al",
@@ -9,7 +9,7 @@ after :users do
   gallery = bacchanal.galleries.create!(
     name: "default" )
 
-  user = User.create!( 
+  user = User.create!(
     name: "fred schoeneman",
     email: "fred.schoeneman@bacchan.al",
     password: "password",
@@ -37,9 +37,9 @@ after :users do
     )
   end
 
-  bacchanaliens = [ 
-    { 
-      name: "fred schoeneman", 
+  bacchanaliens = [
+    {
+      name: "fred schoeneman",
       title: "Proprietor",
       description: "Skier. Programmer. Writer. Wineslayer."
     },
@@ -84,7 +84,7 @@ after :users do
           link: "https://www.linkedin.com/in/fred-schoeneman-3202b84"
         }, {
           provider: "github",
-          link: "https://github.com/schadenfred"  
+          link: "https://github.com/schadenfred"
         }
       ]
 
@@ -103,7 +103,7 @@ after :users do
   identities_hash.each do |klass, values|
     values.each do |key, values|
       values.each do |identity|
-     
+
         identifiable = klass.constantize.find_by(name: key.to_s)
         x = identifiable.identities.new(
           provider: identity[:provider],

@@ -11,7 +11,7 @@ module StaticHelper
   end
 
   def appellation_classes(appellations)
-    
+
     appellations.map! {|item| item.parameterize }
     appellations.join(" ")
   end
@@ -19,9 +19,9 @@ module StaticHelper
   def wine_quotes
     values = [
       [
-        "What is man, when you come to think upon him, but a minutely set, ingenious machine for turning with infinite artfulness, the red wine of Shiraz into urine?", 
+        "What is man, when you come to think upon him, but a minutely set, ingenious machine for turning with infinite artfulness, the red wine of Shiraz into urine?",
         "Isak Dinesen",
-        "Writer" 
+        "Writer"
       ],
       [
         "Red wine with fish. Well, that should have told me something.",
@@ -79,7 +79,7 @@ module StaticHelper
         highlighted: true
       }
     ]
-  end 
+  end
 
   def priceable_features
     ["winery page", "vineyard page", "wine page", "curated reviews", "journal", "premium support"]
@@ -103,7 +103,7 @@ module StaticHelper
         plan: "unlimited",
         icon: "heart",
         description: "Allows you to present the reviews of your wine you feel are most helpfu, instead of our default, which is to show the most reent ones."
-      
+
       }, {
         name: "winery page",
         plan: [1,1,1],
@@ -113,13 +113,13 @@ module StaticHelper
         name: "wine page",
         plan: "unlimited",
         icon: "heartbeat",
-        description: "Sole control of each of your winery's wine pages. Tell wine lovers how a wine is different, when and how it was made, and which winegrape varietals from which vineyard blocks you sourced their fruit." 
+        description: "Sole control of each of your winery's wine pages. Tell wine lovers how a wine is different, when and how it was made, and which winegrape varietals from which vineyard blocks you sourced their fruit."
       }, {
 
         name: "photos & photo galleries",
         plan: "unlimited",
         icon: "photo",
-        description: "upload photos and use them on your winery, wine, and vineyard pages."      
+        description: "upload photos and use them on your winery, wine, and vineyard pages."
       }, {
 
         name: "certifications",
@@ -143,15 +143,15 @@ module StaticHelper
         name: "vineyard page",
         plan: [1,2,3,4],
         icon: "leaf",
-        description: "A page for each vineyard, with a map delineating blocks, detailed information on climate, soil, how you farm, the varietal, rootstock, clone and irrigation, as well as verticals showing all the wines from different wineries sourced from each block. List your vineyard, tell its history, teach people about your process and who you are.", 
- 
+        description: "A page for each vineyard, with a map delineating blocks, detailed information on climate, soil, how you farm, the varietal, rootstock, clone and irrigation, as well as verticals showing all the wines from different wineries sourced from each block. List your vineyard, tell its history, teach people about your process and who you are.",
+
       }, {
         name: "journal",
         plan: [false, true, true],
         singular: true,
         icon: "pencil-square-o",
         description: "Let people know what's going on with your winery, events, sales, new vintages, winery cat photos, whatever -- and then push each article to all social media without siloing its content on just one."
-      
+
       }, {
 
         name: "showcase",
@@ -160,7 +160,7 @@ module StaticHelper
         description: "List any wine from any any winery. A showcase could be all of the gewurztraminers made in the Anderson Valley in 2012, or your favorite sparkling wines, or a list of value wines you recommend for under twenty dollars, or it could be a list of the wines you are pouring in your tasting room today. Your rules, your showcase.",
         factorable: [true, 2],
         proposed: true
-      
+
       }, {
         name: "artist page",
         plan: [1,2,3,4],
@@ -168,7 +168,7 @@ module StaticHelper
         description: "Pages for you and your art and easy ways for you to cross promote with wineries.",
         factorable: [true, 1]
       }, {
-        
+
         name: "premium support",
         singular: true,
         plan: [false, false, true],
@@ -200,7 +200,7 @@ module StaticHelper
         icon: "send-o",
         description: "Sell your wines. Direct. Except better, because your customers can combine shipments from you with other wineries.",
         proposed: true
-      } 
+      }
     ]
   end
 

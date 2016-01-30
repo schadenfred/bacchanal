@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# rails 
+# rails
 gem 'rails', '4.2.5'
 
 # js engine
@@ -43,6 +43,12 @@ gem 'redcarpet'
 # authentication
 gem 'devise'
 gem 'devise_invitable'
+
+# payments
+gem 'payola-payments'
+
+# interact with Mandrill
+gem 'gibbon'
 
 # cron jobs
 gem 'whenever', :require => false
@@ -118,7 +124,7 @@ group :development, :test do
 
   # test factories instead of fixtures
   gem 'factory_girl_rails', '~> 4.0'
-  
+
   # guards
   gem 'guard'
   gem 'guard-minitest'
@@ -130,14 +136,14 @@ group :development, :test do
   # debugger
   gem 'byebug'
 
-  # Access an IRB console on exception pages 
+  # Access an IRB console on exception pages
   gem 'web-console', '~> 2.0'
 
   # reload development server
   gem 'spring'
 end
 
-group :development do 
+group :development do
 
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
@@ -150,7 +156,7 @@ group :development do
 
 end
 
-group :test do 
+group :test do
 
   gem 'minitest-rails-capybara'
   gem 'capybara-email'
@@ -160,9 +166,9 @@ group :test do
 
   # mocks & stubs
   gem 'mocha'
-  
+
   # for save_and_open_page method in capybara to work
-  gem 'launchy' 
+  gem 'launchy'
 
   # clean out database between runs
   gem 'database_cleaner'
@@ -171,7 +177,7 @@ group :test do
   gem 'minitest-nyan-cat'
 end
 
-group :production do 
+group :production do
 
   gem 'rails_12factor', group: :production
 end
