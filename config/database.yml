@@ -83,3 +83,9 @@ production:
   database: bacchanal
   username: deploy
   # password: <%= ENV['BACCHANAL_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: bacchanal_staging
+  username: deploy
+  # password: <%= ENV['BACCHANAL_DATABASE_PASSWORD'] %>

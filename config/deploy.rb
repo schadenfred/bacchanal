@@ -10,6 +10,9 @@ set :puma_workers,    0
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
+
+set :stages,          ["staging", "production"]
+set :default_stage,   "staging"
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
@@ -77,7 +80,7 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-  
+
   desc "Invoke rake task"
   task :invoke do
     on roles(:app) do

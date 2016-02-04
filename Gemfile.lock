@@ -195,6 +195,9 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     geocoder (1.2.12)
+    gibbon (2.2.1)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     given_core (3.7.1)
       sorcerer (>= 0.3.7)
     globalid (0.3.6)
@@ -522,6 +525,7 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id (~> 5.1.0)
   geocoder
+  gibbon
   guard
   guard-livereload
   guard-minitest

@@ -1,3 +1,8 @@
+server '107.170.238.64', port: 22, roles: [:web, :app, :db], primary: true
+set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+
+
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
