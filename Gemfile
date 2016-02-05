@@ -87,6 +87,7 @@ gem 'figaro'
 
 # image uploads
 gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
 gem 'dropzonejs-rails'
 
 # data visualizations & flavor wheels
@@ -104,7 +105,7 @@ gem 'dalli'
 gem 'kgio'
 
 # Buttafly engine for importing spreadsheet data, local version
-gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
+# gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
 
 # development data
 gem 'seedbank'

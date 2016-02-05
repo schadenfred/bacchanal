@@ -4,13 +4,21 @@ require 'dragonfly'
 Dragonfly.app.configure do
   plugin :imagemagick
 
-  secret "a3d461826a6af39024954fbb92fb0e7586489aa4997fa7919dc21323305cb8b6"
+  # secret "a2c355bce0bb43952e21dd44adc5c3a048e839af944ad27bb27ff6e4ac1fb10f"
 
   url_format "/media/:job/:name"
+  if Rails.env.development? || Rails.env.test?
+    datastore :file,
+      root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+      server_root: Rails.root.join('public')
 
-  datastore :file,
-    root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-    server_root: Rails.root.join('public')
+  else
+    datastore :s3,
+      bucket_name: "handsomefencer-assets",
+      access_key_id: "AKIAIFWANJEISJMXY4VQ",
+      secret_access_key: "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"
+  end
+
 end
 
 # Logger

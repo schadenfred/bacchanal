@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   require 'route_drawer'
 
   draw :api, :v1
-  draw :engines, :buttafly
+  # draw :engines, :buttafly
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
-  
+
   devise_for :users, controllers: { invitations: "invitations"}
 
   get '/about',     to: "static#about"
@@ -21,14 +21,14 @@ Rails.application.routes.draw do
   get '/dashboard', to: "dashboard#show"
   get '/profile',   to: "profile#show"
 
-  concern :media_promotable do 
-    
-    resources :articles do 
+  concern :media_promotable do
+
+    resources :articles do
       resources :comments
     end
 
   resources :galleries
-    shallow do 
+    shallow do
       resources :galleries, :photos
     end
   end
@@ -36,31 +36,31 @@ Rails.application.routes.draw do
   resources :reviews
   resources :comments
 
-  resources :orgs do 
+  resources :orgs do
     concerns :media_promotable
-  end 
+  end
 
   resources :photos
 
-  resources :competitions, shallow: true do 
+  resources :competitions, shallow: true do
     resources :events
   end
 
-  resources :producers do 
+  resources :producers do
     resources :products
-  end 
-  
-  resources :wineries do 
+  end
+
+  resources :wineries do
     concerns :media_promotable
     resources :wines
     resources :vineyards
   end
-  resources :vineyards do 
+  resources :vineyards do
     concerns :media_promotable
     resources :wines
     resources :wineries
   end
-  
+
   resources :positions
   resources :wishes
   resources :curations

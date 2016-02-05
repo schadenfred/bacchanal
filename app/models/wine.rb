@@ -1,6 +1,6 @@
 class Wine < Product
 
-  include Targetable
+  # include Targetable
   include AttachableConcern
   include CuratableConcern
 
@@ -22,7 +22,7 @@ class Wine < Product
 
   def composition
     unknown = 100 - wine_grape_lots.pluck(:percentage).sum
-    components = wine_grape_lots.map do |x| 
+    components = wine_grape_lots.map do |x|
       { x.vineyard.varietal => x.percentage}
     end
     components.sort_by! { |composition| composition.values }

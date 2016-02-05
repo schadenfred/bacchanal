@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
-  
-  include Targetable
+
+  # include Targetable
   include GalleriableConcern
   include PositionableConcern
 
