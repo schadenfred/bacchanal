@@ -47,6 +47,7 @@
 rerun.txt
 pickle-email-*.html
 
+
 # vim artifacts
 **.swp
 
@@ -56,5 +57,6 @@ pickle-email-*.html
 # Ignore application configuration
 /config/application.yml
 /public/dev_assets/*
+/public/system/dragonfly/*
 .ruby-version
 .ruby-gemset
