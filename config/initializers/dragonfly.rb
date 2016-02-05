@@ -4,7 +4,7 @@ require 'dragonfly'
 Dragonfly.app.configure do
   plugin :imagemagick
 
-  # secret "a2c355bce0bb43952e21dd44adc5c3a048e839af944ad27bb27ff6e4ac1fb10f"
+  secret "a2c355bce0bb43952e21dd44adc5c3a048e839af944ad27bb27ff6e4ac1fb10f"
 
   url_format "/media/:job/:name"
   if Rails.env.development? || Rails.env.test?
