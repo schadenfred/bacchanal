@@ -15,8 +15,8 @@ Dragonfly.app.configure do
   else
     datastore :s3,
       bucket_name: "handsomefencer-assets",
-      access_key_id: "AKIAIFWANJEISJMXY4VQ",
-      secret_access_key: "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"
+      access_key_id: "AKIAJNEJQP363EDINKOQ",
+      secret_access_key: "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"
   end
 
 end
