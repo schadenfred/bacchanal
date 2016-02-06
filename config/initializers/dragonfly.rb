@@ -11,7 +11,6 @@ Dragonfly.app.configure do
     datastore :file,
       root_path: Rails.root.join('public/system/dragonfly', Rails.env),
       server_root: Rails.root.join('public')
-
   else
     datastore :s3,
       bucket_name: "handsomefencer-assets",
