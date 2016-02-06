@@ -122,7 +122,6 @@ GEM
     currencies (0.4.2)
     d3-rails (3.5.11)
       railties (>= 3.1)
-    dalli (2.7.4)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -243,7 +242,6 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.5)
@@ -499,11 +497,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   country_select!
   d3-rails
-  dalli
   database_cleaner
   devise
   devise_invitable
-  dragonfly
   dragonfly-s3_data_store
   dropzonejs-rails
   execjs
@@ -522,7 +518,6 @@ DEPENDENCIES
   haml-rails
   jquery-ui-rails
   kaminari
-  kgio
   launchy
   meta-tags-helpers (~> 0.2.0)
   minitest-given

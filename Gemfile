@@ -86,7 +86,7 @@ gem 'acts-as-taggable-on'
 gem 'figaro'
 
 # image uploads
-gem 'dragonfly'
+# gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 gem 'dropzonejs-rails'
 
@@ -100,9 +100,13 @@ gem 'aasm'
 gem 'ancestry'
 
 # caching for pictures, among other things
-gem 'rack-cache'
-gem 'dalli'
-gem 'kgio'
+group :production do
+  gem 'rack-cache', :require => 'rack/cache'
+end
+
+# gem 'rack-cache'
+# gem 'dalli'
+# gem 'kgio'
 
 # Buttafly engine for importing spreadsheet data, local version
 # gem 'buttafly', github: 'schadenfred/buttafly', tag: 'v0.1'
