@@ -4,12 +4,12 @@
       .col-sm-4.col-sm-offset-4
         %h2.module-title.font-alt Monthly Pricing
         .module-subtitle.font-serif
-          :markdown 
-            Per month. They will never be cheaper. 
+          :markdown
+            Per month. They will never be cheaper.
 
 
-          
-          
+
+
     .row.multi-columns-row
       - pricing_plans.each_with_index do |plan, index|
         .col-sm-6.col-md-4.col-lg-4
@@ -17,7 +17,7 @@
 
             %h3
               = plan[:name]
-            - if plan[:highlighted] == true 
+            - if plan[:highlighted] == true
               %p.small Best Choice
 
             .borderline
@@ -28,7 +28,7 @@
             %p.small includes
             %br
             %ul.price-details
-              
+
               - priceable_features.each do |f|
                 %li{"data-toggle" => "tooltip", :href => "#", :title => feature(f)[:description]}
                   - if feature(f)[:plan].nil?
@@ -71,4 +71,4 @@
       .col-sm-6.col-sm-offset-3.align-center
         .module-subtitle.font-serif
           :markdown
-            Not seeing the value of our plans or just can't afford one? Most of our features and pages are also available for free, though some may be supported with tasteful advertisements. We really do want to help you differentiate and succeed and make money, and this site should help you do that no matter what. But if you do choose one of our paid plans, you'll be encouraging ice cold new features and helping people to think about where their food comes from and why it all matters.   
+            Not seeing the value of our plans or just can't afford one? Most of our features and pages are also available for free, though some may be supported with tasteful advertisements. We really do want to help you differentiate and succeed and make money, and this site should help you do that no matter what. But if you do choose one of our paid plans, you'll be encouraging ice cold new features and helping people to think about where their food comes from and why it all matters.

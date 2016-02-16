@@ -20,9 +20,9 @@
               .post-meta
                 By
                 = link_to article.org.name, article.org
-                | 
-                = time_ago_in_words(article.created_at) + " ago." 
-                | 
+                |
+                = time_ago_in_words(article.created_at) + " ago."
+                |
                 %span.badge= article.comments.size
             .post-entry
               %p= truncate(article.content, length: 150)

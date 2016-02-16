@@ -1,12 +1,12 @@
 - content_for :header do
-  = render 'header_normal' 
-- content_for :graphic do 
+  = render 'header_normal'
+- content_for :graphic do
   = image_path("section-10.jpg")
 
-- content_for :brand do 
+- content_for :brand do
   = link_to @org.name, polymorphic_url(@org), class: "navbar-brand"
 
-- content_for :navlinks do 
+- content_for :navlinks do
   = render 'application/header/authentication_links'
 
 - content_for :top do
@@ -15,22 +15,22 @@
       .caption-content
         .col-sm-8.col-sm-offset-2
           .hs-title-size-4.font-alt.mb-40
-            %span 
+            %span
               = @org.name
           / .hs-title-size-1.font-alt.mb-30
           /   for the reading press
         .col-sm-4.col-sm-offset-4
-          %h2.module-title.font-alt 
+          %h2.module-title.font-alt
             = @org.try(:blog_title)
 
-          / %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#about"}  
+          / %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#about"}
           /   %h5 the manifesto for the reading
 
 
 
 
-    
-/ - content_for :main do 
+
+/ - content_for :main do
 /   %section#home.home-section.home-parallax.home-fade.bg-dark-30{"data-background" => image_path("abstract-4.jpg")}
 /   / = yield
 = render template: "layouts/application"

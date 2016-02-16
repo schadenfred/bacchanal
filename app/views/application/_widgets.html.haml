@@ -16,7 +16,7 @@
           %ul.icon-list
             - Comment.last(5).each do |comment|
               %li
-                = link_to comment.commenter.name, profile_path(comment.commenter) 
+                = link_to comment.commenter.name, profile_path(comment.commenter)
                 on
                 = link_to comment.commentable.title.titleize, polymorphic_path([comment.commentable.org, comment.commentable])
 

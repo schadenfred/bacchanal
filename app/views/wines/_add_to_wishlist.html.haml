@@ -5,11 +5,11 @@
     %a.btn.btn-lg.btn-block.btn-round.btn-b Add to wishlist
 
 - if current_user
-  .comment-form    
+  .comment-form
     / %h4.comment-form-title.font-alt= comment_call_to_action(@comment)
     = simple_form_for @wish, remote: true do |f|
 
-      
+
       = f.input :quantity, label: false, as: :text, input_html: { rows: 7 }, class: "form-control"
       .form-actions
         = f.button :submit, class: "btn btn-round btn-d"

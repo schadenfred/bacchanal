@@ -1,4 +1,4 @@
-- present @user do |presenter| 
+- present @user do |presenter|
   .panel-heading
     %h4.panel-title.font-alt
       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#positions"}
@@ -7,7 +7,7 @@
     .panel-body
       %table.table.table-condensed
         %thead
-          
+
           %tr
             %th email
             %th name
@@ -32,6 +32,6 @@
           .col-sm-6
             = f.label "#{pluralize(presenter.invitation_limit, "invitation")} left"
             = f.button :submit, t("devise.invitations.new.submit_button"), class: "btn-block"
-          
 
-    
+
+

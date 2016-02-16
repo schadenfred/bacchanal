@@ -10,7 +10,7 @@
             - unless i == 0
               %hr
             %li
-              %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"} 
+              %a.current.wow.fadeInUp{"data-filter" => "*", :href => "#"}
                 = partial + ":           "
             = render partial
     .row
@@ -22,7 +22,7 @@
                 .work-image
                   - unless wine.nil?
                     - img = wine.try(:default_photo).try(:image)
-                    = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?  
+                    = image_tag(img.thumb('500x600#').url) if wine.default_photo.image_stored?
                 .work-caption.font-alt
                   %h3.work-title= wine.name
                   .work-descr

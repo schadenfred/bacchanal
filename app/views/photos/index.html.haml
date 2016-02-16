@@ -20,7 +20,7 @@
         %td= photo.caption
         %td= photo.image
         %td= image_tag photo.image.thumb('300x200#').url
-        / %td= link_to(image_tag(photo.image.thumb('400x200#').url), photo_path(photo)) if photo.image_stored? 
+        / %td= link_to(image_tag(photo.image.thumb('400x200#').url), photo_path(photo)) if photo.image_stored?
 
         %td= link_to 'Show', photo
         %td= link_to 'Edit', edit_photo_path(photo)

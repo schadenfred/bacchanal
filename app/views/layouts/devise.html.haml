@@ -1,8 +1,8 @@
-- content_for :graphic do 
+- content_for :graphic do
   = image_path("rp-1.jpg")
-- content_for :brand do 
+- content_for :brand do
   = link_to "Bacchan.al", root_path, class: "navbar-brand"
-- content_for :navlinks do 
+- content_for :navlinks do
   = render 'application/header/authentication_links'
 .main
   %section.module-small.bg-dark
@@ -11,7 +11,7 @@
         .col-sm-6.col-sm-offset-3
           %h1.module-title.font-alt
             = yield :devise_action
-            = render 'messages' 
+            = render 'messages'
   %section.module
     .container
       .row
@@ -19,6 +19,6 @@
           = yield :devise_form
           - unless user_signed_in?
             %hr
-            = render "devise/shared/links" 
+            = render "devise/shared/links"
 
 = render template: "layouts/application"

@@ -1,5 +1,6 @@
 // gems
 //= require jquery
+//= require payola
 //= require rails-jquery-tokeninput
 //= require jquery-ui/datepicker
 

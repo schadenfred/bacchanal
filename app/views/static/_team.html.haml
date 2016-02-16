@@ -12,10 +12,10 @@
           .col-sm-6.col-md-3.mb-sm-20.wow.fadeInUp
             .team-item
               .team-image
-                - if position.user.avatar 
+                - if position.user.avatar
                   - avatar = position.user.avatar
                   = image_tag(avatar.image.thumb('500x680#').url) if avatar.image_stored?
-                - else 
+                - else
                   %img{:alt => "", :src => image_path("team-1.jpg")}
                 .team-detail
                   %h5.font-alt

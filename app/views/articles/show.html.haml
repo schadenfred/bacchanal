@@ -1,4 +1,4 @@
-- present @article do |article_presenter| 
+- present @article do |article_presenter|
   .profile
     get some
 .main
@@ -17,7 +17,7 @@
                 = link_to @article.author.name, "#"
                 |
                 = time_ago_in_words(@article.created_at) + " ago."
-                | 
+                |
                 = pluralize(@article.comments.count, 'comment')
                 | Tags:
                 - @article.all_tags_list.each_with_index do |tag, i|

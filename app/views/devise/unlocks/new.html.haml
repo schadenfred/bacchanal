@@ -1,6 +1,6 @@
-- content_for :devise_action do 
+- content_for :devise_action do
   Resend unlock instructions
-- content_for :devise_form do 
+- content_for :devise_form do
   = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
     = devise_error_messages!
     = f.input :email, autofocus: true

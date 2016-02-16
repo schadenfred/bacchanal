@@ -17,7 +17,7 @@
                   .row
                     = c.values.first.to_s + "\% "
                     = c.keys.first
-        = render 'add_to_wishlist'   
+        = render 'add_to_wishlist'
 
     .row.mt-70
       .col-sm-12
@@ -35,10 +35,10 @@
         / Tab panes start
         .tab-content
           #documentation.tab-pane
-            - @wine.attachments.each do |attachment| 
+            - @wine.attachments.each do |attachment|
               %dl.dl-horizontal
                 %dt
-                  = link_to attachment.attachment.url do 
+                  = link_to attachment.attachment.url do
                     %i.fa.fa-2x{ class: icon_for_extension(attachment.filename_extension) }
                     = attachment.name
                 %dd
@@ -55,7 +55,7 @@
                 %tr
                   %th Title
                   %th Info
-                %tr 
+                %tr
                   %td TA G/L
                   %td 7.2
                 %tr

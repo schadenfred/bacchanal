@@ -3,8 +3,8 @@ namespace :invitations do
   task distribute: :environment do
     users = User.all
     users.each do |u|
-      if u.invitation_limit < Devise.invitation_limit 
-        u.increment!(:invitation_limit) 
+      if u.invitation_limit < Devise.invitation_limit
+        u.increment!(:invitation_limit)
       end
     end
   end

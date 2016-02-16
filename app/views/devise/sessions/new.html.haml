@@ -1,13 +1,13 @@
-- content_for :devise_action do 
+- content_for :devise_action do
   .callout-text.font-alt
     %h3.callout-title We are invitation only at the moment.
-  %hr  
+  %hr
   .center-text
     Sign in
   %br
   .btn.center-block
     = mail_to "fred.schoeneman@gmail.com", "request invitation", subject: "Invitation Request", body: "We'll be sending invites soon and if you click \"send\" on this email we'll have your email address for that purpose. It's certainly not required, but before you click send, we'd love to know a little bit about you and why you're curious about Bacchan.al. Thanks! \n\n -- Fred"
-- content_for :devise_form do 
+- content_for :devise_form do
 
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-inputs

@@ -5,7 +5,7 @@
         .copyright.font-alt
           = @org ? "© #{@org.created_at.year}" : "© 2015"
           = @org ? @org.name : link_to("Bacchan.al", root_url)
-      .col-sm-5.col-sm-offset-1 
+      .col-sm-5.col-sm-offset-1
         .font-alt
           = yield :footer_links
 

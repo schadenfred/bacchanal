@@ -1,17 +1,17 @@
-- content_for :header do 
+- content_for :header do
   = render 'header_normal'
   .container
-    = render 'messages' 
+    = render 'messages'
 
 
-   
-- content_for :graphic do 
+
+- content_for :graphic do
   = image_path("section-10.jpg")
 
-- content_for :brand do 
+- content_for :brand do
   = link_to "Bacchan.al", root_path, class: "navbar-brand"
 
-- content_for :navlinks do 
+- content_for :navlinks do
   = render 'application/header/authentication_links'
 
 
@@ -35,5 +35,5 @@
             .tab-content
               - panels.each do |panel|
                 .tab-pane.fade{ id: panel, class: panel == "user" ? "in active" : ""}
-                  = render "#{panel}" 
+                  = render "#{panel}"
 

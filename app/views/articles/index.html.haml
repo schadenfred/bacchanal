@@ -1,4 +1,4 @@
-/ - content_for :resource_name do 
+/ - content_for :resource_name do
 
 /   = link_to @org.name, @org
 .main
@@ -9,7 +9,7 @@
         - @articles.in_groups_of(5, false) do |group|
           - group.each do |article|
             .col-sm-6.col-md-4.col-lg-4
-              - present article do |presenter| 
+              - present article do |presenter|
                 .post
                   .post-thumbnail
 
@@ -20,7 +20,7 @@
                     .post-meta
                       By #{presenter.linked_author}
                       = time_ago_in_words(article.created_at) + " ago."
-                      .row 
+                      .row
                       = presenter.comments_count
                       | Tags:
                       = presenter.linked_tags
@@ -31,7 +31,7 @@
                     %p= simple_format(truncate(article.content, length: 250))
                   .post-more
                     = link_to "Read more", poly_path(article), class: "more-link"
-              
+
       .pagination.font-alt
         = paginate @articles
   .module-small.bg-dark
@@ -41,7 +41,7 @@
           / Widget start
           .widget
             %h5.widget-title.font-alt About #{@bloggable.name}
-            %p 
+            %p
               = @bloggable.mission
             / - if @bloggable.phone
             /   %p

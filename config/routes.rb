@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Payola::Engine => '/payola', as: :payola
   require 'route_drawer'
 
   draw :api, :v1

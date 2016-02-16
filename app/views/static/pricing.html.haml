@@ -1,6 +1,6 @@
-- content_for :brand do 
+- content_for :brand do
   = link_to "Bacchan.al", root_path, class: "navbar-brand"
-- content_for :navlinks do 
+- content_for :navlinks do
   = render 'application/header/navigation_links' unless current_user
   = render 'application/header/authentication_links'
 
@@ -10,12 +10,12 @@
       .col-sm-8.col-sm-offset-2
         .hs-title-size-1.font-alt.mb-30
           Even our
-          / .hs-title-size-1.font-alt.mb-30  
+          / .hs-title-size-1.font-alt.mb-30
         .hs-title-size-4.font-alt.mb-40
-          %span 
-            .rotate Features | Have Features 
+          %span
+            .rotate Features | Have Features
       .col-sm-4.col-sm-offset-4
-        %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#pricing"}  
+        %a.section-scroll.btn.btn-border-w.btn-block.btn-round{:href => "#pricing"}
           %h5 get your features
 
 = render 'parallax'
