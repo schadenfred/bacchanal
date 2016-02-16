@@ -1,11 +1,11 @@
-after :galleries, :users do 
+after :galleries, :users do
 
   files = Dir[File.expand_path('test/samples/landscapes/*.jpg')]
   photographer = User.all.sample
   wineries = Winery.first(6)
 
   wineries.each do |winery|
-    
+
     photo = winery.default_gallery.photos.new(
       image: File.new(files.sample),
       caption: Faker::Stoked.thing,

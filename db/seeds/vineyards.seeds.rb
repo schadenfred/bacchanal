@@ -1,4 +1,4 @@
-after :users do 
+after :users do
   addresses = Address.all
 
 

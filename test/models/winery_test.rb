@@ -4,13 +4,13 @@ describe Winery do
 
   subject { Winery }
 
-  specify "associations" do 
+  specify "associations" do
 
     must_have_many(:wines)
     must_have_many(:reviews)
   end
 
-  describe "store accessors" do 
+  describe "store accessors" do
 
     subject { Winery.new }
 
@@ -24,8 +24,8 @@ describe Winery do
   Given(:appellation) { create(:appellation, name: "napa" ) }
   Given(:address) { create(:address_with_appellations) }
 
-  describe "vintage methods" do 
-  
+  describe "vintage methods" do
+
     Given { address.addresses_appellables.create(appellation: appellation) }
     Given { winery.addresses_addressables.create(address: address) }
 
@@ -37,8 +37,8 @@ describe Winery do
       And { winery.vintages.must_include existing_vintage }
     end
 
-    describe ":wines_in_vintage(vintage) must return wines in a vintage" do 
-     
+    describe ":wines_in_vintage(vintage) must return wines in a vintage" do
+
       Then { winery.wines_in_vintage(wine.vintage).must_include wine }
     end
   end
@@ -48,24 +48,24 @@ describe Winery do
   Given(:winery) { create(:winery_with_wines) }
   Given(:wine) { winery.wines.first }
 
-  
+
   Given { vineyard.addresses_addressables.create(address: address) }
   Given { wine.wine_grape_lots.create( vineyard: vineyard ) }
-  
+
   describe "appellation methods" do
-  
-    describe ":wines_appellations" do 
-      
+
+    describe ":wines_appellations" do
+
       Then { winery.wines_appellations.must_include appellation }
-    end 
+    end
   end
-  
-  describe "varietal methods" do 
+
+  describe "varietal methods" do
 
     Then { winery.varietals.must_include "chardonnay"}
   end
 
-  describe "metatags" do 
+  describe "metatags" do
 
     Then { winery.keywords.must_include "chardonnay"}
     And { winery.keywords.must_include "anderson valley"}

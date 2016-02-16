@@ -1,4 +1,4 @@
-after :wines do 
+after :wines do
 
   wine = Wine.first
   wine.attachments.create!(

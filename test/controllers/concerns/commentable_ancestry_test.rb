@@ -15,8 +15,8 @@
 #       post '/comments(.:format)' => "dummy_comments#create"
 #     end
 #   end
-  
-#   after do 
+
+#   after do
 #     Rails.application.reload_routes!
 
 #   end
@@ -29,25 +29,25 @@
 #   Given(:article_referer)   { "http://localhost:3000/wineries/#{winery_1.slug}/articles/#{article.slug}" }
 
 #   Given { sign_in user }
-  
-#   Given(:make_request) { 
-#     post :create, comment: { 
-#       commentable_id: winery_1.id, 
-#       commentable_type: winery_1.class, 
-#       content: comment.content } } 
-  
+
+#   Given(:make_request) {
+#     post :create, comment: {
+#       commentable_id: winery_1.id,
+#       commentable_type: winery_1.class,
+#       content: comment.content } }
+
 #   describe "must identify" do
-    
+
 #     describe "parent resource" do
-  
-#       Given { @request.env['HTTP_REFERER'] = referer } 
+
+#       Given { @request.env['HTTP_REFERER'] = referer }
 #       When  { make_request }
 #       # Then  { assert_not_nil assigns :commentable }
 #     end
 
 #     describe "child resource" do
 
-#       Given { @request.env['HTTP_REFERER'] = article_referer } 
+#       Given { @request.env['HTTP_REFERER'] = article_referer }
 #       When  { make_request }
 
 #       # Then  { assert_not_nil assigns :commentable }

@@ -4,7 +4,7 @@ describe Wine do
 
   subject { Wine }
 
-  specify "properties" do 
+  specify "properties" do
 
     assert subject.new.respond_to? :bottled_on
     assert subject.new.respond_to? :properties
@@ -12,7 +12,7 @@ describe Wine do
     assert subject.new.respond_to? :vintage
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to :winery
 
@@ -25,7 +25,7 @@ describe Wine do
     must_have_many :wishes
   end
 
-  specify "indexes" do 
+  specify "indexes" do
 
     must_have_index :properties
   end
@@ -36,35 +36,35 @@ describe Wine do
   Given(:third_vineyard) { FactoryGirl.create(:vineyard, varietal: "muscadet")}
   Given(:address) { FactoryGirl.create(:address_with_appellations ) }
   Given(:appellation) { address.appellations.first }
-  
+
   Given { wine.wine_grape_lots.create( [
-    { vineyard: vineyard, percentage: 43 }, 
-    { vineyard: second_vineyard, percentage: 7 }, 
+    { vineyard: vineyard, percentage: 43 },
+    { vineyard: second_vineyard, percentage: 7 },
     { vineyard: third_vineyard, percentage: 40 } ] ) }
-  
-  describe ":appellations" do 
+
+  describe ":appellations" do
 
     Given { vineyard.addresses_addressables.create(address: address ) }
-    Then { wine.appellations.must_include appellation } 
+    Then { wine.appellations.must_include appellation }
   end
 
-  describe ":varietals" do 
+  describe ":varietals" do
 
     Then { wine.varietals.must_include "pinot noir" }
     And { wine.varietals.must_include "muscadet" }
     And { wine.varietals.must_include "malbec" }
   end
 
-  describe ":composition" do 
+  describe ":composition" do
     Given(:expected_composition) { [
-      { "pinot noir" => 43 }, 
-      { "muscadet" => 40 }, 
+      { "pinot noir" => 43 },
+      { "muscadet" => 40 },
       { "malbec" => 7 },
       { "unknown" => 10 } ] }
     Then { wine.composition.must_equal expected_composition }
   end
 
-  describe "previous vintages" do 
+  describe "previous vintages" do
 
     Given(:winery) { create(:winery) }
     Given(:wine) { winery.wines.create(name: "Savoy Pinot", vintage: 2015) }

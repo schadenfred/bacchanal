@@ -1,16 +1,16 @@
 require "test_helper"
 
-describe Block do 
+describe Block do
 
   subject { Block }
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to(:parent_vineyard)
     must_have_many(:blocks)
   end
 
-  describe "full_name" do 
+  describe "full_name" do
 
     Given(:block) { create(:block) }
     Then { block.full_name.must_match block.parent_vineyard.name }

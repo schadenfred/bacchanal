@@ -2,7 +2,7 @@ module GalleriableConcern
 
   extend ActiveSupport::Concern
 
-  included do 
+  included do
     has_many :galleries, as: :galleriable
     has_many :slides, through: :galleries
     has_many :photos, as: :photographable

@@ -3,7 +3,7 @@ after :wines, :vineyards do
   vineyards = Vineyard.where().not(parent_id: nil)
 
   wines.each do |wine|
-    
+
     pct = 100 - rand(3..97)
     wine.wine_grape_lots.create(
       [
@@ -13,7 +13,7 @@ after :wines, :vineyards do
         }, {
           vineyard: vineyards.sample,
           percentage: (100 - pct)
-        } 
+        }
       ]
     )
   end

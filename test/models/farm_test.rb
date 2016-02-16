@@ -1,10 +1,10 @@
 require "test_helper"
 
-describe Farm do 
+describe Farm do
 
-  subject { Farm } 
+  subject { Farm }
 
-  describe "associations" do 
+  describe "associations" do
 
   end
 end

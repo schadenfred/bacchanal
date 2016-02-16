@@ -1,4 +1,4 @@
-after :users do 
+after :users do
 
   winery_names = Faker::Bloocher.wineries[0..5]
   winery_names.each do |winery_name|

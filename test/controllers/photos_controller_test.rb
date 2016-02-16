@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe PhotosController do 
+describe PhotosController do
 
   Given(:user)        { FactoryGirl.create(:user) }
   Given(:org)         { FactoryGirl.create(:org) }
@@ -8,11 +8,11 @@ describe PhotosController do
   Given(:photo_attrs) { FactoryGirl.attributes_for(:photo) }
   Given(:make_request) { post :create, photo: photo_attrs }
 
-  context "when authenticated" do 
-  
-    Given { sign_in user } 
-    
-    describe "#create without :photographable" do 
+  context "when authenticated" do
+
+    Given { sign_in user }
+
+    describe "#create without :photographable" do
 
       # Then do
       #   assert_difference("Photo.count") do
@@ -25,14 +25,14 @@ describe PhotosController do
 
     describe "#create without :photographable" do
 
-      # public :set_photographable 
-      
+      # public :set_photographable
+
       # Then { set_photographable.must_equal "blah" }
 
-    
+
 
       Given(:winery) { FactoryGirl.create(:winery) }
-      Given(:request_path) { "http://test.com/wineries/#{winery.slug}/articles" } 
+      Given(:request_path) { "http://test.com/wineries/#{winery.slug}/articles" }
       Given { @request.env['HTTP_REFERER'] = request_path }
       Then do
         assert_difference("Photo.count") do
@@ -45,13 +45,13 @@ describe PhotosController do
     end
 
     context "when not authenticated" do
-      
+
       Given { sign_out user }
       Given { post :create, photo: photo_attrs }
       Then  { assert_response 302 }
-    end 
+    end
 
-      # it "" do 
+      # it "" do
 
       #   assert_difference("Photo.count") do
       #     post :create, photo: { caption: attrs[:caption], image_name: attrs[:image_name], image_uid: attrs[:image_uid], name: attrs[:name] }

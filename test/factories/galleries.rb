@@ -6,11 +6,11 @@ FactoryGirl.define do
 
     properties "MyString"
 
-    trait :default do 
+    trait :default do
       name "default"
     end
-    
-    factory :default_gallery do 
+
+    factory :default_gallery do
       name "default"
     end
   end

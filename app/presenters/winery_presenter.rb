@@ -1,6 +1,6 @@
 class WineryPresenter < BasePresenter
-  
-  
+
+
 end
 
 #   def publication_status
@@ -21,7 +21,7 @@ end
 
 #   def member_since
 #     user.created_at.strftime("%B %e, %Y")
-#   end 
+#   end
 
 #  def website
 #     handle_none user.url do

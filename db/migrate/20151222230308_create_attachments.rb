@@ -12,7 +12,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :attachments, [:attachable_id, :attachable_type] 
-    add_index :attachments, :attachment_uid 
+    add_index :attachments, [:attachable_id, :attachable_type]
+    add_index :attachments, :attachment_uid
   end
 end

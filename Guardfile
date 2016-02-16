@@ -35,21 +35,21 @@ end
 
 guard :minitest do
 
-  watch(%r{^app/models/winery.rb$})         { "test/models/wine_test.rb" } 
-  watch(%r{^app/models/wine.rb$})         { "test/models/winery_test.rb" } 
-  
-  watch(%r{^app/(.+)\.rb$})                               { |m| 
+  watch(%r{^app/models/winery.rb$})         { "test/models/wine_test.rb" }
+  watch(%r{^app/models/wine.rb$})         { "test/models/winery_test.rb" }
+
+  watch(%r{^app/(.+)\.rb$})                               { |m|
     "test/#{m[1]}_test.rb" }
-  watch(%r{^app/policies/(.+)\.rb$})                      { |m| 
+  watch(%r{^app/policies/(.+)\.rb$})                      { |m|
     "test/policies/#{m[1]}_test.rb" }
 
-  watch(%r{^app/policies/application_policy\.rb$})        { |m| 
-    "test/policies" }  
-  watch(%r{^app/controllers/application_controller\.rb$}) { 
+  watch(%r{^app/policies/application_policy\.rb$})        { |m|
+    "test/policies" }
+  watch(%r{^app/controllers/application_controller\.rb$}) {
     'test/controllers' }
-  watch(%r{^app/controllers/(.+)_controller\.rb$})        { |m| 
+  watch(%r{^app/controllers/(.+)_controller\.rb$})        { |m|
     "test/integration/#{m[1]}_test.rb" }
-  watch(%r{^app/views/(.+)_mailer/.+})                    { |m| 
+  watch(%r{^app/views/(.+)_mailer/.+})                    { |m|
     "test/mailers/#{m[1]}_mailer_test.rb" }
   watch(%r{^lib/(.+)\.rb$})                               { |m| "test/lib/#{m[1]}_test.rb" }
   watch(%r{^lib/tasks/(.+)\.rake$})    { |m| "test/lib/tasks/#{m[1]}_test.rb" }

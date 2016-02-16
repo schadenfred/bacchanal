@@ -1,5 +1,5 @@
 class ArticlePresenter < BasePresenter
-  
+
   def linked_author
     h.link_to(@model.author.name, h.profile_path(@model.author))
   end
@@ -39,7 +39,7 @@ end
 
 #   def member_since
 #     user.created_at.strftime("%B %e, %Y")
-#   end 
+#   end
 
 #  def website
 #     handle_none user.url do

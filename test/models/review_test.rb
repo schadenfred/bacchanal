@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe Review do 
+describe Review do
 
   subject { Review }
 
-  describe "db" do 
+  describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:content)
       must_have_column(:reviewer_id, :integer)
@@ -14,13 +14,13 @@ describe Review do
       must_have_column(:rating, :integer)
     end
 
-    specify "indexes" do 
+    specify "indexes" do
 
       must_have_index([:reviewer_id, :wine_id])
     end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to :reviewer
     must_belong_to :wine

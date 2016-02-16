@@ -25,8 +25,8 @@ after :addresses do
     { "california" => "Wine arrived in California via the Spanish Mission chain, working its way northward from South America. Over the next four centuries the Golden State would strive to prove that it was the true Oenotria. By the second half of the 20th century, California was firmly established as one of the very best wine regions in the world. With 480,000 vineyard acres and 1200+ wineries producing an amazing 560 million gallons of wine annually, California is only exceeded by the national outputs of Italy, France, and Spain. Today, vineyards cover the state from north to south, and include just about every conceivable microclimate, with hospitable conditions for the cultivation of every classic wine variety, as well as a host of Californian originals. With such diversity, California can not be taken seriously as a 'distinct' region. Within the state, almost 90 different American Viticultural Areas have already been officially recognized by the TTB, with many more pending. California vintners can produce every wine type and style imaginable, from dry to dessert, fortified, and sparkling. For the wine consumer, California is the one-stop-shopping destination with a wine for every palate. For this same reason California, used as an appellation, can only be a guarantee of broadest-origin (and nothing more), and wines carrying the California appellation are likely to be blends of fruit originating from a number of more specific (and distinct) appellations within the state."
     }
   ]
-  
-  addresses = Address.all 
+
+  addresses = Address.all
 
   [appellations, counties, states].each do |appellation_type|
 
@@ -36,13 +36,13 @@ after :addresses do
         name: appellation.keys.first,
         description: appellation.values.first
       )
-      
+
     end
 
     addresses.each do |address|
       appellation = Appellation.find_by(name: appellation_type.sample.keys.first)
       appellation.include_address(address)
-      
+
     end
   end
-end 
+end

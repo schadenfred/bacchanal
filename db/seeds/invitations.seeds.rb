@@ -1,4 +1,4 @@
-after :users do 
+after :users do
 
   user = User.find_by(email: "fred.schoeneman@bacchan.al")
   contacts = %w[fred.schoeneman@gmail.com getsome@gotten.com]

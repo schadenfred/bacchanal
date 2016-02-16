@@ -2,7 +2,7 @@ module AddressableConcern
 
   extend ActiveSupport::Concern
 
-  included do 
+  included do
     has_many :addresses_addressables, as: :addressable
     has_many :addresses, through: :addresses_addressables
   end

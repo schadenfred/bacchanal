@@ -4,9 +4,9 @@ describe Address do
 
   subject { Address }
 
-  describe "db" do 
+  describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:city)
       must_have_column(:country)
@@ -21,13 +21,13 @@ describe Address do
 
     specify "indexes" do
 
-      must_have_index(:zip) 
-      must_have_index([:city, :state]) 
-      must_have_index([:latitude, :longitude]) 
+      must_have_index(:zip)
+      must_have_index([:city, :state])
+      must_have_index([:latitude, :longitude])
     end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_have_many :addresses_addressables
     must_have_many :addressables
@@ -35,9 +35,9 @@ describe Address do
     must_have_many :appellations
   end
 
-  specify "geocodable_address" do 
+  specify "geocodable_address" do
 
     address = FactoryGirl.build_stubbed(:address)
     address.full_street_address.must_equal "281 41st Street Suite #33, Oakland, CA, US"
-  end  
+  end
 end

@@ -14,11 +14,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    
+
     @comment = @commentable.comments.create!(comment_params.merge(commenter_id: current_user.id))
-    
+
     respond_to do |format|
-      
+
       format.html { redirect_to root_url }
       format.js
     end
@@ -46,12 +46,12 @@ class CommentsController < ApplicationController
     # end
   end
 
-  private  
+  private
 
     def set_comment
       @comment = Comment.find(params[:id])
     end
-    
+
     def comment_params
       params.require(:comment).permit(:content, :parent_id)
     end

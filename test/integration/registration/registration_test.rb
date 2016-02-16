@@ -4,9 +4,9 @@
 
 #   scenario "Sign up from nav modal" do
 #     visit "/"
-#     within "#signupModal" do 
+#     within "#signupModal" do
 #       fill_in 'user_email', with: 'test@test.com'
-#     end  
+#     end
 #     find_button('Sign up').click
 #     page.must have_selector(".alert-box", text: /link has been sent/)
 #     User.where(email: "test@test.com").wont_be_nil
@@ -18,9 +18,9 @@
 #   end
 # end
 
-# #   scenario "Sign up with facebook" do 
+# #   scenario "Sign up with facebook" do
 # #     skip
-# #     OmniAuth.config.test_mode = true 
+# #     OmniAuth.config.test_mode = true
 # #     OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
 # #       provider: 'facebook',
 # #       uid: '123545',
@@ -36,31 +36,31 @@
 # #         location: "Oakland, California"
 # #       }
 # #     })
-# #     # request.env["devise.mapping"] = Devise.mappings[:user] 
-# #     # request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook] 
-  
+# #     # request.env["devise.mapping"] = Devise.mappings[:user]
+# #     # request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+
 # #     visit user_omniauth_authorize_path(:facebook)
 
 # #     page.must have_selector(".alert-box", text: /Signed in with Facebook/)
 # #   end
 
-# #   scenario "sign up with twitter" do 
+# #   scenario "sign up with twitter" do
 
 # #   end
 
-# #   scenario "sign up with linkedin" do 
+# #   scenario "sign up with linkedin" do
 
 # #   end
 
-# #   scenario "sign up with instagram" do 
+# #   scenario "sign up with instagram" do
 
 # #   end
 
-# #   scenario "sign up with pinterest" do 
+# #   scenario "sign up with pinterest" do
 
 # #   end
 
-# #   scenario "confirm account" do 
+# #   scenario "confirm account" do
 
 # #   end
 # # end

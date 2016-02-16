@@ -5,9 +5,9 @@ FactoryGirl.define do
     sequence(:name) { |n| "fancy vineyard#{n}" }
     varietal "chardonnay"
 
-    factory :vineyard_with_addresses do 
+    factory :vineyard_with_addresses do
 
-      transient do 
+      transient do
         address_count 2
       end
 
@@ -16,8 +16,8 @@ FactoryGirl.define do
       end
     end
 
-    factory :vineyard_with_blocks do 
-      transient do 
+    factory :vineyard_with_blocks do
+      transient do
         blocks_count 5
       end
 

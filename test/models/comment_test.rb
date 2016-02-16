@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe Comment do 
+describe Comment do
 
   subject { Comment }
 
-   describe "db" do 
+   describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:ancestry)
       must_have_column(:content)
@@ -17,9 +17,9 @@ describe Comment do
 
     specify "indexes" do
 
-      must_have_index(:ancestry) 
+      must_have_index(:ancestry)
     end
-  end 
+  end
 
   specify "associations" do
 

@@ -11,5 +11,5 @@ $(document).ready(function(){
     paramName: "photo[image]",
     // show remove links on each image upload
     addRemoveLinks: true
-  }); 
+  });
 });

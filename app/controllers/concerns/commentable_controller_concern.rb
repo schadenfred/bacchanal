@@ -1,17 +1,17 @@
 module CommentableControllerConcern
 
   extend ActiveSupport::Concern
- 
+
   included do
     before_action :set_commentable, only: [:create]
   end
-  
+
   def parsed_path
     uri = URI(request.referer)
     array = uri.path.split("/")
     array.shift
     return array
-  end 
+  end
 
   def resource(path)
     resource_klass = parsed_path.first
@@ -19,7 +19,7 @@ module CommentableControllerConcern
     resource_klass.classify.constantize.friendly.find(resource_id)
   end
 
-  def resource_child(path) 
+  def resource_child(path)
     resource_klass = parsed_path.first
     resource_id = parsed_path.second
     resource_klass.classify.constantize.friendly.find(resource_id)
@@ -27,12 +27,12 @@ module CommentableControllerConcern
     child_resource_klass = parsed_path.third
     child_resource_id = parsed_path.fourth
     child_resource_klass.classify.constantize.where(
-      org_id: parent.id, 
+      org_id: parent.id,
       slug: child_resource_id).first
   end
- 
+
   private
-  
+
   def set_commentable
     if parsed_path.size == 2
       @commentable = resource(parsed_path)

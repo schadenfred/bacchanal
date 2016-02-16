@@ -1,13 +1,13 @@
 require "test_helper"
 
-describe WinesController do 
+describe WinesController do
 
   Given(:user) { create(:user) }
   Given(:wine) { create(:wine) }
 
   Given { sign_in user }
 
-  describe "#show" do 
+  describe "#show" do
 
     Given { get :show, winery_id: wine.winery.id, id: wine }
     Then  { assert_response :success }

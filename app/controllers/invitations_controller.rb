@@ -1,5 +1,5 @@
 class InvitationsController < Devise::InvitationsController
-  
+
   before_filter :update_sanitized_params, only: :create
 
   def create

@@ -7,7 +7,7 @@ class CreateWishes < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-  
+
     add_index :wishes, [:user_id, :product_id]
   end
 end

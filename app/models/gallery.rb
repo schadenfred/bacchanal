@@ -7,7 +7,7 @@ class Gallery < ActiveRecord::Base
 
   has_many :photos, through: :slides
   has_many :slides
-  
+
   accepts_nested_attributes_for :photos
 
   # validations

@@ -30,14 +30,14 @@ module ApplicationHelper
   def markdown(text)
     markdown = Redcarpet::Markdown.new(renderer, extensions = {})
     markdown.render(text)
-  end 
+  end
 
   def flavor_choices
     [
-      "spicy" => { 
+      "spicy" => {
         "spicy" => [
-          "licorice/anise" 
-        ] 
+          "licorice/anise"
+        ]
       }
     ]
   end
@@ -45,11 +45,11 @@ module ApplicationHelper
   def resource_name
     :user
   end
- 
+
   def resource
     @resource ||= User.new
   end
- 
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end

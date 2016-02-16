@@ -2,7 +2,7 @@ module AttachableConcern
 
   extend ActiveSupport::Concern
 
-  included do 
+  included do
     has_many :attachments, as: :attachable
   end
 end

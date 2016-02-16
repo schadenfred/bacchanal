@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe Slide do 
+describe Slide do
 
-  subject { Slide } 
+  subject { Slide }
 
-  describe "db" do 
+  describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:gallery_id, :integer)
       must_have_column(:photo_id, :integer)
@@ -14,11 +14,11 @@ describe Slide do
     end
 
     specify "indexes" do
-      
-      must_have_index([:photo_id, :gallery_id]) 
+
+      must_have_index([:photo_id, :gallery_id])
     end
 
-    specify "properties" do 
+    specify "properties" do
 
       assert subject.new.respond_to? :call_to_action
       assert subject.new.respond_to? :bullet_big
@@ -26,7 +26,7 @@ describe Slide do
     end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to :gallery
     must_belong_to :photo

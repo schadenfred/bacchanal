@@ -1,4 +1,4 @@
-var divClone = $(".comments").clone(); 
+var divClone = $(".comments").clone();
 
 $('.comment-reply-cancel').hide();
 

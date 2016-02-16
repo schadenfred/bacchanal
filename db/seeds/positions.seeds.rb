@@ -1,4 +1,4 @@
-after :users, :wineries, :orgs do 
+after :users, :wineries, :orgs do
 
   users = User.all
   orgs = Org.where.not(name: ["Bacchan.al"])

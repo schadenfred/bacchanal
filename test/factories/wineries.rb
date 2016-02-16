@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory :winery do
     sequence(:name) { |n| "fancy winery-name#{n}" }
 
-    
+
     factory :winery_with_wines do
       transient do
         wines_count 5
@@ -13,11 +13,11 @@ FactoryGirl.define do
         create_list(:wine, evaluator.wines_count, winery: winery)
       end
     end
-    
+
     factory :winery_with_appellations do
 
       after(:create) do |winery|
-        winery.addresses_addressables.create(address: FactoryGirl.create(:address_with_appellations) ) 
+        winery.addresses_addressables.create(address: FactoryGirl.create(:address_with_appellations) )
       end
     end
   end

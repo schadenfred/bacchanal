@@ -4,7 +4,7 @@ describe Product do
 
   subject { Product }
 
-  describe "db" do 
+  describe "db" do
 
     specify "columns & types" do
 
@@ -17,16 +17,16 @@ describe Product do
     end
 
     specify "indexes" do
-    
-      must_have_index(:name) 
-      must_have_index(:slug) 
+
+      must_have_index(:name)
+      must_have_index(:slug)
     end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to :producer
     must_have_many :photos
     must_have_many :galleries
-  end 
+  end
 end

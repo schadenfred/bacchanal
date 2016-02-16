@@ -1,5 +1,5 @@
 $(function () {
-  $('#position_positionable_tokens').tokenInput('/orgs.json', { 
+  $('#position_positionable_tokens').tokenInput('/orgs.json', {
     crossDomain: false
     , minChars: 3
     , placeholder: "Winery name"
@@ -14,6 +14,6 @@ $(function () {
     dateFormat: 'yy-mm-dd'
   })
 
-  
+
 });
 

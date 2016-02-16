@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe Identity do 
+describe Identity do
 
   subject { Identity }
 
-  describe "db" do 
+  describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:identifiable_id, :integer)
       must_have_column(:identifiable_type)
@@ -22,29 +22,29 @@ describe Identity do
     end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to(:user)
   end
 
-  
 
-#   describe "Identity.create_with_omniauth(auth)" do 
+
+#   describe "Identity.create_with_omniauth(auth)" do
 
 #     Given(:auth) { {"provider" => "twitter", "uid" => "some_uid"} }
-#     Then { 
-#       assert_difference("Identity.count") { 
-#         Identity.create_with_omniauth(auth) 
-#       } 
+#     Then {
+#       assert_difference("Identity.count") {
+#         Identity.create_with_omniauth(auth)
+#       }
 #     }
 #   end
 
-#   describe "Identity.find_with_omniauth(auth)" do 
+#   describe "Identity.find_with_omniauth(auth)" do
 
 #     Given(:identity) { FactoryGirl.create(:identity) }
 #     Given(:auth) { {"provider" => identity['provider'], "uid" => identity['uid']} }
 #     Then { Identity.find_with_omniauth(auth).must_equal identity }
 #   end
 
-  
+
 end

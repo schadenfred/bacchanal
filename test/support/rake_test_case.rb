@@ -7,7 +7,7 @@ class RakeTaskTestCase < ActiveSupport::TestCase
   end
 
 private
-  
+
   def subject
     Rake::Task[task_name]
   end
@@ -44,7 +44,7 @@ end
 #   end
 
 # private
-  
+
 #   def subject
 #     Rake::Task[task_name]
 #   end

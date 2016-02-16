@@ -1,16 +1,16 @@
 require "test_helper"
 
-describe Lot do 
+describe Lot do
 
   subject { Lot }
 
-  describe "db" do 
+  describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:farm_id, :integer)
       must_have_column(:percentage, :integer)
       must_have_column(:product_id, :integer)
-    end  
+    end
   end
 end

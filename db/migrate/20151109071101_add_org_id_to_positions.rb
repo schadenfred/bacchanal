@@ -10,7 +10,7 @@ class AddOrgIdToPositions < ActiveRecord::Migration
     add_index :positions, :tenure_start
     add_index :positions, :tenure_end
   end
-    
+
   def down
     remove_index :positions, [:positionable_id, :positionable_type]
   end

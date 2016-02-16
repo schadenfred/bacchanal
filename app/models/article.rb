@@ -2,9 +2,9 @@ class Article < ActiveRecord::Base
 
   include CommentableConcern
   include AASM
-  
+
   extend FriendlyId
-  
+
   resourcify
 
   friendly_id :title, use: :slugged

@@ -2,8 +2,8 @@ require "test_helper"
 
 feature "Reset Password Feature Test" do
 
-  let(:user) { create(:user) } 
-  
+  let(:user) { create(:user) }
+
   scenario "unathenticated user resets from signin page" do
     visit new_user_session_path
     click_link "Forgot your password?"

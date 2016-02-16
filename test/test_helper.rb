@@ -13,7 +13,7 @@ require 'tilt/redcarpet'
 
 
 Dir[File.expand_path('test/support/*.rb')].each { |file| require file }
-include TestMatchers 
+include TestMatchers
 include FactoryGirl::Syntax::Methods
 
 class ActiveSupport::TestCase

@@ -2,14 +2,14 @@ require "test_helper"
 
 feature "Change email Feature Test" do
 
-  before do 
+  before do
     @user = FactoryGirl.create(:user, email: "jim.bobby@gmail.com", name: "Jimbob McBobsalot")
     login_as(@user)
     visit dashboard_path
-  end 
-  
+  end
+
   scenario "from dashboard settings" do
-    
+
     within("#settings") do
       fill_in "Email", with: "James.Robert@gmail.com"
       fill_in "Current password", with: @user.password

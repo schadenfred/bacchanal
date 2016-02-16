@@ -18,7 +18,7 @@ testers.each do |fullname|
   test_domain = "@bacchan.al"
   email = first + "." + last + test_domain
 
-  user = User.create!( 
+  user = User.create!(
     name: fullname,
     email: email,
     password: "password",
@@ -28,7 +28,7 @@ testers.each do |fullname|
 end
 
 20.times do
-  user = User.create!( 
+  user = User.create!(
     name: Faker::Stoked.celebroty,
     email: Faker::Internet.email,
     password: "password",

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  
+
   factory :photo do
 
     image Rails.root.join("test", "samples", "labels", "wine-label.jpg")

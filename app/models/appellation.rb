@@ -7,7 +7,7 @@ class Appellation < ActiveRecord::Base
   has_many :wineries, through: :addresses_addressables, source: :addressable, source_type: "Org"
   has_many :vineyards, through: :addresses_addressables, source: :addressable, source_type: "Org"
   has_many :wines, through: :vineyards
- 
+
 
   def include_address(address)
     addresses_appellables.create(address_id: address.id)

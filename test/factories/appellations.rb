@@ -1,18 +1,18 @@
 FactoryGirl.define do
 
   factory :appellation do
-  
+
     name "anderson valley"
     description "MyString"
 
-    factory :mendocino_appellation do 
+    factory :mendocino_appellation do
 
       name "mendocino"
     end
 
-    factory :california_appellation do 
+    factory :california_appellation do
 
-      name "california" 
+      name "california"
     end
   end
 end

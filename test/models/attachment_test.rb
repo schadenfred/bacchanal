@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe Attachment do 
+describe Attachment do
 
   subject { Attachment }
 
-  describe "db" do 
+  describe "db" do
 
-    specify "columns & types" do 
+    specify "columns & types" do
 
       must_have_column(:attachment_name)
       must_have_column(:attachment_uid)
@@ -15,21 +15,21 @@ describe Attachment do
       must_have_column(:name)
       must_have_column(:summary)
     end
-    
-    specify "columns & types" do 
+
+    specify "columns & types" do
 
       must_have_index(:attachment_uid)
       must_have_index([:attachable_id, :attachable_type])
-    end 
+    end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to :attachable
     must_belong_to :wine
   end
 
-  describe ":filename_extension" do 
+  describe ":filename_extension" do
 
     Given(:attachment) { FactoryGirl.create(:attachment) }
     Then { attachment.filename_extension.must_equal "pdf"}

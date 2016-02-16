@@ -1,4 +1,4 @@
-after :vineyards do 
+after :vineyards do
 
   vineyard = Vineyard.find_by(name: "Ferrington Vineyard")
 

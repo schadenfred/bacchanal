@@ -2,7 +2,7 @@ module IdentifiableConcern
 
   extend ActiveSupport::Concern
 
-  included do 
+  included do
     has_many :identities, as: :identifiable
   end
 

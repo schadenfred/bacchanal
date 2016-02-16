@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserPresenterTest < ActionView::TestCase
 
-  setup do 
+  setup do
     @user = Minitest::Mock.new
     @user.expect(:comments, ["comment1", "comment2"] )
     @user.expect(:positions, ["position1", "position2"] )
@@ -12,7 +12,7 @@ class UserPresenterTest < ActionView::TestCase
   end
 
   let(:presenter) { UserPresenter.new(@user, view) }
-  
+
   specify ":comments" do
     presenter.comments.count.must_equal 2
   end

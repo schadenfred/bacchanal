@@ -1,6 +1,6 @@
-module Commentable  
+module Commentable
 extend ActiveSupport::Concern
- 
+
   included do
     before_action :comments, only: [:show]
   end
@@ -11,11 +11,11 @@ extend ActiveSupport::Concern
     @comments = @commentable.comments.arrange(:order => :created_at)
     @comment = Comment.new
   end
- 
+
   private
- 
+
   def find_commentable
     return params[:controller].singularize.classify.constantize.friendly.find(params[:id])
   end
- 
+
 end

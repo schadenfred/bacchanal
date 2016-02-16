@@ -11,11 +11,11 @@ module TestMatchers
   end
 
   def must_have_column(column, type=nil)
-    
+
     subject.column_names.must_include column.to_s
     if type.nil?
       subject.columns_hash[column.to_s].type.must_equal :string
-    else 
+    else
       subject.columns_hash[column.to_s].type.must_equal type
     end
   end
@@ -62,7 +62,7 @@ module TestMatchers
   end
 
   def must_have_many(child_model)
-    
+
     subject.reflect_on_all_associations(:has_many).map(&:name).must_include child_model
   end
 

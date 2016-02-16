@@ -1,7 +1,7 @@
 class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
 
-  def index 
+  def index
     @orgs = Org.where("name like ?", "%#{params[:q]}%")
 
     render json: @orgs.map(&:attributes), root: false

@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe WishesController do 
+describe WishesController do
 
   Given(:user)        { create(:user) }
   Given(:wine)        { create(:wine) }
@@ -8,7 +8,7 @@ describe WishesController do
 
   Given { sign_in user }
 
-  describe "#create" do 
+  describe "#create" do
 
     Given(:make_request) { post :create, wish: wish_attrs}
 
@@ -17,8 +17,8 @@ describe WishesController do
 
   describe "#update" do
 
-  end 
-end  
+  end
+end
 
 #   def test_create
 #     assert_difference("Wish.count") do

@@ -150,20 +150,20 @@ function onYouTubePlayerAPIReady() {
 			 */
 
 			return this.each(function () {
-				
+
 				var YTPlayer = this;
 				var $YTPlayer = jQuery(YTPlayer);
-				
+
 				YTPlayer.loop = 0;
 				YTPlayer.opt = {};
-				
+
 				$YTPlayer.addClass("mb_YTPlayer");
 				var property = $YTPlayer.data("property") && typeof $YTPlayer.data("property") == "string" ? eval('(' + $YTPlayer.data("property") + ')') : $YTPlayer.data("property");
 				if (typeof property != "undefined" && typeof property.vol != "undefined")
 					property.vol = property.vol == 0 ? property.vol = 1 : property.vol;
 				jQuery.extend(YTPlayer.opt, jQuery.mbYTPlayer.defaults, options, property);
 				YTPlayer.isRetina = (window.retina || window.devicePixelRatio > 1);
-				
+
 				var isIframe = function() {
 					var isIfr = false;
 					try{
@@ -174,15 +174,15 @@ function onYouTubePlayerAPIReady() {
 					}
 					return isIfr;
 				};
-				
+
 				YTPlayer.canGoFullScreen = !(jQuery.browser.msie || jQuery.browser.opera || isIframe());
-				
+
 				if (!YTPlayer.canGoFullScreen)
 					YTPlayer.opt.realfullscreen = false;
-				
+
 				if (!$YTPlayer.attr("id"))
 					$YTPlayer.attr("id", "video_" + new Date().getTime());
-				
+
 				var playerID = "mbYTP_" + YTPlayer.id;
 				YTPlayer.isAlone = false;
 				YTPlayer.hasFocus = true;
@@ -192,13 +192,13 @@ function onYouTubePlayerAPIReady() {
 				YTPlayer.playlistID = playlistID;
 				YTPlayer.opt.showAnnotations = (YTPlayer.opt.showAnnotations) ? '0' : '3';
 				var playerVars = { 'autoplay': 0, 'modestbranding': 1, 'controls': 0, 'showinfo': 0, 'rel': 0, 'enablejsapi': 1, 'version': 3, 'playerapiid': playerID, 'origin': '*', 'allowfullscreen': true, 'wmode': 'transparent', 'iv_load_policy': YTPlayer.opt.showAnnotations};
-				
+
 				if (document.createElement('video').canPlayType) //&& window.MediaSource  && !YTPlayer.isRetina
 					jQuery.extend(playerVars, {'html5': 1});
-				
-				if (jQuery.browser.msie && jQuery.browser.version < 9) 
+
+				if (jQuery.browser.msie && jQuery.browser.version < 9)
 					this.opt.opacity = 1;
-				
+
 				var playerBox = jQuery("<div/>").attr("id", playerID).addClass("playerBox");
 				var overlay = jQuery("<div/>").css({position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}).addClass("YTPOverlay");
 				YTPlayer.isSelf = YTPlayer.opt.containment == "self";
@@ -207,9 +207,9 @@ function onYouTubePlayerAPIReady() {
 				if (YTPlayer.isBackground && ytp.backgroundIsInited)
 					return;
 				var isPlayer = YTPlayer.opt.containment.is(jQuery(this));
-				
+
 				YTPlayer.canPlayOnMobile = isPlayer && jQuery(this).children().length == 0;
-				
+
 				if (!isPlayer) {
 					$YTPlayer.hide();
 				} else {
@@ -268,7 +268,7 @@ function onYouTubePlayerAPIReady() {
 						$YTPlayer.find(".mb_YTPBar").removeClass("visible");
 					})
 				}
-				
+
 				if (!ytp.YTAPIReady) {
 					jQuery("#YTAPI").remove();
 					var tag = jQuery("<script></script>").attr({"src": jQuery.mbYTPlayer.locationProtocol + "//www.youtube.com/player_api?v=" + jQuery.mbYTPlayer.version, "id": "YTAPI"});
@@ -278,7 +278,7 @@ function onYouTubePlayerAPIReady() {
 						jQuery(document).trigger("YTAPIReady");
 					}, 100)
 				}
-				
+
 				jQuery(document).on("YTAPIReady", function () {
 					if ((YTPlayer.isBackground && ytp.backgroundIsInited) || YTPlayer.isInit)
 						return;
@@ -299,10 +299,10 @@ function onYouTubePlayerAPIReady() {
 						if (YTPlayer.isInit)
 							return;
 						YTPlayer.isInit = true;
-						
+
 						//if is mobile && isPlayer fallback to the default YT player
 						if (jQuery.browser.mobile && YTPlayer.canPlayOnMobile) {
-							
+
 							new YT.Player(playerID, {
 								videoId: YTPlayer.videoID.toString(),
 								height : '100%',
@@ -319,9 +319,9 @@ function onYouTubePlayerAPIReady() {
 								}
 							});
 							return;
-							
+
 						}
-						
+
 						new YT.Player(playerID, {
 							videoId   : YTPlayer.videoID.toString(),
 							playerVars: playerVars,
@@ -384,7 +384,7 @@ function onYouTubePlayerAPIReady() {
 								},
 
 								'onStateChange': function (event) {
-						
+
 									 /*
 										 -1 (unstarted)
 										 0 (ended)
@@ -424,13 +424,13 @@ function onYouTubePlayerAPIReady() {
 											break;
 
 										case 2:  //------------------------------------------------ pause
-											
+
 											eventType = "YTPPause";
 											controls.find(".mb_YTPPlaypause").html(jQuery.mbYTPlayer.controls.play);
 											break;
 
 										case 3:  //------------------------------------------------ buffer
-											
+
 											if (!jQuery.browser.chrome)
 												YTPlayer.player.setPlaybackQuality(YTPlayer.opt.quality);
 											eventType = "YTPBuffering";
@@ -443,13 +443,13 @@ function onYouTubePlayerAPIReady() {
 											break;
 
 										case 5:  //------------------------------------------------ cued
-											
+
 											eventType = "YTPCued";
 											break;
 
 										default:
 											break;
-										
+
 									}
 									// Trigger state events
 									var YTPevent = jQuery.Event(eventType);
@@ -480,9 +480,9 @@ function onYouTubePlayerAPIReady() {
 						});
 					});
 				})
-				
+
 			});
-			
+
 		},
 
 //		todo: This API is deprecated. Find another way to retreive the Data informations.
@@ -704,7 +704,7 @@ function onYouTubePlayerAPIReady() {
 				fullScreenBtn.html(jQuery.mbYTPlayer.controls.onlyYT)
 				YTPlayer.isAlone = false;
 			}
-			
+
 			function RunPrefixMethod(obj, method) {
 				var pfx = ["webkit", "moz", "ms", "o", ""];
 				var p = 0, m, t;

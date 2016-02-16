@@ -2,14 +2,14 @@ require "test_helper"
 
 feature "Invitation Feature Test" do
 
-  before do 
+  before do
     @user = FactoryGirl.create(:user, email: "jim.bobby@gmail.com", name: "Jimbob McBobsalot")
     login_as(@user)
     visit dashboard_path
-  end 
-  
+  end
+
   scenario "without name" do
-    
+
     within("#invitations") do
       fill_in "Email", with: "Narcy.david@gmail.com"
       click_button "Send an invitation"

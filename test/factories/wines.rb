@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  sequence(:vintage) do |n| 
-    "200#{n}" 
+  sequence(:vintage) do |n|
+    "200#{n}"
   end
 
   factory :wine do

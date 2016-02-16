@@ -2,13 +2,13 @@ require "test_helper"
 
 feature "Authentication Feature Test" do
 
-  let(:user) { create( :user ) } 
+  let(:user) { create( :user ) }
   let(:winery) { create( :winery, name: "Fathers & Daughters cellars" ) }
 
-  pages = { "home" => "/", "winery" => "wineries/fathers-daughters-cellars" } 
-    
+  pages = { "home" => "/", "winery" => "wineries/fathers-daughters-cellars" }
+
   pages.each do |k,v|
-  
+
     scenario "Sign in from #{k} page" do
       winery
       visit v

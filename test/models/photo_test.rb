@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe Photo do 
+describe Photo do
 
   subject { Photo }
 
-  describe "db" do 
-    
-    specify "columns & types" do 
+  describe "db" do
+
+    specify "columns & types" do
 
       must_have_column(:caption)
       must_have_column(:image_name)
@@ -18,17 +18,17 @@ describe Photo do
     end
   end
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to(:photographable)
     must_belong_to(:photographer)
     must_have_many(:slides)
   end
 
-  describe "validations" do 
+  describe "validations" do
 
     When(:photo) { FactoryGirl.build(:photo, photographer_id: nil) }
     Then { photo.valid?.wont_equal true }
     And  { photo.errors.messages[:photographer].must_equal ["can't be blank"] }
   end
-end       
+end

@@ -7,12 +7,12 @@ module WineriesHelper
   end
 
   def flavor_choices
-    { "spicy" => { 
+    { "spicy" => {
         "spicy" => [
           "licorice/anise",
           "black pepper",
-          "clove" 
-        ] 
+          "clove"
+        ]
       },
       "fruity" => {
         "citrus" => [
@@ -50,7 +50,7 @@ module WineriesHelper
           "methyl anthranilate (foxy)"
         ]
       },
-      
+
       "herbaceous/vegetative" => {
         "fresh" => [
           "cut green grass",
@@ -69,7 +69,7 @@ module WineriesHelper
           "hay/straw",
           "tea"
         ]
-      }, 
+      },
 
       "nutty" => {
         "nutty" => [
@@ -77,7 +77,7 @@ module WineriesHelper
           "hazelnut",
           "almond"
         ]
-      },  
+      },
       "caramel" => {
         "caramel" => [
           "honey",
@@ -108,7 +108,7 @@ module WineriesHelper
       "earthy" => {
         "moldy" => [
           "moldy cork"
-        ], 
+        ],
         "earthy" => [
           "mushroom",
           "dusty"
@@ -133,7 +133,7 @@ module WineriesHelper
         "petroleum" => [
           "diesel",
           "kerosene",
-          "plastic", 
+          "plastic",
           "tar"
         ]
       },
@@ -141,7 +141,7 @@ module WineriesHelper
         "oxidized" => [
           "sherry"
         ]
-      }, 
+      },
       "microbiological" => {
         "yeasty" => [
           "leesy",
@@ -156,10 +156,10 @@ module WineriesHelper
           "mousey",
           "horsey"
         ]
-      }, 
+      },
       "floral" => {
         "floral" => [
-          "geranium", 
+          "geranium",
           "violet",
           "rose",
           "linalool (earl grey tea)",
@@ -199,7 +199,7 @@ end
 #             "eucalyptus",
 #             "mint"
 #           },
-          
+
 #           "canned/cooked" {
 #             "green bean",
 #             "asparagus",
@@ -207,7 +207,7 @@ end
 #             "black olive",
 #             "artichoke"
 #           },
-          
+
 #           {
 #             "dried" {
 #               "hay/straw",
@@ -215,8 +215,8 @@ end
 #             }
 #           }
 #         },
-        
-#         { 
+
+#         {
 #           "nutty" {
 #             "nutty" {
 #               "walnut",
@@ -289,13 +289,13 @@ end
 #             "petroleum" {
 #               "diesel",
 #               "kerosene",
-#               "plastic", 
+#               "plastic",
 #               "tar"
 #             }
 #           }
 #         }
 
 #       }
-#     } 
+#     }
 #   end
 # end

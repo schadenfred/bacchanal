@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe StaticController do 
+describe StaticController do
 
   Given(:user) { FactoryGirl.create(:user) }
   Given(:org)  { FactoryGirl.create(:org, name: "Bacchan.al") }
@@ -13,7 +13,7 @@ describe StaticController do
 
     describe "get /#{page}" do
 
-      it "must succeed" do 
+      it "must succeed" do
 
         org
         get page.to_sym

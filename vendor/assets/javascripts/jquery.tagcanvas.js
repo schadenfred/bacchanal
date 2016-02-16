@@ -10,7 +10,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -26,7 +26,7 @@ var i, j, abs = Math.abs, sin = Math.sin, cos = Math.cos, max = Math.max,
   0:"0,",   1:"17,",  2:"34,",  3:"51,",  4:"68,",  5:"85,",
   6:"102,", 7:"119,", 8:"136,", 9:"153,", a:"170,", A:"170,",
   b:"187,", B:"187,", c:"204,", C:"204,", d:"221,", D:"221,",
-  e:"238,", E:"238,", f:"255,", F:"255,"  
+  e:"238,", E:"238,", f:"255,", F:"255,"
   }, Oproto, Tproto, TCproto, Mproto, Vproto, TSproto, TCVproto,
   doc = document, ocanvas, handlers = {};
 for(i = 0; i < 256; ++i) {
@@ -269,9 +269,9 @@ function FindGradientColour(tc, p, r) {
 }
 function TextSet(ctxt, font, colour, strings, padx, pady, shadowColour,
   shadowBlur, shadowOffsets, maxWidth, widths, align) {
-  var xo = padx + (shadowBlur || 0) + 
+  var xo = padx + (shadowBlur || 0) +
     (shadowOffsets.length && shadowOffsets[0] < 0 ? abs(shadowOffsets[0]) : 0),
-    yo = pady + (shadowBlur || 0) + 
+    yo = pady + (shadowBlur || 0) +
     (shadowOffsets.length && shadowOffsets[1] < 0 ? abs(shadowOffsets[1]) : 0), i, xc;
   ctxt.font = font;
   ctxt.textBaseline = 'top';
@@ -407,7 +407,7 @@ TCVproto.Create = function(colour, bgColour, bgOutline, bgOutlineThickness,
   // don't use TextSet shadow support because it adds space for shadow
   TextSet(c, this.font, colour, this.strings, offx, offy, 0, 0, [],
     this.maxWidth, this.stringWidths, this.align);
-      
+
   if(this.image)
     c.drawImage(this.image, ix, iy, iw, ih);
 
@@ -461,7 +461,7 @@ function AddBackgroundToImage(i, w, h, scale, colour, othickness, ocolour,
     c.lineWidth = othickness;
     RRect(c, x1, y1, x2, y2, radius, true);
   }
-  
+
   if(ofill) {
     // use compositing to colour in the image and border
     ocanvas = NewCanvas(cw, ch);
@@ -484,7 +484,7 @@ function AddBackgroundToImage(i, w, h, scale, colour, othickness, ocolour,
  * Returns an object containing the image and its dimensions at z=0
  */
 function AddShadowToImage(i, w, h, scale, sc, sb, so) {
-  var sw = abs(so[0]), sh = abs(so[1]), 
+  var sw = abs(so[0]), sh = abs(so[1]),
     cw = w + (sw > sb ? sw + sb : sb * 2) * scale,
     ch = h + (sh > sb ? sh + sb : sb * 2) * scale,
     xo = scale * ((sb || 0) + (so[0] < 0 ? sw : 0)),
@@ -605,7 +605,7 @@ function AddImage(i, o, t, tc) {
       if(tc.bgColour || tc.bgOutlineThickness) {
         bc = tc.bgColour == 'tag' ? GetProperty(t.a, 'background-color') :
           tc.bgColour;
-        oc = tc.bgOutline == 'tag' ? GetProperty(t.a, 'color') : 
+        oc = tc.bgOutline == 'tag' ? GetProperty(t.a, 'color') :
           (tc.bgOutline || tc.textColour);
         iw = t.fimage.width;
         ih = t.fimage.height;
@@ -616,7 +616,7 @@ function AddImage(i, o, t, tc) {
           if(ic)
             t.oimage = ic.image;
         }
-        ic = AddBackgroundToImage(t.fimage, iw, ih, mscale, bc, 
+        ic = AddBackgroundToImage(t.fimage, iw, ih, mscale, bc,
           tc.bgOutlineThickness, oc, tc.padding, tc.bgRadius);
         if(ic) {
           t.fimage = ic.image;
@@ -898,7 +898,7 @@ function Outline(tc,t) {
   this.tag = t;
   this.x = this.y = this.w = this.h = this.sc = 1;
   this.z = 0;
-  this.Draw = tc.pulsateTo < 1 && tc.outlineMethod != 'colour' ? 
+  this.Draw = tc.pulsateTo < 1 && tc.outlineMethod != 'colour' ?
     this.DrawPulsate : this.DrawSimple;
   this.radius = tc.outlineRadius | 0;
   this.SetMethod(tc.outlineMethod);
@@ -950,7 +950,7 @@ Oproto.DrawColourText = function(c,x,y,w,h,colour,tag,x1,y1) {
   return 1;
 };
 Oproto.DrawColourImage = function(c,x,y,w,h,colour,tag,x1,y1) {
-  var ccanvas = c.canvas, fx = ~~max(x,0), fy = ~~max(y,0), 
+  var ccanvas = c.canvas, fx = ~~max(x,0), fy = ~~max(y,0),
     fw = min(ccanvas.width - fx, w) + .5|0, fh = min(ccanvas.height - fy,h) + .5|0, cc;
   if(ocanvas)
     ocanvas.width = fw, ocanvas.height = fh;
@@ -997,7 +997,7 @@ Oproto.DrawPulsate = function(c, tag, x1, y1) {
   c.strokeStyle = t.outlineColour;
   c.lineWidth = t.outlineThickness;
   c.shadowBlur = c.shadowOffsetX = c.shadowOffsetY = 0;
-  c.globalAlpha = t.pulsateTo + ((1 - t.pulsateTo) * 
+  c.globalAlpha = t.pulsateTo + ((1 - t.pulsateTo) *
     (0.5 + (cos(2 * Math.PI * diff / (1000 * t.pulsateTime)) / 2)));
   return this.drawFunc(c,this.x,this.y,this.w,this.h,t.outlineColour,tag,x1,y1);
 };
@@ -1119,7 +1119,7 @@ Tproto.Measure = function(c,t) {
         tcv.SetImage(this.image, this.iw + t.outlineIncrease,
           this.ih + t.outlineIncrease, t.imagePosition, t.imagePadding,
           t.imageAlign, t.imageVAlign, t.imageScale);
-          
+
       this.oimage = tcv.Create(this.colour, this.bgColour, this.bgOutline,
         s * this.bgOutlineThickness, t.shadow, s * t.shadowBlur, soff,
         s * this.padding, s * this.bgRadius);
@@ -1155,7 +1155,7 @@ Tproto.SetWeight = function(w) {
   for(s = 0; s < wl; ++s) {
     m = modes[s] || 'size';
     if('both' == m) {
-      this.Weight(w[s], tc.ctxt, tc, 'size', tc.min_weight[s], 
+      this.Weight(w[s], tc.ctxt, tc, 'size', tc.min_weight[s],
         tc.max_weight[s], s);
       this.Weight(w[s], tc.ctxt, tc, 'colour', tc.min_weight[s],
         tc.max_weight[s], s);
@@ -1176,7 +1176,7 @@ Tproto.Weight = function(w, c, t, m, wmin, wmax, wnum) {
     this.bgOutline = FindGradientColour(t, nweight, wnum);
   else if('size' == m) {
     if(t.weightSizeMin > 0 && t.weightSizeMax > t.weightSizeMin) {
-      this.textHeight = t.weightSize * 
+      this.textHeight = t.weightSize *
         (t.weightSizeMin + (t.weightSizeMax - t.weightSizeMin) * nweight);
     } else {
       // min textHeight of 1
@@ -1302,7 +1302,7 @@ function TagCanvas(cid,lctr,opt) {
     throw 0;
   }
   for(i in TagCanvas.options)
-    this[i] = opt && Defined(opt[i]) ? opt[i] : 
+    this[i] = opt && Defined(opt[i]) ? opt[i] :
       (Defined(TagCanvas[i]) ? TagCanvas[i] : TagCanvas.options[i]);
 
   this.canvas = c;
@@ -1555,7 +1555,7 @@ TCproto.Load = function() {
         taglist.push(t);
     }
     this.weight && this.Weight(taglist, true);
-  
+
     if(this.shapeArgs) {
       this.shapeArgs[0] = taglist.length;
     } else {
@@ -1669,7 +1669,7 @@ TCproto.Draw = function(t) {
   for(i = 0; i < l; ++i)
     tl[i].Calc(this.transform, this.fixedAlpha);
   tl = SortList(tl, function(a,b) {return b.z-a.z});
-  
+
   if(fixed && this.fixedAnim.active) {
     active = this.fixedAnim.tag.UpdateActive(c, x, y);
   } else {

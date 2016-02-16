@@ -4,7 +4,7 @@ describe Event do
 
   subject { Event }
 
-  specify "associations" do 
+  specify "associations" do
 
     must_belong_to :competition
   end

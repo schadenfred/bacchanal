@@ -1,11 +1,11 @@
-after :articles, :users, :wineries do 
+after :articles, :users, :wineries do
 
   winery = Winery.first
   article = winery.articles.first
   commenters = User.first(10)
 
   commenters.each do |commenter|
-    
+
     article.comments.create!(
       content: Faker::Stoked.sentences(2),
       commenter_id: commenter.id)

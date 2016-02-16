@@ -1,9 +1,9 @@
-after :users, :wineries, :vineyards, :galleries, :wines, :positions do 
+after :users, :wineries, :vineyards, :galleries, :wines, :positions do
 
-  users = User.all 
+  users = User.all
   fillers = Dir[File.expand_path('test/samples/avatars/*')]
   users.each do |user|
-    
+
     user.create_avatar(
       image: File.new( fillers.sample ),
       caption: Faker::Stoked.thing,
@@ -16,8 +16,8 @@ after :users, :wineries, :vineyards, :galleries, :wines, :positions do
 
   orgs.each do |org|
     user = User.first
-    
-    3.times do 
+
+    3.times do
       @photo = org.default_gallery.photos.create!(
         image: File.new(files.sample),
         caption: Faker::Stoked.thing,

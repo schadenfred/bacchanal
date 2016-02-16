@@ -1,19 +1,19 @@
-require "test_helper" 
+require "test_helper"
 
-describe "producer route acceptance test" do 
-  
+describe "producer route acceptance test" do
+
   resources = %w[producers wineries]
-  
+
   resources.each do |resource|
 
-    it "GET /#{resource}/1" do 
+    it "GET /#{resource}/1" do
 
-      assert_generates "/#{resource}/1", { 
-        controller: resource, action: 'show', id: '1' 
+      assert_generates "/#{resource}/1", {
+        controller: resource, action: 'show', id: '1'
       }
     end
 
-    it "" do 
+    it "" do
 
       assert_generates "/#{resource}", {
         controller: resource, action: 'index'
@@ -24,7 +24,7 @@ describe "producer route acceptance test" do
 end
 
 #     assert_recognizes(
-#       { controller: 'wineries', action: 'show', id: '1' }, 
+#       { controller: 'wineries', action: 'show', id: '1' },
 #       '/wineries/1'
 #     )
 

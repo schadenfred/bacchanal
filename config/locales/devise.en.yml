@@ -1,8 +1,8 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
-  simple_form: 
-    labels: 
+  simple_form:
+    labels:
     hints:
     placeholders:
 

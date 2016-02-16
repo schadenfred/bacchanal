@@ -1,4 +1,4 @@
-after :wineries, :orgs, :users, :wines do 
+after :wineries, :orgs, :users, :wines do
 
   wineries = Winery.all
   vineyards = Vineyard.all
