@@ -15,4 +15,8 @@ describe Plan do
     end
   end
 
+  specify "associations" do
+
+    must_have_many(:users)
+  end
 end

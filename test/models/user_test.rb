@@ -10,6 +10,7 @@ describe User do
 
       must_have_column(:email)
       must_have_column(:name)
+      must_have_column(:plan_id, :integer)
     end
 
     specify "indexes" do
@@ -23,6 +24,7 @@ describe User do
 
   specify "associations" do
 
+    must_belong_to(:plan)
     must_have_many(:articles)
     must_have_many(:identities)
     must_have_many(:invitations)

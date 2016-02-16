@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
           :omniauthable, :recoverable, :registerable, :rememberable,
           :trackable, :validatable  # :timeoutable
 
+  belongs_to :plan
+
   has_many :articles, foreign_key: "author_id"
   has_many :comments, foreign_key: "commenter_id"
   has_many :invitations, class_name: self.to_s, as: :invited_by
