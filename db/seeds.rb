@@ -114,3 +114,7 @@ after :users do
     end
   end
 end
+
+
+CreatePlanService.new.call
+puts 'CREATED PLANS'

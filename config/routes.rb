@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
 
-  devise_for :users, controllers: { invitations: "invitations"}
+  devise_for :users, controllers: {
+    invitations: "invitations",
+    registrations: "registrations" }
 
   get '/about',     to: "static#about"
   get '/contact',   to: "static#contact"

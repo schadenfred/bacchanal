@@ -1,19 +1,55 @@
 - content_for :devise_action do
   Edit #{resource_name.to_s.humanize}
 - content_for :devise_form do
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+/   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+/     = devise_error_messages!
+/     = f.input :email, autofocus: true
+/     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+/       %div
+/         Currently waiting confirmation for: #{resource.unconfirmed_email}
+/     = f.input :password, autocomplete: "off"
+/     = f.input :password_confirmation, autocomplete: "off"
+/     = f.input :current_password, autocomplete: "off"
+/     .actions
+/       = f.button :submit, "Update", class: auth_btn
+/   %hr
+/   %h3 Unhappy?
+/   %p
+/     Every party needs a pooper.
+/     = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "No! Please! Don't! Leave!?!" }, method: :delete, class: auth_btn
+.authform
+  %h3
+    Edit #{resource_name.to_s.humanize}
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f|
     = devise_error_messages!
-    = f.input :email, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %div
-        Currently waiting confirmation for: #{resource.unconfirmed_email}
-    = f.input :password, autocomplete: "off"
-    = f.input :password_confirmation, autocomplete: "off"
-    = f.input :current_password, autocomplete: "off"
-    .actions
-      = f.button :submit, "Update", class: auth_btn
-  %hr
-  %h3 Unhappy?
-  %p
-    Every party needs a pooper.
-    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "No! Please! Don't! Leave!?!" }, method: :delete, class: auth_btn
+    .form-group
+      = f.label :email
+      = f.email_field :email, :autofocus => true, class: 'form-control'
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %fieldset
+      %p Leave these fields blank if you don't want to change your password.
+      .form-group
+        = f.label :password
+        = f.password_field :password, :autocomplete => 'off', class: 'form-control'
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class: 'form-control'
+    %fieldset
+      %p You must enter your current password to make changes.
+      .form-group
+        = f.label :current_password
+        = f.password_field :current_password, class: 'form-control'
+    = f.submit 'Update', :class => 'button right'
+.authform
+  %h3 Subscription Plan
+  = form_for(resource, :as => resource_name, :url => change_plan_path, :html => { :method => :put, :role  => 'form'}) do |f|
+    .form-group
+      = f.label 'Subscription plan'
+      = f.collection_select(:plan_id, Plan.all, :id, :name)
+    = f.submit 'Change Plan', :class => 'button right'
+.authform
+  %h3 Cancel Account
+  %p Unhappy? We'll be sad to see you go.
+  = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right'

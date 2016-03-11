@@ -1,0 +1,4 @@
+#error_explanation:not(:empty) {
+  @extend .alert;
+  @extend .alert-danger;
+}
