@@ -141,11 +141,11 @@ group :development, :test do
   # debugger
   gem 'byebug'
 
-  # Access an IRB console on exception pages
-  gem 'web-console', '~> 2.0'
-
   # reload development server
   gem 'spring'
+
+  # stripe service testing
+  gem 'stripe-ruby-mock', '~> 2.2.2', :require => 'stripe_mock'
 end
 
 group :development do
@@ -156,8 +156,10 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
 
-
   gem 'rails_best_practices'
+
+  # Access an IRB console on exception pages
+  gem 'web-console', '~> 2.0'
 
 end
 

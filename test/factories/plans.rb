@@ -1,9 +1,9 @@
 FactoryGirl.define do
-  factory :plan do
-    name "MyString"
-stripe_id "MyString"
-interval "MyString"
-amount 1
-  end
 
+  factory :plan do
+    name "Bacchanalien"
+    stripe_id "bacchanalien"
+    interval "month"
+    amount 2000
+  end
 end
