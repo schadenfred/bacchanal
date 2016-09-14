@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # rails
-gem 'rails', '4.2.5'
+gem 'rails'
 
 # js engine
 gem 'execjs'
@@ -123,6 +123,8 @@ gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
 gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
 
 group :development, :test do
+
+  gem 'galleriable', path: '~/work/opensource/galleriable/galleriable'#, require: false
 
   # test suite
   gem 'minitest-rails'
