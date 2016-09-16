@@ -1,4 +1,4 @@
-class Org < ActiveRecord::Base
+class Org < ApplicationRecord
 
   include AddressableConcern
   include CommentableConcern

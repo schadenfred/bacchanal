@@ -1,4 +1,4 @@
-class Appellation < ActiveRecord::Base
+class Appellation < ApplicationRecord
 
   has_many :addresses_appellables, dependent: :destroy
   has_many :addresses, through: :addresses_appellables, dependent: :destroy

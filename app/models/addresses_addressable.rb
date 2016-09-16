@@ -1,4 +1,4 @@
-class AddressesAddressable < ActiveRecord::Base
+class AddressesAddressable < ApplicationRecord
 
   enum address_function: [ :shipping, :billing, :primary, :default ]
 

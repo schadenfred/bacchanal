@@ -1,4 +1,4 @@
-class Lot < ActiveRecord::Base
+class Lot < ApplicationRecord
 
   belongs_to :farm
   belongs_to :product

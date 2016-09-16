@@ -1,4 +1,4 @@
-class Address < ActiveRecord::Base
+class Address < ApplicationRecord
 
   has_many :addresses_addressables, dependent: :destroy
   has_many :addressables, through: :addresses_addressables

@@ -1,4 +1,4 @@
-class AddressesAppellable < ActiveRecord::Base
+class AddressesAppellable < ApplicationRecord
 
   belongs_to :address
   belongs_to :appellation

@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
 
   # ancestry gem, to allow nested comments
   has_ancestry

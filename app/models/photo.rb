@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   dragonfly_accessor :image
 
   belongs_to :photographable, polymorphic: true
