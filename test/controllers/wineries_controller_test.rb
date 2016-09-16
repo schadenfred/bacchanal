@@ -13,7 +13,7 @@ describe WineriesController do
 
     describe "GET :new" do
 
-      Given { get :new }
+      Given { get new_winery_url }
       Then  { assert_response :success }
        # Given { get :new }
       # Then  { assert_response :success }
@@ -46,7 +46,7 @@ describe WineriesController do
 
   describe "#show" do
 
-    Given { get :show, id: winery }
+    Given { get winery_url(winery) }
     Then  { assert_response :success }
 
   end

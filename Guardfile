@@ -33,7 +33,7 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(scss|css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard :minitest do
+guard :minitest, spring: "bin/rails test" do
 
   watch(%r{^app/models/winery.rb$})         { "test/models/wine_test.rb" }
   watch(%r{^app/models/wine.rb$})         { "test/models/winery_test.rb" }

@@ -3,7 +3,7 @@ require "test_helper"
 describe RegistrationsController do
 
   Given(:stripe_helper) { StripeMock.create_test_helper }
-  Given { @request.env["devise.mapping"] = Devise.mappings[:user] }
+  # Given { @request.env["devise.mapping"] = Devise.mappings[:user] }
   Given { Stripe.api_key = "sk_test_raxRUHqGQrtOw2Zwd3FqasDq" }
   Given { stripe_helper.create_plan(
     amount: 2000,
@@ -19,7 +19,7 @@ describe RegistrationsController do
 
   describe "#new" do
 
-    Given { get :new, plan: "bacchanalien" }
+    Given { get new_user_registration_url, params: { plan: "bacchanalien" } }
     Then  { assert_response 200 }
   end
 
@@ -28,7 +28,7 @@ describe RegistrationsController do
     Given(:user_attrs) { attributes_for(:user, plan_id: plan.id) }
 
 
-    Given(:make_request) { post :create, user: user_attrs }
+    Given(:make_request) { post user_registration_url, params: { user: user_attrs } }
     Then do
       assert_difference("User.count") do
         make_request

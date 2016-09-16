@@ -12,8 +12,10 @@ describe PositionsController do
 
     describe "a position as a user for herself" do
 
-      Given(:request) { post :create, position: { user_id: user.id, positionable_type: "Org", title: "dog catcher", description: "caught dogs", positionable_tokens: winery.id }
-       }
+      Given(:request) {
+        post positions_path, params: {
+          position: {
+            user_id: user.id, positionable_type: "Org", title: "dog catcher", description: "caught dogs", positionable_tokens: winery.id } } }
 
       Then { assert_difference("Position.count") { request } }
 

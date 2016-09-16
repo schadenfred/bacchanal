@@ -8,15 +8,14 @@ describe DashboardController do
 
     Given { sign_in user }
 
-    When  { get :show }
+    When  { get dashboard_url }
     Then  { assert_response :success }
-    And   { assigns(:user).must_equal user }
   end
 
   context "not authenticated" do
 
     Given { sign_out user }
-    When  { get :show }
+    When  { get dashboard_url }
     Then  { assert_response :redirect }
   end
 end

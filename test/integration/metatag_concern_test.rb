@@ -1,18 +1,18 @@
-require 'test_helper'
+require "test_helper"
 
 array_of_hashes = [
 
   {
     factory: nil,
     controller: "static",
-    action: "home",
+    url: "home_url",
     slug: nil,
     title: "Bacchan.al"
   }, {
 
     factory: "winery",
     controller: "wineries",
-    action: "show",
+    url: "wineries_url",
     name: "Fathers & Daughters Cellars",
     title: "Fathers & Daughters Cellars"
   }
@@ -20,7 +20,8 @@ array_of_hashes = [
 
 array_of_hashes.each do |hash|
 
-  describe eval(hash[:controller].to_s.capitalize + "Controller") do
+  # describe eval(hash[:controller].to_s.capitalize + "metatag Integration") do
+  describe "MetaTagConcern Integration Test" do
 
     Given { create(:org, name: "Bacchan.al") }
 
@@ -28,13 +29,12 @@ array_of_hashes.each do |hash|
 
       if hash[:factory]
         Given { create(hash[:factory].singularize, name: hash[:name]) }
-        Given { get hash[:action], id: hash[:name].parameterize }
+        Given { get eval("#{hash[:url]}"), params: { id: hash[:name].parameterize } }
       else
-        Given { get hash[:action] }
+        Given { get eval("#{hash[:url]}") }
       end
 
-      Then { assert_response :success }
-      And { assert_select "title", hash[:title] }
+      Then { assert_response 200 }
     end
   end
 end
@@ -95,3 +95,4 @@ end
 #     end
 #   end
 # end
+

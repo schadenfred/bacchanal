@@ -18,6 +18,17 @@ GIT
       countries (~> 1.2.0)
       sort_alphabetical (~> 1.0)
 
+PATH
+  remote: ~/work/opensource/engines/galleriable/galleriable
+  specs:
+    galleriable (0.1.0)
+      dragonfly
+      dragonfly-s3_data_store
+      factory_girl_rails
+      jquery-rails
+      rails (~> 5.0.0, >= 5.0.0.1)
+      sass
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -533,6 +544,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  galleriable!
   geocoder
   gibbon
   guard

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Galleriable::Engine => "/galleriable"
+  # mount Galleriable::Engine => "/galleriable"
   mount Payola::Engine => '/payola', as: :payola
   require 'route_drawer'
 
@@ -40,6 +42,7 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :orgs do
+    resources :articles
     concerns :media_promotable
   end
 

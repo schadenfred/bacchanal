@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe "producer route acceptance test" do
+describe "producer route integration test" do
 
   resources = %w[producers wineries]
 

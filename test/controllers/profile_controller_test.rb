@@ -6,17 +6,16 @@ describe ProfileController do
   Given(:another_user)  { FactoryGirl.create(:user) }
 
   context "authenticated" do
-
+    Given { another_user }
     Given { sign_in user }
-    Given { get :show, id: another_user }
+    Given { get profile_url(another_user), params: { id: another_user.id } }
     Then  { assert_response :success }
-    And   { assert_not_nil assigns(:user) }
   end
 
   context "not authenticated" do
 
     Given { sign_out user }
-    Given { get :show, id: another_user }
-    Then  { assert_response :redirect }
+    Given { get profile_url(user)}
+    Then  { assert_response 401 }
   end
 end

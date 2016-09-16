@@ -10,7 +10,7 @@ describe WishesController do
 
   describe "#create" do
 
-    Given(:make_request) { post :create, wish: wish_attrs}
+    Given(:make_request) { post wishes_url, params: { wish: wish_attrs } }
 
     Then { assert_difference( "Wish.count" ) { make_request } }
   end

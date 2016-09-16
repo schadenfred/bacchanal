@@ -16,7 +16,7 @@ describe StaticController do
       it "must succeed" do
 
         org
-        get page.to_sym
+        get eval("#{page}_url")
         assert_response :success
       end
     end

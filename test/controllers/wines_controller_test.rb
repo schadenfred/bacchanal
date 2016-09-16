@@ -9,9 +9,8 @@ describe WinesController do
 
   describe "#show" do
 
-    Given { get :show, winery_id: wine.winery.id, id: wine }
+    Given { get winery_wine_url(wine.winery, wine) }
     Then  { assert_response :success }
-    And   { assert_not_nil assigns(:wish) }
   end
 end
 

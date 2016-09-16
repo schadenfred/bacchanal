@@ -6,7 +6,7 @@ describe PhotosController do
   Given(:org)         { FactoryGirl.create(:org) }
   Given(:winery)      { FactoryGirl.create(:winery) }
   Given(:photo_attrs) { FactoryGirl.attributes_for(:photo) }
-  Given(:make_request) { post :create, photo: photo_attrs }
+  Given(:make_request) { post photos_url, params: { photo: photo_attrs }, env: { "HTTP_REFERER" => "http://test.com/wineries/#{winery.slug}/articles"}  }
 
   context "when authenticated" do
 
@@ -14,12 +14,12 @@ describe PhotosController do
 
     describe "#create without :photographable" do
 
-      # Then do
-      #   assert_difference("Photo.count") do
-      #     make_request
-      #   end
-      #   response.status.must_equal 200
-      # end
+      Then do
+        assert_difference("Photo.count") do
+          make_request
+        end
+        response.status.must_equal 200
+      end
       # And { Photo.last.photographable.must_equal nil}
     end
 
@@ -33,8 +33,9 @@ describe PhotosController do
 
       Given(:winery) { FactoryGirl.create(:winery) }
       Given(:request_path) { "http://test.com/wineries/#{winery.slug}/articles" }
-      Given { @request.env['HTTP_REFERER'] = request_path }
+      # Given { @request.env['HTTP_REFERER'] = request_path }
       Then do
+
         assert_difference("Photo.count") do
           make_request
         end
@@ -47,7 +48,7 @@ describe PhotosController do
     context "when not authenticated" do
 
       Given { sign_out user }
-      Given { post :create, photo: photo_attrs }
+      Given { post photos_url, params: { photo: photo_attrs } }
       Then  { assert_response 302 }
     end
 

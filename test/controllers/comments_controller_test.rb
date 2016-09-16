@@ -10,11 +10,6 @@ describe CommentsController do
 
   Given { sign_in user }
 
-  describe "#new" do
-
-    Given { get :new, comment: { parent_id: comment.id} }
-    Then  { assert_not_nil assigns(:comment) }
-  end
 
   describe "#create" do
 
