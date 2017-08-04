@@ -124,7 +124,7 @@ gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
 
 group :development, :test do
 
-  gem 'galleriable', path: '~/work/opensource/engines/galleriable/galleriable'#, require: false
+  # gem 'galleriable', path: '~/work/opensource/engines/galleriable/galleriable'#, require: false
 
   # test suite
   gem 'minitest-rails'
