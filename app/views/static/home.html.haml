@@ -4,7 +4,7 @@
 - content_for :header
 
 - content_for :carousel do
-  %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{ "data-background" => image_url("shop/banner-1.jpg") }
+  %section#home.home-section.home-parallax.home-fade.home-full-height.bg-dark-60{ "data-background" => image_url("abstract-4.jpg") }
     .hs-caption
       .caption-content
         .col-sm-8.col-sm-offset-2
@@ -22,7 +22,7 @@
   - static_page_links.each do |page|
     = link_to page, send("#{page}_path")
 
-/ = render 'wineries'
+= render 'wineries'
 = render 'manifesto'
 = render 'count_to'
 = render 'team'

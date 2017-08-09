@@ -19,9 +19,9 @@ class StaticController < ApplicationController
 
   def home
     @appellations = Appellation.all
-    # @wineries = Winery.last(6)
-    # @company = Org.find_or_create_by!(name: "Bacchan.al")
-    # @org = @company
+    @wineries = Winery.last(6)
+    @company = Org.find_or_create_by!(name: "Bacchan.al")
+    @org = @company
   end
 
   def sample
