@@ -121,10 +121,10 @@ gem 'geocoder'
 gem 'faker'
 gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
 gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
+gem 'galleriable', github: 'schadenfred/galleriable'
 
 group :development, :test do
 
-  gem 'galleriable', github: 'schadenfred/galleriable'
   # gem '', path: '~/work/opensource/engines/galleriable/galleriable'#, require: false
 
   # test suite
