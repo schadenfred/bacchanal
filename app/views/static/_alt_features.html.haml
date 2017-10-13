@@ -29,7 +29,7 @@
 
       .col-md-6.col-lg-6.hidden-xs.hidden-sm
         .alt-services-image
-          - if @org
+          / - if @org
             = image_tag(@org.default_gallery.try(:photos).try(:third).try(:image).try(:thumb, "517x704#").try(:url))
           / %img{:alt => "", :src => image_path("/site/typewriter-3.jpg")}
           / "data-background" => image_path("abstract-4.jpg")}
