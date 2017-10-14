@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # rails
-gem 'rails'
+gem 'rails', '5.1.4'
 
 # js engine
 gem 'execjs'
@@ -13,7 +13,7 @@ gem 'pg'
 gem 'puma'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails' #, '~> 5.0'
 
 # twitter bootstrap framework
 gem 'bootstrap-sass'
@@ -22,10 +22,10 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier' #, '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails' #, '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
@@ -68,7 +68,7 @@ gem 'pundit'
 
 # form helpers and bootstrap styling
 gem 'simple_form'
-gem 'country_select', github: 'stefanpenner/country_select'
+gem 'country_select' #, github: 'stefanpenner/country_select'
 
 # http://www.rubydoc.info/gems/meta-tags-helpers/0.2.0
 gem 'meta-tags-helpers', '~> 0.2.0'
@@ -120,12 +120,13 @@ gem 'geocoder'
 
 gem 'faker'
 gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
-gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
-gem 'galleriable', github: 'schadenfred/galleriable'
+# gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
+# gem 'galleriable', github: 'schadenfred/galleriable'
+# gem 'galleriable', path: ~/work/opensource/engines/
+gem 'galleriable', path: '~/work/opensource/galleriable'#, require: false
 
 group :development, :test do
 
-  # gem '', path: '~/work/opensource/engines/galleriable/galleriable'#, require: false
 
   # test suite
   gem 'minitest-rails'

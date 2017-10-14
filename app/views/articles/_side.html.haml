@@ -41,7 +41,7 @@
       / - @bloggable.owned_taggings.where(context: "tags").each do |tagging|
       /   = link_to tagging.tag
   .widget
-    / %h5.widget-title.font-alt= "about #{@bloggable.name}"
+    -# / %h5.widget-title.font-alt= "about #{@bloggable.name}"
     / = simple_format(@bloggable.mission)
   / Widget start
   .widget

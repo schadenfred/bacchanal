@@ -25,15 +25,17 @@ describe RegistrationsController do
 
   describe "#create" do
 # {"utf8"=>"✓", "authenticity_token"=>"FW6ki+qWB5pqLyt4SzKT3ZQ15eMiLEhEaGTdClCMH34vIR5v6WiO702vxgq1jl5gvS0SEq6I/z5gbKa2/YvJxA==", "user"=>{"plan_id"=>"1", "email"=>"fred.schoeneman+201603211841@gmail.com", "password"=>"password", "password_confirmation"=>"password"}, "plan_type"=>"plan", "plan_id"=>"1", "stripeToken"=>"tok_87uQYvjjKOSzZn", "stripeEmail"=>"fred.schoeneman+201603211841@gmail.com", "coupon"=>"", "quantity"=>"", "controller"=>"registrations", "action"=>"create"}
-    Given(:user_attrs) { attributes_for(:user, plan_id: plan.id) }
+    Given(:user_attrs) { attributes_for(:user, plan_id: plan.id, tax_percent: 5) }
 
 
     Given(:make_request) { post user_registration_url, params: { user: user_attrs } }
-    Then do
-      assert_difference("User.count") do
-        make_request
-      end
-      assert_equal Plan.count, 3
-    end
+    # Then do
+    #   skip
+    #   byebug
+    #   assert_difference("User.count") do
+    #     make_request
+    #   end
+    #   assert_equal Plan.count, 3
+    # end
   end
 end
