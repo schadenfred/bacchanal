@@ -5,7 +5,8 @@ module GalleriableConcern
   included do
     has_many :galleries, as: :galleriable
     has_many :slides, through: :galleries
-    has_many :photos, as: :photographable
+    has_many :photos, through: :slides, as: :photographable
+    # has_many :photos, as: :photographable
   end
 
   def default_gallery

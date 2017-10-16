@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Galleriable::Engine => "/galleriable"
+  # mount Galleriable::Engine => "/galleriable"
   # mount Galleriable::Engine => "/galleriable"
   mount Payola::Engine => '/payola', as: :payola
   require 'route_drawer'

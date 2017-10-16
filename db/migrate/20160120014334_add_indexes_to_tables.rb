@@ -1,4 +1,4 @@
-class AddIndexesToTables < ActiveRecord::Migration
+class AddIndexesToTables < ActiveRecord::Migration[5.1]
   def change
     add_index :addresses_addressables, [:addressable_id, :addressable_type], name: :addressable
     add_index :articles, [:author_id]

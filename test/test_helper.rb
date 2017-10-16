@@ -17,7 +17,7 @@ include TestMatchers
 include FactoryGirl::Syntax::Methods
 
 class ActiveSupport::TestCase
-  ActiveRecord::Migration.check_pending!
+  ActiveRecord::Migration[5.1].check_pending!
   include Warden::Test::Helpers
   include Capybara::Email::DSL
 

@@ -1,5 +1,5 @@
 # This migration comes from buttafly (originally 20140917190801)
-class AddIndexes < ActiveRecord::Migration
+class AddIndexes < ActiveRecord::Migration[5.1]
   def change
 
     add_index :buttafly_mappings, [:originable_id, :originable_type]

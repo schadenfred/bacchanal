@@ -2,7 +2,6 @@
 //= require jquery
 //= require payola
 //= require rails-jquery-tokeninput
-//= require jquery-ui/datepicker
 
 //= require jquery_ujs
 //= require bootstrap
@@ -33,5 +32,3 @@
 //= require photos
 //= require static
 //= require flash
-
-

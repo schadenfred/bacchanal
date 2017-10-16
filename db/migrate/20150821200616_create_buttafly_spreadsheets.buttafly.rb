@@ -1,5 +1,5 @@
 # This migration comes from buttafly (originally 20140916214009)
-class CreateButtaflySpreadsheets < ActiveRecord::Migration
+class CreateButtaflySpreadsheets < ActiveRecord::Migration[5.1]
   def change
     create_table :buttafly_spreadsheets do |t|
       t.json :data

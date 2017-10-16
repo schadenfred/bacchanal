@@ -1,4 +1,4 @@
-class CreateAddressesAppellables < ActiveRecord::Migration
+class CreateAddressesAppellables < ActiveRecord::Migration[5.1]
   def change
     create_table :addresses_appellables do |t|
       t.integer :address_id

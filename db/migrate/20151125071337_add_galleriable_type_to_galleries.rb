@@ -1,4 +1,4 @@
-class AddGalleriableTypeToGalleries < ActiveRecord::Migration
+class AddGalleriableTypeToGalleries < ActiveRecord::Migration[5.1]
   def change
     add_column :galleries, :galleriable_type, :string
     add_column :galleries, :galleriable_id, :integer

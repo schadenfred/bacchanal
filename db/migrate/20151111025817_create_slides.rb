@@ -1,4 +1,4 @@
-class CreateSlides < ActiveRecord::Migration
+class CreateSlides < ActiveRecord::Migration[5.1]
   def change
     create_table :slides do |t|
       t.integer :gallery_id

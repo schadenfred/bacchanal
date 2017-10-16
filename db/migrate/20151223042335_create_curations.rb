@@ -1,4 +1,4 @@
-class CreateCurations < ActiveRecord::Migration
+class CreateCurations < ActiveRecord::Migration[5.1]
   def change
     create_table :curations do |t|
       t.string :curatable_type

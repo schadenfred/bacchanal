@@ -45,7 +45,7 @@ gem 'devise'
 gem 'devise_invitable'
 
 # payments
-gem 'payola-payments'
+gem 'payola-payments', git: 'https://github.com/alekseenko/payola'
 
 # interact with Mandrill
 gem 'gibbon'
@@ -119,11 +119,11 @@ gem 'geocoder'
 # gem 'monsanto', path: '~/work/opensource/monsanto'#, require: false
 
 gem 'faker'
-gem 'faker-stoked', github: 'schadenfred/faker-stoked'#, tag: 'v0.2.8'
-# gem 'faker-bloocher', github: 'schadenfred/faker-bloocher'
+gem 'faker-stoked', git: 'https://github.com/schadenfred/faker-stoked'#, tag: 'v0.2.8'
+gem 'faker-bloocher', git: 'https://github.com/schadenfred/faker-bloocher'
 # gem 'galleriable', github: 'schadenfred/galleriable'
 # gem 'galleriable', path: ~/work/opensource/engines/
-gem 'galleriable', path: '~/work/opensource/galleriable'#, require: false
+# gem 'galleriable', path: '../engines/galleriable'#, require: false
 
 group :development, :test do
 

@@ -1,4 +1,4 @@
-class AddPolymorphismToIdentities < ActiveRecord::Migration
+class AddPolymorphismToIdentities < ActiveRecord::Migration[5.1]
   def change
     add_column :identities, :identifiable_id, :integer
     add_column :identities, :identifiable_type, :string

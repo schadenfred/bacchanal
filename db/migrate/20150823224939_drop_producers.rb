@@ -1,4 +1,4 @@
-class DropProducers < ActiveRecord::Migration
+class DropProducers < ActiveRecord::Migration[5.1]
   def up
     drop_table :producers
   end

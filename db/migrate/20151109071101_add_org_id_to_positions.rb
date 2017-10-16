@@ -1,4 +1,4 @@
-class AddOrgIdToPositions < ActiveRecord::Migration
+class AddOrgIdToPositions < ActiveRecord::Migration[5.1]
   def change
     add_column :positions, :org_id, :integer
 

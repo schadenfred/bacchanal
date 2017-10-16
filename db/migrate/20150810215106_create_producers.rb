@@ -1,4 +1,4 @@
-class CreateProducers < ActiveRecord::Migration
+class CreateProducers < ActiveRecord::Migration[5.1]
   def change
 
     enable_extension "hstore"
