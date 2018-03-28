@@ -7,7 +7,9 @@ require 'minitest/rails'
 require 'minitest/rails/capybara'
 require 'database_cleaner'
 require 'minitest/given'
-require 'minitest/nyan_cat'
+require 'minitest/autorun'
+require 'minitest/pride'
+# require 'minitest/nyan_cat'
 require 'tilt/redcarpet'
 
 
@@ -29,4 +31,3 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include Capybara::Assertions
 end
-

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # rails
-gem 'rails', '5.1.4'
+gem 'rails'
 
 # js engine
 gem 'execjs'
@@ -119,7 +119,7 @@ gem 'geocoder'
 # gem 'monsanto', path: '~/work/opensource/monsanto'#, require: false
 
 gem 'faker'
-gem 'faker-stoked', git: 'https://github.com/schadenfred/faker-stoked'#, tag: 'v0.2.8'
+gem 'faker-stoked'#, git: 'https://github.com/schadenfred/faker-stoked'#, tag: 'v0.2.8'
 gem 'faker-bloocher', git: 'https://github.com/schadenfred/faker-bloocher'
 # gem 'galleriable', github: 'schadenfred/galleriable'
 # gem 'galleriable', path: ~/work/opensource/engines/
@@ -127,17 +127,17 @@ gem 'faker-bloocher', git: 'https://github.com/schadenfred/faker-bloocher'
 
 group :development, :test do
 
-
+ gem 'handsome_fencer_test'
   # test suite
-  gem 'minitest-rails'
+  # gem 'minitest-rails'
 
   # test factories instead of fixtures
   gem 'factory_girl_rails', '~> 4.0'
 
-  # guards
-  gem 'guard'
-  gem 'guard-minitest'
-  gem 'guard-livereload'
+  # # guards
+  # gem 'guard'
+  # gem 'guard-minitest'
+  # gem 'guard-livereload'
 
   # silence error on guard:
   # gem 'listen', '~> 2.7.12'
@@ -169,23 +169,23 @@ end
 
 group :test do
 
-  gem 'minitest-rails-capybara'
+  # gem 'minitest-rails-capybara'
   gem 'capybara-email'
 
-  gem 'selenium-webdriver'
-  gem 'minitest-given'
+  # gem 'selenium-webdriver'
+  # gem 'minitest-given'
 
   # mocks & stubs
   gem 'mocha'
 
   # for save_and_open_page method in capybara to work
-  gem 'launchy'
+  # gem 'launchy'
 
   # clean out database between runs
-  gem 'database_cleaner'
+  # gem 'database_cleaner'
 
   # nyan cat, motherfuckers:
-  gem 'minitest-nyan-cat'
+  # gem 'minitest-nyan-cat'
 end
 
 group :production do
