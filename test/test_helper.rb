@@ -9,7 +9,6 @@ require 'database_cleaner'
 require 'minitest/given'
 require 'minitest/autorun'
 require 'minitest/pride'
-# require 'minitest/nyan_cat'
 require 'tilt/redcarpet'
 
 
